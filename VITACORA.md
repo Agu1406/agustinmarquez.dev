@@ -37,3 +37,4 @@ https://fastapi.tiangolo.com/virtual-environments/#create-a-project (Como crear 
 https://nextjs.org/docs/pages/guides/environment-variables (Como crear variables de entorno "env" leibles en navegador).
 https://fastapi.tiangolo.com/tutorial/cors/ (Que ocurre cuando el frontend se comunica con un backend y estan en dominios o sitios diferentes).
 https://www.instagram.com/reels/C5Q1t5WNUbE/ (Midudev habla sobre distintas formas de organizar los directorios de un proyecto, yo elegí la segunda opción).
+https://www.figma.com/es-es/resource-library/mejores-fuentes-para-sitios-web/ (Según figma estás son las mejores fuentes para sitios web).
