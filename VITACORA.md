@@ -14,8 +14,13 @@ El dominio fue adquirido en  **namecheap** como sugerencia de sitio web de compr
 
 ### 28/03/2026
 
+He logrado inicializar el **backend** de **FastAPI** con python luego de instalar **FastAPI** con **uvicorn standard** usando un archivo TXT como indicador de que dependencias / librerias deseo instalar.
 
+En el proceso, usando la guía oficial de **FastAPI** he aprendido a crear un entorno virtual para el proyecto en si mismo, he logrado arrancar además **FastAPI** siendo posible probar un par de URL's por defecto que incluye, una de domentación y una de ejempl que muestra el proceso de instalación.
 
 ###
 
-###
+### Enlaces, guías, documentos
+
+https://fastapi.tiangolo.com/#installation (Guía oficial de FastAPI de Python).
+https://fastapi.tiangolo.com/virtual-environments/#create-a-project (Como crear un entorno virtual).
