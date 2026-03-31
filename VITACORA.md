@@ -28,7 +28,18 @@ Además, he aprovechado de elegir las fuentes que utilizare en el proyecto, mi f
 
 Sin embargo, como soy un gran fan de **Intellij** usare la fuente **JetBrains** para los componentes donde haya ejemplos de código.
 
-###
+### 29/03/2026
+
+No hubo actividad, descansr también es necesario.
+
+### 30/03/2026
+
+Aprender sobre useState (tenía nociones basicas en la introducción oficial de React), además perfile mejor el footer (aunque no hice commit de ello) hasta el siguiente día.
+
+
+### 31/03/2026
+
+Primero, me puse triste por el cierre de MyRient, segundo, hice el commit de mi footer provisional mientras defino mejor el contenido de mi web, además, aprovecho de implementar ya por completo el menú de hamburguesa en movil.
 
 ### Enlaces, guías, documentos
 
