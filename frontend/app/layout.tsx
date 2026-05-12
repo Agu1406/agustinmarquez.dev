@@ -10,7 +10,7 @@ const inter = Inter({
   subsets: ["latin"],
 });
 
-const jetbrains = JetBrains_Mono ({
+const jetbrains = JetBrains_Mono({
   variable: "--font-jetbrains",
   subsets: ["latin"],
 });
@@ -38,12 +38,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="es">
       <body
-        className={`${inter.variable} ${jetbrains.variable} antialiased`}
+        className={`${inter.variable} ${jetbrains.variable} antialiased flex flex-col min-h-screen`}
       >
         <Header />
-        {children}
+        <main className="grow flex items-center justify-center px-6">
+          {children}
+        </main>
         <Footer />
       </body>
     </html>
