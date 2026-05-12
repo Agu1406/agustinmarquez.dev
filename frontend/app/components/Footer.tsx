@@ -1,3 +1,13 @@
+import Link from "next/link";
+
+/**
+ * Componente del pie de pagina que se renderiza desde el layout el cual incluye
+ * navegación a elementos legales, redes sociales y proyectos destacados.
+ *
+ * @author Agu1406 (https://github.com/Agu1406)
+ * @version 1.0.0
+ * @returns {JSX.Element}
+ */
 export default function Footer() {
     return (
         <>
@@ -5,7 +15,7 @@ export default function Footer() {
                 <div className="grid grid-cols-1 md:grid-cols-3 text-center p-4">
                     <div className="flex flex-col gap-2 items-center pt-5">
                         <span className="font-bold border-b-2 w-fit">Información</span>
-                        <a href="#" target="_blank" rel="noopener noreferrer">Cookies</a>
+                        <Link href="/cookies">Cookies</Link>
                         <a href="#" target="_blank" rel="noopener noreferrer">Privacidad</a>
                         <a href="#" target="_blank" rel="noopener noreferrer">Aviso legal</a>
                     </div>
