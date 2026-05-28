@@ -1,6 +1,6 @@
 export default function Home() {
   return (
-    <>
+    <div className="flex w-full max-w-lg flex-col gap-8">
       <div className="flex flex-col gap-3">
         <p className="text-sm font-medium uppercase tracking-wide text-zinc-500 dark:text-zinc-400">
           agustinmarquez.dev
@@ -54,6 +54,6 @@ export default function Home() {
           </a>
         </li>
       </ul>
-    </>
+    </div>
   );
 }
