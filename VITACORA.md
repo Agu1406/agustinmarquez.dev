@@ -41,6 +41,10 @@ Aprender sobre useState (tenía nociones basicas en la introducción oficial de 
 
 Primero, me puse triste por el cierre de MyRient, segundo, hice el commit de mi footer provisional mientras defino mejor el contenido de mi web, además, aprovecho de implementar ya por completo el menú de hamburguesa en movil.
 
+### 12/05/2026
+
+Llevo unos meses inactivo, he tenido que trabajar muchas horas en mi empresa actual, he descubierto unos fondos animados de una libreria llamada **Vanta** que pesan practicamente nada y son ideales (al menos para mí) para ir practicando mi glassmorfismo, así que hoy lo implementare en el frontend de mi pagina, además, diseñare una **DEMO** con **IA** de una posible pagina para un cliente ucraniano que desea impartir clases de español en su país natal.
+
 ### Enlaces, guías, documentos
 
 https://fastapi.tiangolo.com/#installation (Guía oficial de FastAPI de Python).
