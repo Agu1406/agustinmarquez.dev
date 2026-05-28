@@ -1,0 +1,47 @@
+.language-portal {
+  --background: oklch(0.985 0.01 250);
+  --foreground: oklch(0.2 0.03 255);
+  --card: oklch(0.995 0.004 255 / 92%);
+  --card-foreground: oklch(0.2 0.03 255);
+  --popover: oklch(0.995 0.004 255);
+  --popover-foreground: oklch(0.2 0.03 255);
+  --primary: oklch(0.67 0.19 46);
+  --primary-foreground: oklch(0.99 0.01 85);
+  --secondary: oklch(0.93 0.06 58);
+  --secondary-foreground: oklch(0.24 0.03 45);
+  --muted: oklch(0.95 0.02 250);
+  --muted-foreground: oklch(0.38 0.03 255);
+  --accent: oklch(0.93 0.04 230);
+  --accent-foreground: oklch(0.25 0.03 255);
+  --border: oklch(0.9 0.02 255 / 70%);
+  --input: oklch(0.9 0.02 255 / 70%);
+  --ring: oklch(0.67 0.19 46 / 55%);
+  --radius: 0.9rem;
+}
+
+.language-portal {
+  min-height: 100vh;
+  color: var(--foreground);
+  background: transparent;
+  position: relative;
+  overflow: hidden;
+}
+
+.language-portal [data-slot="card"] {
+  background: color-mix(in oklab, var(--card) 72%, transparent 28%);
+  border-color: color-mix(in oklab, var(--border) 78%, white 22%);
+  backdrop-filter: blur(9px) saturate(110%);
+  box-shadow:
+    0 14px 32px -24px rgb(35 22 72 / 32%),
+    inset 0 1px 0 rgb(255 255 255 / 46%);
+}
+
+.language-portal header {
+  background: color-mix(in oklab, var(--card) 56%, transparent 44%) !important;
+  backdrop-filter: blur(8px) saturate(108%);
+}
+
+.language-portal footer {
+  background: color-mix(in oklab, var(--card) 50%, transparent 50%) !important;
+  backdrop-filter: blur(7px) saturate(106%);
+}

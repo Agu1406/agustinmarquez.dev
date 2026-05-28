@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema.json",
+  "style": "base-nova",
+  "rsc": true,
+  "tsx": true,
+  "tailwind": {
+    "config": "",
+    "css": "app/demo/language-portal/portal-theme.css",
+    "baseColor": "neutral",
+    "cssVariables": true,
+    "prefix": ""
+  },
+  "iconLibrary": "lucide",
+  "rtl": false,
+  "aliases": {
+    "components": "@/app/demo/language-portal/components",
+    "utils": "@/app/demo/language-portal/lib/utils",
+    "ui": "@/app/demo/language-portal/components/ui",
+    "lib": "@/app/demo/language-portal/lib",
+    "hooks": "@/app/demo/language-portal/hooks"
+  },
+  "menuColor": "default",
+  "menuAccent": "subtle",
+  "registries": {}
+}
