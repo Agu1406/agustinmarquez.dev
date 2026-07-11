@@ -82,6 +82,7 @@ export function BookingWidget() {
             onClick={closeBooking}
             className={cn(buttonVariants(), "shadow-rolex w-full rounded-full")}
           >
+            <CalendarClock className="size-4" strokeWidth={1.5} />
             Continuar reserva
           </Link>
           <a
