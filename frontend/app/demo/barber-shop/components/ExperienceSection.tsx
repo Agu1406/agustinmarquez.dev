@@ -12,7 +12,7 @@ import {
 
 export function ExperienceSection() {
   return (
-    <section id="experiencia" className="scroll-mt-24 bg-white/[0.03] py-14 sm:py-16 md:py-20">
+    <section id="experiencia" className="scroll-mt-24 bg-[#1c1c1f] py-14 sm:py-16 md:py-20">
       <div className="mx-auto max-w-6xl px-4">
         <SectionHeading
           eyebrow="The Experience"
@@ -25,7 +25,7 @@ export function ExperienceSection() {
             const Icon = experienceIcons[perk.id];
             return (
               <li key={perk.id}>
-                <Card className="h-full border-[#d6ad53]/20 bg-card/80">
+                <Card className="h-full border-[#d6ad53]/20">
                   <CardHeader>
                     <LuxuryIconBox icon={Icon} size="md" />
                     <CardTitle className="mt-3 text-base font-semibold leading-snug text-white">

@@ -42,7 +42,7 @@ export function ServicesSection({ showAll = false }: { showAll?: boolean }) {
             return (
               <li key={service.id} className={index === 0 ? "md:col-span-2" : ""}>
                 <Card
-                  className={`h-full bg-card/80 ${index === 0 ? "border-[#d6ad53]/25" : "border-white/12"}`}
+                  className={`h-full ${index === 0 ? "border-[#d6ad53]/25" : "border-white/12"}`}
                 >
                   <CardHeader>
                     <div className="flex flex-col items-center gap-4 text-center sm:flex-row sm:items-start sm:text-left">
