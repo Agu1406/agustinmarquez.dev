@@ -54,9 +54,9 @@ export function BookingForm() {
     const service = services.find((s) => s.id === confirmed.serviceId);
     const barber = barbers.find((b) => b.id === confirmed.barberId);
     return (
-      <Card className="mx-auto max-w-lg border-primary/30 bg-card/90">
+      <Card className="mx-auto max-w-lg border-accent/25 bg-card/90">
         <CardHeader className="text-center">
-          <CheckCircle2 className="mx-auto size-10 text-primary" />
+          <CheckCircle2 className="mx-auto size-10 text-accent" />
           <CardTitle className="mt-2">Cita confirmada (demo)</CardTitle>
           <CardDescription>
             Esta reserva es simulada y se guarda solo en tu navegador.
@@ -139,7 +139,7 @@ export function BookingForm() {
                     <p className="font-medium">{service.name}</p>
                     <p className="mt-1 text-xs text-muted-foreground">{service.description}</p>
                   </div>
-                  <span className="shrink-0 text-sm font-medium text-primary">
+                  <span className="shrink-0 text-sm font-medium text-accent">
                     {formatPrice(service.price)}
                   </span>
                 </div>

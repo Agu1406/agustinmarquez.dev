@@ -5,7 +5,7 @@ export function BarberFooter() {
   return (
     <footer className="mt-16 border-t border-border/70 bg-card/70 px-4 py-10 backdrop-blur">
       <div className="mx-auto max-w-6xl text-center">
-        <p className="font-heading text-sm font-medium tracking-[0.2em] text-primary uppercase">
+        <p className="font-heading text-sm font-medium tracking-[0.2em] text-accent uppercase">
           Maison Barbieri
         </p>
         <p className="mt-1 text-xs text-muted-foreground">

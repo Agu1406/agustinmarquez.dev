@@ -21,8 +21,8 @@ export function BarberNav() {
     <header className="fixed inset-x-0 top-0 z-50 border-b border-border/70 bg-card/75 backdrop-blur-xl">
       <div className="mx-auto grid max-w-6xl grid-cols-[1fr_auto] items-center gap-3 px-4 py-3 md:grid-cols-[auto_1fr_auto]">
         <Link href="/demo/barber-shop" className="flex items-center gap-2.5 md:justify-self-start">
-          <div className="flex size-9 items-center justify-center rounded-full border border-primary/40 bg-primary/10">
-            <Scissors className="size-4 text-primary" />
+          <div className="flex size-9 items-center justify-center rounded-full border border-accent/45 bg-accent/12">
+            <Scissors className="size-4 text-accent" />
           </div>
           <div>
             <p className="font-heading text-base font-semibold leading-tight tracking-wide text-foreground md:text-lg">
@@ -32,7 +32,7 @@ export function BarberNav() {
               Barbería premium
             </p>
           </div>
-          <Badge variant="outline" className="hidden border-primary/40 text-primary md:inline-flex">
+          <Badge variant="outline" className="hidden border-accent/40 text-accent md:inline-flex">
             demo
           </Badge>
         </Link>
@@ -68,7 +68,7 @@ export function BarberNav() {
             href="/demo/barber-shop/book"
             className={cn(
               buttonVariants({ size: "sm" }),
-              "rounded-full border border-primary/30 bg-primary px-5 text-primary-foreground hover:bg-primary/90"
+              "rounded-full border border-primary/40 bg-primary px-5 text-primary-foreground shadow-[0_0_20px_-6px_#05409b] hover:bg-[#0334b9]"
             )}
           >
             Reservar

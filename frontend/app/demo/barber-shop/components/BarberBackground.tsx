@@ -3,6 +3,7 @@
 import { useEffect, useRef } from "react";
 import { NeatGradient } from "@firecms/neat";
 
+/** Fondo: navy → azul Rolex con toque champagne (análogo frío + cálido sutil). */
 export function BarberBackground() {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
 
@@ -13,72 +14,72 @@ export function BarberBackground() {
     const gradient = new NeatGradient({
       ref: canvasRef.current,
       colors: [
-        { color: "#1a1410", enabled: true },
-        { color: "#2c2218", enabled: true },
-        { color: "#4a3a28", enabled: true },
-        { color: "#8b6914", enabled: true },
-        { color: "#c9a227", enabled: true },
+        { color: "#232326", enabled: true },
+        { color: "#0b2c75", enabled: true },
+        { color: "#05409b", enabled: true },
+        { color: "#4476c7", enabled: true },
+        { color: "#d6ad53", enabled: true },
       ],
-      speed: 0.12,
+      speed: 0.1,
       horizontalPressure: 3,
       verticalPressure: 2,
-      waveFrequencyX: 1.2,
-      waveFrequencyY: 1.8,
-      waveAmplitude: 5,
-      shadows: 14,
-      highlights: 8,
-      colorBrightness: 0.85,
-      colorSaturation: 1.4,
-      colorBlending: 4,
-      backgroundColor: "#0f0d0b",
+      waveFrequencyX: 1.1,
+      waveFrequencyY: 1.6,
+      waveAmplitude: 4,
+      shadows: 16,
+      highlights: 6,
+      colorBrightness: 0.78,
+      colorSaturation: 1.25,
+      colorBlending: 3.5,
+      backgroundColor: "#232326",
       backgroundAlpha: 1,
-      grainIntensity: 0.45,
-      grainScale: 2.5,
+      grainIntensity: 0.35,
+      grainScale: 2.2,
       grainSparsity: 0,
       grainSpeed: 0,
       resolution: 1,
       yOffset: 0,
-      yOffsetWaveMultiplier: 6,
-      yOffsetColorMultiplier: 5,
-      yOffsetFlowMultiplier: 7,
-      flowDistortionA: 0.8,
-      flowDistortionB: 1.6,
-      flowScale: 1.2,
-      flowEase: 0.35,
+      yOffsetWaveMultiplier: 5,
+      yOffsetColorMultiplier: 4,
+      yOffsetFlowMultiplier: 6,
+      flowDistortionA: 0.7,
+      flowDistortionB: 1.4,
+      flowScale: 1.1,
+      flowEase: 0.32,
       flowEnabled: false,
       enableProceduralTexture: false,
-      textureVoidLikelihood: 0.04,
+      textureVoidLikelihood: 0.03,
       textureVoidWidthMin: 10,
-      textureVoidWidthMax: 400,
-      textureBandDensity: 0.6,
-      textureColorBlending: 0.05,
-      textureSeed: 777,
-      textureEase: 0.3,
-      proceduralBackgroundColor: "#1a1410",
-      textureShapeTriangles: 12,
-      textureShapeCircles: 10,
-      textureShapeBars: 8,
-      textureShapeSquiggles: 6,
+      textureVoidWidthMax: 380,
+      textureBandDensity: 0.55,
+      textureColorBlending: 0.04,
+      textureSeed: 888,
+      textureEase: 0.28,
+      proceduralBackgroundColor: "#0b2c75",
+      textureShapeTriangles: 10,
+      textureShapeCircles: 8,
+      textureShapeBars: 6,
+      textureShapeSquiggles: 5,
       domainWarpEnabled: false,
       domainWarpIntensity: 0,
       domainWarpScale: 3,
-      vignetteIntensity: 0.35,
-      vignetteRadius: 0.75,
+      vignetteIntensity: 0.42,
+      vignetteRadius: 0.72,
       fresnelEnabled: false,
       fresnelPower: 2,
-      fresnelIntensity: 0.4,
-      fresnelColor: "#c9a227",
+      fresnelIntensity: 0.35,
+      fresnelColor: "#d6ad53",
       iridescenceEnabled: false,
-      iridescenceIntensity: 0.3,
-      iridescenceSpeed: 0.8,
-      bloomIntensity: 0.08,
-      bloomThreshold: 0.65,
+      iridescenceIntensity: 0.25,
+      iridescenceSpeed: 0.7,
+      bloomIntensity: 0.06,
+      bloomThreshold: 0.68,
       chromaticAberration: 0,
       wireframe: false,
     });
 
     const onScroll = () => {
-      gradient.yOffset = window.scrollY * 0.2;
+      gradient.yOffset = window.scrollY * 0.18;
     };
     window.addEventListener("scroll", onScroll);
 
@@ -90,8 +91,8 @@ export function BarberBackground() {
 
   return (
     <div className="pointer-events-none absolute inset-0 z-0">
-      <canvas ref={canvasRef} className="h-full w-full opacity-90" />
-      <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/50" />
+      <canvas ref={canvasRef} className="h-full w-full opacity-[0.88]" />
+      <div className="absolute inset-0 bg-gradient-to-b from-[#232326]/50 via-transparent to-[#0b2c75]/60" />
     </div>
   );
 }

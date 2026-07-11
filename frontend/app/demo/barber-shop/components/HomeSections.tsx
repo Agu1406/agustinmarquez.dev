@@ -20,10 +20,10 @@ export function HomeSections() {
   return (
     <>
       <section className="mx-auto max-w-6xl px-4 py-10">
-        <Card className="overflow-hidden border-primary/25 bg-card/80">
+        <Card className="overflow-hidden border-accent/20 bg-card/80">
           <CardContent className="grid gap-8 p-6 md:grid-cols-[1.2fr_0.8fr] md:p-10">
             <div>
-              <Badge variant="outline" className="border-primary/40 text-primary">
+              <Badge variant="outline" className="border-accent/45 text-accent">
                 Est. 2018 · Madrid
               </Badge>
               <h1 className="mt-4 font-heading text-4xl font-semibold leading-tight tracking-tight md:text-5xl">
@@ -55,7 +55,7 @@ export function HomeSections() {
             </div>
             <div className="flex flex-col justify-center gap-4 rounded-xl border border-border/60 bg-background/20 p-5">
               <div className="flex items-start gap-3">
-                <Sparkles className="mt-0.5 size-4 shrink-0 text-primary" />
+                <Sparkles className="mt-0.5 size-4 shrink-0 text-accent" />
                 <div>
                   <p className="text-sm font-medium">Experiencia premium</p>
                   <p className="text-xs text-muted-foreground">
@@ -64,7 +64,7 @@ export function HomeSections() {
                 </div>
               </div>
               <div className="flex items-start gap-3">
-                <Clock className="mt-0.5 size-4 shrink-0 text-primary" />
+                <Clock className="mt-0.5 size-4 shrink-0 text-accent" />
                 <div>
                   <p className="text-sm font-medium">Mar–Sáb · 10:00–20:00</p>
                   <p className="text-xs text-muted-foreground">
@@ -73,7 +73,7 @@ export function HomeSections() {
                 </div>
               </div>
               <div className="flex items-start gap-3">
-                <MapPin className="mt-0.5 size-4 shrink-0 text-primary" />
+                <MapPin className="mt-0.5 size-4 shrink-0 text-accent" />
                 <div>
                   <p className="text-sm font-medium">Calle de Serrano, 42</p>
                   <p className="text-xs text-muted-foreground">28001 Madrid</p>
@@ -87,12 +87,12 @@ export function HomeSections() {
       <section className="mx-auto max-w-6xl px-4 py-6">
         <div className="mb-6 flex items-end justify-between gap-4">
           <div>
-            <p className="text-xs uppercase tracking-[0.2em] text-primary">Carta</p>
+            <p className="text-xs uppercase tracking-[0.2em] text-accent">Carta</p>
             <h2 className="mt-1 font-heading text-2xl font-semibold">Servicios destacados</h2>
           </div>
           <Link
             href="/demo/barber-shop/services"
-            className="text-sm text-primary underline-offset-4 hover:underline"
+            className="text-sm text-[#4476c7] underline-offset-4 hover:text-[#0334b9] hover:underline"
           >
             Ver todos
           </Link>
@@ -104,7 +104,7 @@ export function HomeSections() {
                 <CardHeader className="pb-2">
                   <div className="flex items-start justify-between gap-3">
                     <CardTitle className="text-base">{service.name}</CardTitle>
-                    <span className="shrink-0 font-medium text-primary">
+                    <span className="shrink-0 font-medium text-accent">
                       {formatPrice(service.price)}
                     </span>
                   </div>
@@ -120,14 +120,14 @@ export function HomeSections() {
       </section>
 
       <section className="mx-auto max-w-6xl px-4 py-10">
-        <p className="text-xs uppercase tracking-[0.2em] text-primary">Equipo</p>
+        <p className="text-xs uppercase tracking-[0.2em] text-accent">Equipo</p>
         <h2 className="mt-1 font-heading text-2xl font-semibold">Maestros barberos</h2>
         <ul className="mt-6 grid gap-4 md:grid-cols-3">
           {barbers.map((barber) => (
             <li key={barber.id}>
               <Card className="h-full bg-card/85">
                 <CardHeader>
-                  <div className="mb-2 flex size-12 items-center justify-center rounded-full border border-primary/30 bg-primary/10 font-heading text-lg font-semibold text-primary">
+                  <div className="mb-2 flex size-12 items-center justify-center rounded-full border border-accent/35 bg-accent/10 font-heading text-lg font-semibold text-accent">
                     {barber.name
                       .split(" ")
                       .map((n) => n[0])
@@ -138,7 +138,7 @@ export function HomeSections() {
                 </CardHeader>
                 <CardContent className="space-y-1 text-sm text-muted-foreground">
                   <p>{barber.specialty}</p>
-                  <p className="text-xs text-primary">{barber.experience} de experiencia</p>
+                  <p className="text-xs text-accent">{barber.experience} de experiencia</p>
                 </CardContent>
               </Card>
             </li>
@@ -149,12 +149,12 @@ export function HomeSections() {
       <section className="mx-auto max-w-6xl px-4 py-6">
         <div className="mb-6 flex items-end justify-between gap-4">
           <div>
-            <p className="text-xs uppercase tracking-[0.2em] text-primary">Portfolio</p>
+            <p className="text-xs uppercase tracking-[0.2em] text-accent">Portfolio</p>
             <h2 className="mt-1 font-heading text-2xl font-semibold">Galería</h2>
           </div>
           <Link
             href="/demo/barber-shop/gallery"
-            className="text-sm text-primary underline-offset-4 hover:underline"
+            className="text-sm text-[#4476c7] underline-offset-4 hover:text-[#0334b9] hover:underline"
           >
             Ver galería
           </Link>
@@ -182,7 +182,7 @@ export function HomeSections() {
       </section>
 
       <section id="ubicacion" className="mx-auto max-w-6xl scroll-mt-24 px-4 py-10">
-        <Card className="border-primary/20 bg-card/85">
+        <Card className="border-accent/18 bg-card/85">
           <CardHeader>
             <CardTitle>Visítanos</CardTitle>
             <CardDescription>

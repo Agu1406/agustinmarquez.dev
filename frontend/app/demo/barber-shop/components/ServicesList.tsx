@@ -25,7 +25,7 @@ export function ServicesList() {
         const items = services.filter((s) => s.category === category);
         return (
           <section key={category}>
-            <h2 className="font-heading text-xl font-semibold text-primary">
+            <h2 className="font-heading text-xl font-semibold text-accent">
               {categoryLabels[category]}
             </h2>
             <div className="gold-line mt-3 mb-5 w-full max-w-xs" />
@@ -39,7 +39,7 @@ export function ServicesList() {
                           <CardTitle className="flex items-center gap-2 text-base">
                             {service.name}
                             {service.featured && (
-                              <Badge variant="outline" className="border-primary/40 text-primary">
+                              <Badge variant="outline" className="border-accent/40 text-accent">
                                 destacado
                               </Badge>
                             )}
@@ -49,7 +49,7 @@ export function ServicesList() {
                           </CardDescription>
                         </div>
                         <div className="text-right">
-                          <p className="text-lg font-semibold text-primary">
+                          <p className="text-lg font-semibold text-accent">
                             {formatPrice(service.price)}
                           </p>
                           <p className="text-xs text-muted-foreground">{service.duration}</p>
@@ -63,7 +63,7 @@ export function ServicesList() {
           </section>
         );
       })}
-      <div className="rounded-xl border border-primary/20 bg-card/60 p-6 text-center">
+      <div className="rounded-xl border border-accent/18 bg-card/60 p-6 text-center">
         <p className="text-sm text-muted-foreground">
           ¿Listo para tu próxima visita?
         </p>

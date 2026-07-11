@@ -1,21 +1,48 @@
+/*
+ * Paleta Rolex azul / oro / plata
+ * 60% fondos oscuros · 30% azules · 10% oro (acentos)
+ *
+ * Referencia UX: sitios luxury (Rolex, barberías premium) usan
+ * fondo oscuro + texto crema + CTA en color de marca + oro solo en detalles.
+ */
 .barber-shop {
-  --background: oklch(0.14 0.01 75);
-  --foreground: oklch(0.95 0.02 85);
-  --card: oklch(0.18 0.015 70 / 88%);
-  --card-foreground: oklch(0.95 0.02 85);
-  --popover: oklch(0.17 0.015 70);
-  --popover-foreground: oklch(0.95 0.02 85);
-  --primary: oklch(0.78 0.12 75);
-  --primary-foreground: oklch(0.16 0.02 70);
-  --secondary: oklch(0.24 0.02 70);
-  --secondary-foreground: oklch(0.92 0.03 85);
-  --muted: oklch(0.22 0.015 70);
-  --muted-foreground: oklch(0.72 0.04 80);
-  --accent: oklch(0.28 0.04 75);
-  --accent-foreground: oklch(0.95 0.02 85);
-  --border: oklch(0.78 0.12 75 / 22%);
-  --input: oklch(0.78 0.12 75 / 18%);
-  --ring: oklch(0.78 0.12 75 / 45%);
+  /* Raw palette */
+  --rolex-blue: #05409b;
+  --rolex-gold: #d6ad53;
+  --rolex-charcoal: #232326;
+  --rolex-silver: #c5c8cd;
+  --rolex-blue-soft: #4476c7;
+  --rolex-navy: #0b2c75;
+  --rolex-champagne: #e9d8b7;
+  --rolex-slate: #657088;
+  --rolex-blue-vivid: #0334b9;
+
+  /* Semantic tokens */
+  --background: var(--rolex-charcoal);
+  --foreground: var(--rolex-champagne);
+  --card: color-mix(in srgb, var(--rolex-navy) 82%, var(--rolex-charcoal) 18%);
+  --card-foreground: var(--rolex-champagne);
+  --popover: var(--rolex-navy);
+  --popover-foreground: var(--rolex-champagne);
+
+  /* Primary = azul Rolex: botones, enlaces, estados activos */
+  --primary: var(--rolex-blue);
+  --primary-foreground: var(--rolex-champagne);
+
+  /* Secondary = plata: chips, fondos sutiles */
+  --secondary: color-mix(in srgb, var(--rolex-slate) 35%, var(--rolex-charcoal) 65%);
+  --secondary-foreground: var(--rolex-silver);
+
+  --muted: color-mix(in srgb, var(--rolex-navy) 55%, var(--rolex-charcoal) 45%);
+  --muted-foreground: var(--rolex-slate);
+
+  /* Accent = oro: precios, eyebrows, iconos premium (máx. ~10% superficie) */
+  --accent: var(--rolex-gold);
+  --accent-foreground: var(--rolex-charcoal);
+
+  --border: color-mix(in srgb, var(--rolex-slate) 42%, transparent 58%);
+  --input: color-mix(in srgb, var(--rolex-slate) 30%, transparent 70%);
+  --ring: color-mix(in srgb, var(--rolex-blue-soft) 65%, transparent 35%);
   --radius: 0.65rem;
   --font-heading: var(--font-inter);
 }
@@ -29,31 +56,38 @@
 }
 
 .barber-shop [data-slot="card"] {
-  background: color-mix(in oklab, var(--card) 78%, transparent 22%);
-  border-color: color-mix(in oklab, var(--border) 85%, transparent 15%);
-  backdrop-filter: blur(10px) saturate(105%);
+  background: color-mix(in srgb, var(--card) 76%, transparent 24%);
+  border-color: color-mix(in srgb, var(--rolex-slate) 28%, transparent 72%);
+  backdrop-filter: blur(10px) saturate(108%);
   box-shadow:
-    0 18px 40px -28px rgb(0 0 0 / 65%),
-    inset 0 1px 0 rgb(255 255 255 / 6%);
+    0 18px 40px -28px rgb(0 0 0 / 70%),
+    inset 0 1px 0 color-mix(in srgb, var(--rolex-champagne) 8%, transparent 92%);
 }
 
 .barber-shop header {
-  background: color-mix(in oklab, var(--card) 62%, transparent 38%) !important;
-  backdrop-filter: blur(12px) saturate(110%);
-  border-color: color-mix(in oklab, var(--border) 90%, transparent 10%) !important;
+  background: color-mix(in srgb, var(--rolex-navy) 72%, transparent 28%) !important;
+  backdrop-filter: blur(12px) saturate(112%);
+  border-color: color-mix(in srgb, var(--rolex-slate) 35%, transparent 65%) !important;
 }
 
 .barber-shop footer {
-  background: color-mix(in oklab, var(--card) 55%, transparent 45%) !important;
+  background: color-mix(in srgb, var(--rolex-navy) 65%, transparent 35%) !important;
   backdrop-filter: blur(10px) saturate(108%);
 }
 
+/* Línea decorativa tipo bisel dorado (Rolex / joyería) */
 .barber-shop .gold-line {
   background: linear-gradient(
     90deg,
     transparent,
-    oklch(0.78 0.12 75 / 70%),
+    color-mix(in srgb, var(--rolex-gold) 75%, var(--rolex-champagne) 25%),
     transparent
   );
   height: 1px;
+}
+
+/* Hover en botones primarios: azul más luminoso */
+.barber-shop [data-slot="button"].bg-primary:hover,
+.barber-shop a.bg-primary:hover {
+  background-color: var(--rolex-blue-vivid) !important;
 }
