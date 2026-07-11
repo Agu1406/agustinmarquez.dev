@@ -23,19 +23,19 @@ export function BarberFooter() {
         </div>
 
         <div>
-          <p className="text-xs uppercase tracking-[0.2em] text-accent">Horario</p>
+          <p className="section-eyebrow !mt-3 !text-[0.7rem]">Horario</p>
           <ul className="mt-3 space-y-2 text-sm text-muted-foreground">
             {business.hours.map((row) => (
               <li key={row.days} className="flex justify-between gap-4 border-b border-border/30 pb-2">
                 <span>{row.days}</span>
-                <span className="text-foreground/85">{row.time}</span>
+            <span className="text-white/90">{row.time}</span>
               </li>
             ))}
           </ul>
         </div>
 
         <div>
-          <p className="text-xs uppercase tracking-[0.2em] text-accent">Contacto</p>
+          <p className="section-eyebrow !text-[0.7rem]">Contacto</p>
           <ul className="mt-3 space-y-3 text-sm">
             <li>
               <a

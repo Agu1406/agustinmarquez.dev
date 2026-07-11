@@ -1,51 +1,43 @@
 /*
- * Paleta Rolex azul / oro / plata
- * 60% fondos oscuros · 30% azules · 10% oro (acentos)
- *
- * Referencia UX: sitios luxury (Rolex, barberías premium) usan
- * fondo oscuro + texto crema + CTA en color de marca + oro solo en detalles.
+ * Paleta Ikaro — 5 colores únicos
+ * Negro · Blanco · Navy · Azul Rolex · Oro
  */
 .barber-shop {
-  /* Raw palette */
-  --rolex-blue: #05409b;
-  --rolex-gold: #d6ad53;
-  --rolex-charcoal: #232326;
-  --rolex-silver: #c5c8cd;
-  --rolex-blue-soft: #4476c7;
-  --rolex-navy: #0b2c75;
-  --rolex-champagne: #e9d8b7;
-  --rolex-slate: #657088;
-  --rolex-blue-vivid: #0334b9;
-  --rolex-header: color-mix(in srgb, var(--rolex-navy) 82%, var(--rolex-charcoal) 18%);
-  --rolex-header-border: color-mix(in srgb, var(--rolex-slate) 28%, transparent 72%);
+  --ikaro-black: #232326;
+  --ikaro-white: #ffffff;
+  --ikaro-navy: #0b2c75;
+  --ikaro-blue: #05409b;
+  --ikaro-gold: #d6ad53;
+
   --barber-header-height: 4.25rem;
-  --background: var(--rolex-charcoal);
-  --foreground: var(--rolex-champagne);
-  --card: color-mix(in srgb, var(--rolex-navy) 82%, var(--rolex-charcoal) 18%);
-  --card-foreground: var(--rolex-champagne);
-  --popover: var(--rolex-navy);
-  --popover-foreground: var(--rolex-champagne);
 
-  /* Primary = azul Rolex: botones, enlaces, estados activos */
-  --primary: var(--rolex-blue);
-  --primary-foreground: var(--rolex-champagne);
+  --background: var(--ikaro-black);
+  --foreground: var(--ikaro-white);
+  --card: color-mix(in srgb, var(--ikaro-navy) 88%, var(--ikaro-black) 12%);
+  --card-foreground: var(--ikaro-white);
+  --popover: var(--ikaro-navy);
+  --popover-foreground: var(--ikaro-white);
 
-  /* Secondary = plata: chips, fondos sutiles */
-  --secondary: color-mix(in srgb, var(--rolex-slate) 35%, var(--rolex-charcoal) 65%);
-  --secondary-foreground: var(--rolex-silver);
+  --primary: var(--ikaro-blue);
+  --primary-foreground: var(--ikaro-white);
 
-  --muted: color-mix(in srgb, var(--rolex-navy) 55%, var(--rolex-charcoal) 45%);
-  --muted-foreground: var(--rolex-slate);
+  --secondary: var(--ikaro-navy);
+  --secondary-foreground: var(--ikaro-white);
 
-  /* Accent = oro: precios, eyebrows, iconos premium (máx. ~10% superficie) */
-  --accent: var(--rolex-gold);
-  --accent-foreground: var(--rolex-charcoal);
+  --muted: var(--ikaro-navy);
+  --muted-foreground: color-mix(in srgb, var(--ikaro-white) 88%, transparent);
 
-  --border: color-mix(in srgb, var(--rolex-slate) 42%, transparent 58%);
-  --input: color-mix(in srgb, var(--rolex-slate) 30%, transparent 70%);
-  --ring: color-mix(in srgb, var(--rolex-blue-soft) 65%, transparent 35%);
+  --accent: var(--ikaro-gold);
+  --accent-foreground: var(--ikaro-black);
+
+  --border: color-mix(in srgb, var(--ikaro-white) 20%, transparent);
+  --input: color-mix(in srgb, var(--ikaro-white) 15%, transparent);
+  --ring: color-mix(in srgb, var(--ikaro-blue) 70%, var(--ikaro-white) 30%);
   --radius: 0.65rem;
   --font-heading: var(--font-inter);
+
+  --ikaro-header: var(--ikaro-navy);
+  --ikaro-header-border: color-mix(in srgb, var(--ikaro-white) 14%, transparent);
 }
 
 .barber-shop {
@@ -59,22 +51,30 @@
 .barber-shop h1,
 .barber-shop h2,
 .barber-shop h3 {
-  letter-spacing: -0.02em;
+  color: var(--ikaro-white);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.barber-shop [data-slot="card-description"],
+.barber-shop .text-muted-foreground {
+  color: color-mix(in srgb, var(--ikaro-white) 90%, transparent) !important;
+  font-weight: 500;
 }
 
 .barber-shop [data-slot="card"] {
-  background: color-mix(in srgb, var(--card) 76%, transparent 24%);
-  border-color: color-mix(in srgb, var(--rolex-slate) 28%, transparent 72%);
+  background: color-mix(in srgb, var(--card) 82%, transparent 18%);
+  border-color: var(--border);
   backdrop-filter: blur(10px) saturate(108%);
   box-shadow:
     0 18px 40px -28px rgb(0 0 0 / 70%),
-    inset 0 1px 0 color-mix(in srgb, var(--rolex-champagne) 8%, transparent 92%);
+    inset 0 1px 0 color-mix(in srgb, var(--ikaro-white) 10%, transparent);
 }
 
 .barber-shop header,
 .barber-shop .barber-header {
-  background: var(--rolex-header) !important;
-  border-bottom: 1px solid var(--rolex-header-border);
+  background: var(--ikaro-header) !important;
+  border-bottom: 1px solid var(--ikaro-header-border);
   backdrop-filter: none;
 }
 
@@ -84,31 +84,54 @@
   }
 }
 
-/* Wordmark = el logo (solo tipografía) */
+/* Wordmark = logo tipográfico */
 .barber-shop .brand-wordmark {
   font-family: var(--font-inter), system-ui, sans-serif;
-  color: var(--rolex-champagne);
+  color: var(--ikaro-white);
+  font-weight: 700;
   letter-spacing: 0.18em;
   line-height: 1.15;
   text-transform: uppercase;
 }
 
 .barber-shop .brand-wordmark--header {
-  font-size: clamp(0.62rem, 2.6vw, 0.8rem);
-  font-weight: 600;
+  font-size: clamp(0.65rem, 2.6vw, 0.82rem);
 }
 
 .barber-shop .brand-wordmark--footer {
-  font-size: clamp(0.7rem, 2vw, 0.85rem);
-  font-weight: 600;
+  font-size: clamp(0.72rem, 2vw, 0.88rem);
   letter-spacing: 0.22em;
-  color: var(--rolex-champagne);
+}
+
+/* Encabezados de sección centrados */
+.barber-shop .section-eyebrow {
+  color: var(--ikaro-gold);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.barber-shop .section-title {
+  color: var(--ikaro-white);
+  font-size: clamp(1.85rem, 5.5vw, 2.75rem);
+  font-weight: 600;
+  line-height: 1.12;
+  margin-top: 0.65rem;
+}
+
+.barber-shop .section-desc {
+  color: color-mix(in srgb, var(--ikaro-white) 92%, transparent);
+  font-size: clamp(0.95rem, 2.5vw, 1.1rem);
+  font-weight: 500;
+  line-height: 1.65;
+  margin-top: 0.85rem;
 }
 
 .barber-shop .nav-desktop-link {
   border-radius: 9999px;
-  color: var(--rolex-silver);
-  font-size: 0.8125rem;
+  color: color-mix(in srgb, var(--ikaro-white) 92%, transparent);
+  font-size: 0.875rem;
   font-weight: 500;
   letter-spacing: 0.04em;
   padding: 0.4rem 0.85rem;
@@ -116,85 +139,82 @@
 }
 
 .barber-shop .nav-desktop-link:hover {
-  background: color-mix(in srgb, var(--rolex-blue) 18%, transparent);
-  color: var(--rolex-champagne);
+  background: color-mix(in srgb, var(--ikaro-blue) 35%, transparent);
+  color: var(--ikaro-white);
 }
 
 .barber-shop .nav-mobile-link {
-  border-bottom: 1px solid var(--rolex-header-border);
-  color: var(--rolex-champagne);
-  font-size: 1rem;
+  border-bottom: 1px solid var(--ikaro-header-border);
+  color: var(--ikaro-white);
+  font-size: 1.05rem;
   font-weight: 500;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.05em;
   padding: 0.9rem 0.25rem;
 }
 
 .barber-shop .nav-mobile-link:hover {
-  color: var(--rolex-gold);
+  color: var(--ikaro-gold);
 }
 
 .barber-shop .barber-mobile-menu nav {
-  background: var(--rolex-header);
-  border-top: 1px solid var(--rolex-header-border);
+  background: var(--ikaro-header);
+  border-top: 1px solid var(--ikaro-header-border);
 }
 
 .barber-shop .nav-ghost-btn {
-  color: var(--rolex-champagne) !important;
+  color: var(--ikaro-white) !important;
 }
 
 .barber-shop .nav-ghost-btn:hover {
-  background: color-mix(in srgb, var(--rolex-blue) 22%, transparent) !important;
-  color: var(--rolex-champagne) !important;
+  background: color-mix(in srgb, var(--ikaro-blue) 35%, transparent) !important;
 }
 
 .barber-shop .nav-reserve-btn {
-  background: var(--rolex-blue) !important;
-  border: 1px solid color-mix(in srgb, var(--rolex-blue-soft) 45%, transparent) !important;
-  color: var(--rolex-champagne) !important;
+  background: var(--ikaro-blue) !important;
+  border: 1px solid color-mix(in srgb, var(--ikaro-white) 22%, transparent) !important;
+  color: var(--ikaro-white) !important;
+  font-weight: 600;
 }
 
 .barber-shop .nav-reserve-btn:hover {
-  background: var(--rolex-blue-vivid) !important;
+  background: color-mix(in srgb, var(--ikaro-blue) 82%, var(--ikaro-black) 18%) !important;
 }
 
 .barber-shop footer {
-  background: color-mix(in srgb, var(--rolex-navy) 65%, transparent 35%) !important;
+  background: color-mix(in srgb, var(--ikaro-navy) 75%, var(--ikaro-black) 25%) !important;
   backdrop-filter: blur(10px) saturate(108%);
 }
 
-/* Línea decorativa tipo bisel dorado (Rolex / joyería) */
 .barber-shop .gold-line {
   background: linear-gradient(
     90deg,
     transparent,
-    color-mix(in srgb, var(--rolex-gold) 75%, var(--rolex-champagne) 25%),
+    var(--ikaro-gold),
     transparent
   );
   height: 1px;
 }
 
-/* Hover en botones primarios: azul más luminoso */
 .barber-shop [data-slot="button"].bg-primary:hover,
 .barber-shop a.bg-primary:hover {
-  background-color: var(--rolex-blue-vivid) !important;
+  background-color: color-mix(in srgb, var(--ikaro-blue) 85%, var(--ikaro-black) 15%) !important;
 }
 
-/* Enlaces con azul Rolex (sustituye hex sueltos en JSX) */
 .barber-shop .text-link {
-  color: var(--rolex-blue-soft);
-}
-
-.barber-shop .text-link:hover {
-  color: var(--rolex-blue-vivid);
+  color: var(--ikaro-white);
+  font-weight: 500;
   text-decoration: underline;
   text-underline-offset: 4px;
 }
 
-.barber-shop .shadow-rolex {
-  box-shadow: 0 0 20px -6px color-mix(in srgb, var(--rolex-blue) 55%, transparent);
+.barber-shop .text-link:hover {
+  color: var(--ikaro-gold);
 }
 
-/* Iconos line: trazo fino global en la demo */
+.barber-shop .shadow-rolex {
+  box-shadow: 0 0 20px -6px color-mix(in srgb, var(--ikaro-blue) 55%, transparent);
+}
+
 .barber-shop [data-luxury-icon] {
-  stroke-width: 1.35;
+  stroke-width: 1.5;
 }

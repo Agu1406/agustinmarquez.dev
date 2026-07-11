@@ -13,7 +13,7 @@ export function FloatingBookingButton() {
       <Button
         onClick={openBooking}
         size="lg"
-        className="shadow-rolex pointer-events-auto h-12 w-full max-w-md gap-2 rounded-full border border-primary/40 bg-primary px-5 hover:bg-[var(--rolex-blue-vivid)] md:w-auto md:max-w-none md:px-6"
+        className="shadow-rolex pointer-events-auto h-12 w-full max-w-md gap-2 rounded-full border border-primary/40 bg-primary px-5 hover:bg-[#05409b] md:w-auto md:max-w-none md:px-6"
       >
         <LuxuryIcon icon={CalendarClock} className="text-primary-foreground" />
         <span className="text-sm font-medium">Reservar en línea</span>

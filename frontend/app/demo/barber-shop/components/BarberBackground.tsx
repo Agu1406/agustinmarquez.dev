@@ -1,9 +1,9 @@
+/** Fondo animado — solo los 5 colores Ikaro. */
 "use client";
 
 import { useEffect, useRef } from "react";
 import { NeatGradient } from "@firecms/neat";
 
-/** Fondo: navy → azul Rolex con toque champagne (análogo frío + cálido sutil). */
 export function BarberBackground() {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
 
@@ -17,23 +17,23 @@ export function BarberBackground() {
         { color: "#232326", enabled: true },
         { color: "#0b2c75", enabled: true },
         { color: "#05409b", enabled: true },
-        { color: "#4476c7", enabled: true },
         { color: "#d6ad53", enabled: true },
+        { color: "#ffffff", enabled: true },
       ],
-      speed: 0.1,
+      speed: 0.08,
       horizontalPressure: 3,
       verticalPressure: 2,
       waveFrequencyX: 1.1,
-      waveFrequencyY: 1.6,
-      waveAmplitude: 4,
-      shadows: 16,
-      highlights: 6,
-      colorBrightness: 0.78,
-      colorSaturation: 1.25,
-      colorBlending: 3.5,
+      waveFrequencyY: 1.5,
+      waveAmplitude: 3,
+      shadows: 18,
+      highlights: 4,
+      colorBrightness: 0.72,
+      colorSaturation: 1.15,
+      colorBlending: 3,
       backgroundColor: "#232326",
       backgroundAlpha: 1,
-      grainIntensity: 0.35,
+      grainIntensity: 0.3,
       grainScale: 2.2,
       grainSparsity: 0,
       grainSpeed: 0,
@@ -63,7 +63,7 @@ export function BarberBackground() {
       domainWarpEnabled: false,
       domainWarpIntensity: 0,
       domainWarpScale: 3,
-      vignetteIntensity: 0.42,
+      vignetteIntensity: 0.45,
       vignetteRadius: 0.72,
       fresnelEnabled: false,
       fresnelPower: 2,
@@ -72,7 +72,7 @@ export function BarberBackground() {
       iridescenceEnabled: false,
       iridescenceIntensity: 0.25,
       iridescenceSpeed: 0.7,
-      bloomIntensity: 0.06,
+      bloomIntensity: 0.05,
       bloomThreshold: 0.68,
       chromaticAberration: 0,
       wireframe: false,
@@ -91,8 +91,8 @@ export function BarberBackground() {
 
   return (
     <div className="pointer-events-none absolute inset-0 z-0">
-      <canvas ref={canvasRef} className="h-full w-full opacity-[0.88]" />
-      <div className="absolute inset-0 bg-gradient-to-b from-[#232326]/50 via-transparent to-[#0b2c75]/60" />
+      <canvas ref={canvasRef} className="h-full w-full opacity-[0.85]" />
+      <div className="absolute inset-0 bg-gradient-to-b from-[#232326]/60 via-[#0b2c75]/40 to-[#232326]/80" />
     </div>
   );
 }

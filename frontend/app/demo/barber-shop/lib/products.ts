@@ -51,7 +51,7 @@ export const products: Product[] = [
     price: 18,
     iconId: "artisan-soap",
     image:
-      "https://images.unsplash.com/photo-1608245443805-7b0d0b8a3b1e?w=600&q=80&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1571781926291-c477ebfd024b?w=600&q=80&auto=format&fit=crop",
   },
 ];
 

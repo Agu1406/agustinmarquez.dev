@@ -1,18 +1,17 @@
 import Link from "next/link";
 import { buttonVariants } from "../components/ui/button";
 import { GalleryGrid } from "../components/GalleryGrid";
+import { SectionHeading } from "../components/SectionHeading";
 import { cn } from "../lib/utils";
 
 export default function GalleryPage() {
   return (
     <div className="mx-auto max-w-6xl px-4 py-10">
-      <p className="text-xs uppercase tracking-[0.24em] text-accent">Portfolio</p>
-      <h1 className="mt-1 font-heading text-3xl font-semibold tracking-tight">
-        Estilismo Ikaro
-      </h1>
-      <p className="mt-2 max-w-2xl text-sm text-muted-foreground">
-        Acabados impecables, barbas perfiladas y looks que aguantan el día a día.
-      </p>
+      <SectionHeading
+        eyebrow="Portfolio"
+        title="Estilismo Ikaro"
+        description="Acabados impecables, barbas perfiladas y looks que aguantan el día a día."
+      />
       <div className="mt-10">
         <GalleryGrid />
       </div>

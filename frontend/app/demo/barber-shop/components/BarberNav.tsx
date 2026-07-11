@@ -64,7 +64,7 @@ export function BarberNav() {
         </div>
       </div>
 
-      <nav className="barber-header-nav hidden border-t border-[var(--rolex-header-border)] md:block">
+      <nav className="barber-header-nav hidden border-t border-white/10 md:block">
         <div className="mx-auto flex max-w-6xl items-center justify-center gap-1 px-4 py-2">
           {links.map((l) => (
             <Link key={l.href} href={l.href} className="nav-desktop-link">
