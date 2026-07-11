@@ -1,10 +1,10 @@
 export const STORAGE_KEYS = {
-  lastBooking: "mb_demo_last_booking",
+  lastBooking: "ikaro_demo_last_booking",
 } as const;
 
 export type BookingDraft = {
   serviceId: string;
-  barberId: string;
+  stylistId: string;
   date: string;
   time: string;
   name: string;

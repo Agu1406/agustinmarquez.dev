@@ -3,9 +3,9 @@ import { BarberChrome } from "./components/BarberChrome";
 import "./barber-theme.css";
 
 export const metadata: Metadata = {
-  title: "Maison Barbieri | Barbería premium",
+  title: "Ikaro Men's Barber | Grooming masculino · Las Rozas",
   description:
-    "Barbería de autor en Madrid. Cortes a medida, afeitado clásico y ritual de cuidado masculino. Demo sin backend.",
+    "Barbería y boutique de grooming masculino en Las Rozas de Madrid. Cortes personalizados, barba, coloración y productos premium. Demo sin backend.",
   robots: { index: false, follow: false },
 };
 

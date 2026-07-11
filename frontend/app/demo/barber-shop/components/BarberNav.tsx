@@ -3,19 +3,23 @@
 import { useState } from "react";
 import Link from "next/link";
 import { Menu, Scissors, X } from "lucide-react";
+import { business } from "../lib/business";
+import { useBooking } from "./BookingProvider";
 import { Badge } from "./ui/badge";
 import { buttonVariants } from "./ui/button";
 import { cn } from "../lib/utils";
 
 const links = [
-  { href: "/demo/barber-shop", label: "Inicio" },
-  { href: "/demo/barber-shop/services", label: "Servicios" },
-  { href: "/demo/barber-shop/gallery", label: "Galería" },
-  { href: "/demo/barber-shop#ubicacion", label: "Ubicación" },
+  { href: "/demo/barber-shop#inicio", label: "Inicio" },
+  { href: "/demo/barber-shop#experiencia", label: "Experiencia" },
+  { href: "/demo/barber-shop#servicios", label: "Servicios" },
+  { href: "/demo/barber-shop#boutique", label: "Boutique" },
+  { href: "/demo/barber-shop#contacto", label: "Contacto" },
 ];
 
 export function BarberNav() {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const { openBooking } = useBooking();
 
   return (
     <header className="fixed inset-x-0 top-0 z-50 border-b border-border/70 bg-card/75 backdrop-blur-xl">
@@ -25,11 +29,11 @@ export function BarberNav() {
             <Scissors className="size-4 text-accent" />
           </div>
           <div>
-            <p className="font-heading text-base font-semibold leading-tight tracking-wide text-foreground md:text-lg">
-              Maison Barbieri
+            <p className="font-heading text-base font-semibold leading-tight tracking-wide md:text-lg">
+              Ikaro
             </p>
-            <p className="text-[11px] uppercase tracking-[0.18em] text-muted-foreground">
-              Barbería premium
+            <p className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
+              Men&apos;s Barber
             </p>
           </div>
           <Badge variant="outline" className="hidden border-accent/40 text-accent md:inline-flex">
@@ -44,7 +48,7 @@ export function BarberNav() {
               href={l.href}
               className={cn(
                 buttonVariants({ variant: "ghost", size: "sm" }),
-                "rounded-full px-4 text-muted-foreground hover:bg-card/60 hover:text-foreground"
+                "rounded-full px-3.5 text-muted-foreground hover:bg-card/60 hover:text-foreground"
               )}
             >
               {l.label}
@@ -64,20 +68,21 @@ export function BarberNav() {
           >
             {mobileOpen ? <X className="size-4" /> : <Menu className="size-4" />}
           </button>
-          <Link
-            href="/demo/barber-shop/book"
+          <button
+            type="button"
+            onClick={openBooking}
             className={cn(
               buttonVariants({ size: "sm" }),
               "rounded-full border border-primary/40 bg-primary px-5 text-primary-foreground shadow-[0_0_20px_-6px_#05409b] hover:bg-[#0334b9]"
             )}
           >
             Reservar
-          </Link>
+          </button>
         </div>
       </div>
 
       {mobileOpen && (
-        <div className="border-t border-border/70 bg-card/85 px-4 pb-4 pt-2 backdrop-blur-xl md:hidden">
+        <div className="border-t border-border/70 bg-card/90 px-4 pb-4 pt-2 backdrop-blur-xl md:hidden">
           <nav className="flex flex-col gap-2">
             {links.map((l) => (
               <Link
@@ -92,6 +97,16 @@ export function BarberNav() {
                 {l.label}
               </Link>
             ))}
+            <button
+              type="button"
+              onClick={() => {
+                setMobileOpen(false);
+                openBooking();
+              }}
+              className={cn(buttonVariants(), "rounded-xl")}
+            >
+              Reservar en línea
+            </button>
           </nav>
         </div>
       )}

@@ -52,7 +52,13 @@
   color: var(--foreground);
   background: transparent;
   position: relative;
-  overflow: hidden;
+  overflow-x: hidden;
+}
+
+.barber-shop h1,
+.barber-shop h2,
+.barber-shop h3 {
+  letter-spacing: -0.02em;
 }
 
 .barber-shop [data-slot="card"] {

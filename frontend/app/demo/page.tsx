@@ -11,10 +11,10 @@ const demos = [
   },
   {
     slug: "barber-shop",
-    title: "Maison Barbieri",
-    titleUk: "Barbería premium",
+    title: "Ikaro Men's Barber",
+    titleUk: "Grooming masculino · Las Rozas",
     description:
-      "Barbería boutique: carta de servicios, galería, reservas en 3 pasos y estética oscura con detalles dorados (demo sin backend).",
+      "Landing premium: experiencia, servicios reales, boutique e-commerce y reserva online simulada (demo sin backend).",
     status: "Disponible",
   },
 ];

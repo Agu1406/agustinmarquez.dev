@@ -3,8 +3,8 @@
 import { useState } from "react";
 import Link from "next/link";
 import { CheckCircle2 } from "lucide-react";
-import { services, formatPrice } from "../lib/services";
-import { barbers } from "../lib/team";
+import { services } from "../lib/services";
+import { stylists } from "../lib/team";
 import {
   saveBooking,
   upcomingDates,
@@ -15,7 +15,6 @@ import { Button, buttonVariants } from "./ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "./ui/card";
 import { Input } from "./ui/input";
 import { Label } from "./ui/label";
-import { Badge } from "./ui/badge";
 import { cn } from "../lib/utils";
 
 type Step = 1 | 2 | 3 | 4;
@@ -23,7 +22,7 @@ type Step = 1 | 2 | 3 | 4;
 export function BookingForm() {
   const [step, setStep] = useState<Step>(1);
   const [serviceId, setServiceId] = useState(services[0]?.id ?? "");
-  const [barberId, setBarberId] = useState(barbers[0]?.id ?? "");
+  const [stylistId, setStylistId] = useState(stylists[0]?.id ?? "");
   const [date, setDate] = useState("");
   const [time, setTime] = useState("");
   const [name, setName] = useState("");
@@ -37,7 +36,7 @@ export function BookingForm() {
   function handleConfirm() {
     const draft: BookingDraft = {
       serviceId,
-      barberId,
+      stylistId,
       date,
       time,
       name,
@@ -52,7 +51,7 @@ export function BookingForm() {
 
   if (confirmed) {
     const service = services.find((s) => s.id === confirmed.serviceId);
-    const barber = barbers.find((b) => b.id === confirmed.barberId);
+    const stylist = stylists.find((b) => b.id === confirmed.stylistId);
     return (
       <Card className="mx-auto max-w-lg border-accent/25 bg-card/90">
         <CardHeader className="text-center">
@@ -67,7 +66,7 @@ export function BookingForm() {
             <span className="text-muted-foreground">Servicio:</span> {service?.name}
           </p>
           <p>
-            <span className="text-muted-foreground">Barbero:</span> {barber?.name}
+            <span className="text-muted-foreground">Profesional:</span> {stylist?.name}
           </p>
           <p>
             <span className="text-muted-foreground">Fecha:</span>{" "}
@@ -134,18 +133,10 @@ export function BookingForm() {
                     : "border-border/60 bg-card/50 hover:border-primary/30"
                 )}
               >
-                <div className="flex items-start justify-between gap-3">
-                  <div>
-                    <p className="font-medium">{service.name}</p>
-                    <p className="mt-1 text-xs text-muted-foreground">{service.description}</p>
-                  </div>
-                  <span className="shrink-0 text-sm font-medium text-accent">
-                    {formatPrice(service.price)}
-                  </span>
+                <div>
+                  <p className="font-medium leading-snug">{service.name}</p>
+                  <p className="mt-1 text-xs text-muted-foreground">{service.description}</p>
                 </div>
-                <Badge variant="secondary" className="mt-2">
-                  {service.duration}
-                </Badge>
               </button>
             ))}
             <Button className="mt-4 w-full rounded-full" onClick={() => setStep(2)}>
@@ -158,27 +149,27 @@ export function BookingForm() {
       {step === 2 && (
         <Card className="bg-card/90">
           <CardHeader>
-            <CardTitle>Barbero y horario</CardTitle>
+            <CardTitle>Profesional y horario</CardTitle>
             <CardDescription>Paso 2 de 3</CardDescription>
           </CardHeader>
           <CardContent className="space-y-6">
             <div className="space-y-2">
-              <Label>Barbero</Label>
+              <Label>Profesional</Label>
               <div className="grid gap-2 sm:grid-cols-3">
-                {barbers.map((barber) => (
+                {stylists.map((stylist) => (
                   <button
-                    key={barber.id}
+                    key={stylist.id}
                     type="button"
-                    onClick={() => setBarberId(barber.id)}
+                    onClick={() => setStylistId(stylist.id)}
                     className={cn(
                       "rounded-xl border p-3 text-left text-sm transition",
-                      barberId === barber.id
+                      stylistId === stylist.id
                         ? "border-primary/60 bg-primary/10"
                         : "border-border/60 hover:border-primary/30"
                     )}
                   >
-                    <p className="font-medium">{barber.name}</p>
-                    <p className="text-xs text-muted-foreground">{barber.specialty}</p>
+                    <p className="font-medium">{stylist.name}</p>
+                    <p className="text-xs text-muted-foreground">{stylist.role}</p>
                   </button>
                 ))}
               </div>
@@ -263,7 +254,7 @@ export function BookingForm() {
                 id="phone"
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}
-                placeholder="+34 600 000 000"
+                placeholder="697 27 04 34"
               />
             </div>
             <div className="space-y-2">

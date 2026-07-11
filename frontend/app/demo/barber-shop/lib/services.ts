@@ -2,94 +2,51 @@ export type Service = {
   id: string;
   name: string;
   description: string;
-  duration: string;
-  price: number;
-  category: "corte" | "barba" | "ritual" | "extra";
-  featured?: boolean;
+  category: "corte" | "barba" | "ritual" | "color" | "familia";
 };
 
 export const services: Service[] = [
   {
-    id: "signature-cut",
-    name: "Corte Signature",
-    description: "Asesoramiento, lavado aromático, corte a tijera y máquina, peinado y fijación.",
-    duration: "45 min",
-    price: 38,
-    category: "corte",
-    featured: true,
-  },
-  {
-    id: "classic-cut",
-    name: "Corte Clásico",
-    description: "Corte tradicional con acabado limpio y definición de contornos.",
-    duration: "30 min",
-    price: 28,
+    id: "corte-personalizado",
+    name: "Corte de cabello personalizado para caballeros",
+    description:
+      "Consigue un corte adaptado a tu estilo, ya sea clásico o moderno, con técnicas profesionales que se ajustan a tu tipo de cabello y forma de rostro.",
     category: "corte",
   },
   {
-    id: "fade-precision",
-    name: "Fade de precisión",
-    description: "Degradado progresivo con transiciones impecables y detalle en nuca.",
-    duration: "40 min",
-    price: 34,
-    category: "corte",
-    featured: true,
-  },
-  {
-    id: "royal-shave",
-    name: "Afeitado Real",
-    description: "Toallas calientes, espuma artesanal, navaja y bálsamo post-afeitado.",
-    duration: "35 min",
-    price: 32,
-    category: "barba",
-    featured: true,
-  },
-  {
-    id: "beard-sculpt",
-    name: "Perfilado de barba",
-    description: "Diseño de barba, contorno con navaja y aceites nutritivos.",
-    duration: "25 min",
-    price: 22,
+    id: "barba-profesional",
+    name: "Arreglo y recorte de barba profesional",
+    description:
+      "Define tu barba con técnicas precisas de recorte, perfilado y acondicionamiento para lograr un estilo limpio y bien cuidado.",
     category: "barba",
   },
   {
-    id: "grooming-ritual",
-    name: "Ritual Grooming",
-    description: "Corte + barba + mascarilla, masaje capilar y bebida de cortesía.",
-    duration: "75 min",
-    price: 68,
+    id: "afeitado-clasico",
+    name: "Afeitado clásico y arreglo de cabeza",
+    description:
+      "Disfruta de un afeitado tradicional o afeitado de cabeza con acabado suave, ideal para un look limpio y profesional.",
     category: "ritual",
-    featured: true,
   },
   {
-    id: "gray-blend",
-    name: "Camuflaje de canas",
-    description: "Tratamiento discreto para unificar el tono sin efecto artificial.",
-    duration: "20 min",
-    price: 18,
-    category: "extra",
+    id: "coloracion",
+    name: "Coloración capilar y tinte de barba",
+    description:
+      "Mejora tu imagen con servicios de coloración de cabello o barba, adaptados a tu estilo para un resultado natural y uniforme.",
+    category: "color",
   },
   {
-    id: "brow-detail",
-    name: "Detalle de cejas",
-    description: "Perfilado sutil para enmarcar el rostro con naturalidad.",
-    duration: "10 min",
-    price: 10,
-    category: "extra",
+    id: "corte-familia",
+    name: "Corte para veteranos y alevines",
+    description:
+      "Servicio de corte adaptado tanto para adultos como para niños, ofreciendo un acabado cuidado y cómodo para cada edad.",
+    category: "familia",
   },
 ];
 
 export const categoryLabels: Record<Service["category"], string> = {
-  corte: "Cortes",
+  corte: "Corte",
   barba: "Barba",
-  ritual: "Rituales",
-  extra: "Extras",
+  ritual: "Ritual",
+  color: "Color",
+  familia: "Familia",
 };
-
-export function formatPrice(eur: number) {
-  return new Intl.NumberFormat("es-ES", {
-    style: "currency",
-    currency: "EUR",
-    maximumFractionDigits: 0,
-  }).format(eur);
-}
