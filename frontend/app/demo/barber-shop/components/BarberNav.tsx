@@ -30,7 +30,7 @@ export function BarberNav() {
   return (
     <header className="barber-header fixed inset-x-0 top-0 z-50">
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-3 px-4 py-3.5 sm:py-4">
-        <BrandWordmark className="max-w-[min(100%,14rem)] sm:max-w-none" />
+        <BrandWordmark showIcon className="max-w-[min(100%,14rem)] sm:max-w-none" />
 
         <div className="flex shrink-0 items-center gap-2">
           <button
