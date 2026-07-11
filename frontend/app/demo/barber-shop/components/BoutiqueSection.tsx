@@ -21,7 +21,7 @@ export function BoutiqueSection() {
   }
 
   return (
-    <section id="boutique" className="scroll-mt-24 border-t border-white/10 bg-background/25 py-14 sm:py-16 md:py-20">
+    <section id="boutique" className="scroll-mt-24 border-y border-white/12 bg-[#0b2c75]/35 py-14 sm:py-16 md:py-20">
       <div className="mx-auto max-w-6xl px-4">
         <SectionHeading
           eyebrow="Boutique Ikaro"
@@ -50,9 +50,13 @@ export function BoutiqueSection() {
           </Button>
         </div>
 
+        <p className="mt-3 text-center text-xs font-medium text-white/80 md:hidden">
+          Desliza para ver más productos →
+        </p>
+
         <div
           ref={scrollRef}
-          className="mt-8 flex snap-x snap-mandatory gap-4 overflow-x-auto pb-4 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+          className="mt-4 flex snap-x snap-mandatory gap-4 overflow-x-auto pb-4 md:mt-8 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
         >
           {products.map((product) => {
             const ProductIcon = productIcons[product.iconId];
