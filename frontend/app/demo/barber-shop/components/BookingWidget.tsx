@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { Calendar, CalendarClock, Clock } from "lucide-react";
+import { Calendar, CalendarClock, Clock, MessageCircle } from "lucide-react";
 import { business } from "../lib/business";
 import { services } from "../lib/services";
 import { serviceIcons } from "../lib/icons";
@@ -19,6 +19,7 @@ import { cn } from "../lib/utils";
 
 export function BookingWidget() {
   const { open, closeBooking } = useBooking();
+  const whatsappUrl = `${business.whatsappHref}?text=${encodeURIComponent(business.whatsappMessage)}`;
 
   return (
     <Dialog open={open} onOpenChange={(next) => (next ? undefined : closeBooking())}>
@@ -83,6 +84,19 @@ export function BookingWidget() {
           >
             Continuar reserva
           </Link>
+          <a
+            href={whatsappUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={closeBooking}
+            className={cn(
+              buttonVariants({ variant: "outline" }),
+              "w-full rounded-full border-[#d6ad53]/35 font-medium text-white hover:bg-[#05409b]/25 hover:text-white"
+            )}
+          >
+            <MessageCircle className="size-4" strokeWidth={1.5} />
+            Dudas por WhatsApp
+          </a>
           <Button variant="ghost" className="rounded-full" onClick={closeBooking}>
             Cerrar
           </Button>

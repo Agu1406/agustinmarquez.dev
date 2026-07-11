@@ -10,6 +10,8 @@ export const business = {
   phone: "697 27 04 34",
   phoneHref: "tel:+34697270434",
   whatsappHref: "https://wa.me/34697270434",
+  whatsappMessage:
+    "Hola, me gustaría información o resolver una duda sobre Ikaro Men's Barber.",
   hours: [
     { days: "Lunes – Viernes", time: "10:00 – 20:00" },
     { days: "Sábado", time: "10:00 – 14:00" },
