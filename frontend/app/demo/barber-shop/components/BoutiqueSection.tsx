@@ -8,7 +8,7 @@ import { Card } from "./ui/card";
 
 export function BoutiqueSection() {
   return (
-    <section id="boutique" className="scroll-mt-24 border-y border-white/12 bg-[#0b2c75]/35 py-14 sm:py-16 md:py-20">
+    <section id="boutique" className="scroll-mt-24 border-y border-white/12 bg-black/25 py-14 backdrop-blur-[2px] sm:py-16 md:py-20">
       <div className="mx-auto max-w-6xl px-4">
         <SectionHeading
           eyebrow="Boutique Ikaro"

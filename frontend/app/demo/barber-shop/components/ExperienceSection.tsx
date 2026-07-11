@@ -12,7 +12,7 @@ import {
 
 export function ExperienceSection() {
   return (
-    <section id="experiencia" className="scroll-mt-24 bg-background/20 py-14 sm:py-16 md:py-20">
+    <section id="experiencia" className="scroll-mt-24 bg-white/[0.03] py-14 sm:py-16 md:py-20">
       <div className="mx-auto max-w-6xl px-4">
         <SectionHeading
           eyebrow="The Experience"

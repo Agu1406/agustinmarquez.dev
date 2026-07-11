@@ -4,6 +4,7 @@ import { EditorialSection } from "./EditorialSection";
 import { SpaceSection } from "./SpaceSection";
 import { BoutiqueSection } from "./BoutiqueSection";
 import { ServicesSection } from "./ServicesSection";
+import { TestimonialsSection } from "./TestimonialsSection";
 
 export function HomeSections() {
   return (
@@ -12,6 +13,7 @@ export function HomeSections() {
       <EditorialSection />
       <ExperienceSection />
       <SpaceSection />
+      <TestimonialsSection />
       <BoutiqueSection />
       <ServicesSection />
     </>
