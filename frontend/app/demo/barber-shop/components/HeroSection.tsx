@@ -1,6 +1,7 @@
 "use client";
 
 import { business } from "../lib/business";
+import { ikaroImages } from "../lib/images";
 import { LuxuryIcon } from "./LuxuryIcon";
 import { ReserveButton } from "./ReserveButton";
 import { Badge } from "./ui/badge";
@@ -12,14 +13,14 @@ export function HeroSection() {
       <div className="absolute inset-0 -z-10">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?w=1600&q=80&auto=format&fit=crop"
+          src={ikaroImages.espacio2}
           alt=""
-          className="h-full w-full object-cover opacity-20"
+          className="h-full w-full object-cover opacity-30"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#232326]/95 via-[#0b2c75]/85 to-[#232326]/95" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#232326]/92 via-[#0b2c75]/88 to-[#232326]/95" />
       </div>
 
-      <div className="mx-auto grid max-w-6xl gap-10 px-4 py-14 sm:py-16 md:grid-cols-2 md:items-center md:py-20 lg:py-24">
+      <div className="mx-auto grid max-w-6xl gap-8 px-4 py-14 sm:gap-10 sm:py-16 md:grid-cols-2 md:items-center md:py-20 lg:py-24">
         <div className="text-center md:text-left">
           <Badge
             variant="outline"
@@ -50,16 +51,16 @@ export function HeroSection() {
           </div>
         </div>
 
-        <div className="relative hidden md:block">
-          <div className="aspect-[4/5] overflow-hidden rounded-2xl border border-white/15 shadow-2xl">
+        <div className="relative">
+          <div className="aspect-[4/5] overflow-hidden rounded-2xl border border-white/15 shadow-2xl md:aspect-[4/5]">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src="https://images.unsplash.com/photo-1621605815971-fbc98d665033?w=800&q=80&auto=format&fit=crop"
-              alt="Estilismo masculino profesional"
+              src={ikaroImages.espacio1}
+              alt="Interior de Ikaro Men's Barber — estaciones de trabajo"
               className="h-full w-full object-cover"
             />
           </div>
-          <div className="absolute -bottom-4 -left-4 flex items-center gap-2.5 rounded-xl border border-[#d6ad53]/25 bg-[#0b2c75]/90 px-4 py-3 backdrop-blur">
+          <div className="absolute -bottom-3 left-3 right-3 flex items-center gap-2.5 rounded-xl border border-[#d6ad53]/25 bg-[#0b2c75]/92 px-4 py-3 backdrop-blur sm:-bottom-4 sm:left-auto sm:right-auto sm:max-w-xs md:-bottom-4 md:-left-4">
             <LuxuryIcon icon={Droplets} className="text-[#d6ad53]" />
             <div>
               <p className="section-eyebrow !text-[0.65rem]">Incluido</p>
