@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { MapPin, MessageCircle, Phone, Share2 } from "lucide-react";
 import { business } from "../lib/business";
+import { cn } from "../lib/utils";
 import { BrandWordmark } from "./BrandWordmark";
 import { LuxuryIcon } from "./LuxuryIcon";
 import { Separator } from "./ui/separator";
@@ -23,12 +24,24 @@ export function BarberFooter() {
         </div>
 
         <div>
-          <p className="section-eyebrow !mt-3 !text-[0.7rem]">Horario</p>
-          <ul className="mt-3 space-y-2 text-sm text-muted-foreground">
+          <p className="section-eyebrow !mt-3 !text-[0.7rem]">Horarios</p>
+          <ul className="mt-3 text-sm">
             {business.hours.map((row) => (
-              <li key={row.days} className="flex justify-between gap-4 border-b border-border/30 pb-2">
-                <span>{row.days}</span>
-            <span className="text-white/90">{row.time}</span>
+              <li
+                key={row.days}
+                className="grid grid-cols-[minmax(5.25rem,6.5rem)_1fr] items-baseline gap-x-3 gap-y-0.5 border-b border-border/30 py-2.5 last:border-b-0 sm:grid-cols-[6.75rem_1fr] sm:gap-x-4"
+              >
+                <span className="font-medium text-white/90">{row.days}</span>
+                <span
+                  className={cn(
+                    "text-right leading-snug sm:text-left",
+                    "closed" in row && row.closed
+                      ? "italic text-muted-foreground"
+                      : "text-white/85"
+                  )}
+                >
+                  {row.time}
+                </span>
               </li>
             ))}
           </ul>

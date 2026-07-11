@@ -13,9 +13,13 @@ export const business = {
   whatsappMessage:
     "Hola, me gustaría información o resolver una duda sobre Ikaro Men's Barber.",
   hours: [
-    { days: "Lunes – Viernes", time: "10:00 – 20:00" },
-    { days: "Sábado", time: "10:00 – 14:00" },
-    { days: "Domingo", time: "Cerrado" },
+    { days: "Lunes", time: "10:00 – 14:00 y 16:00 – 21:00" },
+    { days: "Martes", time: "10:00 – 14:00 y 16:00 – 21:00" },
+    { days: "Miércoles", time: "10:00 – 14:00 y 16:00 – 21:00" },
+    { days: "Jueves", time: "10:00 – 14:00 y 16:00 – 21:00" },
+    { days: "Viernes", time: "10:00 – 14:00 y 16:00 – 21:00" },
+    { days: "Sábado", time: "10:00 – 14:00 y 16:00 – 20:00" },
+    { days: "Domingo", time: "Cerrado", closed: true },
   ],
   social: {
     instagram: "https://www.instagram.com/",
