@@ -90,8 +90,8 @@ export function BookingWidget() {
             rel="noopener noreferrer"
             onClick={closeBooking}
             className={cn(
-              buttonVariants({ variant: "outline" }),
-              "w-full rounded-full border-[#d6ad53]/35 font-medium text-white hover:bg-[#05409b]/25 hover:text-white"
+              buttonVariants(),
+              "w-full rounded-full border border-white/15 bg-[#0b2c75] font-semibold text-white hover:bg-[#05409b]"
             )}
           >
             <MessageCircle className="size-4" strokeWidth={1.5} />
