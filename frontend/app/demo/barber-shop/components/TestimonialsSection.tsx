@@ -7,7 +7,7 @@ export function TestimonialsSection() {
   return (
     <section
       id="opiniones"
-      className="scroll-mt-24 border-y border-white/10 bg-black/20 py-14 backdrop-blur-[2px] sm:py-16 md:py-20"
+      className="scroll-mt-24 border-y border-white/10 bg-[#1c1c1f] py-14 sm:py-16 md:py-20"
     >
       <div className="mx-auto max-w-6xl px-4">
         <SectionHeading
@@ -19,7 +19,7 @@ export function TestimonialsSection() {
         <ul className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {testimonials.map((testimonial) => (
             <li key={testimonial.id}>
-              <Card className="h-full border-[#d6ad53]/15 bg-[#232326]/70 p-0 shadow-[inset_0_1px_0_rgba(255,255,255,0.06)] backdrop-blur-sm">
+              <Card className="h-full border-[#d6ad53]/15 p-0 shadow-[inset_0_1px_0_rgba(255,255,255,0.06)]">
                 <figure className="flex h-full flex-col p-5 sm:p-6">
                   <StarRating rating={testimonial.rating} />
 

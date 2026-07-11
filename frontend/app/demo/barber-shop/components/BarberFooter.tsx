@@ -7,7 +7,7 @@ import { Separator } from "./ui/separator";
 
 export function BarberFooter() {
   return (
-    <footer id="contacto" className="scroll-mt-24 border-t border-border/70 bg-card/70 px-4 py-12 backdrop-blur">
+    <footer id="contacto" className="scroll-mt-24 border-t border-border/70 px-4 py-12">
       <div className="mx-auto grid max-w-6xl gap-10 md:grid-cols-3">
         <div>
           <BrandWordmark asLink={false} size="footer" />
