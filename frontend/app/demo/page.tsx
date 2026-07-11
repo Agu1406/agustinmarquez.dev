@@ -9,6 +9,14 @@ const demos = [
       "Plataforma para profesora: clases online, materiales, ruta de ejercicios uk→es (demo sin backend).",
     status: "Disponible",
   },
+  {
+    slug: "barber-shop",
+    title: "Maison Barbieri",
+    titleUk: "Barbería premium",
+    description:
+      "Barbería boutique: carta de servicios, galería, reservas en 3 pasos y estética oscura con detalles dorados (demo sin backend).",
+    status: "Disponible",
+  },
 ];
 
 export default function DemoIndexPage() {
