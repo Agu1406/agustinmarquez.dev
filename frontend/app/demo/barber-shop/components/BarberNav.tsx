@@ -11,8 +11,9 @@ import { cn } from "../lib/utils";
 const links = [
   { href: "/demo/barber-shop#inicio", label: "Inicio" },
   { href: "/demo/barber-shop#experiencia", label: "Experiencia" },
-  { href: "/demo/barber-shop#servicios", label: "Servicios" },
+  { href: "/demo/barber-shop#opiniones", label: "Opiniones" },
   { href: "/demo/barber-shop#boutique", label: "Boutique" },
+  { href: "/demo/barber-shop#servicios", label: "Servicios" },
   { href: "/demo/barber-shop#contacto", label: "Contacto" },
 ];
 
