@@ -20,7 +20,7 @@ export function ReserveButton({
       size={size}
       onClick={openBooking}
       className={cn(
-        "rounded-full border border-primary/40 px-6 shadow-[0_0_24px_-8px_#05409b]",
+        "rounded-full border border-primary/40 px-6 shadow-rolex",
         className
       )}
     >

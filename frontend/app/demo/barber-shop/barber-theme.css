@@ -16,8 +16,9 @@
   --rolex-champagne: #e9d8b7;
   --rolex-slate: #657088;
   --rolex-blue-vivid: #0334b9;
-
-  /* Semantic tokens */
+  --rolex-header: color-mix(in srgb, var(--rolex-navy) 82%, var(--rolex-charcoal) 18%);
+  --rolex-header-border: color-mix(in srgb, var(--rolex-slate) 28%, transparent 72%);
+  --barber-header-height: 4.25rem;
   --background: var(--rolex-charcoal);
   --foreground: var(--rolex-champagne);
   --card: color-mix(in srgb, var(--rolex-navy) 82%, var(--rolex-charcoal) 18%);
@@ -70,10 +71,90 @@
     inset 0 1px 0 color-mix(in srgb, var(--rolex-champagne) 8%, transparent 92%);
 }
 
-.barber-shop header {
-  background: color-mix(in srgb, var(--rolex-navy) 72%, transparent 28%) !important;
-  backdrop-filter: blur(12px) saturate(112%);
-  border-color: color-mix(in srgb, var(--rolex-slate) 35%, transparent 65%) !important;
+.barber-shop header,
+.barber-shop .barber-header {
+  background: var(--rolex-header) !important;
+  border-bottom: 1px solid var(--rolex-header-border);
+  backdrop-filter: none;
+}
+
+@media (min-width: 768px) {
+  .barber-shop {
+    --barber-header-height: 6.25rem;
+  }
+}
+
+/* Wordmark = el logo (solo tipografía) */
+.barber-shop .brand-wordmark {
+  font-family: var(--font-inter), system-ui, sans-serif;
+  color: var(--rolex-champagne);
+  letter-spacing: 0.18em;
+  line-height: 1.15;
+  text-transform: uppercase;
+}
+
+.barber-shop .brand-wordmark--header {
+  font-size: clamp(0.62rem, 2.6vw, 0.8rem);
+  font-weight: 600;
+}
+
+.barber-shop .brand-wordmark--footer {
+  font-size: clamp(0.7rem, 2vw, 0.85rem);
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  color: var(--rolex-champagne);
+}
+
+.barber-shop .nav-desktop-link {
+  border-radius: 9999px;
+  color: var(--rolex-silver);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  padding: 0.4rem 0.85rem;
+  transition: color 0.15s ease, background 0.15s ease;
+}
+
+.barber-shop .nav-desktop-link:hover {
+  background: color-mix(in srgb, var(--rolex-blue) 18%, transparent);
+  color: var(--rolex-champagne);
+}
+
+.barber-shop .nav-mobile-link {
+  border-bottom: 1px solid var(--rolex-header-border);
+  color: var(--rolex-champagne);
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  padding: 0.9rem 0.25rem;
+}
+
+.barber-shop .nav-mobile-link:hover {
+  color: var(--rolex-gold);
+}
+
+.barber-shop .barber-mobile-menu nav {
+  background: var(--rolex-header);
+  border-top: 1px solid var(--rolex-header-border);
+}
+
+.barber-shop .nav-ghost-btn {
+  color: var(--rolex-champagne) !important;
+}
+
+.barber-shop .nav-ghost-btn:hover {
+  background: color-mix(in srgb, var(--rolex-blue) 22%, transparent) !important;
+  color: var(--rolex-champagne) !important;
+}
+
+.barber-shop .nav-reserve-btn {
+  background: var(--rolex-blue) !important;
+  border: 1px solid color-mix(in srgb, var(--rolex-blue-soft) 45%, transparent) !important;
+  color: var(--rolex-champagne) !important;
+}
+
+.barber-shop .nav-reserve-btn:hover {
+  background: var(--rolex-blue-vivid) !important;
 }
 
 .barber-shop footer {

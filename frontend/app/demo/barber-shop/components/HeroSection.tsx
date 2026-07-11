@@ -19,27 +19,37 @@ export function HeroSection() {
         <div className="absolute inset-0 bg-gradient-to-r from-[var(--rolex-charcoal)]/95 via-[var(--rolex-navy)]/80 to-[var(--rolex-charcoal)]/90" />
       </div>
 
-      <div className="mx-auto grid max-w-6xl gap-10 px-4 py-16 md:grid-cols-2 md:items-center md:py-24 lg:py-28">
+      <div className="mx-auto grid max-w-6xl gap-8 px-4 py-12 sm:gap-10 sm:py-16 md:grid-cols-2 md:items-center md:py-20 lg:py-24">
         <div>
           <Badge
             variant="outline"
-            className="border-accent/40 text-[11px] uppercase tracking-[0.22em] text-accent"
+            className="border-accent/40 text-[10px] uppercase tracking-[0.22em] text-accent sm:text-[11px]"
           >
             Las Rozas de Madrid
           </Badge>
-          <h1 className="mt-5 font-heading text-4xl font-semibold leading-[1.08] tracking-tight md:text-5xl lg:text-[3.25rem]">
+          <h1 className="mt-4 font-heading text-[1.75rem] font-semibold leading-[1.1] tracking-tight sm:mt-5 sm:text-4xl md:text-5xl lg:text-[3.25rem]">
             Grooming masculino
             <span className="block text-accent">sin compromisos.</span>
           </h1>
-          <p className="mt-5 max-w-lg text-base leading-relaxed text-muted-foreground md:text-lg">
+          <p className="mt-4 max-w-lg text-sm leading-relaxed text-muted-foreground sm:mt-5 sm:text-base md:text-lg">
             {business.name} combina precisión de barbería, asesoramiento de estilo y una
             boutique de productos premium para el caballero contemporáneo.
           </p>
-          <div className="mt-8 flex flex-wrap items-center gap-3">
-            <ReserveButton />
-            <a href={business.phoneHref} className="text-link text-sm">
+          <div className="mt-6 flex flex-col gap-3 sm:mt-8 sm:flex-row sm:flex-wrap sm:items-center">
+            <ReserveButton className="w-full sm:w-auto" />
+            <a
+              href={business.phoneHref}
+              className="text-link text-center text-sm sm:text-left"
+            >
               {business.phone}
             </a>
+          </div>
+          <div className="mt-6 flex items-center gap-2.5 rounded-xl border border-accent/25 bg-card/90 p-3.5 md:hidden">
+            <LuxuryIcon icon={Droplets} className="text-accent" />
+            <div>
+              <p className="text-[10px] uppercase tracking-[0.2em] text-accent">Incluido</p>
+              <p className="text-sm font-medium">Lavado + peinado en cada corte</p>
+            </div>
           </div>
         </div>
 

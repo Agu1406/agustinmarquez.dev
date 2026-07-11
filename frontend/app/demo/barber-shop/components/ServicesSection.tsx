@@ -70,7 +70,7 @@ export function ServicesSection({ showAll = false }: { showAll?: boolean }) {
                       </div>
                     </div>
                   </CardHeader>
-                  <CardContent className="flex items-center justify-between pt-0 pl-[4.5rem]">
+                  <CardContent className="flex flex-col gap-3 pt-0 sm:pl-[4.5rem]">
                     <ReserveLink label="Reservar este servicio" />
                   </CardContent>
                 </Card>

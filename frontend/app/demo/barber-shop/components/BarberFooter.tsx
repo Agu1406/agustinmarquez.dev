@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { MapPin, MessageCircle, Phone, Share2 } from "lucide-react";
 import { business } from "../lib/business";
+import { BrandWordmark } from "./BrandWordmark";
 import { LuxuryIcon } from "./LuxuryIcon";
 import { Separator } from "./ui/separator";
 
@@ -9,9 +10,7 @@ export function BarberFooter() {
     <footer id="contacto" className="scroll-mt-24 border-t border-border/70 bg-card/70 px-4 py-12 backdrop-blur">
       <div className="mx-auto grid max-w-6xl gap-10 md:grid-cols-3">
         <div>
-          <p className="font-heading text-sm font-medium tracking-[0.22em] text-accent uppercase">
-            {business.name}
-          </p>
+          <BrandWordmark asLink={false} size="footer" />
           <p className="mt-2 text-sm text-muted-foreground">{business.tagline}</p>
           <p className="mt-4 flex items-start gap-2.5 text-sm text-foreground/90">
             <LuxuryIcon icon={MapPin} className="mt-0.5 shrink-0 text-accent" />

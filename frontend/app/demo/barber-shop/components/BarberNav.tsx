@@ -1,12 +1,10 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
-import { CalendarClock, Menu, Scissors, X } from "lucide-react";
-import { business } from "../lib/business";
+import { CalendarClock, Menu, X } from "lucide-react";
 import { useBooking } from "./BookingProvider";
-import { LuxuryIcon } from "./LuxuryIcon";
-import { Badge } from "./ui/badge";
+import { BrandWordmark } from "./BrandWordmark";
 import { buttonVariants } from "./ui/button";
 import { cn } from "../lib/utils";
 
@@ -22,82 +20,74 @@ export function BarberNav() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const { openBooking } = useBooking();
 
+  useEffect(() => {
+    document.body.style.overflow = mobileOpen ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [mobileOpen]);
+
   return (
-    <header className="fixed inset-x-0 top-0 z-50 border-b border-border/70 bg-card/75 backdrop-blur-xl">
-      <div className="mx-auto grid max-w-6xl grid-cols-[1fr_auto] items-center gap-3 px-4 py-3 md:grid-cols-[auto_1fr_auto]">
-        <Link href="/demo/barber-shop" className="flex items-center gap-2.5 md:justify-self-start">
-          <div className="flex size-9 items-center justify-center rounded-full border border-accent/45 bg-accent/12">
-            <LuxuryIcon icon={Scissors} className="text-accent" />
-          </div>
-          <div>
-            <p className="font-heading text-base font-semibold leading-tight tracking-wide md:text-lg">
-              Ikaro
-            </p>
-            <p className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
-              Men&apos;s Barber
-            </p>
-          </div>
-          <Badge variant="outline" className="hidden border-accent/40 text-accent md:inline-flex">
-            demo
-          </Badge>
-        </Link>
+    <header className="barber-header fixed inset-x-0 top-0 z-50">
+      <div className="mx-auto flex max-w-6xl items-center justify-between gap-3 px-4 py-3.5 sm:py-4">
+        <BrandWordmark className="max-w-[min(100%,14rem)] sm:max-w-none" />
 
-        <nav className="order-2 hidden items-center justify-center gap-1 md:flex md:justify-self-center">
-          {links.map((l) => (
-            <Link
-              key={l.href}
-              href={l.href}
-              className={cn(
-                buttonVariants({ variant: "ghost", size: "sm" }),
-                "rounded-full px-3.5 text-muted-foreground hover:bg-card/60 hover:text-foreground"
-              )}
-            >
-              {l.label}
-            </Link>
-          ))}
-        </nav>
-
-        <div className="flex items-center justify-end gap-2 md:justify-self-end">
+        <div className="flex shrink-0 items-center gap-2">
           <button
             type="button"
             className={cn(
-              buttonVariants({ variant: "outline", size: "sm" }),
-              "rounded-full px-2 md:hidden"
+              buttonVariants({ variant: "ghost", size: "sm" }),
+              "nav-ghost-btn size-10 rounded-full p-0 md:hidden"
             )}
             onClick={() => setMobileOpen((prev) => !prev)}
-            aria-label="Abrir menú"
+            aria-expanded={mobileOpen}
+            aria-label={mobileOpen ? "Cerrar menú" : "Abrir menú"}
           >
             {mobileOpen ? (
-              <X className="size-4" strokeWidth={1.35} />
+              <X className="size-5" strokeWidth={1.35} />
             ) : (
-              <Menu className="size-4" strokeWidth={1.35} />
+              <Menu className="size-5" strokeWidth={1.35} />
             )}
           </button>
+
           <button
             type="button"
             onClick={openBooking}
             className={cn(
               buttonVariants({ size: "sm" }),
-              "shadow-rolex rounded-full border border-primary/40 bg-primary px-5 text-primary-foreground hover:bg-[var(--rolex-blue-vivid)]"
+              "nav-reserve-btn shadow-rolex rounded-full px-3.5 sm:px-5"
             )}
           >
-            <CalendarClock className="mr-1.5 size-3.5" strokeWidth={1.35} />
-            Reservar
+            <CalendarClock className="size-4 shrink-0" strokeWidth={1.35} />
+            <span className="hidden min-[380px]:inline">Reservar</span>
           </button>
         </div>
       </div>
 
+      <nav className="barber-header-nav hidden border-t border-[var(--rolex-header-border)] md:block">
+        <div className="mx-auto flex max-w-6xl items-center justify-center gap-1 px-4 py-2">
+          {links.map((l) => (
+            <Link key={l.href} href={l.href} className="nav-desktop-link">
+              {l.label}
+            </Link>
+          ))}
+        </div>
+      </nav>
+
       {mobileOpen && (
-        <div className="border-t border-border/70 bg-card/90 px-4 pb-4 pt-2 backdrop-blur-xl md:hidden">
-          <nav className="flex flex-col gap-2">
+        <div className="barber-mobile-menu fixed inset-0 top-[var(--barber-header-height)] z-40 md:hidden">
+          <button
+            type="button"
+            className="absolute inset-0 bg-black/50"
+            aria-label="Cerrar menú"
+            onClick={() => setMobileOpen(false)}
+          />
+          <nav className="relative flex max-h-[calc(100dvh-var(--barber-header-height))] flex-col gap-1 overflow-y-auto px-4 py-4">
             {links.map((l) => (
               <Link
                 key={l.href}
                 href={l.href}
-                className={cn(
-                  buttonVariants({ variant: "outline" }),
-                  "h-auto w-full justify-start rounded-xl bg-card/50 px-4 py-2.5"
-                )}
+                className="nav-mobile-link"
                 onClick={() => setMobileOpen(false)}
               >
                 {l.label}
@@ -109,8 +99,9 @@ export function BarberNav() {
                 setMobileOpen(false);
                 openBooking();
               }}
-              className={cn(buttonVariants(), "rounded-xl")}
+              className={cn(buttonVariants(), "nav-reserve-btn mt-3 w-full rounded-xl py-3")}
             >
+              <CalendarClock className="size-4" strokeWidth={1.35} />
               Reservar en línea
             </button>
           </nav>
