@@ -2,8 +2,9 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { CheckCircle2 } from "lucide-react";
+import { CalendarCheck } from "lucide-react";
 import { services } from "../lib/services";
+import { serviceIcons } from "../lib/icons";
 import { stylists } from "../lib/team";
 import {
   saveBooking,
@@ -15,6 +16,7 @@ import { Button, buttonVariants } from "./ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "./ui/card";
 import { Input } from "./ui/input";
 import { Label } from "./ui/label";
+import { LuxuryIcon } from "./LuxuryIcon";
 import { cn } from "../lib/utils";
 
 type Step = 1 | 2 | 3 | 4;
@@ -55,7 +57,7 @@ export function BookingForm() {
     return (
       <Card className="mx-auto max-w-lg border-accent/25 bg-card/90">
         <CardHeader className="text-center">
-          <CheckCircle2 className="mx-auto size-10 text-accent" />
+          <LuxuryIcon icon={CalendarCheck} size="xl" className="mx-auto text-accent" />
           <CardTitle className="mt-2">Cita confirmada (demo)</CardTitle>
           <CardDescription>
             Esta reserva es simulada y se guarda solo en tu navegador.
@@ -121,7 +123,9 @@ export function BookingForm() {
             <CardDescription>Paso 1 de 3</CardDescription>
           </CardHeader>
           <CardContent className="space-y-3">
-            {services.map((service) => (
+            {services.map((service) => {
+              const Icon = serviceIcons[service.category];
+              return (
               <button
                 key={service.id}
                 type="button"
@@ -133,12 +137,16 @@ export function BookingForm() {
                     : "border-border/60 bg-card/50 hover:border-primary/30"
                 )}
               >
+                <div className="flex items-start gap-3">
+                  <LuxuryIcon icon={Icon} className="mt-0.5 shrink-0 text-accent" />
                 <div>
                   <p className="font-medium leading-snug">{service.name}</p>
                   <p className="mt-1 text-xs text-muted-foreground">{service.description}</p>
                 </div>
+                </div>
               </button>
-            ))}
+            );
+            })}
             <Button className="mt-4 w-full rounded-full" onClick={() => setStep(2)}>
               Continuar
             </Button>

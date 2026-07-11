@@ -1,5 +1,6 @@
-import { Coffee, CalendarCheck, Sparkles } from "lucide-react";
 import { business, experiencePerks } from "../lib/business";
+import { experienceIcons } from "../lib/icons";
+import { LuxuryIconBox } from "./LuxuryIcon";
 import {
   Card,
   CardContent,
@@ -7,12 +8,6 @@ import {
   CardHeader,
   CardTitle,
 } from "./ui/card";
-
-const icons = {
-  styling: Sparkles,
-  hospitality: Coffee,
-  booking: CalendarCheck,
-} as const;
 
 export function ExperienceSection() {
   return (
@@ -29,15 +24,13 @@ export function ExperienceSection() {
 
         <ul className="mt-10 grid gap-4 md:grid-cols-3">
           {experiencePerks.map((perk) => {
-            const Icon = icons[perk.id];
+            const Icon = experienceIcons[perk.id];
             return (
               <li key={perk.id}>
                 <Card className="h-full border-accent/15 bg-card/70">
                   <CardHeader>
-                    <div className="mb-2 flex size-10 items-center justify-center rounded-full border border-accent/30 bg-accent/8">
-                      <Icon className="size-4 text-accent" />
-                    </div>
-                    <CardTitle className="text-base leading-snug">{perk.title}</CardTitle>
+                    <LuxuryIconBox icon={Icon} size="md" />
+                    <CardTitle className="mt-3 text-base leading-snug">{perk.title}</CardTitle>
                     <CardDescription className="leading-relaxed">
                       {perk.description}
                     </CardDescription>

@@ -1,10 +1,12 @@
 "use client";
 
 import Link from "next/link";
-import { Calendar, Clock, Scissors } from "lucide-react";
+import { Calendar, CalendarClock, Clock } from "lucide-react";
 import { business } from "../lib/business";
 import { services } from "../lib/services";
+import { serviceIcons } from "../lib/icons";
 import { useBooking } from "./BookingProvider";
+import { LuxuryIcon } from "./LuxuryIcon";
 import { Button, buttonVariants } from "./ui/button";
 import {
   Dialog,
@@ -22,7 +24,8 @@ export function BookingWidget() {
     <Dialog open={open} onOpenChange={(next) => (next ? undefined : closeBooking())}>
       <DialogContent className="border-border/60 bg-card/95 sm:max-w-md backdrop-blur-xl">
         <DialogHeader>
-          <DialogTitle className="font-heading text-lg tracking-tight">
+          <DialogTitle className="flex items-center gap-2 font-heading text-lg tracking-tight">
+            <LuxuryIcon icon={CalendarClock} className="text-accent" />
             Reserva en línea
           </DialogTitle>
           <DialogDescription>
@@ -32,25 +35,28 @@ export function BookingWidget() {
         </DialogHeader>
 
         <div className="space-y-2">
-          {services.slice(0, 3).map((service) => (
-            <div
-              key={service.id}
-              className="flex items-start gap-3 rounded-xl border border-border/50 bg-background/20 p-3"
-            >
-              <Scissors className="mt-0.5 size-4 shrink-0 text-accent" />
-              <div className="min-w-0 flex-1">
-                <p className="text-sm font-medium leading-snug">{service.name}</p>
-                <p className="mt-0.5 line-clamp-2 text-xs text-muted-foreground">
-                  {service.description}
-                </p>
+          {services.slice(0, 3).map((service) => {
+            const Icon = serviceIcons[service.category];
+            return (
+              <div
+                key={service.id}
+                className="flex items-start gap-3 rounded-xl border border-border/50 bg-background/20 p-3"
+              >
+                <LuxuryIcon icon={Icon} className="mt-0.5 shrink-0 text-accent" />
+                <div className="min-w-0 flex-1">
+                  <p className="text-sm font-medium leading-snug">{service.name}</p>
+                  <p className="mt-0.5 line-clamp-2 text-xs text-muted-foreground">
+                    {service.description}
+                  </p>
+                </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
 
         <div className="rounded-xl border border-border/40 bg-muted/30 p-3 text-xs text-muted-foreground">
           <p className="flex items-center gap-2">
-            <Calendar className="size-3.5 text-accent" />
+            <LuxuryIcon icon={Calendar} className="text-accent" size="sm" />
             Próximos huecos disponibles hoy
           </p>
           <div className="mt-2 flex flex-wrap gap-1.5">
@@ -64,7 +70,7 @@ export function BookingWidget() {
             ))}
           </div>
           <p className="mt-2 flex items-center gap-2">
-            <Clock className="size-3.5 text-accent" />
+            <LuxuryIcon icon={Clock} className="text-accent" size="sm" />
             {business.location.city}
           </p>
         </div>
@@ -73,7 +79,7 @@ export function BookingWidget() {
           <Link
             href="/demo/barber-shop/book"
             onClick={closeBooking}
-            className={cn(buttonVariants(), "w-full rounded-full")}
+            className={cn(buttonVariants(), "shadow-rolex w-full rounded-full")}
           >
             Continuar reserva
           </Link>

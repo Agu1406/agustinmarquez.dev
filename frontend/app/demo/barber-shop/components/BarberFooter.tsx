@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { MapPin, MessageCircle, Phone, Share2 } from "lucide-react";
 import { business } from "../lib/business";
+import { LuxuryIcon } from "./LuxuryIcon";
 import { Separator } from "./ui/separator";
 
 export function BarberFooter() {
@@ -12,8 +13,8 @@ export function BarberFooter() {
             {business.name}
           </p>
           <p className="mt-2 text-sm text-muted-foreground">{business.tagline}</p>
-          <p className="mt-4 flex items-start gap-2 text-sm text-foreground/90">
-            <MapPin className="mt-0.5 size-4 shrink-0 text-accent" />
+          <p className="mt-4 flex items-start gap-2.5 text-sm text-foreground/90">
+            <LuxuryIcon icon={MapPin} className="mt-0.5 shrink-0 text-accent" />
             <span>
               {business.location.street}
               <br />
@@ -40,9 +41,9 @@ export function BarberFooter() {
             <li>
               <a
                 href={business.phoneHref}
-                className="inline-flex items-center gap-2 text-foreground/90 hover:text-accent"
+                className="inline-flex items-center gap-2.5 text-foreground/90 hover:text-accent"
               >
-                <Phone className="size-4 text-accent" />
+                <LuxuryIcon icon={Phone} className="text-accent" />
                 {business.phone}
               </a>
             </li>
@@ -51,9 +52,9 @@ export function BarberFooter() {
                 href={business.whatsappHref}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-foreground/90 hover:text-accent"
+                className="inline-flex items-center gap-2.5 text-foreground/90 hover:text-accent"
               >
-                <MessageCircle className="size-4 text-accent" />
+                <LuxuryIcon icon={MessageCircle} className="text-accent" />
                 WhatsApp
               </a>
             </li>
@@ -62,9 +63,9 @@ export function BarberFooter() {
                 href={business.social.instagram}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-foreground/90 hover:text-accent"
+                className="inline-flex items-center gap-2.5 text-foreground/90 hover:text-accent"
               >
-                <Share2 className="size-4 text-accent" />
+                <LuxuryIcon icon={Share2} className="text-accent" />
                 Instagram
               </a>
             </li>
@@ -77,11 +78,11 @@ export function BarberFooter() {
       <div className="mx-auto max-w-6xl text-center text-xs text-muted-foreground">
         <p>Demo sin backend · Datos reales de {business.name}</p>
         <p className="mt-2">
-          <Link href="/demo" className="font-medium text-foreground underline underline-offset-4">
+          <Link href="/demo" className="text-link font-medium">
             otras demos
           </Link>
           {" · "}
-          <Link href="/" className="font-medium text-foreground underline underline-offset-4">
+          <Link href="/" className="text-link font-medium">
             portfolio
           </Link>
         </p>

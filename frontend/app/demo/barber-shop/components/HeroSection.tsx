@@ -1,8 +1,10 @@
 "use client";
 
 import { business } from "../lib/business";
+import { LuxuryIcon } from "./LuxuryIcon";
 import { ReserveButton } from "./ReserveButton";
 import { Badge } from "./ui/badge";
+import { Droplets } from "lucide-react";
 
 export function HeroSection() {
   return (
@@ -14,7 +16,7 @@ export function HeroSection() {
           alt=""
           className="h-full w-full object-cover opacity-25"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#232326]/95 via-[#0b2c75]/80 to-[#232326]/90" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[var(--rolex-charcoal)]/95 via-[var(--rolex-navy)]/80 to-[var(--rolex-charcoal)]/90" />
       </div>
 
       <div className="mx-auto grid max-w-6xl gap-10 px-4 py-16 md:grid-cols-2 md:items-center md:py-24 lg:py-28">
@@ -35,10 +37,7 @@ export function HeroSection() {
           </p>
           <div className="mt-8 flex flex-wrap items-center gap-3">
             <ReserveButton />
-            <a
-              href={business.phoneHref}
-              className="text-sm text-[#4476c7] underline-offset-4 hover:text-[#0334b9] hover:underline"
-            >
+            <a href={business.phoneHref} className="text-link text-sm">
               {business.phone}
             </a>
           </div>
@@ -53,9 +52,12 @@ export function HeroSection() {
               className="h-full w-full object-cover"
             />
           </div>
-          <div className="absolute -bottom-4 -left-4 rounded-xl border border-accent/25 bg-card/90 px-4 py-3 backdrop-blur">
-            <p className="text-[10px] uppercase tracking-[0.2em] text-accent">Incluido</p>
-            <p className="text-sm font-medium">Lavado + peinado en cada corte</p>
+          <div className="absolute -bottom-4 -left-4 flex items-center gap-2.5 rounded-xl border border-accent/25 bg-card/90 px-4 py-3 backdrop-blur">
+            <LuxuryIcon icon={Droplets} className="text-accent" />
+            <div>
+              <p className="text-[10px] uppercase tracking-[0.2em] text-accent">Incluido</p>
+              <p className="text-sm font-medium">Lavado + peinado en cada corte</p>
+            </div>
           </div>
         </div>
       </div>

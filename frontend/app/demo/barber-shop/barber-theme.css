@@ -97,3 +97,23 @@
 .barber-shop a.bg-primary:hover {
   background-color: var(--rolex-blue-vivid) !important;
 }
+
+/* Enlaces con azul Rolex (sustituye hex sueltos en JSX) */
+.barber-shop .text-link {
+  color: var(--rolex-blue-soft);
+}
+
+.barber-shop .text-link:hover {
+  color: var(--rolex-blue-vivid);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.barber-shop .shadow-rolex {
+  box-shadow: 0 0 20px -6px color-mix(in srgb, var(--rolex-blue) 55%, transparent);
+}
+
+/* Iconos line: trazo fino global en la demo */
+.barber-shop [data-luxury-icon] {
+  stroke-width: 1.35;
+}

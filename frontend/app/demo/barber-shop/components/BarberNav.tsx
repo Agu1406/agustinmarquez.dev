@@ -2,9 +2,10 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { Menu, Scissors, X } from "lucide-react";
+import { CalendarClock, Menu, Scissors, X } from "lucide-react";
 import { business } from "../lib/business";
 import { useBooking } from "./BookingProvider";
+import { LuxuryIcon } from "./LuxuryIcon";
 import { Badge } from "./ui/badge";
 import { buttonVariants } from "./ui/button";
 import { cn } from "../lib/utils";
@@ -26,7 +27,7 @@ export function BarberNav() {
       <div className="mx-auto grid max-w-6xl grid-cols-[1fr_auto] items-center gap-3 px-4 py-3 md:grid-cols-[auto_1fr_auto]">
         <Link href="/demo/barber-shop" className="flex items-center gap-2.5 md:justify-self-start">
           <div className="flex size-9 items-center justify-center rounded-full border border-accent/45 bg-accent/12">
-            <Scissors className="size-4 text-accent" />
+            <LuxuryIcon icon={Scissors} className="text-accent" />
           </div>
           <div>
             <p className="font-heading text-base font-semibold leading-tight tracking-wide md:text-lg">
@@ -66,16 +67,21 @@ export function BarberNav() {
             onClick={() => setMobileOpen((prev) => !prev)}
             aria-label="Abrir menú"
           >
-            {mobileOpen ? <X className="size-4" /> : <Menu className="size-4" />}
+            {mobileOpen ? (
+              <X className="size-4" strokeWidth={1.35} />
+            ) : (
+              <Menu className="size-4" strokeWidth={1.35} />
+            )}
           </button>
           <button
             type="button"
             onClick={openBooking}
             className={cn(
               buttonVariants({ size: "sm" }),
-              "rounded-full border border-primary/40 bg-primary px-5 text-primary-foreground shadow-[0_0_20px_-6px_#05409b] hover:bg-[#0334b9]"
+              "shadow-rolex rounded-full border border-primary/40 bg-primary px-5 text-primary-foreground hover:bg-[var(--rolex-blue-vivid)]"
             )}
           >
+            <CalendarClock className="mr-1.5 size-3.5" strokeWidth={1.35} />
             Reservar
           </button>
         </div>

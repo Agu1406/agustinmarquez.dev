@@ -1,7 +1,8 @@
 "use client";
 
-import { CalendarCheck } from "lucide-react";
+import { CalendarClock } from "lucide-react";
 import { useBooking } from "./BookingProvider";
+import { LuxuryIcon } from "./LuxuryIcon";
 import { Button } from "./ui/button";
 
 export function FloatingBookingButton() {
@@ -12,9 +13,9 @@ export function FloatingBookingButton() {
       <Button
         onClick={openBooking}
         size="lg"
-        className="pointer-events-auto h-12 gap-2 rounded-full border border-primary/40 bg-primary px-5 shadow-[0_8px_32px_-8px_#05409b] hover:bg-[#0334b9] md:px-6"
+        className="shadow-rolex pointer-events-auto h-12 gap-2 rounded-full border border-primary/40 bg-primary px-5 hover:bg-[var(--rolex-blue-vivid)] md:px-6"
       >
-        <CalendarCheck className="size-4" />
+        <LuxuryIcon icon={CalendarClock} className="text-primary-foreground" />
         <span className="text-sm font-medium">Reservar en línea</span>
       </Button>
     </div>
