@@ -14,7 +14,7 @@ const demos = [
     title: "Ikaro Men's Barber",
     titleUk: "Grooming masculino · Las Rozas",
     description:
-      "Landing premium: experiencia, servicios reales, boutique e-commerce y reserva online simulada (demo sin backend).",
+      "Landing premium: servicios reales, opiniones y reserva online vía Booksy (demo sin backend).",
     status: "Disponible",
   },
 ];

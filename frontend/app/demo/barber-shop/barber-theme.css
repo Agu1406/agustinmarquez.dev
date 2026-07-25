@@ -1,225 +1,123 @@
-/*
- * Paleta Ikaro — 5 colores únicos
- * Negro · Blanco · Navy · Azul Rolex · Oro
- */
-.barber-shop {
-  --ikaro-black: #232326;
-  --ikaro-white: #ffffff;
-  --ikaro-navy: #0b2c75;
-  --ikaro-blue: #05409b;
-  --ikaro-gold: #d6ad53;
-
-  --barber-header-height: 4.25rem;
-
-  --background: var(--ikaro-black);
-  --foreground: var(--ikaro-white);
-  --card: color-mix(in srgb, var(--ikaro-navy) 88%, var(--ikaro-black) 12%);
-  --card-foreground: var(--ikaro-white);
-  --popover: var(--ikaro-navy);
-  --popover-foreground: var(--ikaro-white);
-
-  --primary: var(--ikaro-blue);
-  --primary-foreground: var(--ikaro-white);
-
-  --secondary: var(--ikaro-navy);
-  --secondary-foreground: var(--ikaro-white);
-
-  --muted: var(--ikaro-navy);
-  --muted-foreground: color-mix(in srgb, var(--ikaro-white) 88%, transparent);
-
-  --accent: var(--ikaro-gold);
-  --accent-foreground: var(--ikaro-black);
-
-  --border: color-mix(in srgb, var(--ikaro-white) 20%, transparent);
-  --input: color-mix(in srgb, var(--ikaro-white) 15%, transparent);
-  --ring: color-mix(in srgb, var(--ikaro-blue) 70%, var(--ikaro-white) 30%);
-  --radius: 0.65rem;
-  --font-heading: var(--font-inter);
-
-  --ikaro-header: var(--ikaro-navy);
-  --ikaro-header-border: color-mix(in srgb, var(--ikaro-white) 14%, transparent);
+@theme inline {
+  --color-ink: #182c48;
+  --color-ink-soft: #121212;
+  --color-ink-elevated: #1a1a1a;
+  --color-brass: #c5a059;
+  --color-brass-bright: #d4b06e;
+  --color-brass-dim: #8f7340;
+  --color-cream: #eae4d8;
+  --color-cream-muted: #b7b0a3;
+  --color-line: rgba(197, 160, 89, 0.22);
+  --font-sans: var(--font-body);
+  --font-display: var(--font-display);
 }
 
 .barber-shop {
+  --ink: #182c48;
+  --ink-soft: #121212;
+  --ink-elevated: #1a1a1a;
+  --brass: #c5a059;
+  --brass-bright: #d4b06e;
+  --brass-dim: #8f7340;
+  --cream: #eae4d8;
+  --cream-muted: #b7b0a3;
+  --line: rgba(197, 160, 89, 0.22);
+  --background: var(--ink);
+  --foreground: var(--cream);
+
   min-height: 100vh;
-  color: var(--foreground);
-  background: linear-gradient(
-    180deg,
-    var(--ikaro-black) 0%,
-    var(--ikaro-black) 18%,
-    var(--ikaro-navy) 48%,
-    var(--ikaro-black) 82%,
-    var(--ikaro-black) 100%
-  );
+  background: var(--ink);
+  color: var(--cream);
+  font-family: var(--font-body), system-ui, sans-serif;
+  scroll-behavior: smooth;
+}
+
+.barber-shop ::selection {
+  background: color-mix(in srgb, var(--brass) 40%, transparent);
+  color: var(--cream);
+}
+
+.barber-shop .grain {
   position: relative;
-  overflow-x: hidden;
 }
 
-.barber-shop h1,
-.barber-shop h2,
-.barber-shop h3 {
-  color: var(--ikaro-white);
-  font-weight: 600;
-  letter-spacing: -0.01em;
+.barber-shop .grain::before {
+  content: "";
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  mix-blend-mode: overlay;
+  z-index: 1;
 }
 
-.barber-shop [data-slot="card-description"],
-.barber-shop .text-muted-foreground {
-  color: color-mix(in srgb, var(--ikaro-white) 90%, transparent) !important;
-  font-weight: 500;
-}
-
-.barber-shop [data-slot="card"] {
-  background: var(--card);
-  border-color: var(--border);
-  box-shadow:
-    0 18px 40px -28px rgb(0 0 0 / 70%),
-    inset 0 1px 0 color-mix(in srgb, var(--ikaro-white) 10%, transparent);
-}
-
-.barber-shop header,
-.barber-shop .barber-header {
-  background: var(--ikaro-header) !important;
-  border-bottom: 1px solid var(--ikaro-header-border);
-  backdrop-filter: none;
-}
-
-@media (min-width: 768px) {
-  .barber-shop {
-    --barber-header-height: 6.25rem;
+@keyframes barber-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(1.25rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
-/* Wordmark = logo tipográfico */
-.barber-shop .brand-wordmark {
-  font-family: var(--font-inter), system-ui, sans-serif;
-  color: var(--ikaro-white);
-  font-weight: 700;
-  letter-spacing: 0.18em;
-  line-height: 1.15;
-  text-transform: uppercase;
+@keyframes barber-slow-zoom {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.08);
+  }
 }
 
-.barber-shop .brand-wordmark--header {
-  font-size: clamp(0.65rem, 2.6vw, 0.82rem);
+@keyframes barber-line-grow {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
 }
 
-.barber-shop .brand-wordmark--footer {
-  font-size: clamp(0.72rem, 2vw, 0.88rem);
-  letter-spacing: 0.22em;
+.barber-shop .animate-fade-up {
+  animation: barber-fade-up 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
-/* Encabezados de sección centrados */
-.barber-shop .section-eyebrow {
-  color: var(--ikaro-gold);
-  font-size: 0.8rem;
-  font-weight: 700;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
+.barber-shop .animate-fade-up-delay-1 {
+  animation: barber-fade-up 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.15s both;
 }
 
-.barber-shop .section-title {
-  color: var(--ikaro-white);
-  font-size: clamp(1.85rem, 5.5vw, 2.75rem);
-  font-weight: 600;
-  line-height: 1.12;
-  margin-top: 0.65rem;
+.barber-shop .animate-fade-up-delay-2 {
+  animation: barber-fade-up 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.3s both;
 }
 
-.barber-shop .section-desc {
-  color: color-mix(in srgb, var(--ikaro-white) 92%, transparent);
-  font-size: clamp(0.95rem, 2.5vw, 1.1rem);
-  font-weight: 500;
-  line-height: 1.65;
-  margin-top: 0.85rem;
+.barber-shop .animate-fade-up-delay-3 {
+  animation: barber-fade-up 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.45s both;
 }
 
-.barber-shop .nav-desktop-link {
-  border-radius: 9999px;
-  color: color-mix(in srgb, var(--ikaro-white) 92%, transparent);
-  font-size: 0.875rem;
-  font-weight: 500;
-  letter-spacing: 0.04em;
-  padding: 0.4rem 0.85rem;
-  transition: color 0.15s ease, background 0.15s ease;
+.barber-shop .animate-slow-zoom {
+  animation: barber-slow-zoom 18s ease-out forwards;
 }
 
-.barber-shop .nav-desktop-link:hover {
-  background: color-mix(in srgb, var(--ikaro-blue) 35%, transparent);
-  color: var(--ikaro-white);
+.barber-shop .animate-line-grow {
+  transform-origin: left;
+  animation: barber-line-grow 1s cubic-bezier(0.22, 1, 0.36, 1) 0.5s both;
 }
 
-.barber-shop .nav-mobile-link {
-  border-bottom: 1px solid var(--ikaro-header-border);
-  color: var(--ikaro-white);
-  font-size: 1.05rem;
-  font-weight: 500;
-  letter-spacing: 0.05em;
-  padding: 0.9rem 0.25rem;
+.barber-shop .section-pad {
+  padding-inline: 1.25rem;
 }
 
-.barber-shop .nav-mobile-link:hover {
-  color: var(--ikaro-gold);
+@media (min-width: 768px) {
+  .barber-shop .section-pad {
+    padding-inline: 2.5rem;
+  }
 }
 
-.barber-shop .barber-mobile-menu nav {
-  background: var(--ikaro-header);
-  border-top: 1px solid var(--ikaro-header-border);
-}
-
-.barber-shop .nav-ghost-btn {
-  color: var(--ikaro-white) !important;
-}
-
-.barber-shop .nav-ghost-btn:hover {
-  background: color-mix(in srgb, var(--ikaro-blue) 35%, transparent) !important;
-}
-
-.barber-shop .nav-reserve-btn {
-  background: var(--ikaro-blue) !important;
-  border: 1px solid color-mix(in srgb, var(--ikaro-white) 22%, transparent) !important;
-  color: var(--ikaro-white) !important;
-  font-weight: 600;
-}
-
-.barber-shop .nav-reserve-btn:hover {
-  background: color-mix(in srgb, var(--ikaro-blue) 82%, var(--ikaro-black) 18%) !important;
-}
-
-.barber-shop footer {
-  background: color-mix(in srgb, var(--ikaro-navy) 75%, var(--ikaro-black) 25%) !important;
-}
-
-.barber-shop .gold-line {
-  background: linear-gradient(
-    90deg,
-    transparent,
-    var(--ikaro-gold),
-    transparent
-  );
-  height: 1px;
-}
-
-.barber-shop [data-slot="button"].bg-primary:hover,
-.barber-shop a.bg-primary:hover {
-  background-color: color-mix(in srgb, var(--ikaro-blue) 85%, var(--ikaro-black) 15%) !important;
-}
-
-.barber-shop .text-link {
-  color: var(--ikaro-white);
-  font-weight: 500;
-  text-decoration: underline;
-  text-underline-offset: 4px;
-}
-
-.barber-shop .text-link:hover {
-  color: var(--ikaro-gold);
-}
-
-.barber-shop .shadow-rolex {
-  box-shadow: 0 0 20px -6px color-mix(in srgb, var(--ikaro-blue) 55%, transparent);
-}
-
-.barber-shop [data-luxury-icon] {
-  stroke-width: 1.5;
+@media (min-width: 1280px) {
+  .barber-shop .section-pad {
+    padding-inline: 4rem;
+  }
 }
