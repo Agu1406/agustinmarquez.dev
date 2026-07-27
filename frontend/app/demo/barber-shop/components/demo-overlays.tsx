@@ -1,21 +1,38 @@
 "use client";
 
 import Link from "next/link";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useState, useSyncExternalStore } from "react";
 import { SITE } from "@/app/demo/barber-shop/lib/data";
 import { COOKIE_KEY } from "@/app/demo/barber-shop/lib/cookies";
 
-export function DemoOverlays() {
-  const [cookiesVisible, setCookiesVisible] = useState(false);
-  const [ctaHidden, setCtaHidden] = useState(false);
+const cookieListeners = new Set<() => void>();
 
-  useEffect(() => {
-    try {
-      setCookiesVisible(window.localStorage.getItem(COOKIE_KEY) !== "1");
-    } catch {
-      setCookiesVisible(true);
-    }
-  }, []);
+function emitCookieChange() {
+  cookieListeners.forEach((l) => l());
+}
+
+function subscribeCookies(onStoreChange: () => void) {
+  cookieListeners.add(onStoreChange);
+  return () => {
+    cookieListeners.delete(onStoreChange);
+  };
+}
+
+function getCookiesVisible(): boolean {
+  try {
+    return window.localStorage.getItem(COOKIE_KEY) !== "1";
+  } catch {
+    return true;
+  }
+}
+
+export function DemoOverlays() {
+  const cookiesVisible = useSyncExternalStore(
+    subscribeCookies,
+    getCookiesVisible,
+    () => false,
+  );
+  const [ctaHidden, setCtaHidden] = useState(false);
 
   useEffect(() => {
     const footer = document.querySelector(".barber-shop footer");
@@ -35,7 +52,7 @@ export function DemoOverlays() {
     } catch {
       /* ignore */
     }
-    setCookiesVisible(false);
+    emitCookieChange();
   }, []);
 
   return (

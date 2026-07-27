@@ -1,20 +1,33 @@
 "use client";
 
 import Link from "next/link";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useSyncExternalStore } from "react";
 import { COOKIE_KEY } from "@/app/demo/barber-shop/lib/cookies";
 
-/** Standalone cookie bar; DemoOverlays embeds an equivalent for stacking with the CTA. */
-export function CookieBanner() {
-  const [visible, setVisible] = useState(false);
+const cookieListeners = new Set<() => void>();
 
-  useEffect(() => {
-    try {
-      setVisible(window.localStorage.getItem(COOKIE_KEY) !== "1");
-    } catch {
-      setVisible(true);
-    }
-  }, []);
+function emitCookieChange() {
+  cookieListeners.forEach((l) => l());
+}
+
+function subscribe(onStoreChange: () => void) {
+  cookieListeners.add(onStoreChange);
+  return () => {
+    cookieListeners.delete(onStoreChange);
+  };
+}
+
+function getSnapshot(): boolean {
+  try {
+    return window.localStorage.getItem(COOKIE_KEY) !== "1";
+  } catch {
+    return true;
+  }
+}
+
+/** Standalone cookie bar (DemoOverlays embeds its own for stacking with the CTA). */
+export function CookieBanner() {
+  const visible = useSyncExternalStore(subscribe, getSnapshot, () => false);
 
   const accept = useCallback(() => {
     try {
@@ -22,7 +35,7 @@ export function CookieBanner() {
     } catch {
       /* ignore */
     }
-    setVisible(false);
+    emitCookieChange();
   }, []);
 
   if (!visible) return null;
