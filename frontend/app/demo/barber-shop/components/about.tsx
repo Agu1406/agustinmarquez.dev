@@ -4,7 +4,7 @@ import { SITE, STAFF } from "@/app/demo/barber-shop/lib/data";
 
 export function About() {
   return (
-    <section id="sobre-nosotros" className="bg-ink py-20 md:py-28">
+    <section id="sobre-nosotros" className="bg-ink pt-20 pb-12 md:pt-28 md:pb-16">
       <div className="section-pad mx-auto grid max-w-7xl gap-10 lg:grid-cols-12 lg:items-start lg:gap-14">
         <Reveal className="relative aspect-video overflow-hidden border border-line lg:col-span-5 lg:aspect-[4/3]">
           <LazyVideo

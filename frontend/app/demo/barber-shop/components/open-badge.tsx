@@ -4,7 +4,6 @@ import { useSyncExternalStore } from "react";
 import { getOpenStatus } from "@/app/demo/barber-shop/lib/hours";
 
 export function OpenBadge() {
-  // Primitive snapshot keeps Object.is stable across getSnapshot calls.
   const open = useSyncExternalStore(
     subscribeToMinute,
     () => getOpenStatus().open,
@@ -13,15 +12,15 @@ export function OpenBadge() {
 
   return (
     <span
-      className={`inline-flex items-center gap-2 border px-3 py-1.5 text-xs tracking-[0.16em] uppercase ${
+      className={`inline-flex items-center gap-2.5 px-4 py-2 text-xs font-medium tracking-[0.16em] uppercase ${
         open
-          ? "border-brass/50 text-brass-bright"
-          : "border-line text-cream-muted"
+          ? "bg-brass text-ink"
+          : "border border-line bg-ink-elevated text-cream-muted"
       }`}
     >
       <span
-        className={`h-1.5 w-1.5 rounded-full ${
-          open ? "bg-brass-bright" : "bg-cream-muted"
+        className={`h-2.5 w-2.5 rounded-full ${
+          open ? "bg-ink" : "bg-cream-muted"
         }`}
         aria-hidden
       />

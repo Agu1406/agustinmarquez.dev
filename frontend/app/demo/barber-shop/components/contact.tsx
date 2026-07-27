@@ -8,12 +8,9 @@ export function Contact() {
       <div className="section-pad mx-auto max-w-7xl">
         <Reveal>
           <div className="max-w-2xl">
-            <div className="flex flex-wrap items-center gap-4">
-              <p className="font-display text-sm tracking-[0.3em] text-brass uppercase">
-                Visítanos
-              </p>
-              <OpenBadge />
-            </div>
+            <p className="font-display text-sm tracking-[0.3em] text-brass uppercase">
+              Visítanos
+            </p>
             <h2 className="mt-3 font-display text-4xl text-cream md:text-5xl">
               Contacto y horario
             </h2>
@@ -46,9 +43,12 @@ export function Contact() {
               </div>
 
               <div>
-                <h3 className="text-xs tracking-[0.2em] text-brass uppercase">
-                  Horario
-                </h3>
+                <div className="flex flex-wrap items-center justify-between gap-3">
+                  <h3 className="text-xs tracking-[0.2em] text-brass uppercase">
+                    Horario
+                  </h3>
+                  <OpenBadge />
+                </div>
                 <ul className="mt-3 space-y-2">
                   {HOURS.map((row) => (
                     <li
@@ -62,29 +62,31 @@ export function Contact() {
                 </ul>
               </div>
 
-              <div className="flex flex-wrap gap-3 pt-2">
+              <div className="flex w-full flex-col gap-3 pt-2">
                 <a
                   href={SITE.booksy}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex bg-brass px-6 py-3.5 text-sm tracking-[0.14em] text-ink uppercase transition hover:bg-brass-bright"
+                  className="inline-flex w-full items-center justify-center bg-brass px-6 py-3.5 text-sm tracking-[0.14em] text-ink uppercase transition hover:bg-brass-bright"
                 >
                   Reservar en Booksy
                 </a>
-                <a
-                  href={SITE.whatsapp}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex border border-cream/35 px-6 py-3.5 text-sm tracking-[0.14em] text-cream uppercase transition hover:border-brass hover:text-brass"
-                >
-                  WhatsApp
-                </a>
-                <a
-                  href={SITE.phoneHref}
-                  className="inline-flex border border-cream/35 px-6 py-3.5 text-sm tracking-[0.14em] text-cream uppercase transition hover:border-brass hover:text-brass"
-                >
-                  Llamar
-                </a>
+                <div className="flex w-full gap-3">
+                  <a
+                    href={SITE.whatsapp}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex min-w-0 flex-1 items-center justify-center border border-cream/35 px-4 py-3.5 text-sm tracking-[0.14em] text-cream uppercase transition hover:border-brass hover:text-brass"
+                  >
+                    WhatsApp
+                  </a>
+                  <a
+                    href={SITE.phoneHref}
+                    className="inline-flex min-w-0 flex-1 items-center justify-center border border-cream/35 px-4 py-3.5 text-sm tracking-[0.14em] text-cream uppercase transition hover:border-brass hover:text-brass"
+                  >
+                    Llamar
+                  </a>
+                </div>
               </div>
             </div>
 

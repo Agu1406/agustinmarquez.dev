@@ -47,49 +47,47 @@ export function Services() {
             {orderedServices.map((service) => (
               <li
                 key={service.name}
-                className="group grid gap-3 py-5 transition md:grid-cols-[1fr_auto_auto] md:items-center md:gap-8"
+                className="group grid grid-cols-[2.5rem_minmax(0,1fr)] gap-x-4 gap-y-2 py-5 transition md:grid-cols-[2.5rem_minmax(0,1fr)_5.5rem_5rem_auto] md:items-start md:gap-x-8"
               >
-                <div className="flex gap-4">
-                  <span className="mt-1 flex h-10 w-10 shrink-0 items-center justify-center border border-line text-brass transition group-hover:border-brass/60 group-hover:text-brass-bright">
-                    <ServiceIcon icon={service.icon} />
-                  </span>
-                  <div>
-                    <div className="flex flex-wrap items-center gap-3">
-                      <h3 className="font-display text-xl text-cream md:text-2xl">
-                        {service.name}
-                      </h3>
-                      {service.popular && (
-                        <span className="text-[10px] tracking-[0.18em] text-brass uppercase">
-                          Popular
-                        </span>
-                      )}
-                    </div>
-                    {service.description && (
-                      <p className="mt-2 max-w-xl text-sm leading-relaxed text-cream-muted">
-                        {service.description}
-                      </p>
+                <span className="mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center border border-line text-brass transition group-hover:border-brass/60 group-hover:text-brass-bright">
+                  <ServiceIcon icon={service.icon} />
+                </span>
+
+                <div className="min-w-0">
+                  <div className="flex min-w-0 items-center gap-3">
+                    <h3 className="min-w-0 truncate font-display text-xl text-cream md:text-2xl">
+                      {service.name}
+                    </h3>
+                    {service.popular && (
+                      <span className="shrink-0 text-[10px] tracking-[0.18em] text-brass uppercase">
+                        Popular
+                      </span>
                     )}
-                    <p className="mt-2 text-sm text-cream-muted md:hidden">
-                      {service.duration} · {service.price}
-                    </p>
                   </div>
+                  {service.description && (
+                    <p className="mt-2 text-sm leading-relaxed text-cream-muted">
+                      {service.description}
+                    </p>
+                  )}
+                  <p className="mt-2 text-sm text-cream-muted md:hidden">
+                    {service.duration} · {service.price}
+                  </p>
                 </div>
-                <p className="hidden text-sm text-cream-muted md:block">
+
+                <p className="hidden pt-2 text-sm text-cream-muted md:block">
                   {service.duration}
                 </p>
-                <div className="flex items-center justify-between gap-6 md:justify-end">
-                  <p className="hidden font-display text-xl text-brass md:block">
-                    {service.price}
-                  </p>
-                  <a
-                    href={SITE.booksy}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-xs tracking-[0.16em] text-cream uppercase transition group-hover:text-brass"
-                  >
-                    Agendar →
-                  </a>
-                </div>
+                <p className="hidden pt-1 font-display text-xl text-brass md:block">
+                  {service.price}
+                </p>
+                <a
+                  href={SITE.booksy}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hidden pt-2.5 text-xs tracking-[0.16em] text-cream uppercase transition group-hover:text-brass md:inline-block"
+                >
+                  Agendar →
+                </a>
               </li>
             ))}
           </ul>

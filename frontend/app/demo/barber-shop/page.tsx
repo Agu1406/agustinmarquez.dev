@@ -1,6 +1,6 @@
 import { About } from "@/app/demo/barber-shop/components/about";
 import { Contact } from "@/app/demo/barber-shop/components/contact";
-import { FloatingReserve } from "@/app/demo/barber-shop/components/floating-reserve";
+import { DemoOverlays } from "@/app/demo/barber-shop/components/demo-overlays";
 import { Footer } from "@/app/demo/barber-shop/components/footer";
 import { Hero } from "@/app/demo/barber-shop/components/hero";
 import { Navbar } from "@/app/demo/barber-shop/components/navbar";
@@ -19,7 +19,7 @@ export default function BarberShopHome() {
         <Contact />
       </main>
       <Footer />
-      <FloatingReserve />
+      <DemoOverlays />
     </>
   );
 }

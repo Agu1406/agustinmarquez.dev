@@ -3,7 +3,7 @@ import { REVIEWS, SITE } from "@/app/demo/barber-shop/lib/data";
 
 export function Reviews() {
   return (
-    <section id="opiniones" className="grain relative bg-ink-soft py-20 md:py-28">
+    <section id="opiniones" className="grain relative bg-ink-soft pt-12 pb-20 md:pt-16 md:pb-28">
       <div className="section-pad relative z-[2] mx-auto max-w-7xl">
         <Reveal>
           <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
