@@ -1,25 +1,21 @@
+import { LazyVideo } from "@/app/demo/barber-shop/components/lazy-video";
+import { Reveal } from "@/app/demo/barber-shop/components/reveal";
 import { SITE, STAFF } from "@/app/demo/barber-shop/lib/data";
 
 export function About() {
   return (
     <section id="sobre-nosotros" className="bg-ink py-20 md:py-28">
       <div className="section-pad mx-auto grid max-w-7xl gap-10 lg:grid-cols-12 lg:items-start lg:gap-14">
-        <div className="relative aspect-video overflow-hidden border border-line lg:col-span-5 lg:aspect-[4/3]">
-          <video
+        <Reveal className="relative aspect-video overflow-hidden border border-line lg:col-span-5 lg:aspect-[4/3]">
+          <LazyVideo
             className="absolute inset-0 h-full w-full object-cover object-center"
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="metadata"
+            src="/demo/barber-shop/about-barber.mp4"
             aria-label="Ambiente y detalle de barbería en Ikaro Men's Barber"
-          >
-            <source src="/demo/barber-shop/about-barber.mp4" type="video/mp4" />
-          </video>
+          />
           <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink/40 to-transparent" />
-        </div>
+        </Reveal>
 
-        <div className="lg:col-span-7">
+        <Reveal className="lg:col-span-7">
           <p className="font-display text-sm tracking-[0.3em] text-brass uppercase">
             La barbería
           </p>
@@ -64,7 +60,7 @@ export function About() {
               ))}
             </ul>
           </div>
-        </div>
+        </Reveal>
       </div>
     </section>
   );

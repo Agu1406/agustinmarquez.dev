@@ -3,9 +3,17 @@
 import { useEffect, useState } from "react";
 import { SITE } from "@/app/demo/barber-shop/lib/data";
 
+const links = [
+  { href: "#servicios", id: "servicios", label: "Servicios" },
+  { href: "#sobre-nosotros", id: "sobre-nosotros", label: "Nosotros" },
+  { href: "#opiniones", id: "opiniones", label: "Opiniones" },
+  { href: "#contacto", id: "contacto", label: "Contacto" },
+] as const;
+
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const [active, setActive] = useState<string>("");
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -21,12 +29,33 @@ export function Navbar() {
     };
   }, [open]);
 
-  const links = [
-    { href: "#servicios", label: "Servicios" },
-    { href: "#sobre-nosotros", label: "Nosotros" },
-    { href: "#opiniones", label: "Opiniones" },
-    { href: "#contacto", label: "Contacto" },
-  ];
+  useEffect(() => {
+    const sections = links
+      .map((link) => document.getElementById(link.id))
+      .filter((el): el is HTMLElement => Boolean(el));
+
+    if (sections.length === 0) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries
+          .filter((e) => e.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+        if (visible[0]?.target.id) {
+          setActive(visible[0].target.id);
+        }
+      },
+      { rootMargin: "-30% 0px -55% 0px", threshold: [0, 0.25, 0.5, 1] },
+    );
+
+    sections.forEach((section) => observer.observe(section));
+    return () => observer.disconnect();
+  }, []);
+
+  const linkClass = (id: string) =>
+    `text-sm tracking-wide transition-colors ${
+      active === id ? "text-brass" : "text-cream-muted hover:text-brass"
+    }`;
 
   return (
     <header
@@ -48,10 +77,7 @@ export function Navbar() {
         <ul className="hidden items-center gap-8 md:flex">
           {links.map((link) => (
             <li key={link.href}>
-              <a
-                href={link.href}
-                className="text-sm tracking-wide text-cream-muted transition-colors hover:text-brass"
-              >
+              <a href={link.href} className={linkClass(link.id)}>
                 {link.label}
               </a>
             </li>
@@ -97,20 +123,22 @@ export function Navbar() {
       </nav>
 
       {open && (
-        <div className="border-t border-line bg-ink md:hidden">
-          <ul className="section-pad flex flex-col gap-1 py-6">
+        <div className="fixed inset-0 top-16 z-40 bg-ink md:hidden">
+          <ul className="section-pad flex h-full flex-col gap-1 py-8">
             {links.map((link) => (
               <li key={link.href}>
                 <a
                   href={link.href}
-                  className="block py-3 font-display text-2xl text-cream"
+                  className={`block py-3 font-display text-2xl ${
+                    active === link.id ? "text-brass" : "text-cream"
+                  }`}
                   onClick={() => setOpen(false)}
                 >
                   {link.label}
                 </a>
               </li>
             ))}
-            <li className="pt-4">
+            <li className="pt-6">
               <a
                 href={SITE.booksy}
                 target="_blank"

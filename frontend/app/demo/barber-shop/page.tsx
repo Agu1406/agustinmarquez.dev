@@ -1,5 +1,6 @@
 import { About } from "@/app/demo/barber-shop/components/about";
 import { Contact } from "@/app/demo/barber-shop/components/contact";
+import { FloatingReserve } from "@/app/demo/barber-shop/components/floating-reserve";
 import { Footer } from "@/app/demo/barber-shop/components/footer";
 import { Hero } from "@/app/demo/barber-shop/components/hero";
 import { Navbar } from "@/app/demo/barber-shop/components/navbar";
@@ -10,7 +11,7 @@ export default function BarberShopHome() {
   return (
     <>
       <Navbar />
-      <main>
+      <main className="pb-24 md:pb-0">
         <Hero />
         <Services />
         <About />
@@ -18,6 +19,7 @@ export default function BarberShopHome() {
         <Contact />
       </main>
       <Footer />
+      <FloatingReserve />
     </>
   );
 }

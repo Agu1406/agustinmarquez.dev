@@ -110,6 +110,19 @@
   padding-inline: 1.25rem;
 }
 
+.barber-shop .reveal {
+  opacity: 0;
+  transform: translateY(1.25rem);
+  transition:
+    opacity 0.85s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.85s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.barber-shop .reveal-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 @media (min-width: 768px) {
   .barber-shop .section-pad {
     padding-inline: 2.5rem;
@@ -119,5 +132,26 @@
 @media (min-width: 1280px) {
   .barber-shop .section-pad {
     padding-inline: 4rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .barber-shop {
+    scroll-behavior: auto;
+  }
+
+  .barber-shop .animate-fade-up,
+  .barber-shop .animate-fade-up-delay-1,
+  .barber-shop .animate-fade-up-delay-2,
+  .barber-shop .animate-fade-up-delay-3,
+  .barber-shop .animate-line-grow,
+  .barber-shop .animate-slow-zoom {
+    animation: none !important;
+  }
+
+  .barber-shop .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
   }
 }

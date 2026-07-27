@@ -6,15 +6,14 @@ export function Hero() {
       id="inicio"
       className="relative isolate flex min-h-[100svh] items-end overflow-hidden"
     >
-      <div className="absolute inset-0 -z-10">
+      <div className="absolute inset-0 -z-10 bg-ink">
         <video
-          className="absolute inset-0 h-full w-full object-cover object-center"
+          className="animate-slow-zoom absolute inset-0 h-full w-full object-cover object-center"
           autoPlay
           muted
           loop
           playsInline
-          preload="metadata"
-          poster="/demo/barber-shop/hero-barber.png"
+          preload="auto"
           aria-label="Barbero trabajando en Ikaro Men's Barber"
         >
           <source src="/demo/barber-shop/hero-barber.mp4" type="video/mp4" />

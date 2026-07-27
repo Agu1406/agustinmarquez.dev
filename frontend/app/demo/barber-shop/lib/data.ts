@@ -20,8 +20,16 @@ export const SITE = {
       "https://maps.google.com/maps?q=40.5213568,-3.8969313&ll=40.5213568,-3.8969313&z=18&hl=es&output=embed",
   },
   ratings: {
-    google: { score: "4,9", count: 47 },
-    booksy: { score: "5,0", count: 43 },
+    google: {
+      score: "4,9",
+      count: 47,
+      url: "https://www.google.com/maps/search/?api=1&query=Ikaro+Men%27s+Barber+Las+Rozas",
+    },
+    booksy: {
+      score: "5,0",
+      count: 43,
+      url: "https://booksy.com/es-es/169010_ikaro-men-s-barber_barberia_39013_las-rozas-de-madrid",
+    },
   },
   amenities: [
     "Plaza de aparcamiento",
