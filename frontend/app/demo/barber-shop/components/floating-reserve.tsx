@@ -11,27 +11,7 @@ export function FloatingReserve() {
     if (!footer) return;
 
     const observer = new IntersectionObserver(
-      ([entry]) => {
-        // #region agent log
-        fetch("http://127.0.0.1:7776/ingest/bd148297-8385-46fc-abd4-dca1eaf85c89", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            "X-Debug-Session-Id": "1e2329",
-          },
-          body: JSON.stringify({
-            sessionId: "1e2329",
-            runId: "pre-fix",
-            hypothesisId: "B",
-            location: "floating-reserve.tsx:observer",
-            message: "FloatingReserve intersection",
-            data: { isIntersecting: entry.isIntersecting },
-            timestamp: Date.now(),
-          }),
-        }).catch(() => {});
-        // #endregion
-        setHidden(entry.isIntersecting);
-      },
+      ([entry]) => setHidden(entry.isIntersecting),
       { threshold: 0.15 },
     );
     observer.observe(footer);

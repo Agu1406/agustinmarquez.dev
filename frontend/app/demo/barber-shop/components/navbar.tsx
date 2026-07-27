@@ -42,24 +42,6 @@ export function Navbar() {
           .filter((e) => e.isIntersecting)
           .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
         if (visible[0]?.target.id) {
-          // #region agent log
-          fetch("http://127.0.0.1:7776/ingest/bd148297-8385-46fc-abd4-dca1eaf85c89", {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-              "X-Debug-Session-Id": "1e2329",
-            },
-            body: JSON.stringify({
-              sessionId: "1e2329",
-              runId: "pre-fix",
-              hypothesisId: "C",
-              location: "navbar.tsx:scrollSpy",
-              message: "Navbar scroll-spy active change",
-              data: { id: visible[0].target.id },
-              timestamp: Date.now(),
-            }),
-          }).catch(() => {});
-          // #endregion
           setActive(visible[0].target.id);
         }
       },
