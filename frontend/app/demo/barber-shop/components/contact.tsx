@@ -1,17 +1,25 @@
 import { OpenBadge } from "@/app/demo/barber-shop/components/open-badge";
 import { Reveal } from "@/app/demo/barber-shop/components/reveal";
+import { externalLabel } from "@/app/demo/barber-shop/lib/a11y";
 import { HOURS, SITE } from "@/app/demo/barber-shop/lib/data";
 
 export function Contact() {
   return (
-    <section id="contacto" className="bg-ink py-20 md:py-28">
+    <section
+      id="contacto"
+      className="bg-ink py-20 md:py-28"
+      aria-labelledby="contact-title"
+    >
       <div className="section-pad mx-auto max-w-7xl">
         <Reveal>
           <div className="max-w-2xl">
             <p className="font-display text-sm tracking-[0.3em] text-brass uppercase">
               Visítanos
             </p>
-            <h2 className="mt-3 font-display text-4xl text-cream md:text-5xl">
+            <h2
+              id="contact-title"
+              className="mt-3 font-display text-4xl text-cream md:text-5xl"
+            >
               Contacto y horario
             </h2>
             <p className="mt-4 text-cream-muted">
@@ -24,7 +32,7 @@ export function Contact() {
         <Reveal className="mt-12">
           <div className="grid gap-10 lg:grid-cols-2">
             <div className="space-y-8">
-              <div>
+              <address className="not-italic">
                 <h3 className="text-xs tracking-[0.2em] text-brass uppercase">
                   Dirección
                 </h3>
@@ -36,11 +44,14 @@ export function Contact() {
                   href={SITE.address.maps}
                   target="_blank"
                   rel="noopener noreferrer"
+                  aria-label={externalLabel(
+                    `Cómo llegar a ${SITE.name} en Google Maps`,
+                  )}
                   className="mt-3 inline-block text-sm tracking-wide text-brass transition hover:text-brass-bright"
                 >
                   Cómo llegar →
                 </a>
-              </div>
+              </address>
 
               <div>
                 <div className="flex flex-wrap items-center justify-between gap-3">
@@ -67,6 +78,7 @@ export function Contact() {
                   href={SITE.booksy}
                   target="_blank"
                   rel="noopener noreferrer"
+                  aria-label={externalLabel("Reservar cita en Booksy")}
                   className="inline-flex w-full items-center justify-center bg-brass px-6 py-3.5 text-sm tracking-[0.14em] text-ink uppercase transition hover:bg-brass-bright"
                 >
                   Reservar en Booksy
@@ -76,12 +88,14 @@ export function Contact() {
                     href={SITE.whatsapp}
                     target="_blank"
                     rel="noopener noreferrer"
+                    aria-label={externalLabel("Contactar por WhatsApp")}
                     className="inline-flex min-w-0 flex-1 items-center justify-center border border-cream/35 px-4 py-3.5 text-sm tracking-[0.14em] text-cream uppercase transition hover:border-brass hover:text-brass"
                   >
                     WhatsApp
                   </a>
                   <a
                     href={SITE.phoneHref}
+                    aria-label={`Llamar al ${SITE.phone}`}
                     className="inline-flex min-w-0 flex-1 items-center justify-center border border-cream/35 px-4 py-3.5 text-sm tracking-[0.14em] text-cream uppercase transition hover:border-brass hover:text-brass"
                   >
                     Llamar
@@ -92,13 +106,18 @@ export function Contact() {
 
             <div className="min-h-[320px] overflow-hidden border border-line bg-ink-elevated md:min-h-[420px]">
               <iframe
-                title="Mapa de Ikaro Men's Barber"
+                title={`Mapa de ubicación de ${SITE.name}`}
                 src={SITE.address.embed}
                 className="h-full min-h-[320px] w-full grayscale contrast-125 invert-[0.9] md:min-h-[420px]"
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
                 allowFullScreen
+                aria-describedby="map-address-description"
               />
+              <p id="map-address-description" className="sr-only">
+                {SITE.address.full}. Puedes abrir la ubicación en Google Maps desde
+                el enlace «Cómo llegar».
+              </p>
             </div>
           </div>
         </Reveal>

@@ -4,22 +4,32 @@ import { SITE, STAFF } from "@/app/demo/barber-shop/lib/data";
 
 export function About() {
   return (
-    <section id="sobre-nosotros" className="bg-ink pt-20 pb-12 md:pt-28 md:pb-16">
+    <section
+      id="sobre-nosotros"
+      className="bg-ink pt-20 pb-12 md:pt-28 md:pb-16"
+      aria-labelledby="about-title"
+    >
       <div className="section-pad mx-auto grid max-w-7xl gap-10 lg:grid-cols-12 lg:items-start lg:gap-14">
         <Reveal className="relative aspect-video overflow-hidden border border-line lg:col-span-5 lg:aspect-[4/3]">
           <LazyVideo
             className="absolute inset-0 h-full w-full object-cover object-center"
             src="/demo/barber-shop/about-barber.mp4"
-            aria-label="Ambiente y detalle de barbería en Ikaro Men's Barber"
+            decorative
           />
-          <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink/40 to-transparent" />
+          <div
+            className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink/40 to-transparent"
+            aria-hidden="true"
+          />
         </Reveal>
 
         <Reveal className="lg:col-span-7">
           <p className="font-display text-sm tracking-[0.3em] text-brass uppercase">
             La barbería
           </p>
-          <h2 className="mt-3 font-display text-4xl leading-tight text-cream md:text-5xl">
+          <h2
+            id="about-title"
+            className="mt-3 font-display text-4xl leading-tight text-cream md:text-5xl"
+          >
             Estilo, precisión y el trato de casa
           </h2>
           <div className="mt-6 space-y-5 text-base leading-relaxed text-cream-muted">
@@ -35,22 +45,23 @@ export function About() {
             </p>
           </div>
 
+          <h3 className="sr-only">Comodidades del local</h3>
           <ul className="mt-8 grid gap-3 sm:grid-cols-2">
             {SITE.amenities.map((item) => (
               <li
                 key={item}
                 className="flex items-center gap-3 text-sm text-cream"
               >
-                <span className="h-px w-4 bg-brass" aria-hidden />
+                <span className="h-px w-4 bg-brass" aria-hidden="true" />
                 {item}
               </li>
             ))}
           </ul>
 
           <div className="mt-10 border-t border-line pt-8">
-            <p className="text-xs tracking-[0.2em] text-brass uppercase">
+            <h3 className="text-xs tracking-[0.2em] text-brass uppercase">
               Equipo
-            </p>
+            </h3>
             <ul className="mt-4 flex flex-wrap gap-x-8 gap-y-3">
               {STAFF.map((person) => (
                 <li key={person.name}>

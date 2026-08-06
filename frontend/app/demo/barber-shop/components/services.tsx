@@ -1,5 +1,6 @@
 import { Reveal } from "@/app/demo/barber-shop/components/reveal";
 import { ServiceIcon } from "@/app/demo/barber-shop/components/service-icon";
+import { externalLabel } from "@/app/demo/barber-shop/lib/a11y";
 import { SERVICES, SITE } from "@/app/demo/barber-shop/lib/data";
 
 const orderedServices = [...SERVICES].sort(
@@ -8,14 +9,21 @@ const orderedServices = [...SERVICES].sort(
 
 export function Services() {
   return (
-    <section id="servicios" className="grain relative bg-ink-soft py-20 md:py-28">
+    <section
+      id="servicios"
+      className="grain relative bg-ink-soft py-20 md:py-28"
+      aria-labelledby="services-title"
+    >
       <div className="section-pad relative z-[2] mx-auto max-w-7xl">
         <Reveal>
           <div className="max-w-2xl">
             <p className="font-display text-sm tracking-[0.3em] text-brass uppercase">
               Carta
             </p>
-            <h2 className="mt-3 font-display text-4xl text-cream md:text-5xl">
+            <h2
+              id="services-title"
+              className="mt-3 font-display text-4xl text-cream md:text-5xl"
+            >
               Servicios
             </h2>
             <p className="mt-4 text-cream-muted">
@@ -24,6 +32,7 @@ export function Services() {
                 href={SITE.booksy}
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label={externalLabel("Booksy")}
                 className="text-brass transition hover:text-brass-bright"
               >
                 Booksy
@@ -33,6 +42,7 @@ export function Services() {
                 href={SITE.whatsapp}
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label={externalLabel("WhatsApp")}
                 className="text-brass transition hover:text-brass-bright"
               >
                 WhatsApp
@@ -43,13 +53,19 @@ export function Services() {
         </Reveal>
 
         <Reveal className="mt-12">
-          <ul className="divide-y divide-line border-y border-line">
+          <ul
+            className="divide-y divide-line border-y border-line"
+            aria-label="Lista de servicios y precios"
+          >
             {orderedServices.map((service) => (
               <li
                 key={service.name}
                 className="group grid grid-cols-[2.5rem_minmax(0,1fr)] gap-x-4 gap-y-2 py-5 transition md:grid-cols-[2.5rem_minmax(0,1fr)_5.5rem_5rem_auto] md:items-start md:gap-x-8"
               >
-                <span className="mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center border border-line text-brass transition group-hover:border-brass/60 group-hover:text-brass-bright">
+                <span
+                  className="mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center border border-line text-brass transition group-hover:border-brass/60 group-hover:text-brass-bright"
+                  aria-hidden="true"
+                >
                   <ServiceIcon icon={service.icon} />
                 </span>
 
@@ -70,20 +86,27 @@ export function Services() {
                     </p>
                   )}
                   <p className="mt-2 text-sm text-cream-muted md:hidden">
-                    {service.duration} · {service.price}
+                    <span className="sr-only">Duración: </span>
+                    {service.duration}
+                    <span aria-hidden="true"> · </span>
+                    <span className="sr-only">Precio: </span>
+                    {service.price}
                   </p>
                 </div>
 
                 <p className="hidden pt-2 text-sm text-cream-muted md:block">
+                  <span className="sr-only">Duración: </span>
                   {service.duration}
                 </p>
                 <p className="hidden pt-1 font-display text-xl text-brass md:block">
+                  <span className="sr-only">Precio: </span>
                   {service.price}
                 </p>
                 <a
                   href={SITE.booksy}
                   target="_blank"
                   rel="noopener noreferrer"
+                  aria-label={externalLabel(`Agendar ${service.name} en Booksy`)}
                   className="hidden pt-2.5 text-xs tracking-[0.16em] text-cream uppercase transition group-hover:text-brass md:inline-block"
                 >
                   Agendar →

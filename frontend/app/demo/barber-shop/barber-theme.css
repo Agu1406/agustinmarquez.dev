@@ -12,6 +12,37 @@
   --font-display: var(--font-display);
 }
 
+.barber-shop .skip-link {
+  position: absolute;
+  left: 1rem;
+  top: 1rem;
+  z-index: 100;
+  transform: translateY(-200%);
+  padding: 0.75rem 1.25rem;
+  background: var(--brass);
+  color: var(--ink);
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: transform 0.2s ease;
+}
+
+.barber-shop .skip-link:focus {
+  transform: translateY(0);
+  outline: none;
+}
+
+.barber-shop :focus-visible {
+  outline: 2px solid var(--brass-bright);
+  outline-offset: 3px;
+}
+
+.barber-shop :focus:not(:focus-visible) {
+  outline: none;
+}
+
 .barber-shop {
   --ink: #182c48;
   --ink-soft: #121212;
@@ -26,6 +57,7 @@
   --foreground: var(--cream);
 
   min-height: 100vh;
+  position: relative;
   background: var(--ink);
   color: var(--cream);
   font-family: var(--font-body), system-ui, sans-serif;
@@ -132,6 +164,18 @@
 @media (min-width: 1280px) {
   .barber-shop .section-pad {
     padding-inline: 4rem;
+  }
+}
+
+@media (prefers-contrast: more) {
+  .barber-shop {
+    --cream-muted: #d4cec4;
+    --line: rgba(197, 160, 89, 0.45);
+  }
+
+  .barber-shop :focus-visible {
+    outline-width: 3px;
+    outline-offset: 4px;
   }
 }
 
