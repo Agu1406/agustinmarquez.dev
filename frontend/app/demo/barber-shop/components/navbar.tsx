@@ -99,10 +99,21 @@ export function Navbar() {
       active === id ? "text-brass" : "text-cream-muted hover:text-brass"
     }`;
 
+  const mobileLinkClass = (id: string) =>
+    `block border-l-2 py-4 pl-4 font-display text-2xl transition-colors ${
+      active === id
+        ? "border-brass bg-brass/10 text-brass"
+        : "border-transparent text-cream hover:border-brass/50 hover:bg-ink-elevated/60"
+    }`;
+
   return (
-    <header className="fixed inset-x-0 top-0 z-50 border-b border-line bg-ink/90 backdrop-blur-md">
+    <header
+      className={`fixed inset-x-0 top-0 border-b border-line bg-ink/90 backdrop-blur-md ${
+        open ? "z-[100]" : "z-50"
+      }`}
+    >
       <nav
-        className="section-pad mx-auto flex h-16 max-w-7xl items-center justify-between md:h-20"
+        className="section-pad relative z-[2] mx-auto flex h-16 max-w-7xl items-center justify-between md:h-20"
         aria-label="Principal"
       >
         <a
@@ -141,7 +152,11 @@ export function Navbar() {
           <button
             ref={menuButtonRef}
             type="button"
-            className="inline-flex h-10 w-10 items-center justify-center border border-line text-cream md:hidden"
+            className={`inline-flex h-10 w-10 items-center justify-center border text-cream transition md:hidden ${
+              open
+                ? "border-brass bg-brass/15 text-brass-bright"
+                : "border-line hover:border-brass/50"
+            }`}
             aria-label={open ? "Cerrar menú" : "Abrir menú"}
             aria-expanded={open}
             aria-controls={MENU_ID}
@@ -170,43 +185,54 @@ export function Navbar() {
       </nav>
 
       {open && (
-        <div
-          ref={menuRef}
-          id={MENU_ID}
-          role="dialog"
-          aria-modal="true"
-          aria-label="Menú de navegación"
-          className="fixed inset-0 top-16 z-40 bg-ink md:hidden"
-        >
-          <ul className="section-pad flex h-full flex-col gap-1 py-8">
-            {links.map((link) => (
-              <li key={link.href}>
+        <>
+          <button
+            type="button"
+            className="nav-menu-backdrop fixed inset-0 top-16 md:hidden"
+            aria-label="Cerrar menú"
+            onClick={closeMenu}
+          />
+          <div
+            ref={menuRef}
+            id={MENU_ID}
+            role="dialog"
+            aria-modal="true"
+            aria-label="Menú de navegación"
+            className="nav-menu-panel fixed inset-x-0 top-16 z-[1] max-h-[calc(100dvh-4rem)] overflow-y-auto border-t border-line md:hidden"
+          >
+            <div className="section-pad mx-auto max-w-7xl py-6 pb-[max(1.5rem,env(safe-area-inset-bottom))]">
+              <p className="mb-4 text-xs tracking-[0.28em] text-brass uppercase">
+                Navegación
+              </p>
+              <ul className="flex flex-col gap-1">
+                {links.map((link) => (
+                  <li key={link.href}>
+                    <a
+                      href={link.href}
+                      className={mobileLinkClass(link.id)}
+                      aria-current={active === link.id ? "true" : undefined}
+                      onClick={() => setOpen(false)}
+                    >
+                      {link.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+              <div className="mt-8 border-t border-line pt-6">
                 <a
-                  href={link.href}
-                  className={`block py-3 font-display text-2xl ${
-                    active === link.id ? "text-brass" : "text-cream"
-                  }`}
-                  aria-current={active === link.id ? "true" : undefined}
+                  href={SITE.booksy}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={externalLabel("Reservar cita en Booksy")}
+                  className="flex w-full items-center justify-center border border-brass bg-brass px-5 py-3.5 text-sm tracking-[0.14em] text-ink uppercase transition hover:bg-brass-bright"
                   onClick={() => setOpen(false)}
                 >
-                  {link.label}
+                  Reservar cita
                 </a>
-              </li>
-            ))}
-            <li className="pt-6">
-              <a
-                href={SITE.booksy}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={externalLabel("Reservar cita en Booksy")}
-                className="inline-block border border-brass bg-brass px-5 py-3 text-sm tracking-[0.14em] text-ink uppercase"
-                onClick={() => setOpen(false)}
-              >
-                Reservar cita
-              </a>
-            </li>
-          </ul>
-        </div>
+              </div>
+            </div>
+          </div>
+        </>
       )}
     </header>
   );
