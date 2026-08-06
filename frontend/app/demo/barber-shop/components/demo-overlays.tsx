@@ -60,7 +60,7 @@ export function DemoOverlays() {
     <div className="pointer-events-none fixed inset-x-0 bottom-0 z-50 flex flex-col">
       {!ctaHidden && (
         <div
-          className="pointer-events-auto border-t border-line bg-ink/90 p-4 backdrop-blur-md md:hidden"
+          className="pointer-events-auto border-t border-line bg-ink/90 px-4 pt-3 pb-[max(1.25rem,env(safe-area-inset-bottom))] backdrop-blur-md md:hidden"
           role="region"
           aria-label="Reserva rápida"
         >

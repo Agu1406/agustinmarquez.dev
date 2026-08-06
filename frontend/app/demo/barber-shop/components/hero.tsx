@@ -24,7 +24,7 @@ export function Hero() {
         <div className="absolute inset-0 bg-gradient-to-r from-ink/80 via-transparent to-ink/30" />
       </div>
 
-      <div className="section-pad relative mx-auto w-full max-w-7xl pb-16 pt-32 md:pb-24 md:pt-40">
+      <div className="section-pad relative mx-auto w-full max-w-7xl pb-40 pt-32 md:pb-24 md:pt-40">
         <p className="animate-fade-up font-display text-sm tracking-[0.35em] text-brass uppercase md:text-base">
           Las Rozas de Madrid
         </p>

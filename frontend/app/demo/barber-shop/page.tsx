@@ -13,7 +13,7 @@ export default function BarberShopHome() {
     <>
       <SkipLink />
       <Navbar />
-      <main id="contenido-principal" className="pb-24 md:pb-0" tabIndex={-1}>
+      <main id="contenido-principal" className="pb-32 md:pb-0" tabIndex={-1}>
         <Hero />
         <Services />
         <About />
