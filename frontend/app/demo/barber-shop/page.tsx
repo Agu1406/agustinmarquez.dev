@@ -6,6 +6,7 @@ import { Hero } from "@/app/demo/barber-shop/components/hero";
 import { Navbar } from "@/app/demo/barber-shop/components/navbar";
 import { Reviews } from "@/app/demo/barber-shop/components/reviews";
 import { Services } from "@/app/demo/barber-shop/components/services";
+import { Story } from "@/app/demo/barber-shop/components/story";
 
 export default function BarberShopHome() {
   return (
@@ -15,6 +16,7 @@ export default function BarberShopHome() {
         <Hero />
         <Services />
         <About />
+        <Story />
         <Reviews />
         <Contact />
       </main>

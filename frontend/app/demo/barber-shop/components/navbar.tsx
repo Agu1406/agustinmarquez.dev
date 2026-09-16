@@ -6,6 +6,7 @@ import { SITE } from "@/app/demo/barber-shop/lib/data";
 const links = [
   { href: "#servicios", id: "servicios", label: "Servicios" },
   { href: "#sobre-nosotros", id: "sobre-nosotros", label: "Nosotros" },
+  { href: "#trayectoria", id: "trayectoria", label: "Trayectoria" },
   { href: "#opiniones", id: "opiniones", label: "Opiniones" },
   { href: "#contacto", id: "contacto", label: "Contacto" },
 ] as const;

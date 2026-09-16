@@ -48,10 +48,29 @@ export const HOURS = [
 ] as const;
 
 export const STAFF = [
-  { name: "José Sotelo", role: "Peluquero" },
+  {
+    name: "José Sotelo",
+    role: "Fundador · Campeón mundial",
+  },
   { name: "Miguel", role: "Peluquero" },
   { name: "Alex", role: "Peluquero" },
 ] as const;
+
+/** Placeholder temporal hasta el vídeo propio sobre la trayectoria de José. */
+export const JOSE_STORY = {
+  eyebrow: "Trayectoria",
+  title: "José Sotelo, campeón mundial",
+  lead:
+    "Desde los 18 años representando a España en corte de pelo y barba: precisión de competición, traída al día a día en Las Rozas.",
+  paragraphs: [
+    "José Sotelo no solo dirige Ikaro Men's Barber: es campeón mundial y ha competido representando a España en corte de pelo y barba. Esa exigencia se nota en cada servicio — escucha, técnica y un resultado limpio.",
+    "Aquí irá, más adelante, el vídeo propio sobre su trayectoria. Mientras tanto, este espacio muestra el tono y la ubicación del contenido.",
+  ],
+  youtubeId: "p7mfUclgdm4",
+  youtubeTitle:
+    "Vídeo provisional — espacio reservado para la trayectoria de José Sotelo",
+  placeholderNote: "Contenido provisional · Sustituir por el vídeo definitivo",
+} as const;
 
 export type Service = {
   name: string;
