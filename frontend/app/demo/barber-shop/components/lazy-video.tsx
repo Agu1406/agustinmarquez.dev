@@ -5,10 +5,11 @@ import { useEffect, useRef } from "react";
 type LazyVideoProps = {
   src: string;
   className?: string;
-  "aria-label"?: string;
+  /** Vídeo decorativo: se oculta a tecnologías de asistencia. */
+  decorative?: boolean;
 };
 
-export function LazyVideo({ src, className, "aria-label": ariaLabel }: LazyVideoProps) {
+export function LazyVideo({ src, className, decorative = false }: LazyVideoProps) {
   const ref = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
@@ -39,7 +40,8 @@ export function LazyVideo({ src, className, "aria-label": ariaLabel }: LazyVideo
       loop
       playsInline
       preload="none"
-      aria-label={ariaLabel}
+      tabIndex={-1}
+      aria-hidden={decorative ? true : undefined}
     />
   );
 }

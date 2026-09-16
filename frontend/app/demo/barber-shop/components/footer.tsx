@@ -1,3 +1,4 @@
+import { externalLabel } from "@/app/demo/barber-shop/lib/a11y";
 import { SITE } from "@/app/demo/barber-shop/lib/data";
 
 export function Footer() {
@@ -12,27 +13,41 @@ export function Footer() {
           </p>
           <p className="mt-1 text-sm text-cream-muted">{SITE.address.full}</p>
         </div>
-        <div className="flex flex-wrap gap-5 text-sm text-cream-muted">
-          <a href={SITE.phoneHref} className="transition hover:text-brass">
-            {SITE.phone}
-          </a>
-          <a
-            href={SITE.booksy}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="transition hover:text-brass"
-          >
-            Booksy
-          </a>
-          <a
-            href={SITE.whatsapp}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="transition hover:text-brass"
-          >
-            WhatsApp
-          </a>
-        </div>
+        <nav aria-label="Contacto">
+          <ul className="flex flex-wrap gap-5 text-sm text-cream-muted">
+            <li>
+              <a
+                href={SITE.phoneHref}
+                aria-label={`Llamar al ${SITE.phone}`}
+                className="transition hover:text-brass"
+              >
+                {SITE.phone}
+              </a>
+            </li>
+            <li>
+              <a
+                href={SITE.booksy}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={externalLabel("Reservar en Booksy")}
+                className="transition hover:text-brass"
+              >
+                Booksy
+              </a>
+            </li>
+            <li>
+              <a
+                href={SITE.whatsapp}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={externalLabel("Contactar por WhatsApp")}
+                className="transition hover:text-brass"
+              >
+                WhatsApp
+              </a>
+            </li>
+          </ul>
+        </nav>
       </div>
       <div className="section-pad mx-auto max-w-7xl border-t border-line py-5 text-xs text-cream-muted">
         © {year} {SITE.name}. Todos los derechos reservados.

@@ -4,14 +4,21 @@ import { JOSE_STORY } from "@/app/demo/barber-shop/lib/data";
 
 export function Story() {
   return (
-    <section id="trayectoria" className="grain relative bg-ink-soft py-20 md:py-28">
-      <div className="section-pad relative z-[2] mx-auto max-w-7xl">
+    <section
+      id="trayectoria"
+      className="bg-ink py-20 md:py-28"
+      aria-labelledby="story-title"
+    >
+      <div className="section-pad mx-auto max-w-7xl">
         <div className="grid gap-10 lg:grid-cols-12 lg:items-center lg:gap-14">
           <Reveal className="lg:col-span-5">
             <p className="font-display text-sm tracking-[0.3em] text-brass uppercase">
               {JOSE_STORY.eyebrow}
             </p>
-            <h2 className="mt-3 font-display text-4xl leading-tight text-cream md:text-5xl">
+            <h2
+              id="story-title"
+              className="mt-3 font-display text-4xl leading-tight text-cream md:text-5xl"
+            >
               {JOSE_STORY.title}
             </h2>
             <p className="mt-5 text-base leading-relaxed text-cream-muted md:text-lg">
@@ -24,15 +31,15 @@ export function Story() {
             </div>
             <ul className="mt-8 flex flex-wrap gap-x-8 gap-y-3 border-t border-line pt-6 text-sm text-cream">
               <li className="flex items-center gap-3">
-                <span className="h-px w-4 bg-brass" aria-hidden />
+                <span className="h-px w-4 bg-brass" aria-hidden="true" />
                 Campeón mundial
               </li>
               <li className="flex items-center gap-3">
-                <span className="h-px w-4 bg-brass" aria-hidden />
+                <span className="h-px w-4 bg-brass" aria-hidden="true" />
                 Representando a España
               </li>
               <li className="flex items-center gap-3">
-                <span className="h-px w-4 bg-brass" aria-hidden />
+                <span className="h-px w-4 bg-brass" aria-hidden="true" />
                 Desde los 18 años
               </li>
             </ul>
