@@ -1,16 +1,17 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import TimelineEmbed from "../../../components/TimelineEmbed";
 import { ASIGNATURAS, getAsignatura } from "../../../lib/asignaturas";
-import { TIMELINES } from "../../../lib/timelines";
 
 type Props = { params: Promise<{ asignatura: string }> };
 
 export const dynamicParams = false;
 
 export function generateStaticParams() {
-  return ASIGNATURAS.map((a) => ({ asignatura: a.slug }));
+  // CIA tiene su propia página (con la línea temporal) en ../color-iluminacion-acabado
+  return ASIGNATURAS.filter((a) => a.slug !== "color-iluminacion-acabado").map(
+    (a) => ({ asignatura: a.slug }),
+  );
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -24,8 +25,6 @@ export default async function AsignaturaPage({ params }: Props) {
   const { asignatura: slug } = await params;
   const asignatura = getAsignatura(slug);
   if (!asignatura) notFound();
-
-  const timeline = TIMELINES[slug];
 
   return (
     <div className="flex flex-col gap-12">
@@ -71,22 +70,7 @@ export default async function AsignaturaPage({ params }: Props) {
         </section>
       )}
 
-      {timeline ? (
-        <section aria-labelledby="titulo-timeline">
-          <h2
-            id="titulo-timeline"
-            className="s-muted s-mono text-sm uppercase tracking-wider"
-          >
-            Línea temporal
-          </h2>
-          <div className="mt-6">
-            <TimelineEmbed
-              data={timeline}
-              label={`Línea temporal: ${asignatura.nombre}`}
-            />
-          </div>
-        </section>
-      ) : (
+      {!asignatura.enlaces?.length && (
         <p className="s-muted">Todavía no hay entregas publicadas aquí.</p>
       )}
     </div>

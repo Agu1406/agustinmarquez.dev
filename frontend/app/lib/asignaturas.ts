@@ -1,7 +1,7 @@
 /**
  * Ciclo formativo y sus asignaturas. Cada elemento de ASIGNATURAS genera una
- * sub-URL: /animacion/<slug>. Las líneas temporales (TimelineJS) viven en
- * ./timelines.ts y se enlazan por slug.
+ * sub-URL: /animacion/<slug>. La línea temporal de CIA (TimelineJS) tiene su
+ * propia página en app/(site)/animacion/color-iluminacion-acabado/.
  */
 export const CICLO = {
   nombre: "Animaciones 3D, Juegos y Entornos Interactivos",
