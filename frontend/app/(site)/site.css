@@ -1,0 +1,122 @@
+/*
+ * Tema de la web principal. Se aplica solo dentro de .site-theme para no
+ * afectar a las demos, que tienen sus propios temas.
+ * Contrastes (WCAG): texto 14.9:1, texto secundario 6.3:1 (claro) y 7.1:1 (oscuro),
+ * acento 5.5:1 (claro) y 7.3:1 (oscuro).
+ */
+.site-theme {
+  --s-bg: #f3eee4;
+  --s-surface: #ebe4d6;
+  --s-text: #1d1b17;
+  --s-muted: #5c564b;
+  --s-accent: #a8391f;
+  --s-line: #cfc6b3;
+
+  background: var(--s-bg);
+  color: var(--s-text);
+  font-family: var(--font-schibsted), system-ui, sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  .site-theme {
+    --s-bg: #15130f;
+    --s-surface: #1e1b16;
+    --s-text: #ece6d9;
+    --s-muted: #a79f8f;
+    --s-accent: #e8896b;
+    --s-line: #3a352b;
+  }
+}
+
+.site-theme .s-muted {
+  color: var(--s-muted);
+}
+
+.site-theme .s-accent {
+  color: var(--s-accent);
+}
+
+.site-theme .s-line {
+  border-color: var(--s-line);
+}
+
+.site-theme .s-mono {
+  font-family: var(--font-jetbrains), ui-monospace, monospace;
+}
+
+/* Enlaces de texto: subrayado visible siempre, acento al pasar el cursor */
+.site-theme .s-link {
+  text-decoration-line: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+  text-decoration-color: var(--s-muted);
+  transition: color 150ms, text-decoration-color 150ms;
+}
+
+.site-theme .s-link:hover {
+  color: var(--s-accent);
+  text-decoration-color: var(--s-accent);
+}
+
+/* Foco de teclado siempre visible */
+.site-theme a:focus-visible,
+.site-theme button:focus-visible {
+  outline: 2px solid var(--s-accent);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* Enlace "saltar al contenido": oculto hasta recibir foco */
+.site-theme .s-skip {
+  position: absolute;
+  left: 1rem;
+  top: -4rem;
+  z-index: 50;
+  padding: 0.5rem 1rem;
+  background: var(--s-text);
+  color: var(--s-bg);
+  font-weight: 600;
+}
+
+.site-theme .s-skip:focus {
+  top: 1rem;
+}
+
+/* TimelineJS: usa la tipografía del sitio en vez de cargar fuentes externas */
+.site-theme .tl-timeline {
+  font-family: var(--font-schibsted), system-ui, sans-serif;
+}
+
+/* Texto legal */
+.site-theme .s-prose h2 {
+  margin-top: 2.5rem;
+  margin-bottom: 0.75rem;
+  font-size: 1.25rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.site-theme .s-prose p,
+.site-theme .s-prose ul {
+  margin-top: 0.75rem;
+  line-height: 1.7;
+}
+
+.site-theme .s-prose ul {
+  list-style: disc;
+  padding-left: 1.25rem;
+}
+
+.site-theme .s-prose li + li {
+  margin-top: 0.35rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .site-theme *,
+  .site-theme *::before,
+  .site-theme *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
