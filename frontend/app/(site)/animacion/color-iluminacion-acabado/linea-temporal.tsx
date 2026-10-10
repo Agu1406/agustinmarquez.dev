@@ -45,6 +45,8 @@ const DATOS = {
       },
       media: {
         url: "/animacion/color-iluminacion-acabado/chauvet-caballos.jpg",
+        // Miniatura de la tarjeta de la barra inferior (puede ser otra imagen)
+        thumbnail: "/animacion/color-iluminacion-acabado/chauvet-caballos.jpg",
         caption: "Caballos superpuestos de la cueva de Chauvet (Francia).",
         credit: "Autor desconocido, dominio público, vía Wikimedia Commons",
         alt: "Cabezas de caballos pintadas en negro y ocre, superpuestas en la pared de una cueva",
@@ -88,6 +90,13 @@ export default function LineaTemporal() {
         font: "",
         use_bc: true,
         hash_bookmark: false,
+        // Medidas de la barra inferior copiadas de VinePair (ver site.css):
+        // alto total 200px (150 de tarjetas + 50 del eje de años)
+        timenav_height: 200,
+        // distancia (px) de las tarjetas al borde superior de la zona gris
+        marker_padding: 15,
+        // ancho de cada tarjeta; debe coincidir con el width de .tl-timemarker-content-container en site.css
+        marker_width_min: 153,
       });
     };
 
