@@ -12,9 +12,6 @@ import { useEffect, useRef } from "react";
  * Los años antes de Cristo van en negativo (por ejemplo -450).
  */
 const DATOS = {
-  // Escala cosmológica: necesaria porque el primer hito (hace ~500.000 años)
-  // queda fuera del rango de fechas normal de TimelineJS.
-  scale: "cosmological",
   title: {
     text: {
       headline: "La línea temporal de la luz escénica y cinematográfica",
@@ -23,25 +20,35 @@ const DATOS = {
   },
   events: [
     {
-      // Fuente: Wikipedia, "Pseudodon DUB1006-fL" (CC BY-SA 4.0). Texto parafraseado.
-      // Sin end_date: TimelineJS añadiría la fecha final en inglés ("430.0 thousand years").
-      start_date: { year: -540000, display_date: "Hace 540.000 a 430.000 años" },
+      // Fuente: Europa Press Ciencia, "Los artistas rupestres experimentaron con la
+      // animación" (24/09/2012), sobre el estudio de Azéma y Rivère en Antiquity.
+      // Texto parafraseado (la web prohíbe redistribuir el original).
+      // Con fechas anteriores a ~-50000 la barra de TimelineJS se rompe (etiquetas
+      // "NaN"), así que se coloca en -10000 de forma aproximada y el período real
+      // va en display_date. Sin end_date para que no se añada otra fecha final.
+      start_date: { year: -10000, display_date: "Prehistoria (Paleolítico superior)" },
       text: {
-        headline: "Prehistoria: Primera muestra de \"arte abstracto\" de la historia",
+        headline: "Prehistoria: la luz del fuego anima las cuevas",
         text:
-          "<p>En la isla de Java se encontro en 2009 una concha de almeja de agua dulce con garabatos y patrones geometricos" +
-          " con el que varios expertos concuerdan en la muestra de arte más antigua del ser humano siendo previo incluso al " +
-          " humano moderno en Africa, concretamente esta muestra pertenece a la epoca del Homo Erectus (previo al Homo Sapiens)." +
-          "</p>",
+          "<p>&emsp;En las cuevas prehistóricas la única luz era la del fuego. Su llama vacilante hacía que " +
+          "los animales pintados parecieran moverse, y hay quien defiende que los artistas lo buscaban a propósito.</p>" +
+          "<h4>Innovaciones técnicas y estéticas</h4>" +
+          "<ul>" +
+          "<li>La llama como fuente de luz: su parpadeo daba vida a las imágenes sobre la roca.</li>" +
+          "<li>Superposición y repetición de patas o partes del cuerpo del animal, un intento primitivo de sugerir movimiento (hay ejemplos en 12 cuevas francesas, sobre todo en Lascaux).</li>" +
+          "<li>Discos de hueso grabados en la zona de los Pirineos, que se han interpretado como taumatropos: dos imágenes que se funden al girar el disco.</li>" +
+          "</ul>" +
+          "<h4>Autores y figuras clave</h4>" +
+          "<p>Marc Azéma y Florent Rivère: arqueólogos franceses que estudiaron 53 obras y propusieron que eran proto-animaciones (estudio publicado en <i>Antiquity</i>, 2012). Los artistas rupestres no se conocen por su nombre.</p>" +
+          "<h4>Terminología técnica</h4>" +
+          "<p>Taumatropo: juguete óptico, un disco con una imagen en cada cara que al girar rápido las combina en una sola. Se atribuye a John Ayrton Paris (1824).</p>",
       },
       media: {
-        url: "/animacion/color-iluminacion-acabado/pseudodon-dub1006-fl.jpg",
-        caption: "Concha Pseudodon DUB1006-fL con incisiones geométricas.",
-        credit:
-          "Henk Caspers / Naturalis Biodiversity Center, CC BY-SA 3.0, vía Wikimedia Commons",
-        alt: "Concha fósil con líneas en zigzag grabadas en su superficie",
+        url: "/animacion/color-iluminacion-acabado/chauvet-caballos.jpg",
+        caption: "Caballos superpuestos de la cueva de Chauvet (Francia).",
+        credit: "Autor desconocido, dominio público, vía Wikimedia Commons",
+        alt: "Cabezas de caballos pintadas en negro y ocre, superpuestas en la pared de una cueva",
       },
-      group: "Prehistoria",
     },
     {
       // BORRADOR: sustituir por los hitos del material 1088_01RA7.
@@ -50,7 +57,6 @@ const DATOS = {
         headline: "Teatro griego",
         text: "<p>[BORRADOR] Las representaciones se hacían a la luz del día. Completar con descripción, innovaciones, figuras y referencia visual según el material teórico.</p>",
       },
-      group: "Teatro antiguo",
     },
   ],
 };
@@ -105,12 +111,13 @@ export default function LineaTemporal() {
     <>
       {/* Estilos de TimelineJS alojados en /public/timelinejs */}
       <link rel="stylesheet" href={`${RUTA}css/timeline.css`} precedence="default" />
-      <div
-        ref={ref}
-        role="region"
-        aria-label="Línea temporal de la luz escénica y cinematográfica"
-        className="s-line h-[75vh] min-h-[520px] w-full overflow-hidden border"
-      />
+      {/*
+        TimelineJS sobrescribe el className de su contenedor, así que el estilo
+        (ancho completo, alto, bordes) va en este div exterior.
+      */}
+      <div className="s-line s-fullbleed h-[80svh] min-h-[520px] overflow-hidden border-y">
+        <div ref={ref} />
+      </div>
     </>
   );
 }

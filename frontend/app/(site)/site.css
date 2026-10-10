@@ -82,9 +82,145 @@
   top: 1rem;
 }
 
+/*
+ * Elemento a todo el ancho de la pantalla, fuera del contenedor centrado.
+ * overflow-x: clip evita la barra horizontal que provoca 100vw cuando hay
+ * barra de scroll vertical.
+ */
+.site-theme {
+  overflow-x: clip;
+}
+
+.site-theme .s-fullbleed {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+}
+
+.site-theme .s-fullbleed > div {
+  width: 100%;
+  height: 100%;
+}
+
 /* TimelineJS: usa la tipografía del sitio en vez de cargar fuentes externas */
 .site-theme .tl-timeline {
   font-family: var(--font-schibsted), system-ui, sans-serif;
+}
+
+/* TimelineJS: tamaño máximo de las imágenes de las diapositivas (cambia el valor para ajustarlo) */
+.site-theme .tl-timeline .tl-media .tl-media-image {
+  max-height: 360px !important;
+  max-width: 100% !important;
+  width: auto !important;
+}
+
+/*
+ * TimelineJS: la imagen, el pie y el crédito forman una columna del ancho de
+ * la imagen (por defecto el crédito se alineaba a la derecha del contenedor,
+ * lejos de la foto). Orden: imagen, pie, crédito. Colores con contraste AA.
+ */
+.site-theme .tl-timeline .tl-media .tl-media-content-container {
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+  text-align: center;
+  max-width: 100%;
+}
+
+.site-theme .tl-timeline .tl-media .tl-media-content {
+  order: 1;
+}
+
+.site-theme .tl-timeline .tl-media .tl-caption {
+  order: 2;
+  margin: 8px 0 0;
+  padding: 0;
+  font-size: 13px;
+  line-height: 17px;
+  color: #454545;
+  text-align: center;
+}
+
+.site-theme .tl-timeline .tl-media .tl-credit {
+  order: 3;
+  margin: 4px 0 0;
+  padding: 0;
+  text-align: center;
+  font-size: 12px;
+  line-height: 16px;
+  color: #595959;
+}
+
+/* TimelineJS: fecha y título centrados, texto del cuerpo justificado */
+.site-theme .tl-timeline .tl-text .tl-text-headline-container,
+.site-theme .tl-timeline .tl-text .tl-headline,
+.site-theme .tl-timeline .tl-text .tl-headline-date {
+  text-align: center;
+}
+
+.site-theme .tl-timeline .tl-text .tl-text-content,
+.site-theme .tl-timeline .tl-text .tl-text-content p {
+  text-align: justify;
+  hyphens: auto;
+}
+
+/*
+ * TimelineJS (escritorio y tablet): la imagen, el pie y el crédito quedan
+ * centrados en vertical y en horizontal dentro de su columna (40 % imagen,
+ * 60 % texto; antes 50/50). Por defecto la
+ * imagen era un float pegado arriba. Si el texto es largo y la diapositiva
+ * hace scroll, la imagen se queda fija (sticky) y centrada en la parte visible.
+ * En móvil (.tl-skinny) se mantiene el diseño en columna original.
+ */
+.site-theme .tl-timeline:not(.tl-skinny) .tl-slide:not(.tl-slide-text-only):not(.tl-slide-media-only) {
+  container-type: size;
+}
+
+.site-theme .tl-timeline:not(.tl-skinny) .tl-slide:not(.tl-slide-text-only):not(.tl-slide-media-only) .tl-slide-content {
+  display: flex;
+  direction: ltr;
+  flex-direction: row-reverse; /* en el DOM el texto va antes que la imagen */
+  align-items: flex-start;
+}
+
+.site-theme .tl-timeline:not(.tl-skinny) .tl-slide:not(.tl-slide-text-only):not(.tl-slide-media-only) .tl-media {
+  float: none;
+  flex: 0 0 40%;
+  width: 40%;
+  min-width: 0;
+  height: 100cqh;
+  position: sticky;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.site-theme .tl-timeline:not(.tl-skinny) .tl-slide:not(.tl-slide-text-only):not(.tl-slide-media-only) .tl-text {
+  display: block;
+  align-self: center;
+  flex: 0 0 60%;
+  width: 60%;
+  max-width: 60%;
+}
+
+/* TimelineJS: subtítulos y listas del cuerpo de cada hito */
+.site-theme .tl-timeline .tl-text .tl-text-content h4 {
+  margin: 12px 0 4px;
+  font-size: 1em;
+  font-weight: 600;
+  text-align: left;
+}
+
+.site-theme .tl-timeline .tl-text .tl-text-content ul {
+  margin: 0 0 4px;
+  padding-left: 1.25em;
+  list-style: disc;
+}
+
+.site-theme .tl-timeline .tl-text .tl-text-content li {
+  margin: 2px 0;
+  text-align: justify;
+  hyphens: auto;
 }
 
 /* Texto legal */
