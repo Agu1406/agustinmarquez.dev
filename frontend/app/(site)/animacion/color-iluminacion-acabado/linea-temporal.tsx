@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import "./linea-temporal.css";
 
 /**
  * ACT01-01RA7: La línea temporal de la luz escénica y cinematográfica.
@@ -92,7 +93,7 @@ export default function LineaTemporal() {
         hash_bookmark: false,
         // Medidas de la barra inferior copiadas de VinePair (ver site.css):
         // alto total 200px (150 de tarjetas + 50 del eje de años)
-        timenav_height: 200,
+        timenav_height_min: 230,
         // distancia (px) de las tarjetas al borde superior de la zona gris
         marker_padding: 15,
         // ancho de cada tarjeta; debe coincidir con el width de .tl-timemarker-content-container en site.css
