@@ -118,6 +118,12 @@
   hyphens: auto;
 }
 
+/* Portada y diapositivas solo de texto: cuerpo centrado */
+.site-theme .tl-timeline .tl-slide-text-only .tl-text .tl-text-content,
+.site-theme .tl-timeline .tl-slide-text-only .tl-text .tl-text-content p {
+  text-align: center;
+}
+
 /*
  * TimelineJS (escritorio y tablet): la imagen, el pie y el crédito quedan
  * centrados en vertical y en horizontal dentro de su columna (40 % imagen,
