@@ -25,7 +25,7 @@ const DATOS = {
       // vía La Vanguardia. Texto parafraseado. year aproximado (TimelineJS).
       start_date: {
         year: -10000,
-        display_date: "Hace unos 170.000–10.000 años (Paleolítico)",
+        display_date: "Entre 400.000 y 10.000 años A.C (Paleolítico)",
       },
       text: {
         headline: "El fuego como elemento artístico en la prehistoria",
@@ -35,18 +35,19 @@ const DATOS = {
           "las profundidades de las cuevas y hizo posible el arte rupestre en la oscuridad.</p>" +
           "<h4>Innovaciones técnicas y estéticas</h4>" +
           "<ul>" +
-          "<li>Efecto \"flicker\" con fuentes de luz a base de fuego.</li>" +
-          "<li>Uso de la distancia y la luz para la manipulación de sombras.</li>" +
-          "<li>Uso de sombras en \"movimiento\" en el dibujo y trazado de figuras.</li>" +
+          "<li><strong>Efecto \"flicker\":</strong> fuentes de luz a base de fuego con parpadeo de la llama.</li>" +
+          "<li><strong>Manipulación de sombras:</strong> uso de la distancia y la luz para controlarlas.</li>" +
+          "<li><strong>Luz portátil:</strong> creación de fuentes de luz más allá de las hogueras.</li>" +
           "</ul>" +
           "<h4>Autores y figuras clave</h4>" +
-          "<p>María Ángeles Medina-Alcaide y Diego Garate (Españoles): recrearon antorchas, hogueras y " +
+          "<p><strong>María Ángeles Medina-Alcaide y Diego Garate</strong> (españoles): recrearon antorchas, hogueras y " +
           "lámparas de grasa a partir de restos arqueológicos y midieron duración, luminosidad y radio " +
           "de acción en cuevas (estudio en <i>PLOS ONE</i>, 2021). Documentan cómo se generaba esa luz " +
           "gracias a la cual el arte en cuevas ha sido posible.</p>" +
           "<h4>Terminología técnica</h4>" +
-          "<p>Luz de fuego: obtenida por la combustión de materia orgánica vegetal o animal.</p>" +
-          "<p>Efecto flicker: parpadeo e intermitencia de una luz proyectada, típico de la llama.</p>",
+          "<p><strong>Luz de fuego:</strong> obtenida por la combustión de materia orgánica vegetal o animal.</p>" +
+          "<p><strong>Efecto flicker:</strong> parpadeo e intermitencia de una luz proyectada, típico de la llama.</p>" +
+          "<p><strong>Luz móvil:</strong> capacidad de transportar el fuego para generar luz fuera de las hogueras.</p>",
       },
       media: {
         url: "/animacion/color-iluminacion-acabado/prehistoria.jpg",
@@ -55,6 +56,50 @@ const DATOS = {
         credit: "Alfer22, CC BY-NC-ND 2.0, vía Flickr",
         alt: "Persona sentada junto a una hoguera en una cueva",
         link: "https://flic.kr/p/34eXcZ",
+      },
+    },
+    {
+      // Contenido del usuario. year en el eje ~mitad del periodo VI–IV a. C.
+      start_date: {
+        year: -450,
+        display_date: "siglos VI–IV a. C.",
+      },
+      text: {
+        headline: "La luz del sol como actor principal en el teatro griego",
+        text:
+          "<p>&emsp;Tras milenios de evolución, el sol pasó de ser un ser divino a un elemento " +
+          "espiritual y artístico, y llegó al teatro griego, donde influía incluso en la arquitectura: " +
+          "se aprovechaban sus tonos y todas las horas de luz para dramatizar las escenas.</p>" +
+          "<h4>Innovaciones técnicas y estéticas</h4>" +
+          "<ul>" +
+          "<li><strong>Planificación arquitectónica:</strong> orientación calculada del <i>koilon</i> " +
+          "(graderío) y la <i>orchestra</i> para aprovechar la luz diurna y evitar deslumbrar al espectador.</li>" +
+          "<li><strong>Aprovechamiento del arco lumínico natural:</strong> uso de la progresión del sol " +
+          "(de luz blanca diurna a sombras alargadas y tonos cálidos al atardecer) para marcar el paso " +
+          "del tiempo dramático.</li>" +
+          "<li><strong>Uso esporádico de antorchas:</strong> empleo puntual de fuego en escenas nocturnas " +
+          "muy concretas, restringido por el humo y las dimensiones del espacio.</li>" +
+          "</ul>" +
+          "<h4>Autores y figuras clave</h4>" +
+          "<p><strong>Policleto el Joven</strong> (Policleto II, s. IV a. C.): escultor y arquitecto al que " +
+          "se atribuye tradicionalmente el diseño del teatro de Epidauro; su orientación al sol hace " +
+          "de la luz diurna el actor principal de la representación.</p>" +
+          "<p><strong>Dramaturgos clásicos</strong> (Esquilo, Sófocles, Eurípides): coordinaron la " +
+          "dramaturgia con el paso de la luz solar a lo largo de representaciones diurnas.</p>" +
+          "<h4>Terminología técnica</h4>" +
+          "<p><strong>Luz solar natural:</strong> fuente primaria de iluminación diurna en espacios abiertos.</p>" +
+          "<p><strong>Arco lumínico:</strong> variación natural de la calidad, temperatura y dirección " +
+          "de la luz solar a lo largo del día para acompañar la progresión dramática.</p>" +
+          "<p><strong>Orchestra y <i>koilon</i>:</strong> disposición espacial y arquitectónica orientada " +
+          "estratégicamente en función del ángulo solar.</p>",
+      },
+      media: {
+        url: "/animacion/color-iluminacion-acabado/teatro_griego.jpg",
+        thumbnail: "/animacion/color-iluminacion-acabado/teatro_griego.jpg",
+        caption: "Teatro de Epidauro (Grecia): graderío abierto a la luz del día.",
+        credit: "Pixabay / Picryl, CC0 1.0 (dominio público)",
+        alt: "Teatro griego antiguo con graderío semicircular al aire libre",
+        link: "https://picryl.com/media/epidaurus-amphitheater-theater-architecture-buildings-31d6f2",
       },
     },
   ],
