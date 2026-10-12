@@ -61,11 +61,23 @@
   font-family: var(--font-schibsted), system-ui, sans-serif;
 }
 
-/* TimelineJS: tamaño máximo de las imágenes de las diapositivas (cambia el valor para ajustarlo) */
+/*
+ * TimelineJS: todas las imágenes de las diapositivas con el mismo tamaño
+ * (proporción 3:2, ancho máximo 520px dentro de su columna del 40 %) y el mismo
+ * marco verde acento de la paleta. object-fit: cover recorta lo que sobre para
+ * que cualquier foto, sea cual sea su proporción, llene el recuadro.
+ */
 .site-theme .tl-timeline .tl-media .tl-media-image {
-  max-height: 360px !important;
+  box-sizing: border-box;
+  display: block;
+  width: 100% !important;
   max-width: 100% !important;
-  width: auto !important;
+  height: auto !important;
+  max-height: none !important;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  border: 6px solid var(--s-accent-solid);
+  box-shadow: none;
 }
 
 /*
@@ -76,9 +88,9 @@
 .site-theme .tl-timeline .tl-media .tl-media-content-container {
   display: flex;
   flex-direction: column;
-  width: fit-content;
+  width: 100%;
   text-align: center;
-  max-width: 100%;
+  max-width: min(100%, 520px);
 }
 
 .site-theme .tl-timeline .tl-media .tl-media-content {

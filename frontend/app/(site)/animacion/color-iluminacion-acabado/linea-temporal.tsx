@@ -102,6 +102,44 @@ const DATOS = {
         link: "https://picryl.com/media/epidaurus-amphitheater-theater-architecture-buildings-31d6f2",
       },
     },
+    {
+      // Contenido del usuario. year en el eje ~mitad del periodo I a. C.–V d. C.
+      start_date: {
+        year: 200,
+        display_date: "siglo I a. C. – siglo V d. C.",
+      },
+      text: {
+        headline: "Imperio Romano: espacios cerrados y luz artificial",
+        text:
+          "<p>&emsp;Los romanos heredaron el legado griego y lo evolucionaron: experimentaron con espacios " +
+          "cerrados, iluminación artificial con diferentes intensidades, colores y estructuras reflejantes, " +
+          "y jugaron con la forma de la luz.</p>" +
+          "<h4>Innovaciones técnicas y estéticas</h4>" +
+          "<ul>" +
+          "<li><strong>Iluminación artificial:</strong> usaron recipientes llenos de agua, telas, superficies " +
+          "metálicas, antorchas, lámparas de aceite, velas, etc., para distorsionar y controlar la luz en los escenarios.</li>" +
+          "<li><strong>Efecto backlight:</strong> a través de superficies reflectantes creaban un efecto de " +
+          "contraluz en algunos personajes, que les daba profundidad y los separaba del escenario.</li>" +
+          "<li><strong>Filtros de color:</strong> con telas teñidas, vidrios de diferentes colores y metales " +
+          "cambiaban la tonalidad de las luces y creaban ambientes especiales para las escenas y las obras.</li>" +
+          "</ul>" +
+          "<h4>Autores y figuras clave</h4>" +
+          "<p><strong>Vitruvio</strong> (Marco Vitruvio Polión, s. I a. C.): arquitecto romano, autor del tratado " +
+          "<i>De architectura</i>, que recoge las normas para proyectar teatros y otros edificios del mundo romano.</p>" +
+          "<h4>Terminología técnica</h4>" +
+          "<p><strong>Efecto \"backlight\":</strong> contraluz; luz situada detrás del sujeto que lo separa del fondo y le da profundidad.</p>" +
+          "<p><strong>Filtros de color:</strong> materiales translúcidos (telas teñidas, vidrios) que cambian el color de la luz que los atraviesa.</p>" +
+          "<p><strong>Superficies reflectantes:</strong> superficies (metales, agua) que devuelven la luz para redirigirla hacia el escenario.</p>",
+      },
+      media: {
+        url: "/animacion/color-iluminacion-acabado/teatro_romano.jpg",
+        thumbnail: "/animacion/color-iluminacion-acabado/teatro_romano.jpg",
+        caption: "Teatro romano de Aspendos (Turquía), el mejor conservado de Anatolia.",
+        credit: "Guillén Pérez, CC BY-ND 2.0, vía Flickr",
+        alt: "Teatro romano de Aspendos con su graderío y su frente escénico conservados",
+        link: "https://flic.kr/p/avw7Kg",
+      },
+    },
   ],
 };
 
