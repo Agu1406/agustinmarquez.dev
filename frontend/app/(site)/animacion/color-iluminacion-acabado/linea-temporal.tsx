@@ -103,40 +103,40 @@ const DATOS = {
       },
     },
     {
-      // Contenido del usuario. year en el eje ~mitad del periodo I a. C.–V d. C.
+      // Contenido del usuario. year ≈ inicio del periodo (I a. C.).
       start_date: {
-        year: 200,
-        display_date: "siglo I a. C. – siglo V d. C.",
+        year: -100,
+        display_date: "Siglo I a.C. al V d.C. (Imperio Romano)",
       },
       text: {
-        headline: "Imperio Romano: espacios cerrados y luz artificial",
+        headline: "De la Naturaleza al Artificio: El Teatro Romano",
         text:
-          "<p>&emsp;Los romanos heredaron el legado griego y lo evolucionaron: experimentaron con espacios " +
-          "cerrados, iluminación artificial con diferentes intensidades, colores y estructuras reflejantes, " +
-          "y jugaron con la forma de la luz.</p>" +
+          "<p>&emsp;Los romanos heredaron el legado griego y lo evolucionaron, experimentando con espacios " +
+          "cerrados, iluminación artificial con diferentes intensidades, colores, estructuras reflejantes " +
+          "y jugando con la forma de la luz.</p>" +
           "<h4>Innovaciones técnicas y estéticas</h4>" +
           "<ul>" +
-          "<li><strong>Iluminación artificial:</strong> usaron recipientes llenos de agua, telas, superficies " +
+          "<li><strong>Iluminación artificial:</strong> Usaron recipientes llenos de agua, telas, superficies " +
           "metálicas, antorchas, lámparas de aceite, velas, etc., para distorsionar y controlar la luz en los escenarios.</li>" +
-          "<li><strong>Efecto backlight:</strong> a través de superficies reflectantes creaban un efecto de " +
-          "contraluz en algunos personajes, que les daba profundidad y los separaba del escenario.</li>" +
-          "<li><strong>Filtros de color:</strong> con telas teñidas, vidrios de diferentes colores y metales " +
-          "cambiaban la tonalidad de las luces y creaban ambientes especiales para las escenas y las obras.</li>" +
+          "<li><strong>Efecto backlight:</strong> A través del uso de superficies reflejantes creaban un efecto de " +
+          "contraluz en algunos personajes agregando profundidad al personaje y separándolo del escenario.</li>" +
+          "<li><strong>Filtros de color:</strong> Utilizando telas teñidas, vidrios de diferentes colores y metales " +
+          "podían cambiar la tonalidad de las luces creando ambientes especiales para las escenas y obras.</li>" +
           "</ul>" +
           "<h4>Autores y figuras clave</h4>" +
-          "<p><strong>Vitruvio</strong> (Marco Vitruvio Polión, s. I a. C.): arquitecto romano, autor del tratado " +
-          "<i>De architectura</i>, que recoge las normas para proyectar teatros y otros edificios del mundo romano.</p>" +
+          "<p>Arquitectos e ingenieros teatrales del Imperio Romano, pioneros en el desarrollo de la " +
+          "iluminación artificial en recintos cerrados.</p>" +
           "<h4>Terminología técnica</h4>" +
-          "<p><strong>Efecto \"backlight\":</strong> contraluz; luz situada detrás del sujeto que lo separa del fondo y le da profundidad.</p>" +
-          "<p><strong>Filtros de color:</strong> materiales translúcidos (telas teñidas, vidrios) que cambian el color de la luz que los atraviesa.</p>" +
-          "<p><strong>Superficies reflectantes:</strong> superficies (metales, agua) que devuelven la luz para redirigirla hacia el escenario.</p>",
+          "<p><strong>Efecto \"backlight\":</strong> Iluminación posterior para recortar la silueta y dar profundidad.</p>" +
+          "<p><strong>Filtros de color:</strong> Elementos translúcidos para modular la tonalidad cromática.</p>" +
+          "<p><strong>Superficies reflejantes:</strong> Metales pulidos y elementos acuosos para redirigir el haz lumínico.</p>",
       },
       media: {
         url: "/animacion/color-iluminacion-acabado/teatro_romano.jpg",
         thumbnail: "/animacion/color-iluminacion-acabado/teatro_romano.jpg",
-        caption: "Teatro romano de Aspendos (Turquía), el mejor conservado de Anatolia.",
+        caption: "Teatro romano, reflejo de la evolución hacia la luz artificial y controlada.",
         credit: "Guillén Pérez, CC BY-ND 2.0, vía Flickr",
-        alt: "Teatro romano de Aspendos con su graderío y su frente escénico conservados",
+        alt: "Teatro romano clásico",
         link: "https://flic.kr/p/avw7Kg",
       },
     },
@@ -170,6 +170,10 @@ export default function LineaTemporal() {
         font: "",
         use_bc: true,
         hash_bookmark: false,
+        // Máximo acercamiento de la barra (índice 10 de zoom_sequence
+        // [0.5, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89]) para que hitos cercanos
+        // no se solapen; hay que desplazarse horizontalmente entre periodos.
+        initial_zoom: 10,
         // Medidas de la barra inferior copiadas de VinePair (ver site.css):
         // alto total 200px (150 de tarjetas + 50 del eje de años)
         timenav_height_min: 230,
