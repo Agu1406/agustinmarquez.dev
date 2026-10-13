@@ -23,6 +23,7 @@ const DATOS = {
     {
       // Autores: estudio experimental Medina-Alcaide et al. (PLOS ONE, 2021),
       // vía La Vanguardia. Texto parafraseado. year aproximado (TimelineJS).
+      group: "Teatro Antiguo",
       start_date: {
         year: -10000,
         display_date: "Entre 400.000 y 10.000 años A.C (Paleolítico)",
@@ -60,6 +61,7 @@ const DATOS = {
     },
     {
       // Contenido del usuario. year en el eje ~mitad del periodo VI–IV a. C.
+      group: "Teatro Antiguo",
       start_date: {
         year: -450,
         display_date: "siglos VI–IV a. C.",
@@ -104,6 +106,7 @@ const DATOS = {
     },
     {
       // Contenido del usuario. year ≈ inicio del periodo (I a. C.).
+      group: "Teatro Antiguo",
       start_date: {
         year: -100,
         display_date: "Siglo I a.C. al V d.C. (Imperio Romano)",

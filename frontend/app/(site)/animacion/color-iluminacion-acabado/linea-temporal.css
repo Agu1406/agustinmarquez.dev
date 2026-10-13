@@ -224,6 +224,13 @@
   border-top-color: var(--s-surface-solid);
 }
 
+/* Etiqueta del grupo (p. ej. "Teatro Antiguo"): por defecto es gris muy claro */
+.site-theme .tl-timeline .tl-timegroup .tl-timegroup-message {
+  color: var(--s-text-solid);
+  font-weight: 700;
+  text-shadow: none;
+}
+
 /*
  * TimelineJS: tarjetas de los hitos (.tl-timemarker). Siempre blancas con letra
  * negra, con o sin el ratón encima (por defecto pasaban a gris al pasar el
