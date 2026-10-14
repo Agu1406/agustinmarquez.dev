@@ -212,12 +212,10 @@
  * TimelineJS: zona gris donde están las tarjetas de los hitos (.tl-timenav,
  * justo encima del eje de años): gris de superficie de la paleta.
  *
- * Medidas copiadas de la línea de tiempo de VinePair (solo medidas, los colores
- * son los de esta paleta): zona de tarjetas de 150px de alto + eje de 50px
- * (timenav_height: 200 en linea-temporal.tsx), tarjetas de 153x53px a 15px del
- * borde superior (marker_padding: 15 y marker_width_min: 153), relleno de la
- * tarjeta 0 7px 2px 6px, miniatura de 22x22px con borde de 1px, título de 11px
- * en negrita con 5px de margen superior.
+ * Medidas de tarjetas al estilo VinePair (colores de esta paleta): 153x53px,
+ * marker_padding 15, miniatura 22x22. La altura total de la barra se controla
+ * con timenav_height_percentage: 0 y timenav_height_min en linea-temporal.tsx
+ * (hay que subir el mínimo al añadir grupos/periodos).
  */
 .site-theme .tl-timeline .tl-timenav {
   background-color: var(--s-surface-solid);
@@ -303,6 +301,22 @@
 .site-theme .tl-timeline .tl-timemarker .tl-timemarker-content-container .tl-timemarker-media-container [class^="tl-icon-"],
 .site-theme .tl-timeline .tl-timemarker .tl-timemarker-content-container .tl-timemarker-media-container [class*=" tl-icon-"] {
   color: var(--s-text-solid);
+}
+
+/*
+ * TimelineJS: eras (.tl-timeera). Por defecto son una franja de 40px al borde
+ * inferior de la zona gris, con título pequeño a la izquierda de cada periodo.
+ */
+.site-theme .tl-timeline .tl-timeera {
+  height: 56px;
+}
+
+.site-theme .tl-timeline .tl-timeera .tl-timeera-content-container .tl-timeera-content .tl-timeera-text h2.tl-headline {
+  font-size: 12px;
+  line-height: 14px;
+  font-weight: 700;
+  color: #fff;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.45);
 }
 
 /*
