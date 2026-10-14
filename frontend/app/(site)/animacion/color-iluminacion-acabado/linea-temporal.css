@@ -62,10 +62,10 @@
 }
 
 /*
- * TimelineJS: todas las imágenes de las diapositivas con el mismo tamaño
- * (proporción 3:2, ancho máximo 520px dentro de su columna del 40 %) y el mismo
- * marco verde acento de la paleta. object-fit: cover recorta lo que sobre para
- * que cualquier foto, sea cual sea su proporción, llene el recuadro.
+ * TimelineJS: todas las imágenes de las diapositivas con la misma proporción
+ * 3:2 y el mismo marco verde acento. object-fit: cover recorta lo que sobre.
+ * El tamaño lo marca la columna (40 %) y la altura libre de la diapositiva
+ * (lo que queda al bajar la barra gris), no un tope fijo en píxeles.
  */
 .site-theme .tl-timeline .tl-media .tl-media-image {
   box-sizing: border-box;
@@ -90,7 +90,7 @@
   flex-direction: column;
   width: 100%;
   text-align: center;
-  max-width: min(100%, 520px);
+  max-width: 100%;
 }
 
 .site-theme .tl-timeline .tl-media .tl-media-content {
@@ -139,7 +139,7 @@
 /*
  * TimelineJS (escritorio y tablet): la imagen, el pie y el crédito quedan
  * centrados en vertical y en horizontal dentro de su columna (40 % imagen,
- * 60 % texto; antes 50/50). Por defecto la
+ * 60 % texto). Por defecto la
  * imagen era un float pegado arriba. Si el texto es largo y la diapositiva
  * hace scroll, la imagen se queda fija (sticky) y centrada en la parte visible.
  * En móvil (.tl-skinny) se mantiene el diseño en columna original.
@@ -153,6 +153,8 @@
   direction: ltr;
   flex-direction: row-reverse; /* en el DOM el texto va antes que la imagen */
   align-items: flex-start;
+  box-sizing: border-box;
+  height: 100%;
 }
 
 .site-theme .tl-timeline:not(.tl-skinny) .tl-slide:not(.tl-slide-text-only):not(.tl-slide-media-only) .tl-media {
@@ -168,12 +170,29 @@
   justify-content: center;
 }
 
+/*
+ * En escritorio, la foto crece con la altura de la diapositiva (5.5rem
+ * reservados para pie y crédito) sin pasarse del 40 % de columna.
+ */
+.site-theme .tl-timeline:not(.tl-skinny) .tl-slide:not(.tl-slide-text-only):not(.tl-slide-media-only) .tl-media .tl-media-content-container {
+  max-width: min(100%, calc((100cqh - 5.5rem) * 3 / 2));
+}
+
 .site-theme .tl-timeline:not(.tl-skinny) .tl-slide:not(.tl-slide-text-only):not(.tl-slide-media-only) .tl-text {
   display: block;
   align-self: center;
-  flex: 0 0 60%;
-  width: 60%;
-  max-width: 60%;
+  box-sizing: border-box;
+  flex: 1 1 auto;
+  width: auto;
+  min-width: 0;
+  max-width: none !important; /* el original deja max-width: 50 % */
+  padding: 0 20px;
+}
+
+.site-theme .tl-timeline:not(.tl-skinny) .tl-slide:not(.tl-slide-text-only):not(.tl-slide-media-only) .tl-text .tl-text-content-container,
+.site-theme .tl-timeline:not(.tl-skinny) .tl-slide:not(.tl-slide-text-only):not(.tl-slide-media-only) .tl-text .tl-text-content {
+  width: 100%;
+  max-width: none;
 }
 
 /*
@@ -215,7 +234,7 @@
  * Medidas de tarjetas al estilo VinePair (colores de esta paleta): 153x53px,
  * marker_padding 15, miniatura 22x22. La altura total de la barra se controla
  * con timenav_height_percentage: 0 y timenav_height_min en linea-temporal.tsx
- * (hay que subir el mínimo al añadir grupos/periodos).
+ * (subir el mínimo si las tarjetas cercanas en el tiempo se pisan).
  */
 .site-theme .tl-timeline .tl-timenav {
   background-color: var(--s-surface-solid);

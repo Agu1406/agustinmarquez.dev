@@ -16,7 +16,11 @@ const DATOS = {
   title: {
     text: {
       headline: "La línea temporal de la luz escénica y cinematográfica",
-      text: "<p>ACT01-01RA7. Historia de la iluminación escénica y fílmica, de la prehistoria a 2026.</p>",
+      text:
+        "<p>ACT01-01RA7. Historia de la iluminación escénica y fílmica, de la prehistoria a 2025. " +
+        "PEJEM (por ejemplo): el temario usa esa abreviatura como «por ejemplo», no es un acrónimo técnico.</p>" +
+        "<p>Seis cualidades de la luz a controlar: tamaño de la fuente, dirección, intensidad, dureza, " +
+        "temperatura de color y naturaleza (natural o artificial).</p>",
     },
   },
   // Nueve grandes periodos del briefing + era eléctrica teatral (Hartmann/Appia
@@ -70,7 +74,7 @@ const DATOS = {
     },
     {
       start_date: { year: 1960 },
-      end_date: { year: 2026 },
+      end_date: { year: 2025 },
       text: { headline: "Cine Contemporáneo" },
     },
   ],
@@ -218,8 +222,9 @@ const DATOS = {
       text: {
         headline: "Luz, Perspectiva y Escenografía Verbal",
         text:
-          "<p>&emsp;El teatro pasa de lo litúrgico a temas seculares en salas cerradas (Italia) o corrales " +
-          "al aire libre (Inglaterra). Hay que controlar velas y aceite, o bien describir la luz con la palabra.</p>" +
+          "<p>&emsp;El teatro pasa de lo litúrgico a temas seculares en salas cerradas (Italia; el Teatro " +
+          "Olímpico de Vicenza es el ejemplo paradigmático) o corrales al aire libre (Inglaterra). Hay que " +
+          "controlar velas y aceite, o bien describir la luz con la palabra.</p>" +
           "<h4>Innovaciones técnicas y estéticas</h4>" +
           "<ul>" +
           "<li><strong>Candilejas (<i>footlights</i>):</strong> fila de velas o lámparas en el borde del proscenio; iluminan el rostro desde abajo (sombras poco naturales).</li>" +
@@ -420,19 +425,20 @@ const DATOS = {
         text:
           "<p>&emsp;El gas era demasiado débil para impresionar el celuloide. El cine nace con el sol " +
           "(estudios de cristal, <i>Black Maria</i> de Edison) y adopta arco voltaico y vapor de mercurio " +
-          "para independizarse del clima. La luz, al principio, no cuenta la historia: solo vuelve visible la escena.</p>" +
+          "para independizarse del clima. Desde el origen, la luz tiene tres funciones: psicológica (luces y sombras), " +
+          "técnica (sin luz no hay registro) y narrativa (continuidad entre planos).</p>" +
           "<h4>Innovaciones técnicas y estéticas</h4>" +
           "<ul>" +
-          "<li><strong>Luz naturalista:</strong> exteriores, muselina, reflectores; estudios acristalados (Star-Film de Méliès en Montreuil).</li>" +
+          "<li><strong>Luz naturalista:</strong> exteriores, muselina, reflectores, banderas (<i>flags</i>) y gobos para cortar la luz; estudios acristalados (Star-Film de Méliès en Montreuil).</li>" +
           "<li><strong>Arco y vapor de mercurio:</strong> haz puntual frente a luz suave azul-verdosa, útil para la película ortocromática (Kodak deja de fabricarla en 1930).</li>" +
-          "<li><strong>Contraluz y continuidad:</strong> Bitzer (Griffith, 1909–1916) usa halo y primer plano suave; el montaje obliga a igualar luces de días distintos: germen del triángulo clásico.</li>" +
+          "<li><strong>Contraluz y continuidad:</strong> Bitzer ya trabaja siluetas en <i>Old Kentucky</i> y <i>Lines of White on a Sullen Sea</i> (1909); el montaje obliga a igualar luces de días distintos: germen del triángulo clásico.</li>" +
           "</ul>" +
           "<h4>Autores y figuras clave</h4>" +
           "<p><strong>Georges Méliès:</strong> pionero en rodaje solo con luces de arco; <i>Le Voyage dans la lune</i> (1902) aún a luz natural.</p>" +
-          "<p><strong>Billy Bitzer</strong> y <strong>D. W. Griffith:</strong> contraluz narrativo en <i>El nacimiento de una nación</i> (1915) e <i>Intolerancia</i> (1916).</p>" +
+          "<p><strong>Billy Bitzer</strong> y <strong>D. W. Griffith:</strong> contraluz narrativo en 1909 y, más tarde, en <i>El nacimiento de una nación</i> (1915) e <i>Intolerancia</i> (1916).</p>" +
           "<h4>Terminología técnica</h4>" +
           "<p><strong>Película ortocromática:</strong> emulsión solo sensible al azul y al verde.</p>" +
-          "<p><strong>Luz naturalista:</strong> suave y envolvente, sin intención dramática inicial.</p>" +
+          "<p><strong>Flags y gobos:</strong> paneles opacos que recortan el haz y proyectan sombras.</p>" +
           "<p><strong>Arco voltaico:</strong> luz intensa, inestable y ruidosa.</p>",
       },
       media: {
@@ -523,7 +529,7 @@ const DATOS = {
           "<ul>" +
           "<li><strong>Sistema de tres puntos y luz Rembrandt:</strong> <i>Key</i>, <i>Fill</i> y <i>Back Light</i>; la Rembrandt (un solo punto, triángulo en la mejilla) suaviza el esquema.</li>" +
           "<li><strong>Fresnel (1934):</strong> lente planoconvexa, <i>spot</i>/<i>flood</i>, 3200 K. En los 50, cuarzos («naranjitos», «butanitos», <i>blonde</i> de 2 kW) para exteriores.</li>" +
-          "<li><strong>Pancromática y glamour:</strong> primer plano con gasas; <i>butterfly lighting</i> (Dietrich); clave baja y <i>deep focus</i> (Toland); filtros en Bergman (<i>Casablanca</i>).</li>" +
+          "<li><strong>Pancromática y glamour:</strong> primer plano con gasas; <i>butterfly lighting</i> (Dietrich); clave baja y <i>deep focus</i> (Toland); filtros en Ingrid Bergman (<i>Casablanca</i>).</li>" +
           "</ul>" +
           "<h4>Autores y figuras clave</h4>" +
           "<p><strong>Josef von Sternberg</strong> y <strong>Lee Garmes</strong> (<i>El expreso de Shanghai</i>, 1932).</p>" +
@@ -589,7 +595,7 @@ const DATOS = {
           "alto y ópticas abiertas se puede rodar casi sin focos.</p>" +
           "<h4>Innovaciones técnicas y estéticas</h4>" +
           "<ul>" +
-          "<li><strong>HMI (Hydrargyrum Medium-arc Iodide):</strong> 5600–10000 K, arco en bulbo de cuarzo con balasto; de 200 W a potencias de calle entera.</li>" +
+          "<li><strong>HMI (Hydrargyrum Medium-arc Iodide):</strong> 5600–10000 K, arco en bulbo de cuarzo con balasto; de 200 kW a 18.000 kW (potencia de calle entera).</li>" +
           "<li><strong>Xenón:</strong> evolución del HMI; el temario cita <i>Blade Runner</i> (Ridley Scott, 1982).</li>" +
           "<li><strong>Luz ambiental extrema:</strong> <i>Barry Lyndon</i> (Kubrick, 1975) a luz de velas; Dogma 90 e ISO alto sin aparato de estudio.</li>" +
           "</ul>" +
@@ -612,7 +618,7 @@ const DATOS = {
     {
       start_date: {
         year: 2000,
-        display_date: "1.11 y 1.12 Era Digital (1990–2026)",
+        display_date: "1.11 y 1.12 Era Digital (1990–2025)",
       },
       text: {
         headline: "Era Digital: DI, LED, VFX y The Volume",
@@ -622,11 +628,12 @@ const DATOS = {
           "<h4>Innovaciones técnicas y estéticas</h4>" +
           "<ul>" +
           "<li><strong>DI y VFX:</strong> <i>O Brother, Where Art Thou?</i> (Deakins, 2000), primer largo etalonado digital; <i>The Matrix</i> (Pope, 1999), Bullet Time sobre croma verde uniforme; <i>Schindler’s List</i> (Kamiński, 1993), B/N expresionista.</li>" +
-          "<li><strong>LED y DMX:</strong> Losev (LED rojo, 1927), Nakamura (LED azul, 1994; Nobel), LED blanco 1998; SkyPanel, Astera, Aputure COB; control DMX o app.</li>" +
+          "<li><strong>LED y DMX:</strong> Losev (LED rojo, 1927), Nakamura (LED azul, 1994; Nobel), LED blanco 1998; SkyPanel, Litepanels Gemini, Creamsource Vortex, Astera, Aputure COB; control DMX o app.</li>" +
           "<li><strong>Luz desde la imagen:</strong> Light Box de 1,8 millones de LED en <i>Gravity</i> (Lubezki, 2013); StageCraft / The Volume en <i>The Mandalorian</i> (Fraser/Idoine, Unreal Engine): las paredes LED iluminan a los actores.</li>" +
           "</ul>" +
           "<h4>Autores y figuras clave</h4>" +
-          "<p><strong>Roger Deakins</strong>, <strong>Janusz Kamiński</strong> / Spielberg, <strong>Bill Pope</strong> / Wachowskis, <strong>Emmanuel Lubezki</strong> / Cuarón, <strong>Greig Fraser</strong> y <strong>Barry Idoine</strong> / Favreau. El temario cierra con Billy Bitzer y John Alton: pintar con luz.</p>" +
+          "<p><strong>Roger Deakins</strong>, <strong>Janusz Kamiński</strong> / Spielberg, <strong>Bill Pope</strong> / Wachowskis, <strong>Emmanuel Lubezki</strong> / Cuarón, <strong>Greig Fraser</strong> y <strong>Barry Idoine</strong> / Favreau.</p>" +
+          "<p><strong>John Alton</strong> (cierre del temario, junto a Bitzer): el oficio no cambia con el aparato — pintar con luz y sombra para contar una historia.</p>" +
           "<h4>Terminología técnica</h4>" +
           "<p><strong>DI (Digital Intermediate):</strong> etalonaje digital de color antes de la distribución.</p>" +
           "<p><strong>LED:</strong> diodo emisor de luz; color instantáneo, bajo consumo.</p>" +
@@ -674,15 +681,14 @@ export default function LineaTemporal() {
         font: "",
         use_bc: true,
         hash_bookmark: false,
-        // Zoom medio-bajo al arrancar para poder ver varias eras a la vez.
-        // Con zoom 10 (máximo) solo se ve un trozo de una era y el título queda
-        // fuera de pantalla. Subir hacia 10 si priorizas separar hitos cercanos.
-        // Secuencia: [0.5, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89]
-        initial_zoom: 10,
-        // Altura de la barra: percentage 0 para que mande el mínimo.
-        // Un poco más alta para la franja de eras (~56px) + tarjetas + eje.
+        // Secuencia por defecto más niveles extra. 160 (índice 12) es un
+        // compromiso: menos acercado que 377, más que el máximo original (89).
+        zoom_sequence: [0.5, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 160, 300, 233, 377],
+        initial_zoom: 13,
+        // Barra compacta: una fila de tarjetas + eras + eje. El solape se
+        // resuelve con zoom horizontal, no subiendo esta franja.
         timenav_height_percentage: 0,
-        timenav_height_min: 280,
+        timenav_height_min: 220,
         // distancia (px) de las tarjetas al borde superior de la zona gris
         marker_padding: 15,
         // ancho de cada tarjeta; debe coincidir con el width de .tl-timemarker-content-container en linea-temporal.css
@@ -714,7 +720,7 @@ export default function LineaTemporal() {
         TimelineJS sobrescribe el className de su contenedor, así que el estilo
         (ancho completo, alto, bordes) va en este div exterior.
       */}
-      <div className="s-line s-fullbleed h-[calc(80svh+20px)] min-h-[540px] overflow-hidden border-y">
+      <div className="s-line s-fullbleed h-[calc(80svh+120px)] min-h-[640px] overflow-hidden border-y">
         <div ref={ref} />
       </div>
     </>
