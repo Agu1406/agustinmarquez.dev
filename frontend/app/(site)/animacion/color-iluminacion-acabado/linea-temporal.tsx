@@ -659,7 +659,15 @@ type TimelineGlobal = {
     container: HTMLElement,
     data: unknown,
     options?: Record<string, unknown>,
-  ) => unknown;
+  ) => TimelineInstancia;
+};
+
+type TimeNav = {
+  goTo: (indice: number, inmediato?: boolean, css?: boolean) => void;
+};
+
+type TimelineInstancia = {
+  _timenav?: TimeNav;
 };
 
 const RUTA = "/timelinejs/";
@@ -675,7 +683,7 @@ export default function LineaTemporal() {
     const crear = () => {
       const TL = (window as unknown as { TL?: TimelineGlobal }).TL;
       if (cancelled || !TL) return;
-      new TL.Timeline(container, DATOS, {
+      const linea = new TL.Timeline(container, DATOS, {
         script_path: `${RUTA}js/`,
         language: "es",
         font: "",
@@ -694,6 +702,14 @@ export default function LineaTemporal() {
         // ancho de cada tarjeta; debe coincidir con el width de .tl-timemarker-content-container en linea-temporal.css
         marker_width_min: 153,
       });
+
+      // El eje al zoom alto anima `left` en un lienzo enorme; ese barrido
+      // es lo que laggea hito→hito. La diapositiva sigue deslizándose.
+      const nav = linea._timenav;
+      if (nav) {
+        const ir = nav.goTo.bind(nav);
+        nav.goTo = (indice, _inmediato, css) => ir(indice, true, css);
+      }
     };
 
     if ((window as unknown as { TL?: TimelineGlobal }).TL) {
