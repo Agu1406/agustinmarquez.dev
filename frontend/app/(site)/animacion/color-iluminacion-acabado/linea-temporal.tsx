@@ -683,6 +683,23 @@ export default function LineaTemporal() {
     if (!container) return;
     let cancelled = false;
 
+    const aligerarFotos = (raiz: ParentNode) => {
+      raiz.querySelectorAll("img").forEach((img) => {
+        img.decoding = "async";
+        if (!img.closest(".tl-slide-text-only")) img.loading = "lazy";
+      });
+    };
+
+    const fotos = new MutationObserver((mutaciones) => {
+      for (const m of mutaciones) {
+        for (const nodo of m.addedNodes) {
+          if (nodo instanceof HTMLImageElement) aligerarFotos(nodo.parentNode ?? nodo);
+          else if (nodo instanceof Element) aligerarFotos(nodo);
+        }
+      }
+    });
+    fotos.observe(container, { childList: true, subtree: true });
+
     const crear = () => {
       const TL = (window as unknown as { TL?: TimelineGlobal }).TL;
       if (cancelled || !TL) return;
@@ -692,6 +709,7 @@ export default function LineaTemporal() {
         font: "",
         use_bc: true,
         hash_bookmark: false,
+        duration: 250,
         // Zoom medio: separa 1900–hoy en horizontal sin el lienzo de 300.
         zoom_sequence: [0.5, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 160],
         initial_zoom: 12,
@@ -714,6 +732,7 @@ export default function LineaTemporal() {
         // Evita que el eje crezca al detectar colisiones (varias filas).
         nav.getMinimumHeight = () => 220;
       }
+      aligerarFotos(container);
     };
 
     if ((window as unknown as { TL?: TimelineGlobal }).TL) {
@@ -728,6 +747,7 @@ export default function LineaTemporal() {
 
     return () => {
       cancelled = true;
+      fotos.disconnect();
       container.replaceChildren();
     };
   }, []);

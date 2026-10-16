@@ -127,7 +127,6 @@
 .site-theme .tl-timeline .tl-text .tl-text-content,
 .site-theme .tl-timeline .tl-text .tl-text-content p {
   text-align: justify;
-  hyphens: auto;
 }
 
 /* Portada y diapositivas solo de texto: cuerpo centrado */
@@ -250,7 +249,29 @@
 
 .site-theme .tl-timeline .tl-timemarker {
   top: 15px !important;
-  transition-property: left, width;
+  transition: none !important;
+}
+
+.site-theme .tl-timeline .tl-timeera,
+.site-theme .tl-timeline .tl-timenav-slider,
+.site-theme .tl-timeline .tl-timenav-slider.tl-timenav-slider-animate {
+  transition: none !important;
+}
+
+/*
+ * TimelineJS anima `left` en un carril con todas las diapositivas. Las que
+ * están fuera de pantalla no se pintan; hyphens: auto recalculaba sílabas
+ * en cada frame.
+ */
+.site-theme .tl-timeline .tl-slide {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 480px;
+}
+
+.site-theme .tl-timeline .tl-text .tl-text-content,
+.site-theme .tl-timeline .tl-text .tl-text-content p,
+.site-theme .tl-timeline .tl-text .tl-text-content li {
+  hyphens: none;
 }
 
 /* Etiqueta del grupo (p. ej. "Teatro Antiguo"): por defecto es gris muy claro */
@@ -413,5 +434,4 @@
 .site-theme .tl-timeline .tl-text .tl-text-content li {
   margin: 2px 0;
   text-align: justify;
-  hyphens: auto;
 }
