@@ -239,12 +239,18 @@
  *
  * Medidas de tarjetas al estilo VinePair (colores de esta paleta): 153x53px,
  * marker_padding 15, miniatura 22x22. La altura total de la barra se controla
- * con timenav_height_percentage: 0 y timenav_height_min en linea-temporal.tsx
- * (subir el mínimo si las tarjetas cercanas en el tiempo se pisan).
+ * con timenav_height_percentage: 0 y timenav_height_min en linea-temporal.tsx.
+ * Una sola fila: TimelineJS pone top en línea según la fila; esto las ancla
+ * arriba. Si coinciden en el tiempo se solapan en horizontal, no hacia abajo.
  */
 .site-theme .tl-timeline .tl-timenav {
   background-color: var(--s-surface-solid);
   border-top-color: var(--s-surface-solid);
+}
+
+.site-theme .tl-timeline .tl-timemarker {
+  top: 15px !important;
+  transition-property: left, width;
 }
 
 /* Etiqueta del grupo (p. ej. "Teatro Antiguo"): por defecto es gris muy claro */

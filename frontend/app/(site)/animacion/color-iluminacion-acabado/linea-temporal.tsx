@@ -241,12 +241,13 @@ const DATOS = {
           "<p><strong>Escenografía verbal:</strong> el diálogo describe la atmósfera lumínica.</p>",
       },
       media: {
-        url: "/animacion/color-iluminacion-acabado/renacimiento.jpg",
-        thumbnail: "/animacion/color-iluminacion-acabado/renacimiento.jpg",
-        caption: "Teatro a la italiana y perspectiva renacentista.",
-        credit: "Dominio público / Wikimedia Commons (ficha pendiente)",
-        alt: "Teatro renacentista",
-        link: "https://commons.wikimedia.org",
+        url: "/animacion/color-iluminacion-acabado/teatro_renacentista.jpg",
+        thumbnail: "/animacion/color-iluminacion-acabado/teatro_renacentista.jpg",
+        caption:
+          "Izquierda: Lope de Rueda, Las quatro comedias y dos coloquios pastoriles (Valencia, Juan Mey, 1567). Derecha: Ludovico Ariosto, La Cassaria (estreno 1508; portada de Vinegia, Giolito, 1546).",
+        credit: "Dominio público, Wikimedia Commons (BNE; Internet Archive / Getty)",
+        alt: "Portadas de Lope de Rueda (1567) y La Cassaria de Ariosto",
+        link: "https://commons.wikimedia.org/wiki/File:Lope_de_rueda-Las_quatro_comedias_y_dos_coloquios_pastoriles_7.jpg",
       },
     },
     {
@@ -273,12 +274,12 @@ const DATOS = {
           "<p><strong>Geles (<i>gels</i>):</strong> filtros de color; su uso preciso exige luz eléctrica, no vela.</p>",
       },
       media: {
-        url: "/animacion/color-iluminacion-acabado/newton.jpg",
-        thumbnail: "/animacion/color-iluminacion-acabado/newton.jpg",
-        caption: "Prisma y descomposición de la luz blanca.",
-        credit: "Dominio público / Wikimedia Commons (ficha pendiente)",
-        alt: "Experimento del prisma de Newton",
-        link: "https://commons.wikimedia.org",
+        url: "/animacion/color-iluminacion-acabado/teoria_color.webp",
+        thumbnail: "/animacion/color-iluminacion-acabado/teoria_color.webp",
+        caption: "Newton descompone la luz blanca con un prisma: el espectro visible.",
+        credit: "Wikimedia Commons, vía Wikipedia: Color",
+        alt: "Grabado del experimento del prisma de Isaac Newton",
+        link: "https://es.wikipedia.org/wiki/Color",
       },
     },
     {
@@ -340,12 +341,12 @@ const DATOS = {
           "<p><strong>Bombilla incandescente:</strong> filamento que emite luz al calentarse por corriente.</p>",
       },
       media: {
-        url: "/animacion/color-iluminacion-acabado/savoy.jpg",
-        thumbnail: "/animacion/color-iluminacion-acabado/savoy.jpg",
-        caption: "El Savoy Theatre de Londres, primera sala pública eléctrica (1881).",
-        credit: "Dominio público / Wikimedia Commons (ficha pendiente)",
-        alt: "Savoy Theatre",
-        link: "https://commons.wikimedia.org",
+        url: "/animacion/color-iluminacion-acabado/teatro_savoy.jpg",
+        thumbnail: "/animacion/color-iluminacion-acabado/teatro_savoy.jpg",
+        caption: "Savoy Theatre de Londres (1881), primer edificio público iluminado por completo con electricidad.",
+        credit: "Charles J. Phipps, dominio público, Wikimedia Commons (PeoplePlay / V&A)",
+        alt: "Fachada del Savoy Theatre de Londres",
+        link: "https://commons.wikimedia.org/w/index.php?curid=2108796",
       },
     },
     {
@@ -375,12 +376,13 @@ const DATOS = {
           "<p><strong>Ciclorama / cúpula:</strong> fondo cóncavo para un cielo continuo.</p>",
       },
       media: {
-        url: "/animacion/color-iluminacion-acabado/hartmann_fortuny.jpg",
-        thumbnail: "/animacion/color-iluminacion-acabado/hartmann_fortuny.jpg",
-        caption: "Sistema de iluminación indirecta de Mariano Fortuny.",
-        credit: "Dominio público / Wikimedia Commons (ficha pendiente)",
-        alt: "Lámpara Fortuny",
-        link: "https://commons.wikimedia.org",
+        url: "/animacion/color-iluminacion-acabado/mariano_fortuny.jpg",
+        thumbnail: "/animacion/color-iluminacion-acabado/mariano_fortuny.jpg",
+        caption:
+          "Primeras pruebas de la cúpula móvil y plegable de Fortuny, rue Saint-Charles, París, 1902.",
+        credit: "e-Venise.com, CC BY, vía visit-venice-italy.com",
+        alt: "Cúpula de yeso de Mariano Fortuny en un taller de París, 1902",
+        link: "https://www.visit-venice-italy.com/art-painters/mariano-fortuny-theatre-venice-italy.html",
       },
     },
     {
@@ -664,6 +666,7 @@ type TimelineGlobal = {
 
 type TimeNav = {
   goTo: (indice: number, inmediato?: boolean, css?: boolean) => void;
+  getMinimumHeight?: () => number;
 };
 
 type TimelineInstancia = {
@@ -689,12 +692,11 @@ export default function LineaTemporal() {
         font: "",
         use_bc: true,
         hash_bookmark: false,
-        // Secuencia por defecto más niveles extra. 160 (índice 12) es un
-        // compromiso: menos acercado que 377, más que el máximo original (89).
-        zoom_sequence: [0.5, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 160, 300, 233, 377],
-        initial_zoom: 13,
-        // Barra compacta: una fila de tarjetas + eras + eje. El solape se
-        // resuelve con zoom horizontal, no subiendo esta franja.
+        // Zoom medio: separa 1900–hoy en horizontal sin el lienzo de 300.
+        zoom_sequence: [0.5, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 160],
+        initial_zoom: 12,
+        // Barra compacta: una fila. La altura extra invitaba a TimelineJS a
+        // apilar tarjetas hacia abajo.
         timenav_height_percentage: 0,
         timenav_height_min: 220,
         // distancia (px) de las tarjetas al borde superior de la zona gris
@@ -709,6 +711,8 @@ export default function LineaTemporal() {
       if (nav) {
         const ir = nav.goTo.bind(nav);
         nav.goTo = (indice, _inmediato, css) => ir(indice, true, css);
+        // Evita que el eje crezca al detectar colisiones (varias filas).
+        nav.getMinimumHeight = () => 220;
       }
     };
 
@@ -736,7 +740,7 @@ export default function LineaTemporal() {
         TimelineJS sobrescribe el className de su contenedor, así que el estilo
         (ancho completo, alto, bordes) va en este div exterior.
       */}
-      <div className="s-line s-fullbleed h-[calc(80svh+120px)] min-h-[640px] overflow-hidden border-y">
+      <div className="s-line s-fullbleed h-[calc(80svh+200px)] min-h-[820px] overflow-hidden border-y">
         <div ref={ref} />
       </div>
     </>
