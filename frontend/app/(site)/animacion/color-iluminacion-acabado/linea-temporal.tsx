@@ -669,8 +669,15 @@ type TimeNav = {
   getMinimumHeight?: () => number;
 };
 
+type StorySlider = {
+  goTo: (indice: number, inmediato?: boolean, css?: boolean) => void;
+  goToId: (id: string, inmediato?: boolean, css?: boolean) => void;
+};
+
 type TimelineInstancia = {
   _timenav?: TimeNav;
+  _storyslider?: StorySlider;
+  on?: (evento: string, fn: () => void) => void;
 };
 
 const RUTA = "/timelinejs/";
@@ -709,7 +716,7 @@ export default function LineaTemporal() {
         font: "",
         use_bc: true,
         hash_bookmark: false,
-        duration: 250,
+        duration: 0,
         // Zoom medio: separa 1900–hoy en horizontal sin el lienzo de 300.
         zoom_sequence: [0.5, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 160],
         initial_zoom: 12,
@@ -723,15 +730,26 @@ export default function LineaTemporal() {
         marker_width_min: 153,
       });
 
-      // El eje al zoom alto anima `left` en un lienzo enorme; ese barrido
-      // es lo que laggea hito→hito. La diapositiva sigue deslizándose.
-      const nav = linea._timenav;
-      if (nav) {
-        const ir = nav.goTo.bind(nav);
-        nav.goTo = (indice, _inmediato, css) => ir(indice, true, css);
-        // Evita que el eje crezca al detectar colisiones (varias filas).
-        nav.getMinimumHeight = () => 220;
-      }
+      // El constructor a menudo vuelve con `_timenav`/`_storyslider` vacíos
+      // (carga el idioma en async) y luego los sustituye. Parchear antes
+      // revienta en `.bind` y el tween de `left` sigue activo.
+      const parchearSalto = () => {
+        const nav = linea._timenav;
+        if (nav?.goTo) {
+          const ir = nav.goTo.bind(nav);
+          nav.goTo = (indice, _inmediato, css) => ir(indice, true, css);
+          nav.getMinimumHeight = () => 220;
+        }
+        const diapos = linea._storyslider;
+        if (diapos?.goTo && diapos.goToId) {
+          const irId = diapos.goToId.bind(diapos);
+          const ir = diapos.goTo.bind(diapos);
+          diapos.goToId = (id, _inmediato, css) => irId(id, true, css);
+          diapos.goTo = (indice, _inmediato, css) => ir(indice, true, css);
+        }
+      };
+      if (linea._storyslider?.goTo) parchearSalto();
+      else linea.on?.("ready", parchearSalto);
       aligerarFotos(container);
     };
 

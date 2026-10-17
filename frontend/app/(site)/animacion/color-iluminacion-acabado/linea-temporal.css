@@ -254,7 +254,10 @@
 
 .site-theme .tl-timeline .tl-timeera,
 .site-theme .tl-timeline .tl-timenav-slider,
-.site-theme .tl-timeline .tl-timenav-slider.tl-timenav-slider-animate {
+.site-theme .tl-timeline .tl-timenav-slider.tl-timenav-slider-animate,
+.site-theme .tl-timeline .tl-slider-container,
+.site-theme .tl-timeline .tl-slider-container.tlanimate,
+.site-theme .tl-timeline .tl-animate {
   transition: none !important;
 }
 
