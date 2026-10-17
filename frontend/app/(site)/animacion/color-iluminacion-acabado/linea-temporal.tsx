@@ -17,8 +17,8 @@ const DATOS = {
     text: {
       headline: "La línea temporal de la luz escénica y cinematográfica",
       text:
-        "<p>ACT01-01RA7. Historia de la iluminación escénica y fílmica, de la prehistoria a 2025. " +
-        "PEJEM (por ejemplo): el temario usa esa abreviatura como «por ejemplo», no es un acrónimo técnico.</p>" +
+        "<p>Historia de la iluminación escénica y fílmica, de la prehistoria a 2025. " +
+        "PEJEM significa «por ejemplo»: no es un acrónimo técnico.</p>" +
         "<p>Seis cualidades de la luz a controlar: tamaño de la fuente, dirección, intensidad, dureza, " +
         "temperatura de color y naturaleza (natural o artificial).</p>",
     },
@@ -97,9 +97,9 @@ const DATOS = {
           "<li><strong>Luz portátil:</strong> antorchas y lámparas de grasa para llevar la luz más allá de la hoguera.</li>" +
           "</ul>" +
           "<h4>Autores y figuras clave</h4>" +
-          "<p>El temario no nombra a narradores prehistóricos. Como fuente extra (no sustituye al 1088): " +
-          "<strong>María Ángeles Medina-Alcaide y Diego Garate</strong> recrearon antorchas, hogueras y lámparas " +
-          "de grasa y midieron luminosidad y radio de acción en cuevas (<i>PLOS ONE</i>, 2021).</p>" +
+          "<p>No se conservan nombres de narradores. <strong>María Ángeles Medina-Alcaide y Diego Garate</strong> " +
+          "recrearon antorchas, hogueras y lámparas de grasa y midieron luminosidad y radio de acción en cuevas " +
+          "(<i>PLOS ONE</i>, 2021).</p>" +
           "<h4>Terminología técnica</h4>" +
           "<p><strong>Efecto flicker:</strong> intermitencia característica de la llama.</p>" +
           "<p><strong>Luz de fuego:</strong> combustión de materia orgánica vegetal o animal.</p>" +
@@ -127,11 +127,11 @@ const DATOS = {
           "<h4>Innovaciones técnicas y estéticas</h4>" +
           "<ul>" +
           "<li><strong>Planificación arquitectónica:</strong> orientación del <i>koilon</i> (graderío) y la <i>orchestra</i> para aprovechar el día y no deslumbrar al público.</li>" +
-          "<li><strong>Arco lumínico natural:</strong> sol blanco matinal en el planteamiento; sombras largas y luz cálida en el clímax del atardecer.</li>" +
-          "<li><strong>Antorchas esporádicas:</strong> solo en escenas nocturnas muy concretas; el humo y el tamaño del recinto limitaban su uso.</li>" +
+          "<li><strong>Arco lumínico natural:</strong> sol blanco matinal en el planteamiento, y sombras largas y luz cálida en el clímax del atardecer.</li>" +
+          "<li><strong>Antorchas esporádicas:</strong> solo en escenas nocturnas muy concretas, pues el humo y el tamaño del recinto limitaban su uso.</li>" +
           "</ul>" +
           "<h4>Autores y figuras clave</h4>" +
-          "<p><strong>Policleto el Joven</strong> (s. IV a. C.): se le atribuye tradicionalmente el teatro de Epidauro (fuente extra, no está en el 1088).</p>" +
+          "<p><strong>Policleto el Joven</strong> (s. IV a. C.): se le atribuye tradicionalmente el teatro de Epidauro.</p>" +
           "<p><strong>Dramaturgos clásicos</strong> (Esquilo, Sófocles, Eurípides): la representación diurna alineaba el texto con el paso del sol.</p>" +
           "<h4>Terminología técnica</h4>" +
           "<p><strong>Arco lumínico:</strong> cambio de calidad, temperatura y dirección solar a lo largo del día.</p>" +
@@ -163,11 +163,11 @@ const DATOS = {
           "<li><strong>Filtros primitivos:</strong> vidrios de color o telas teñidas (precursor de los <i>gels</i> actuales) y contraluz rudimentario.</li>" +
           "</ul>" +
           "<h4>Autores y figuras clave</h4>" +
-          "<p>Arquitectos e ingenieros teatrales romanos. El temario no nombra a una figura concreta; no se atribuye un nombre inventado.</p>" +
+          "<p>Arquitectos e ingenieros teatrales romanos. No se conserva el nombre de un único inventor: la innovación es colectiva.</p>" +
           "<h4>Terminología técnica</h4>" +
           "<p><strong>Lucernae:</strong> lámparas de aceite.</p>" +
           "<p><strong>Backlight:</strong> contraluz con reflector para separar al actor del fondo.</p>" +
-          "<p><strong>Gels:</strong> filtros de color; aquí, vidrio o tela teñida ante la llama.</p>",
+          "<p><strong>Gels:</strong> filtros de color, aquí vidrio o tela teñida ante la llama.</p>",
       },
       media: {
         url: "/animacion/color-iluminacion-acabado/teatro_romano.jpg",
@@ -192,11 +192,11 @@ const DATOS = {
           "<h4>Innovaciones técnicas y estéticas</h4>" +
           "<ul>" +
           "<li><strong>Simbolismo luz/oscuridad:</strong> vitrales (divinidad, paraíso) frente a penumbra (pecado, infierno).</li>" +
-          "<li><strong>Efectos sensoriales:</strong> encendido súbito de velas para el «Hágase la luz»; calderos de azufre y antorchas rojizas para el infierno.</li>" +
+          "<li><strong>Efectos sensoriales:</strong> encendido súbito de velas para el «Hágase la luz», y calderos de azufre y antorchas rojizas para el infierno.</li>" +
           "<li><strong>Transición espacial:</strong> del templo oscuro a los carros móviles (<i>pageant wagons</i>) en la plaza, aún con luz solar y atrezo (antorchas, telas doradas).</li>" +
           "</ul>" +
           "<h4>Autores y figuras clave</h4>" +
-          "<p>Juglares, trovadores y clérigos anónimos. El temario no nombra a una figura concreta.</p>" +
+          "<p>Juglares, trovadores y clérigos anónimos, autores de misterios y autos sacramentales.</p>" +
           "<h4>Terminología técnica</h4>" +
           "<p><strong>Luz simbólica:</strong> iluminación no realista al servicio del mensaje espiritual.</p>" +
           "<p><strong>Vitrales góticos:</strong> vidrio de color que filtra la luz natural (s. XII–XV).</p>" +
@@ -222,19 +222,19 @@ const DATOS = {
       text: {
         headline: "Luz, Perspectiva y Escenografía Verbal",
         text:
-          "<p>&emsp;El teatro pasa de lo litúrgico a temas seculares en salas cerradas (Italia; el Teatro " +
+          "<p>&emsp;El teatro pasa de lo litúrgico a temas seculares en salas cerradas (Italia, donde el Teatro " +
           "Olímpico de Vicenza es el ejemplo paradigmático) o corrales al aire libre (Inglaterra). Hay que " +
           "controlar velas y aceite, o bien describir la luz con la palabra.</p>" +
           "<h4>Innovaciones técnicas y estéticas</h4>" +
           "<ul>" +
-          "<li><strong>Candilejas (<i>footlights</i>):</strong> fila de velas o lámparas en el borde del proscenio; iluminan el rostro desde abajo (sombras poco naturales).</li>" +
-          "<li><strong>Bambalinas, bastidores y perspectiva:</strong> luces ocultas laterales y cenitales; Brunelleschi sienta la perspectiva lineal y Serlio la aplica a escenas trágica, cómica y satírica, con suelo inclinado (<i>raked stage</i>).</li>" +
-          "<li><strong>Color (Leonardo, 1490) y escenografía verbal (Globe, 1599):</strong> esferas de agua teñida ante velas en la <i>Festa del Paradiso</i>; en el Globe de Shakespeare la luz es solar y el texto crea la noche o el amanecer.</li>" +
+          "<li><strong>Candilejas (<i>footlights</i>):</strong> fila de velas o lámparas en el borde del proscenio que iluminan el rostro desde abajo (sombras poco naturales).</li>" +
+          "<li><strong>Bambalinas, bastidores y perspectiva:</strong> luces ocultas laterales y cenitales. Brunelleschi sienta la perspectiva lineal y Serlio la aplica a escenas trágica, cómica y satírica, con suelo inclinado (<i>raked stage</i>).</li>" +
+          "<li><strong>Color (Leonardo, 1490) y escenografía verbal (Globe, 1599):</strong> esferas de agua teñida ante velas en la <i>Festa del Paradiso</i>. En el Globe de Shakespeare la luz es solar y el texto crea la noche o el amanecer.</li>" +
           "</ul>" +
           "<h4>Autores y figuras clave</h4>" +
           "<p><strong>Filippo Brunelleschi</strong> y <strong>Sebastiano Serlio:</strong> perspectiva y tres tipos de escena.</p>" +
           "<p><strong>Leonardo da Vinci:</strong> primer teñido documentado de la luz con fines dramáticos.</p>" +
-          "<p><strong>William Shakespeare</strong> (The Globe Theatre, 1599): «escenografía verbal»; sin apagones, una antorcha en atrezo basta para indicar de noche.</p>" +
+          "<p><strong>William Shakespeare</strong> (The Globe Theatre, 1599): «escenografía verbal». Sin apagones, una antorcha en atrezo basta para indicar de noche.</p>" +
           "<h4>Terminología técnica</h4>" +
           "<p><strong>Candilejas:</strong> luces al pie del proscenio (origen de «estar en el candelero», que se populariza después).</p>" +
           "<p><strong>Raked stage:</strong> suelo que sube hacia el fondo para reforzar la fuga.</p>" +
@@ -244,8 +244,8 @@ const DATOS = {
         url: "/animacion/color-iluminacion-acabado/teatro_renacentista.jpg",
         thumbnail: "/animacion/color-iluminacion-acabado/teatro_renacentista.jpg",
         caption:
-          "Izquierda: Lope de Rueda, Las quatro comedias y dos coloquios pastoriles (Valencia, Juan Mey, 1567). Derecha: Ludovico Ariosto, La Cassaria (estreno 1508; portada de Vinegia, Giolito, 1546).",
-        credit: "Dominio público, Wikimedia Commons (BNE; Internet Archive / Getty)",
+          "Izquierda: Lope de Rueda, Las quatro comedias y dos coloquios pastoriles (Valencia, Juan Mey, 1567). Derecha: Ludovico Ariosto, La Cassaria (estreno 1508, portada de Vinegia, Giolito, 1546).",
+        credit: "Dominio público, Wikimedia Commons (BNE e Internet Archive / Getty)",
         alt: "Portadas de Lope de Rueda (1567) y La Cassaria de Ariosto",
         link: "https://commons.wikimedia.org/wiki/File:Lope_de_rueda-Las_quatro_comedias_y_dos_coloquios_pastoriles_7.jpg",
       },
@@ -259,19 +259,19 @@ const DATOS = {
         headline: "Isaac Newton: El Espectro, No el Escenario",
         text:
           "<p>&emsp;En 1667 Newton descompone la luz blanca con un prisma (rojo a violeta). <i>Opticks</i> " +
-          "(1704) sienta la teoría científica del color. El temario es explícito: <strong>no</strong> fue " +
-          "una innovación teatral de su época; la escena seguía en combustión, sin geles precisos.</p>" +
+          "(1704) sienta la teoría científica del color. <strong>No</strong> fue una innovación teatral de su " +
+          "época, pues la escena seguía en combustión, sin geles precisos.</p>" +
           "<h4>Innovaciones técnicas y estéticas</h4>" +
           "<ul>" +
-          "<li><strong>Descomposición espectral:</strong> la luz blanca no es pura; es la suma de un espectro.</li>" +
+          "<li><strong>Descomposición espectral:</strong> la luz blanca no es pura, sino la suma de un espectro.</li>" +
           "<li><strong>Base teórica de los geles:</strong> siglos después, con electricidad y filtros, se manipula el color con criterio científico.</li>" +
           "<li><strong>Separación ciencia/escena:</strong> hito científico indispensable y aplicación teatral nula en el XVII.</li>" +
           "</ul>" +
           "<h4>Autores y figuras clave</h4>" +
-          "<p><strong>Isaac Newton:</strong> figura de ejemplo del briefing. Relación con la escena: indirecta y a largo plazo, no diseñador de iluminación.</p>" +
+          "<p><strong>Isaac Newton:</strong> científico, no diseñador de iluminación. Su relación con la escena es indirecta y a largo plazo.</p>" +
           "<h4>Terminología técnica</h4>" +
           "<p><strong>Espectro:</strong> bandas de color que componen la luz blanca.</p>" +
-          "<p><strong>Geles (<i>gels</i>):</strong> filtros de color; su uso preciso exige luz eléctrica, no vela.</p>",
+          "<p><strong>Geles (<i>gels</i>):</strong> filtros de color, cuyo uso preciso exige luz eléctrica, no vela.</p>",
       },
       media: {
         url: "/animacion/color-iluminacion-acabado/teoria_color.webp",
@@ -292,11 +292,11 @@ const DATOS = {
         text:
           "<p>&emsp;Maestría de la combustión: de la ópera barroca al gas de 1817. La luz deja de ser solo " +
           "visibilidad y pasa a crear atmósfera, ilusión y control centralizado. Sabbatini describe el " +
-          "<i>dimming</i> en 1638 (el 1088 lo cita en el capítulo de Renacimiento; la fecha es ya Barroco).</p>" +
+          "<i>dimming</i> en 1638, ya en el umbral del Barroco.</p>" +
           "<h4>Innovaciones técnicas y estéticas</h4>" +
           "<ul>" +
-          "<li><strong>Chiaroscuro y óptica:</strong> contrastes a lo Caravaggio; luces de calle y bambalinas; <i>bozze</i> (agua coloreada), metal pulido y espejos; <i>Pepper's Ghost</i> (cristal a 45°).</li>" +
-          "<li><strong>Dimming y mesa de gas:</strong> cilindros de Sabbatini (1638); gas en el Lyceum de Londres (1817) y <i>gas table</i> para fundidos a negro (<i>blackouts</i>); acetileno al final del siglo.</li>" +
+          "<li><strong>Chiaroscuro y óptica:</strong> contrastes a lo Caravaggio, luces de calle y bambalinas, <i>bozze</i> (agua coloreada), metal pulido y espejos, y <i>Pepper's Ghost</i> (cristal a 45°).</li>" +
+          "<li><strong>Dimming y mesa de gas:</strong> cilindros de Sabbatini (1638), gas en el Lyceum de Londres (1817) y <i>gas table</i> para fundidos a negro (<i>blackouts</i>), y acetileno al final del siglo.</li>" +
           "<li><strong>Limelight (Gurney, 1820s):</strong> llama de oxihidrógeno sobre cal viva: primer <i>followspot</i>. De las candilejas nace «estar en el candelero».</li>" +
           "</ul>" +
           "<h4>Autores y figuras clave</h4>" +
@@ -307,13 +307,13 @@ const DATOS = {
           "<p><strong>Chiaroscuro:</strong> fuerte contraste luz/sombra.</p>" +
           "<p><strong>Bozze:</strong> recipientes de vidrio con agua teñida delante de la lámpara.</p>" +
           "<p><strong>Gas table:</strong> panel que regula todas las luces de gas.</p>" +
-          "<p><strong>Limelight:</strong> haz de cal viva; primer proyector de seguimiento.</p>",
+          "<p><strong>Limelight:</strong> haz de cal viva, primer proyector de seguimiento.</p>",
       },
       media: {
         url: "/animacion/color-iluminacion-acabado/barroco_sigloxix.jpg",
         thumbnail: "/animacion/color-iluminacion-acabado/barroco_sigloxix.jpg",
         caption: "Iluminación teatral de combustión, gas y efectos ópticos.",
-        credit: "Dominio público / Wikimedia Commons (ficha pendiente)",
+        credit: "Dominio público, Wikimedia Commons",
         alt: "Iluminación de la era del gas",
         link: "https://commons.wikimedia.org",
       },
@@ -333,7 +333,7 @@ const DATOS = {
           "<ul>" +
           "<li><strong>Incandescencia:</strong> fuente eléctrica estable frente al incendio y el calor del gas.</li>" +
           "<li><strong>Sala 100 % eléctrica:</strong> el Savoy marca el punto de no retorno.</li>" +
-          "<li><strong>Límite estético inicial:</strong> luz plana, sin modelado; hace falta el oficio de Hartmann, Fortuny o Appia.</li>" +
+          "<li><strong>Límite estético inicial:</strong> luz plana, sin modelado, y hace falta el oficio de Hartmann, Fortuny o Appia.</li>" +
           "</ul>" +
           "<h4>Autores y figuras clave</h4>" +
           "<p><strong>Thomas Edison</strong> y <strong>Joseph Swan:</strong> comercializan la bombilla incandescente.</p>" +
@@ -358,18 +358,18 @@ const DATOS = {
         headline: "Realismo Directo y Cielo Infinito",
         text:
           "<p>&emsp;Dos vías opuestas para convertir la bombilla en lenguaje: Hartmann esculpe haces " +
-          "precisos para el naturalismo de Belasco; Fortuny rebota la luz para un cielo difuso. Ambos " +
+          "precisos para el naturalismo de Belasco, mientras Fortuny rebota la luz para un cielo difuso. Ambos " +
           "influyen en Appia y en Edward Gordon Craig.</p>" +
           "<h4>Innovaciones técnicas y estéticas</h4>" +
           "<ul>" +
-          "<li><strong>Hartmann:</strong> <i>baby spotlights</i>, gelatinas sutiles, puentes y torres; secuencia atardecer–amanecer de doce minutos en <i>Madame Butterfly</i> (1900).</li>" +
-          "<li><strong>Cúpula Fortuny (patente 1901):</strong> luz indirecta sobre seda de colores; ciclorama cóncavo que elimina el telón pintado.</li>" +
+          "<li><strong>Hartmann:</strong> <i>baby spotlights</i>, gelatinas sutiles, puentes y torres, y la secuencia atardecer–amanecer de doce minutos en <i>Madame Butterfly</i> (1900).</li>" +
+          "<li><strong>Cúpula Fortuny (patente 1901):</strong> luz indirecta sobre seda de colores y un ciclorama cóncavo que elimina el telón pintado.</li>" +
           "<li><strong>Mezcla de color reflejado:</strong> circuitos distintos sobre sedas para amaneceres o cielos de tormenta.</li>" +
           "</ul>" +
           "<h4>Autores y figuras clave</h4>" +
           "<p><strong>Louis Hartmann</strong> (electricista de David Belasco, 1902–1916): uno de los primeros diseñadores de iluminación en sentido moderno.</p>" +
-          "<p><strong>Mariano Fortuny y Madrazo:</strong> sistema de luz indirecta; AEG-Theater de Berlín y, en parte, La Scala.</p>" +
-          "<p><strong>Edward Gordon Craig:</strong> teatro simbólico y atmosférico, influido por Fortuny (temario 1.8).</p>" +
+          "<p><strong>Mariano Fortuny y Madrazo:</strong> sistema de luz indirecta en el AEG-Theater de Berlín y, en parte, La Scala.</p>" +
+          "<p><strong>Edward Gordon Craig:</strong> teatro simbólico y atmosférico, influido por Fortuny.</p>" +
           "<h4>Terminología técnica</h4>" +
           "<p><strong>Baby spotlight:</strong> proyector pequeño y ocultable.</p>" +
           "<p><strong>Luz indirecta:</strong> rebote en superficies difusoras, sin sombra nítida.</p>" +
@@ -393,12 +393,12 @@ const DATOS = {
       text: {
         headline: "Los Tres Pilares de la Luz Moderna",
         text:
-          "<p>&emsp;Appia teoriza la luz viva; Reinhardt la usa a escala monumental; Belasco la ancla en " +
+          "<p>&emsp;Appia teoriza la luz viva, Reinhardt la usa a escala monumental y Belasco la ancla en " +
           "el naturalismo. Juntos definen al director como artista de la luz.</p>" +
           "<h4>Innovaciones técnicas y estéticas</h4>" +
           "<ul>" +
-          "<li><strong>Appia:</strong> espacio tridimensional (plataformas, rampas) y <i>living light</i> que modela el cuerpo al ritmo de la música (<i>La Música y la Puesta en Escena</i>, 1899; Wagner).</li>" +
-          "<li><strong>Reinhardt:</strong> <i>Stimmung</i> y <i>Lichtregie</i>; cientos de proyectores; <i>El milagro</i> (1911); escenario giratorio (<i>Drehbühne</i>) con transiciones casi cinematográficas.</li>" +
+          "<li><strong>Appia:</strong> espacio tridimensional (plataformas, rampas) y <i>living light</i> que modela el cuerpo al ritmo de la música (<i>La Música y la Puesta en Escena</i>, 1899, sobre Wagner).</li>" +
+          "<li><strong>Reinhardt:</strong> <i>Stimmung</i> y <i>Lichtregie</i>, cientos de proyectores, <i>El milagro</i> (1911) y un escenario giratorio (<i>Drehbühne</i>) con transiciones casi cinematográficas.</li>" +
           "<li><strong>Belasco:</strong> amaneceres en tiempo real, motivación lumínica literal y ocultación total de las fuentes (cuarta pared).</li>" +
           "</ul>" +
           "<h4>Autores y figuras clave</h4>" +
@@ -409,12 +409,13 @@ const DATOS = {
           "<p><strong>Drehbühne:</strong> escenario giratorio.</p>",
       },
       media: {
-        url: "/animacion/color-iluminacion-acabado/appia_reinhardt.jpg",
-        thumbnail: "/animacion/color-iluminacion-acabado/appia_reinhardt.jpg",
-        caption: "Espacio tridimensional y luz dramática en el teatro moderno.",
-        credit: "Dominio público / Wikimedia Commons (ficha pendiente)",
-        alt: "Teatro moderno",
-        link: "https://commons.wikimedia.org",
+        url: "/animacion/color-iluminacion-acabado/tres_pilares_luz_moderna.jpg",
+        thumbnail: "/animacion/color-iluminacion-acabado/tres_pilares_luz_moderna.jpg",
+        caption:
+          "Escenografía de Adolphe Appia (1862–1928), teórico suizo de la iluminación y el decorado de escena.",
+        credit: "Paulamartinm, CC BY-SA 4.0, Wikimedia Commons",
+        alt: "Dibujos de escenografía de Adolphe Appia con plataformas, escaleras y haces de luz",
+        link: "https://commons.wikimedia.org/wiki/File:Appia4.png",
       },
     },
     {
@@ -431,12 +432,12 @@ const DATOS = {
           "técnica (sin luz no hay registro) y narrativa (continuidad entre planos).</p>" +
           "<h4>Innovaciones técnicas y estéticas</h4>" +
           "<ul>" +
-          "<li><strong>Luz naturalista:</strong> exteriores, muselina, reflectores, banderas (<i>flags</i>) y gobos para cortar la luz; estudios acristalados (Star-Film de Méliès en Montreuil).</li>" +
+          "<li><strong>Luz naturalista:</strong> exteriores, muselina, reflectores, banderas (<i>flags</i>) y gobos para cortar la luz, y estudios acristalados (Star-Film de Méliès en Montreuil).</li>" +
           "<li><strong>Arco y vapor de mercurio:</strong> haz puntual frente a luz suave azul-verdosa, útil para la película ortocromática (Kodak deja de fabricarla en 1930).</li>" +
-          "<li><strong>Contraluz y continuidad:</strong> Bitzer ya trabaja siluetas en <i>Old Kentucky</i> y <i>Lines of White on a Sullen Sea</i> (1909); el montaje obliga a igualar luces de días distintos: germen del triángulo clásico.</li>" +
+          "<li><strong>Contraluz y continuidad:</strong> Bitzer ya trabaja siluetas en <i>Old Kentucky</i> y <i>Lines of White on a Sullen Sea</i> (1909), y el montaje obliga a igualar luces de días distintos: germen del triángulo clásico.</li>" +
           "</ul>" +
           "<h4>Autores y figuras clave</h4>" +
-          "<p><strong>Georges Méliès:</strong> pionero en rodaje solo con luces de arco; <i>Le Voyage dans la lune</i> (1902) aún a luz natural.</p>" +
+          "<p><strong>Georges Méliès:</strong> pionero en rodaje solo con luces de arco. <i>Le Voyage dans la lune</i> (1902) aún a luz natural.</p>" +
           "<p><strong>Billy Bitzer</strong> y <strong>D. W. Griffith:</strong> contraluz narrativo en 1909 y, más tarde, en <i>El nacimiento de una nación</i> (1915) e <i>Intolerancia</i> (1916).</p>" +
           "<h4>Terminología técnica</h4>" +
           "<p><strong>Película ortocromática:</strong> emulsión solo sensible al azul y al verde.</p>" +
@@ -444,44 +445,65 @@ const DATOS = {
           "<p><strong>Arco voltaico:</strong> luz intensa, inestable y ruidosa.</p>",
       },
       media: {
-        url: "/animacion/color-iluminacion-acabado/cine_mudo.jpg",
-        thumbnail: "/animacion/color-iluminacion-acabado/cine_mudo.jpg",
-        caption: "Estudios de Georges Méliès (Star-Film) con luz natural.",
-        credit: "Dominio público / Wikimedia Commons (ficha pendiente)",
-        alt: "Rodaje de cine mudo",
-        link: "https://commons.wikimedia.org",
+        url: "/animacion/color-iluminacion-acabado/black_maria.jpg",
+        thumbnail: "/animacion/color-iluminacion-acabado/black_maria.jpg",
+        caption: "Fotografía del exterior del Black Maria, primer estudio cinematográfico de Edison.",
+        credit:
+          "William Kennedy Dickson, dominio público, vía Wikipedia: Black Maria y National Park Service",
+        alt: "Exterior del Black Maria, estudio de cine de Edison en West Orange",
+        link: "https://es.wikipedia.org/wiki/Black_Maria",
       },
     },
     {
       start_date: {
         year: 1920,
-        display_date: "Expresionismo Alemán (gran periodo del briefing)",
+        display_date: "Expresionismo Alemán (aprox. 1919–1933)",
       },
       text: {
         headline: "Expresionismo Alemán: La Pesadilla Visual",
         text:
-          "<p>&emsp;El briefing exige este gran periodo. El 1088 no le dedica capítulo propio: lo describe " +
-          "como estética (claroscuro, sombras, psique) y como huella de Reinhardt y, más tarde, de " +
-          "Toland y Kamiński. No se atribuyen aquí directores de fotografía que el temario no nombra.</p>" +
+          "<p>&emsp;Entre el contraluz narrativo de Bitzer y el realismo de Vertov, el expresionismo " +
+          "alemán convierte el juego de luces y sombras en programa estético: la pesadilla visual. " +
+          "La función psicológica del cine (el impacto de luces y sombras en el espectador) aquí manda. " +
+          "La luz deja de describir un espacio realista y materializa el estado interior, el misterio y el poder.</p>" +
           "<h4>Innovaciones técnicas y estéticas</h4>" +
           "<ul>" +
-          "<li><strong>Alto contraste y sombras duras:</strong> oscuridad profunda frente a haces nítidos (la «pesadilla visual» del temario).</li>" +
-          "<li><strong>Claroscuro psicológico:</strong> la luz no describe un espacio realista; materializa el estado interior.</li>" +
-          "<li><strong>De la escena al fotograma:</strong> Reinhardt une <i>Drehbühne</i> y cambios de luz fluidos, transiciones casi cinematográficas que el 1088 liga a este cine.</li>" +
+          "<li><strong>Pesadilla visual y clave baja:</strong> alto contraste, sombras duras y grandes " +
+          "áreas de oscuridad frente a haces nítidos. Esa gramática reaparece en Toland " +
+          "(<i>Ciudadano Kane</i>, 1941) y en Kamiński (<i>Schindler’s List</i>, 1993), con luz dura, " +
+          "contraluces potentes y sombra dramática.</li>" +
+          "<li><strong>Luz como pincel psicológico:</strong> Reinhardt usa la luz para guiar la mirada " +
+          "y subrayar la psique. Puede aislar a un actor en un único haz en un escenario inmenso " +
+          "(intimidad o soledad). Cientos de proyectores siguen una partitura de luces " +
+          "(<i>Lichtregie</i>) tan precisa como la de un director de orquesta, al servicio de la " +
+          "<i>Stimmung</i> (atmósfera o estado de ánimo).</li>" +
+          "<li><strong>De la escena al fotograma:</strong> Reinhardt populariza el escenario giratorio " +
+          "(<i>Drehbühne</i>) con cambios de luz fluidos, transiciones casi cinematográficas que " +
+          "influyeron en el cine expresionista alemán. La luz esculpe arquitecturas y envuelve al " +
+          "espectador, como en <i>El milagro</i> (1911).</li>" +
           "</ul>" +
           "<h4>Autores y figuras clave</h4>" +
-          "<p><strong>Max Reinhardt:</strong> único nombre del temario ligado a esta atmósfera (<i>Stimmung</i>, <i>Lichtregie</i>), como precursor práctico. El 1088 no cita a Wiene, Murnau ni Freund.</p>" +
+          "<p><strong>Max Reinhardt</strong> (1873–1943): precursor teatral de esta atmósfera " +
+          "(<i>Stimmung</i>, <i>Lichtregie</i>, <i>Drehbühne</i>) y puente hacia el cine alemán.</p>" +
+          "<p><strong>Robert Wiene</strong> lleva esa pesadilla al fotograma en <i>El gabinete del doctor " +
+          "Caligari</i> (1920), con claroscuro y sombras que deforman el espacio.</p>" +
+          "<p><strong>F. W. Murnau</strong> en <i>Nosferatu</i> (1922) y, con el director de fotografía " +
+          "<strong>Karl Freund</strong>, en <i>El último</i> (1924), usa clave baja, contraluz y sombra como personaje.</p>" +
           "<h4>Terminología técnica</h4>" +
-          "<p><strong>Clave baja (<i>low-key</i>):</strong> gran contraste y zonas de oscuridad (Toland la retoma en <i>Ciudadano Kane</i>).</p>" +
-          "<p><strong>Stimmung:</strong> estado de ánimo creado con la luz.</p>",
+          "<p><strong>Clave baja (<i>low-key</i>):</strong> gran contraste y zonas de oscuridad. Toland " +
+          "la retoma en <i>Ciudadano Kane</i>, inspirado en este cine.</p>" +
+          "<p><strong>Stimmung:</strong> atmósfera o estado de ánimo creado con la luz.</p>" +
+          "<p><strong>Lichtregie:</strong> partitura de luces, controlada como una orquesta.</p>" +
+          "<p><strong>Drehbühne:</strong> escenario giratorio, transiciones casi de montaje fílmico.</p>",
       },
       media: {
-        url: "/animacion/color-iluminacion-acabado/expresionismo.jpg",
-        thumbnail: "/animacion/color-iluminacion-acabado/expresionismo.jpg",
-        caption: "Alto contraste y sombras en la estética expresionista.",
-        credit: "Dominio público / Wikimedia Commons (ficha pendiente)",
-        alt: "Cine expresionista alemán",
-        link: "https://commons.wikimedia.org",
+        url: "/animacion/color-iluminacion-acabado/expresionismo_aleman.jpg",
+        thumbnail: "/animacion/color-iluminacion-acabado/expresionismo_aleman.jpg",
+        caption:
+          "Fotograma de El gabinete del doctor Caligari (1920), con su puesta en escena distorsionada.",
+        credit: "Willy Hameister, dominio público, Wikimedia Commons (colección James Moores)",
+        alt: "Fotograma de El gabinete del doctor Caligari con decorados y sombras pintadas",
+        link: "https://commons.wikimedia.org/wiki/File:CABINET_DES_DR_CALIGARI_01.jpg",
       },
     },
     {
@@ -498,11 +520,11 @@ const DATOS = {
           "<h4>Innovaciones técnicas y estéticas</h4>" +
           "<ul>" +
           "<li><strong>Iluminación dialéctica:</strong> arco y tungsteno duros, sin glamour, para monumentalizar al pueblo.</li>" +
-          "<li><strong>Alto contraste gráfico:</strong> Tisse en <i>El acorazado Potemkin</i> (1925) y <i>Octubre</i> (1928); el brillo de los sables, el héroe proletario.</li>" +
+          "<li><strong>Alto contraste gráfico:</strong> Tisse en <i>El acorazado Potemkin</i> (1925) y <i>Octubre</i> (1928), con el brillo de los sables y el héroe proletario.</li>" +
           "<li><strong>Kino-Glaz:</strong> Kaufman filma «la vida de improviso» con luz real (<i>El hombre de la cámara</i>, 1929).</li>" +
           "</ul>" +
           "<h4>Autores y figuras clave</h4>" +
-          "<p><strong>Sergei Eisenstein</strong> y <strong>Eduard Tisse</strong>; <strong>Dziga Vertov</strong> y <strong>Mikhail Kaufman</strong>.</p>" +
+          "<p><strong>Sergei Eisenstein</strong> y <strong>Eduard Tisse</strong>, junto a <strong>Dziga Vertov</strong> y <strong>Mikhail Kaufman</strong>.</p>" +
           "<h4>Terminología técnica</h4>" +
           "<p><strong>Tipaje:</strong> actores no profesionales elegidos por el rostro de una clase social.</p>" +
           "<p><strong>Kino-Glaz (Cine-Ojo):</strong> rechazo de la puesta en escena y de la luz artificial.</p>",
@@ -510,10 +532,11 @@ const DATOS = {
       media: {
         url: "/animacion/color-iluminacion-acabado/cine_sovietico.jpg",
         thumbnail: "/animacion/color-iluminacion-acabado/cine_sovietico.jpg",
-        caption: "Iluminación gráfica y de masas en el cine soviético de vanguardia.",
-        credit: "Dominio público / Wikimedia Commons (ficha pendiente)",
-        alt: "Cine soviético",
-        link: "https://commons.wikimedia.org",
+        caption:
+          "Soldados zaristas bajan la escalera de Odesa en El acorazado Potemkin (Goskino, 1925).",
+        credit: "Dominio público, Wikimedia Commons, vía Wikipedia: Archivo:Potemkinmarch.jpg",
+        alt: "Fotograma de la masacre en la escalera de Odesa, El acorazado Potemkin",
+        link: "https://es.wikipedia.org/wiki/Archivo:Potemkinmarch.jpg",
       },
     },
     {
@@ -529,9 +552,9 @@ const DATOS = {
           "centrado en las estrellas del <i>star-system</i> (1930–1950).</p>" +
           "<h4>Innovaciones técnicas y estéticas</h4>" +
           "<ul>" +
-          "<li><strong>Sistema de tres puntos y luz Rembrandt:</strong> <i>Key</i>, <i>Fill</i> y <i>Back Light</i>; la Rembrandt (un solo punto, triángulo en la mejilla) suaviza el esquema.</li>" +
+          "<li><strong>Sistema de tres puntos y luz Rembrandt:</strong> <i>Key</i>, <i>Fill</i> y <i>Back Light</i>, y la Rembrandt (un solo punto, triángulo en la mejilla) suaviza el esquema.</li>" +
           "<li><strong>Fresnel (1934):</strong> lente planoconvexa, <i>spot</i>/<i>flood</i>, 3200 K. En los 50, cuarzos («naranjitos», «butanitos», <i>blonde</i> de 2 kW) para exteriores.</li>" +
-          "<li><strong>Pancromática y glamour:</strong> primer plano con gasas; <i>butterfly lighting</i> (Dietrich); clave baja y <i>deep focus</i> (Toland); filtros en Ingrid Bergman (<i>Casablanca</i>).</li>" +
+          "<li><strong>Pancromática y glamour:</strong> primer plano con gasas, <i>butterfly lighting</i> (Dietrich), clave baja y <i>deep focus</i> (Toland), y filtros en Ingrid Bergman (<i>Casablanca</i>).</li>" +
           "</ul>" +
           "<h4>Autores y figuras clave</h4>" +
           "<p><strong>Josef von Sternberg</strong> y <strong>Lee Garmes</strong> (<i>El expreso de Shanghai</i>, 1932).</p>" +
@@ -540,16 +563,17 @@ const DATOS = {
           "<h4>Terminología técnica</h4>" +
           "<p><strong>Key / Fill / Back Light:</strong> los tres puntos clásicos.</p>" +
           "<p><strong>Lente de Fresnel:</strong> enfoque variable (Augustin-Jean Fresnel).</p>" +
-          "<p><strong>Película pancromática:</strong> sensible a todo el espectro visible (Kodak, años 1910; <i>The Headless Horseman</i>, 1922).</p>" +
+          "<p><strong>Película pancromática:</strong> sensible a todo el espectro visible (Kodak, años 1910, y <i>The Headless Horseman</i>, 1922).</p>" +
           "<p><strong>Cuarzos / naranjitos:</strong> tungsteno abierto, 800 W–1 kW, sin lente.</p>",
       },
       media: {
-        url: "/animacion/color-iluminacion-acabado/cine_clasico.jpg",
-        thumbnail: "/animacion/color-iluminacion-acabado/cine_clasico.jpg",
-        caption: "Plató clásico de Hollywood y esquema de tres puntos.",
-        credit: "Dominio público / Wikimedia Commons (ficha pendiente)",
-        alt: "Cine clásico de Hollywood",
-        link: "https://commons.wikimedia.org",
+        url: "/animacion/color-iluminacion-acabado/cine_clasico_hollywood.jpg",
+        thumbnail: "/animacion/color-iluminacion-acabado/cine_clasico_hollywood.jpg",
+        caption: "Fotograma de Casablanca (1942) con Ingrid Bergman y Humphrey Bogart.",
+        credit:
+          "Autor desconocido, Warner Bros. Pictures, dominio público, Wikimedia Commons (archivo eBay)",
+        alt: "Ingrid Bergman y Humphrey Bogart en un fotograma de Casablanca",
+        link: "https://commons.wikimedia.org/w/index.php?curid=130453796",
       },
     },
     {
@@ -564,8 +588,8 @@ const DATOS = {
           "con poco presupuesto convierte la necesidad en estética: la luz que hay, no la que se instala.</p>" +
           "<h4>Innovaciones técnicas y estéticas</h4>" +
           "<ul>" +
-          "<li><strong>Lumière disponible:</strong> sol, farolas y luces de un bar; sin camiones de estudio.</li>" +
-          "<li><strong>Cámaras ligeras y ASA alta:</strong> menos luz para exponer; cámara en mano de noticiario.</li>" +
+          "<li><strong>Lumière disponible:</strong> sol, farolas y luces de un bar, sin camiones de estudio.</li>" +
+          "<li><strong>Cámaras ligeras y ASA alta:</strong> menos luz para exponer y cámara en mano de noticiario.</li>" +
           "<li><strong>Estética documental:</strong> luz cruda, sin glamour, como declaración artística.</li>" +
           "</ul>" +
           "<h4>Autores y figuras clave</h4>" +
@@ -573,15 +597,17 @@ const DATOS = {
           "<p><strong>François Truffaut</strong> y <strong>Henri Decaë</strong> (<i>Los 400 golpes</i>, 1959).</p>" +
           "<h4>Terminología técnica</h4>" +
           "<p><strong>Lumière disponible:</strong> iluminación ya existente en la localización.</p>" +
-          "<p><strong>ASA:</strong> sensibilidad de la película; a más ASA, menos luz hace falta.</p>",
+          "<p><strong>ASA:</strong> sensibilidad de la película. A más ASA, menos luz hace falta.</p>",
       },
       media: {
-        url: "/animacion/color-iluminacion-acabado/nouvelle_vague.jpg",
-        thumbnail: "/animacion/color-iluminacion-acabado/nouvelle_vague.jpg",
-        caption: "Rodaje en exteriores con luz disponible.",
-        credit: "Dominio público / Wikimedia Commons (ficha pendiente)",
-        alt: "Nouvelle Vague",
-        link: "https://commons.wikimedia.org",
+        url: "/animacion/color-iluminacion-acabado/rebelion_contra_estudio.jpg",
+        thumbnail: "/animacion/color-iluminacion-acabado/rebelion_contra_estudio.jpg",
+        caption:
+          "Rodaje de Al final de la escapada (1960): Raoul Coutard con Cameflex sobre silla de ruedas, empujada para los travellings de interior.",
+        credit:
+          "Fotografía de rodaje, autor no acreditado en la fuente, vía líneas sobre arte (Ignacio Viloria)",
+        alt: "Raoul Coutard filma con cámara de mano desde una silla de ruedas junto a Jean Seberg",
+        link: "https://lineassobrearte.wordpress.com/2015/05/09/al-final-de-la-escapada-a-bout-de-souffle-de-jean-luc-godard-1960/",
       },
     },
     {
@@ -593,26 +619,26 @@ const DATOS = {
         headline: "Cine Moderno: HMI, Xenón y Luz de Autor",
         text:
           "<p>&emsp;Se copian los esquemas clásicos con toque de autor. El color exige equilibrar 5600 K " +
-          "(día) y 3200 K (tungsteno). Las HMI, en los 60, emiten luz día; el xenón las refuerza. Con ISO " +
+          "(día) y 3200 K (tungsteno). Las HMI, en los 60, emiten luz día y el xenón las refuerza. Con ISO " +
           "alto y ópticas abiertas se puede rodar casi sin focos.</p>" +
           "<h4>Innovaciones técnicas y estéticas</h4>" +
           "<ul>" +
-          "<li><strong>HMI (Hydrargyrum Medium-arc Iodide):</strong> 5600–10000 K, arco en bulbo de cuarzo con balasto; de 200 kW a 18.000 kW (potencia de calle entera).</li>" +
-          "<li><strong>Xenón:</strong> evolución del HMI; el temario cita <i>Blade Runner</i> (Ridley Scott, 1982).</li>" +
-          "<li><strong>Luz ambiental extrema:</strong> <i>Barry Lyndon</i> (Kubrick, 1975) a luz de velas; Dogma 90 e ISO alto sin aparato de estudio.</li>" +
+          "<li><strong>HMI (Hydrargyrum Medium-arc Iodide):</strong> 5600–10000 K, arco en bulbo de cuarzo con balasto, de 200 kW a 18.000 kW (potencia de calle entera).</li>" +
+          "<li><strong>Xenón:</strong> evolución del HMI. Ridley Scott la usa en <i>Blade Runner</i> (1982).</li>" +
+          "<li><strong>Luz ambiental extrema:</strong> <i>Barry Lyndon</i> (Kubrick, 1975) a luz de velas, y Dogma 90 e ISO alto sin aparato de estudio.</li>" +
           "</ul>" +
           "<h4>Autores y figuras clave</h4>" +
-          "<p><strong>Ridley Scott</strong> (<i>Blade Runner</i>, 1982) y <strong>Stanley Kubrick</strong> (<i>Barry Lyndon</i>, 1975), ejemplos del temario para HMI/xenón y velas.</p>" +
+          "<p><strong>Ridley Scott</strong> (<i>Blade Runner</i>, 1982) y <strong>Stanley Kubrick</strong> (<i>Barry Lyndon</i>, 1975): HMI, xenón y velas.</p>" +
           "<h4>Terminología técnica</h4>" +
           "<p><strong>HMI:</strong> proyector de haluros metálicos a temperatura de luz día.</p>" +
           "<p><strong>Balasto:</strong> equipo que crea y mantiene el arco.</p>" +
-          "<p><strong>ISO:</strong> sensibilidad del soporte; relevo del ASA analógico.</p>",
+          "<p><strong>ISO:</strong> sensibilidad del soporte, relevo del ASA analógico.</p>",
       },
       media: {
         url: "/animacion/color-iluminacion-acabado/cine_moderno.jpg",
         thumbnail: "/animacion/color-iluminacion-acabado/cine_moderno.jpg",
         caption: "Proyectores HMI y cine de autor (1960–1990).",
-        credit: "Dominio público / Wikimedia Commons (ficha pendiente)",
+        credit: "Dominio público, Wikimedia Commons",
         alt: "Iluminación HMI",
         link: "https://commons.wikimedia.org",
       },
@@ -629,26 +655,26 @@ const DATOS = {
           "dato que se esculpe en postproducción y, luego, se genera en el set en tiempo real.</p>" +
           "<h4>Innovaciones técnicas y estéticas</h4>" +
           "<ul>" +
-          "<li><strong>DI y VFX:</strong> <i>O Brother, Where Art Thou?</i> (Deakins, 2000), primer largo etalonado digital; <i>The Matrix</i> (Pope, 1999), Bullet Time sobre croma verde uniforme; <i>Schindler’s List</i> (Kamiński, 1993), B/N expresionista.</li>" +
-          "<li><strong>LED y DMX:</strong> Losev (LED rojo, 1927), Nakamura (LED azul, 1994; Nobel), LED blanco 1998; SkyPanel, Litepanels Gemini, Creamsource Vortex, Astera, Aputure COB; control DMX o app.</li>" +
-          "<li><strong>Luz desde la imagen:</strong> Light Box de 1,8 millones de LED en <i>Gravity</i> (Lubezki, 2013); StageCraft / The Volume en <i>The Mandalorian</i> (Fraser/Idoine, Unreal Engine): las paredes LED iluminan a los actores.</li>" +
+          "<li><strong>DI y VFX:</strong> <i>O Brother, Where Art Thou?</i> (Deakins, 2000), primer largo etalonado digital. <i>The Matrix</i> (Pope, 1999) usa Bullet Time sobre croma verde uniforme. <i>Schindler’s List</i> (Kamiński, 1993) recupera el B/N expresionista.</li>" +
+          "<li><strong>LED y DMX:</strong> Losev (LED rojo, 1927), Nakamura (LED azul, 1994, Nobel), LED blanco en 1998, y paneles como SkyPanel, Litepanels Gemini, Creamsource Vortex, Astera o Aputure COB, con control DMX o app.</li>" +
+          "<li><strong>Luz desde la imagen:</strong> Light Box de 1,8 millones de LED en <i>Gravity</i> (Lubezki, 2013). StageCraft / The Volume en <i>The Mandalorian</i> (Fraser/Idoine, Unreal Engine): las paredes LED iluminan a los actores.</li>" +
           "</ul>" +
           "<h4>Autores y figuras clave</h4>" +
           "<p><strong>Roger Deakins</strong>, <strong>Janusz Kamiński</strong> / Spielberg, <strong>Bill Pope</strong> / Wachowskis, <strong>Emmanuel Lubezki</strong> / Cuarón, <strong>Greig Fraser</strong> y <strong>Barry Idoine</strong> / Favreau.</p>" +
-          "<p><strong>John Alton</strong> (cierre del temario, junto a Bitzer): el oficio no cambia con el aparato — pintar con luz y sombra para contar una historia.</p>" +
+          "<p><strong>John Alton</strong>, junto a Bitzer: el oficio no cambia con el aparato. Sigue siendo pintar con luz y sombra para contar una historia.</p>" +
           "<h4>Terminología técnica</h4>" +
           "<p><strong>DI (Digital Intermediate):</strong> etalonaje digital de color antes de la distribución.</p>" +
-          "<p><strong>LED:</strong> diodo emisor de luz; color instantáneo, bajo consumo.</p>" +
+          "<p><strong>LED:</strong> diodo emisor de luz, de color instantáneo y bajo consumo.</p>" +
           "<p><strong>DMX:</strong> protocolo de control digital de iluminación escénica.</p>" +
           "<p><strong>HMI:</strong> sigue en uso (p. ej. ARRI M-Series) para simular sol.</p>" +
-          "<p><strong>VFX:</strong> efectos visuales; la luz del set debe servir a la integración (croma, Volume).</p>" +
+          "<p><strong>VFX:</strong> efectos visuales. La luz del set debe servir a la integración (croma, Volume).</p>" +
           "<p><strong>The Volume / StageCraft:</strong> plató LED que es a la vez fondo y fuente de luz.</p>",
       },
       media: {
         url: "/animacion/color-iluminacion-acabado/era_digital.jpg",
         thumbnail: "/animacion/color-iluminacion-acabado/era_digital.jpg",
         caption: "Plató de producción virtual (The Volume).",
-        credit: "Dominio público / Wikimedia Commons (ficha pendiente)",
+        credit: "Dominio público, Wikimedia Commons",
         alt: "Producción virtual LED",
         link: "https://commons.wikimedia.org",
       },
