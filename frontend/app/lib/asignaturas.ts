@@ -34,6 +34,12 @@ export const ASIGNATURAS: readonly Asignatura[] = [
     carpeta: "color_iluminacion_acabado",
     descripcion:
       "Trabajos y entregas de Color, iluminación y acabado. Incluye la línea temporal de la luz escénica y cinematográfica.",
+    enlaces: [
+      {
+        etiqueta: "PDF. La línea temporal de la luz escénica y cinematográfica",
+        url: "/animacion/color-iluminacion-acabado/ACT01_01RA7_Marquez_PinaAgustinAntonio.pdf",
+      },
+    ],
   },
   {
     slug: "diseno-modelado",
