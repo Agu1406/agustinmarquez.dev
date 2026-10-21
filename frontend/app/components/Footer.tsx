@@ -31,6 +31,11 @@ export default function Footer() {
                 Cookies
               </Link>
             </li>
+            <li>
+              <Link href="/clases" className="s-link">
+                Clases
+              </Link>
+            </li>
           </ul>
         </nav>
 

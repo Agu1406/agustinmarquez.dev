@@ -108,6 +108,125 @@
   margin-top: 0.35rem;
 }
 
+.site-theme {
+  --s-ko: #8f2a2a;
+}
+
+@media (prefers-color-scheme: dark) {
+  .site-theme {
+    --s-ko: #e08a8a;
+  }
+}
+
+.site-theme .s-ok {
+  color: var(--s-accent);
+  line-height: 1.7;
+}
+
+.site-theme .s-ko {
+  color: var(--s-ko);
+  line-height: 1.7;
+}
+
+.site-theme .s-btn {
+  min-height: 44px;
+  padding: 0.6rem 1.1rem;
+  border: 1px solid var(--s-text);
+  border-radius: 2px;
+  background: var(--s-text);
+  color: var(--s-bg);
+  font: inherit;
+  font-weight: 600;
+}
+
+.site-theme .s-btn:hover {
+  background: var(--s-accent);
+  border-color: var(--s-accent);
+  color: var(--s-bg);
+}
+
+.site-theme .s-btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.site-theme .s-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+.site-theme .s-form fieldset {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+.site-theme .s-form legend {
+  margin-bottom: 0.35rem;
+  font-weight: 600;
+}
+
+.site-theme .s-form label {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.7rem;
+  min-height: 44px;
+  line-height: 1.45;
+  cursor: pointer;
+}
+
+.site-theme .s-form input[type="radio"] {
+  margin-top: 0.35rem;
+  accent-color: var(--s-accent);
+}
+
+.site-theme .s-choice {
+  width: 100%;
+  min-height: 44px;
+  padding: 0.9rem 0;
+  border: 0;
+  border-bottom: 1px solid var(--s-line);
+  border-radius: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  line-height: 1.5;
+}
+
+.site-theme .s-choice:first-child {
+  border-top: 1px solid var(--s-line);
+}
+
+.site-theme .s-choice:hover:not(:disabled),
+.site-theme .s-choice[data-estado="solucion"] {
+  background: var(--s-surface);
+}
+
+.site-theme .s-choice[data-estado="correcta"] {
+  color: var(--s-accent);
+}
+
+.site-theme .s-choice[data-estado="incorrecta"] {
+  color: var(--s-ko);
+  text-decoration: line-through;
+}
+
+.site-theme .s-progress {
+  height: 2px;
+  background: var(--s-line);
+}
+
+.site-theme .s-progress span {
+  display: block;
+  height: 2px;
+  background: var(--s-text);
+}
+
 @media (prefers-reduced-motion: reduce) {
   .site-theme *,
   .site-theme *::before,
