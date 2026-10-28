@@ -1,7 +1,9 @@
+import { c } from "./c";
 import { laboratorioInformatica } from "./laboratorio-informatica";
 import type { Pregunta, PreguntaTipo, TestAlcance } from "./types";
 
 const BANCOS: Record<string, readonly Pregunta[]> = {
+  c,
   "laboratorio-informatica": laboratorioInformatica,
 };
 

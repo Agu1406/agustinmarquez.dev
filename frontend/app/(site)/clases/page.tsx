@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { CLASES } from "../../lib/clases";
+import { getTemario } from "../../lib/teoria";
 import { getBanco } from "../../lib/tests/bancos";
 
 export const metadata: Metadata = {
@@ -17,14 +18,23 @@ export default function ClasesIndex() {
         Una URL por materia.
       </h1>
       <p className="s-muted mt-6 max-w-xl text-lg leading-relaxed">
-        Elige el lenguaje o la asignatura. Donde hay banco de preguntas puedes
-        hacer un test: teoría, práctica o ambas, en modo examen o con
-        explicación al contestar.
+        Elige el lenguaje o la asignatura. Donde hay apuntes puedes leer el
+        temario; donde hay banco de preguntas, hacer un test en modo examen o
+        con explicación al contestar.
       </p>
 
       <ol className="s-line mt-12 border-t">
         {CLASES.map((clase, index) => {
           const hayTest = getBanco(clase.slug).length > 0;
+          const hayApuntes = Boolean(getTemario(clase.slug));
+          const estado =
+            hayTest && hayApuntes
+              ? "Apuntes y test"
+              : hayTest
+                ? "Test listo"
+                : hayApuntes
+                  ? "Apuntes"
+                  : clase.grupo;
           return (
             <li key={clase.slug} className="s-line border-b">
               <Link
@@ -40,9 +50,7 @@ export default function ClasesIndex() {
                   </span>
                   <span className="s-muted mt-1 block">{clase.descripcion}</span>
                 </span>
-                <span className="s-accent s-mono text-sm">
-                  {hayTest ? "Test listo" : clase.grupo}
-                </span>
+                <span className="s-accent s-mono text-sm">{estado}</span>
               </Link>
             </li>
           );

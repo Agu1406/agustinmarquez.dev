@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { CLASES, getClase } from "../../../lib/clases";
+import { getTemario } from "../../../lib/teoria";
 import { contarPorTipo, getBanco } from "../../../lib/tests/bancos";
 
 type Props = { params: Promise<{ asignatura: string }> };
@@ -29,6 +30,7 @@ export default async function ClasePage({ params }: Props) {
 
   const banco = getBanco(slug);
   const conteo = contarPorTipo(banco);
+  const temario = getTemario(slug);
 
   return (
     <div className="flex flex-col gap-12">
@@ -47,6 +49,26 @@ export default async function ClasePage({ params }: Props) {
           {clase.descripcion}
         </p>
       </div>
+
+      {temario && (
+        <section aria-labelledby="titulo-apuntes">
+          <h2
+            id="titulo-apuntes"
+            className="s-muted s-mono text-sm uppercase tracking-wider"
+          >
+            Apuntes
+          </h2>
+          <p className="s-muted mt-3 max-w-xl">
+            {temario.temas.length} temas, de lo básico hasta bucles. Léelos antes
+            del test o repasa uno concreto.
+          </p>
+          <p className="mt-4">
+            <Link href={`/clases/${slug}/teoria`} className="s-link text-lg">
+              Abrir apuntes de {clase.nombre}
+            </Link>
+          </p>
+        </section>
+      )}
 
       {clase.pdf && (
         <section aria-labelledby="titulo-material">

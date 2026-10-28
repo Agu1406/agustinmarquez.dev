@@ -101,7 +101,7 @@ En el sitio ya hay aviso legal, privacidad y cookies. Cualquier cosa nueva que r
 
 ## Clases: mapa de URLs
 
-Una URL por lenguaje o materia que se enseña. Hub en `/clases`. Cada ficha en `/clases/<slug>`. El reproductor, si hay banco de preguntas, en `/clases/<slug>/test`.
+Una URL por lenguaje o materia que se enseña. Hub en `/clases`. Cada ficha en `/clases/<slug>`. Apuntes (temario teórico), si existen, en `/clases/<slug>/teoria` y cada tema en `/clases/<slug>/teoria/<tema>`. El reproductor, si hay banco de preguntas, en `/clases/<slug>/test`.
 
 | Grupo | Materia | URL |
 |---|---|---|
@@ -123,7 +123,11 @@ Una URL por lenguaje o materia que se enseña. Hub en `/clases`. Cada ficha en `
 | Materia | Cálculo | `/clases/calculo` |
 | Materia | Laboratorio de Informática | `/clases/laboratorio-informatica` |
 
-El catálogo está en `frontend/app/lib/clases.ts`. Los bancos, en `frontend/app/lib/tests/`.
+El catálogo está en `frontend/app/lib/clases.ts`. Los bancos, en `frontend/app/lib/tests/`. Los temarios de apuntes, en `frontend/app/lib/teoria/` (un módulo por slug en `temarios/`).
+
+### Apuntes (teoría)
+
+Misma estética que el sitio (no copiar colores de apuntesdam). Sí copiar la **estructura**: índice numerado de temas, ficha con resumen y tiempo de lectura, navegación anterior/siguiente, bloques de párrafo, listas, código en `<pre class="s-code">` y notas en `<aside class="s-nota">`. Contenido en TypeScript (`TeoriaBloque[]`), no Markdown suelto, para tipado y revisión en PR. Registrar el temario en `lib/teoria/index.ts`. Las instrucciones detalladas para agentes están en `.cursor/rules/clases-contenido.mdc`.
 
 ## Tests
 

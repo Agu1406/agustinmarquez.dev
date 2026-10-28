@@ -1,0 +1,76 @@
+---
+description: Cómo añadir apuntes, tests y fichas en /clases (temario, banco, UI). Usar en tareas de materias, lenguajes y simulacros.
+globs:
+  - frontend/app/(site)/clases/**
+  - frontend/app/lib/clases.ts
+  - frontend/app/lib/tests/**
+  - frontend/app/lib/teoria/**
+  - DESIGN.md
+alwaysApply: false
+---
+
+# Clases: apuntes, tests y catálogo
+
+Lee `DESIGN.md` antes de tocar UI. El reproductor de tests (`TestPlayer.tsx`, `test/page.tsx`) no se reescribe por materia nueva.
+
+## 1. Reservar la materia
+
+- Entrada en `frontend/app/lib/clases.ts` (`slug`, `nombre`, `grupo`, `descripcion`, `pdf` opcional).
+- URL ficha: `/clases/<slug>`.
+- `generateStaticParams` de `[asignatura]` ya recorre `CLASES`; no dupliques slugs.
+
+## 2. Apuntes (teoría)
+
+Referencia de **estructura** (no de estética): apuntesdam.com — índice de estaciones, tema con resumen y minutos, anterior/siguiente, código y callouts.
+
+Implementación en este repo:
+
+| Pieza | Ruta |
+| --- | --- |
+| Tipos | `frontend/app/lib/teoria/types.ts` |
+| Temario | `frontend/app/lib/teoria/temarios/<slug>.ts` |
+| Registro | `frontend/app/lib/teoria/index.ts` → `TEMARIOS` |
+| Render | `frontend/app/(site)/clases/components/TeoriaRenderer.tsx` |
+| Índice | `frontend/app/(site)/clases/[asignatura]/teoria/page.tsx` |
+| Tema | `frontend/app/(site)/clases/[asignatura]/teoria/[tema]/page.tsx` |
+
+Reglas:
+
+- Bloques solo con `TeoriaBloque` (`p`, `h3`, `ul`, `ol`, `code`, `nota`). Sin MDX ni HTML crudo en strings.
+- Código: clase `s-code`, nombre de archivo opcional en `archivo`.
+- Notas tipo callout: `kind: "nota"`, estilos `s-nota`.
+- Tras crear temario, `generateStaticParams` de `teoria/` y `teoria/[tema]/` se alimentan de `getTemario` / `allTemaParams()`.
+- En la ficha `[asignatura]/page.tsx` aparece la sección Apuntes si `getTemario(slug)` existe.
+
+## 3. Tests
+
+Patrón: `frontend/app/lib/tests/laboratorio-informatica.ts`.
+
+| Pieza | Ruta |
+| --- | --- |
+| Tipos | `frontend/app/lib/tests/types.ts` |
+| Banco | `frontend/app/lib/tests/<slug>.ts` export `const <identificador>` |
+| Mapa | `frontend/app/lib/tests/bancos.ts` → `BANCOS` |
+
+Cada `Pregunta`:
+
+- `id` único: `<slug-abrev>-<tema>-<t|p>-<slug-corto>`.
+- `tema` alineado con el temario (mismo nombre de bloque didáctico).
+- `tipo`: `teoria` | `practica`.
+- Cuatro opciones `a`–`d`; `correcta` una letra.
+- `explicacion`: por qué la correcta y qué error cometen las demás (errores de examen, no distractores aleatorios).
+
+No tocar `TestPlayer` salvo bug global. Páginas de test: `noindex` (ya en metadata del reproductor si existe; mantener convención).
+
+PDF de simulacro (opcional): `frontend/public/clases/<slug>/` + campo `pdf` en `clases.ts`.
+
+## 4. Checklist antes de PR
+
+1. `npm run build` en `frontend/`.
+2. Ficha muestra Apuntes y/o Test según corresponda; hub `/clases` actualiza etiqueta (Apuntes, Test, ambos).
+3. `DESIGN.md` solo si cambian URLs o convenciones globales.
+4. Sin emojis, sin tarjetas tipo plantilla IA (ver DESIGN.md).
+
+## 5. Orden didáctico habitual (lenguajes imperativos)
+
+Para C, Java, Python al inicio: fundamentos → tipos/variables → operadores → E/S → condicionales → bucles → (después) funciones, arrays, etc. Los bancos parciales deben declarar en comentario de cabecera hasta qué tema llegan.
