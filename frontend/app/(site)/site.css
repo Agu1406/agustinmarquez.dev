@@ -107,6 +107,53 @@
   margin-top: 0.35rem;
 }
 
+/* Apuntes de /clases (referencia composición apuntesdam, paleta del sitio) */
+.site-theme .s-teoria-h3 {
+  margin-top: 2rem;
+  margin-bottom: 0.5rem;
+  font-size: 1.125rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.site-theme .s-teoria-ol {
+  list-style: decimal;
+  padding-left: 1.25rem;
+}
+
+.site-theme .s-code-fig {
+  margin-top: 1rem;
+}
+
+.site-theme .s-code-fig figcaption {
+  margin-bottom: 0.35rem;
+}
+
+.site-theme .s-code {
+  overflow-x: auto;
+  padding: 1rem 1.1rem;
+  border: 1px solid var(--s-line);
+  border-radius: 2px;
+  background: var(--s-surface);
+  font-family: var(--font-jetbrains), ui-monospace, monospace;
+  font-size: 0.875rem;
+  line-height: 1.55;
+  tab-size: 4;
+}
+
+.site-theme .s-nota {
+  margin-top: 1.25rem;
+  padding: 1rem 1.1rem;
+  border: 1px solid var(--s-line);
+  border-radius: 2px;
+  background: var(--s-surface);
+}
+
+.site-theme .s-nota-titulo {
+  margin: 0 0 0.35rem;
+  font-weight: 600;
+}
+
 .site-theme {
   --s-ko: #8f2a2a;
 }
