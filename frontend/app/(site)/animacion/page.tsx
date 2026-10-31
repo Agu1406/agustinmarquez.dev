@@ -15,8 +15,8 @@ export default function AnimacionIndex() {
         {CICLO.nombre}
       </h1>
       <p className="s-muted mt-6 max-w-xl text-lg leading-relaxed">
-        Una página por asignatura con sus trabajos y entregas, y el curso de
-        Blender que hago por mi cuenta.
+        Cinco módulos del ciclo y el curso de Blender. Cada ficha es el índice
+        de unidades, teoría, práctica y entregas.
       </p>
 
       <ol className="s-line mt-12 border-t">
@@ -37,7 +37,9 @@ export default function AnimacionIndex() {
                   {asignatura.descripcion}
                 </span>
               </span>
-              <span className="s-accent s-mono text-sm">{asignatura.tipo}</span>
+              <span className="s-accent s-mono text-sm">
+                {asignatura.siglas ?? asignatura.tipo}
+              </span>
             </Link>
           </li>
         ))}
