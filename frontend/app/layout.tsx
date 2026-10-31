@@ -9,12 +9,12 @@ const schibsted = Schibsted_Grotesk({
 
 const jetbrains = JetBrains_Mono({
   variable: "--font-jetbrains",
-  subsets: ["latin", "cyrillic"],
+  subsets: ["latin"],
 });
 
 export const metadata: Metadata = {
   title: "agustinmarquez.dev",
-  description: "Portfolio y demos de Agustín Márquez",
+  description: "Portfolio de Agustín Márquez",
 };
 
 export default function RootLayout({

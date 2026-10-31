@@ -11,14 +11,14 @@ export const metadata: Metadata = {
     template: "%s | agustinmarquez.dev",
   },
   description:
-    "Agustín Márquez diseña y desarrolla sitios web para negocios. Proyectos publicados, demos y contacto.",
+    "Agustín Márquez diseña y desarrolla sitios web para negocios. Proyectos publicados y contacto.",
   openGraph: {
     type: "website",
     locale: "es_ES",
     siteName: SITE.domain,
     title: "Agustín Márquez | Desarrollo web",
     description:
-      "Sitios web para negocios: proyectos publicados, demos y contacto.",
+      "Sitios web para negocios: proyectos publicados y contacto.",
   },
 };
 

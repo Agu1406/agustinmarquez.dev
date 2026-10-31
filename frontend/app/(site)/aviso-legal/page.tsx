@@ -34,7 +34,7 @@ export default function AvisoLegal() {
       <h2>Objeto</h2>
       <p>
         Este sitio web es un portfolio profesional. Muestra proyectos
-        realizados, demos de carácter ilustrativo y un medio de contacto. No
+        realizados y un medio de contacto. No
         ofrece venta de productos ni servicios de pago a través del propio
         sitio. No hay cobro en esta web, así que no hay una política de
         reembolso que aplicar.
@@ -58,13 +58,6 @@ export default function AvisoLegal() {
       <p>
         Tipografías utilizadas: Schibsted Grotesk y JetBrains Mono, ambas
         distribuidas bajo la licencia SIL Open Font License 1.1.
-      </p>
-
-      <h2>Demos</h2>
-      <p>
-        Las demos alojadas en este dominio son prototipos con datos de
-        ejemplo. Las menciones a negocios, precios u horarios que aparezcan en
-        ellas no constituyen una oferta ni un compromiso comercial.
       </p>
 
       <h2>Enlaces externos</h2>

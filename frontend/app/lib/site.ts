@@ -13,9 +13,9 @@ export const SITE = {
 } as const;
 
 export const LEGAL = {
-  titular: "Agustín Márquez [PENDIENTE: apellidos completos]",
-  nif: "[PENDIENTE: NIF]",
-  domicilio: "[PENDIENTE: domicilio profesional]",
+  titular: "Agustín Antonio Marquéz Piña",
+  nif: "54951141R",
+  domicilio: "Las Rozas de Madrid, Madrid, España",
   actividad: "Diseño y desarrollo de sitios web",
   lastUpdate: "31 de octubre de 2026",
 } as const;

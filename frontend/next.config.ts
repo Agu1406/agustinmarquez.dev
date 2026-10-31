@@ -37,6 +37,21 @@ const nextConfig: NextConfig = {
         destination: ikaro.url,
         permanent: true,
       },
+      {
+        source: "/demo/language-portal",
+        destination: "/",
+        permanent: true,
+      },
+      {
+        source: "/demo/language-portal/:path*",
+        destination: "/",
+        permanent: true,
+      },
+      {
+        source: "/demo",
+        destination: "/",
+        permanent: true,
+      },
     ];
   },
 };

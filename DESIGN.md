@@ -2,7 +2,7 @@
 
 Reglas visuales, de código, legales y de copy para este sitio. Si una decisión choca con este archivo, gana este archivo.
 
-La web principal vive en `frontend/app/(site)/` y usa el tema `.site-theme` (`site.css`). La demo de idiomas (`/demo/language-portal`) usa el mismo tema. Las webs de clientes publicadas viven en su propio repositorio y aquí solo se enlazan.
+La web vive en `frontend/app/(site)/` y usa el tema `.site-theme` (`site.css`). No hay sección de demos. Las webs de clientes publicadas viven en su propio repositorio y aquí solo se enlazan.
 
 ## Idea
 
@@ -71,7 +71,7 @@ Una sola instancia donde la haya de haber una: cliente HTTP, conexión a base de
 
 Degradados (también en texto), glassmorphism, liquid glass, sombras difusas, emojis, iconos genéricos en cajas, bento, badges sobre el titular, haz de luz que sigue al cursor, orbes, rejillas de puntos, destellos, grano sobre degradado, Inter / Geist / Space Grotesk, shadcn sin tocar, tres tarjetas de features, tres tarifas, viñetas con check, terminal de adorno, fondo blanco puro, morado con negro, neón, pasteles de plantilla, arcoíris, radio blando, testimonios falsos.
 
-La demo que vive en este repositorio usa el mismo tema. Una web de cliente publicada no se copia aquí: se enlaza.
+Una web de cliente publicada no se copia aquí: se enlaza.
 
 ## Legal (para no pintar una app que acabe en líos)
 

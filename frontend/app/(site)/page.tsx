@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { HomeMotion } from "./HomeMotion";
 import { PROJECTS, SITE } from "../lib/site";
 
@@ -69,24 +68,6 @@ export default function Home() {
             </li>
           ))}
         </ol>
-      </section>
-
-      <section aria-labelledby="titulo-demos">
-        <h2
-          id="titulo-demos"
-          className="s-muted s-mono text-sm uppercase tracking-wider"
-        >
-          Demos
-        </h2>
-        <p className="mt-6 max-w-xl text-lg leading-relaxed">
-          Un prototipo con datos de ejemplo que enseño antes de empezar un
-          proyecto: un portal de clases de idiomas.
-        </p>
-        <p className="mt-4">
-          <Link href="/demo" className="s-link font-medium">
-            Ver la demo
-          </Link>
-        </p>
       </section>
 
       <section id="contacto" aria-labelledby="titulo-contacto" className="scroll-mt-8">

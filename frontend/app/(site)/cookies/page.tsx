@@ -20,7 +20,7 @@ export default function Cookies() {
 
       <h2>Cookies que usa este sitio</h2>
       <p>
-        Esta web principal no instala cookies propias ni de terceros, ni usa
+        Este sitio no instala cookies propias ni de terceros, ni usa
         herramientas de analítica, publicidad o redes sociales incrustadas. Por
         eso no se muestra un banner de consentimiento: la normativa solo lo
         exige cuando se usan cookies no necesarias.
@@ -28,14 +28,6 @@ export default function Cookies() {
       <p>
         Las tipografías se sirven desde este mismo dominio, sin conexión con
         servidores de terceros durante la visita.
-      </p>
-
-      <h2>Demos</h2>
-      <p>
-        La demo de idiomas guarda en tu navegador, mediante almacenamiento
-        local, el idioma elegido y el progreso de los ejercicios. Esos datos
-        no salen del dispositivo y no se usan para rastrearte. No hace falta
-        un banner: no son cookies de analítica ni de publicidad.
       </p>
 
       <h2>Cómo gestionar las cookies</h2>

@@ -7,7 +7,6 @@ import { SITE } from "../lib/site";
 const NAV = [
   { label: "Proyectos", href: "/#proyectos" },
   { label: "Clases", href: "/clases" },
-  { label: "Demos", href: "/demo" },
   { label: "Contacto", href: "/#contacto" },
 ] as const;
 

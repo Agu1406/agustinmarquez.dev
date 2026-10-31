@@ -1,6 +1,6 @@
 /*
  * CSS de la l�nea de tiempo de CIA (TimelineJS). Se importa solo desde
- * linea-temporal.tsx. Todo va dentro de .site-theme para no afectar a las demos.
+ * linea-temporal.tsx. Todo va dentro de .site-theme.
  *
  * No edites public/timelinejs/css/timeline.css (es el CSS original de la
  * librer�a): para cambiar algo, copia su selector aqu� con el prefijo
