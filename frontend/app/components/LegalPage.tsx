@@ -1,4 +1,4 @@
-import { LEGAL } from "../lib/site";
+import { assertLegalIdentity, LEGAL } from "../lib/site";
 
 /**
  * Contenedor común para las páginas legales (título, fecha y texto con estilo).
@@ -10,6 +10,8 @@ export default function LegalPage({
   title: string;
   children: React.ReactNode;
 }>) {
+  assertLegalIdentity();
+
   return (
     <article className="max-w-2xl">
       <h1 className="text-3xl font-semibold tracking-tight md:text-4xl">

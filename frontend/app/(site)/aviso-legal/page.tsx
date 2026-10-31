@@ -36,7 +36,8 @@ export default function AvisoLegal() {
         Este sitio web es un portfolio profesional. Muestra proyectos
         realizados, demos de carácter ilustrativo y un medio de contacto. No
         ofrece venta de productos ni servicios de pago a través del propio
-        sitio.
+        sitio. No hay cobro en esta web, así que no hay una política de
+        reembolso que aplicar.
       </p>
 
       <h2>Condiciones de uso</h2>

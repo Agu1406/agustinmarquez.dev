@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
-import { Inter, JetBrains_Mono } from "next/font/google";
+import { JetBrains_Mono, Schibsted_Grotesk } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({
-  variable: "--font-inter",
-  subsets: ["latin", "cyrillic"],
+const schibsted = Schibsted_Grotesk({
+  variable: "--font-schibsted",
+  subsets: ["latin", "latin-ext"],
 });
 
 const jetbrains = JetBrains_Mono({
@@ -23,10 +23,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="es"
-      className={`${inter.variable} ${jetbrains.variable}`}
-    >
+    <html lang="es" className={`${schibsted.variable} ${jetbrains.variable}`}>
       <body className="antialiased">{children}</body>
     </html>
   );

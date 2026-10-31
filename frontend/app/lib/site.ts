@@ -17,8 +17,31 @@ export const LEGAL = {
   nif: "[PENDIENTE: NIF]",
   domicilio: "[PENDIENTE: domicilio profesional]",
   actividad: "Diseño y desarrollo de sitios web",
-  lastUpdate: "9 de octubre de 2026",
+  lastUpdate: "31 de octubre de 2026",
 } as const;
+
+/**
+ * En producción, un dato legal vacío rompe la página. En desarrollo se
+ * sigue viendo el texto para poder revisarlo.
+ */
+export function assertLegalIdentity(): void {
+  if (process.env.NODE_ENV !== "production") return;
+
+  const pending = "PENDIENTE";
+  const missing = (
+    [
+      ["titular", LEGAL.titular],
+      ["nif", LEGAL.nif],
+      ["domicilio", LEGAL.domicilio],
+    ] as const
+  ).filter(([, value]) => value.includes(pending));
+
+  if (missing.length > 0) {
+    throw new Error(
+      `Faltan datos legales (${missing.map(([key]) => key).join(", ")}). Completa LEGAL en frontend/app/lib/site.ts antes de publicar.`
+    );
+  }
+}
 
 export const PROJECTS = [
   {
@@ -37,6 +60,12 @@ export const PROJECTS = [
     name: "Motorwears",
     url: "https://www.motorwears.es/",
     description: "Tienda online de ropa y accesorios para motoristas.",
+    nofollow: false,
+  },
+  {
+    name: "Ikaro Men's Barber",
+    url: "https://ikaromenbarbershop.es",
+    description: "Web de una barbería en Las Rozas de Madrid.",
     nofollow: false,
   },
 ] as const;

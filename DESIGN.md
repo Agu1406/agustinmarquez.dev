@@ -2,7 +2,7 @@
 
 Reglas visuales, de código, legales y de copy para este sitio. Si una decisión choca con este archivo, gana este archivo.
 
-La web principal vive en `frontend/app/(site)/` y usa el tema `.site-theme` (`site.css`). Las demos (`/demo/...`) tienen tema propio y no pisan estas reglas.
+La web principal vive en `frontend/app/(site)/` y usa el tema `.site-theme` (`site.css`). La demo de idiomas (`/demo/language-portal`) usa el mismo tema. Las webs de clientes publicadas viven en su propio repositorio y aquí solo se enlazan.
 
 ## Idea
 
@@ -35,6 +35,7 @@ Sin degradados. Sin sombras. Sin orbes. El modo oscuro sigue al sistema, no es u
 - Iconos: solo si hacen falta, trazados en SVG propio. No Lucide. No emojis.
 - Espaciado coherente (la escala de Tailwind del layout: `gap-20`, `py-6`, `mt-4`). No animar el hover de los botones más allá del color (150 ms, como `.s-link`).
 - `prefers-reduced-motion`: ya anula transiciones en `.site-theme`. No añadir fade-in al scroll, ni haz que sigue al cursor, ni flechas animadas.
+- GSAP entra solo en la portada, con una línea de tiempo corta. Sin JavaScript, o con `prefers-reduced-motion`, la portada se queda quieta. No hay Three.js ni Lottie.
 
 ## Código
 
@@ -70,7 +71,7 @@ Una sola instancia donde la haya de haber una: cliente HTTP, conexión a base de
 
 Degradados (también en texto), glassmorphism, liquid glass, sombras difusas, emojis, iconos genéricos en cajas, bento, badges sobre el titular, haz de luz que sigue al cursor, orbes, rejillas de puntos, destellos, grano sobre degradado, Inter / Geist / Space Grotesk, shadcn sin tocar, tres tarjetas de features, tres tarifas, viñetas con check, terminal de adorno, fondo blanco puro, morado con negro, neón, pasteles de plantilla, arcoíris, radio blando, testimonios falsos.
 
-Excepción: las demos de clientes pueden tener su propio tema. El sitio y `/clases` no.
+La demo que vive en este repositorio usa el mismo tema. Una web de cliente publicada no se copia aquí: se enlaza.
 
 ## Legal (para no pintar una app que acabe en líos)
 
@@ -145,4 +146,4 @@ No copiar estética. Si hace falta mirar movimiento o composición, estos sitios
 - [shadergradient.co](https://shadergradient.co): fondos 3D.
 - [unicorn.studio](https://unicorn.studio): inspiración.
 
-Three.js, GSAP y Lottie no entran en el sitio ni en `/clases` salvo encargo expreso.
+GSAP se usa solo en la portada. Three.js y Lottie no entran. Lenis no se usa.

@@ -1,14 +1,8 @@
 import type { Metadata } from "next";
-import { Schibsted_Grotesk } from "next/font/google";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { SITE } from "../lib/site";
 import "./site.css";
-
-const schibsted = Schibsted_Grotesk({
-  variable: "--font-schibsted",
-  subsets: ["latin", "latin-ext"],
-});
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE.url),
@@ -35,7 +29,7 @@ export default function SiteLayout({
 }>) {
   return (
     <div
-      className={`site-theme ${schibsted.variable} relative flex min-h-screen flex-col`}
+      className="site-theme relative flex min-h-screen flex-col"
     >
       <a href="#contenido" className="s-skip">
         Saltar al contenido

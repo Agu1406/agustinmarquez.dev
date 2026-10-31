@@ -1,6 +1,5 @@
 /*
- * Tema de la web principal. Se aplica solo dentro de .site-theme para no
- * afectar a las demos, que tienen sus propios temas.
+ * Tema del sitio y de la demo de idiomas. Se aplica dentro de .site-theme.
  * Paleta "fósforo": papel verdoso o tinta casi negra, con un verde fósforo
  * (el verde de un monitor de render) como único acento.
  * Contrastes (WCAG) sobre el fondo: texto 15.9:1 (claro) y 16.2:1 (oscuro),
@@ -203,8 +202,106 @@
 }
 
 .site-theme .s-choice:hover:not(:disabled),
-.site-theme .s-choice[data-estado="solucion"] {
+.site-theme .s-choice[data-estado="solucion"],
+.site-theme .s-choice[aria-pressed="true"] {
   background: var(--s-surface);
+}
+
+.site-theme .s-choice:disabled {
+  color: var(--s-muted);
+  cursor: not-allowed;
+}
+
+.site-theme .s-node {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  width: 2.75rem;
+  height: 2.75rem;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--s-line);
+  border-radius: 2px;
+  background: var(--s-bg);
+  color: inherit;
+  font-family: var(--font-jetbrains), ui-monospace, monospace;
+  font-size: 0.875rem;
+  text-decoration: none;
+}
+
+.site-theme .s-node[data-estado="actual"] {
+  background: var(--s-surface);
+  border-color: var(--s-text);
+}
+
+.site-theme .s-node[data-estado="hecho"] {
+  color: var(--s-accent);
+  border-color: var(--s-accent);
+}
+
+.site-theme .s-node[data-estado="cerrado"] {
+  color: var(--s-muted);
+}
+
+.site-theme .s-field {
+  width: 100%;
+  min-height: 44px;
+  padding: 0.6rem 0.75rem;
+  border: 1px solid var(--s-text);
+  border-radius: 2px;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+}
+
+.site-theme textarea.s-field {
+  min-height: 8rem;
+  resize: vertical;
+}
+
+.site-theme .s-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  max-width: 36rem;
+}
+
+.site-theme .s-stack > label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  font-weight: 600;
+}
+
+.site-theme .s-stack > label.s-check {
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 0.7rem;
+  min-height: 44px;
+  font-weight: 400;
+  line-height: 1.45;
+}
+
+.site-theme input[type="checkbox"] {
+  width: 1.1rem;
+  height: 1.1rem;
+  margin-top: 0.2rem;
+  accent-color: var(--s-accent);
+}
+
+.site-theme dialog {
+  width: calc(100% - 2rem);
+  max-width: 32rem;
+  border: 1px solid var(--s-text);
+  border-radius: 2px;
+  background: var(--s-bg);
+  color: inherit;
+  padding: 1.5rem;
+  box-shadow: none;
+}
+
+.site-theme dialog::backdrop {
+  background: rgba(17, 22, 18, 0.45);
 }
 
 .site-theme .s-choice[data-estado="correcta"] {

@@ -1,18 +1,21 @@
 import Link from "next/link";
+import { HomeMotion } from "./HomeMotion";
 import { PROJECTS, SITE } from "../lib/site";
 
 export default function Home() {
   return (
+    <HomeMotion>
     <div className="flex flex-col gap-20 md:gap-28">
       <section aria-labelledby="titulo">
         <p className="s-muted s-mono text-sm">{SITE.name}</p>
         <h1
           id="titulo"
+          data-home="title"
           className="mt-4 max-w-3xl text-4xl font-semibold leading-tight tracking-tight md:text-6xl"
         >
           Desarrollo webs para negocios que quieren que les encuentren.
         </h1>
-        <p className="s-muted mt-6 max-w-xl text-lg leading-relaxed">
+        <p data-home="lead" className="s-muted mt-6 max-w-xl text-lg leading-relaxed">
           Diseño y programo sitios web para negocios locales y tiendas. Aquí
           tienes algunos que ya están publicados. Mi portfolio completo está en
           construcción.
@@ -36,7 +39,7 @@ export default function Home() {
         </h2>
         <ol className="s-line mt-6 border-t">
           {PROJECTS.map((project, index) => (
-            <li key={project.url} className="s-line border-b">
+            <li key={project.url} data-home="item" className="s-line border-b">
               <a
                 href={project.url}
                 target="_blank"
@@ -76,13 +79,12 @@ export default function Home() {
           Demos
         </h2>
         <p className="mt-6 max-w-xl text-lg leading-relaxed">
-          Prototipos con datos de ejemplo que enseño a clientes antes de
-          empezar un proyecto: una landing para una barbería y un portal de
-          clases de idiomas.
+          Un prototipo con datos de ejemplo que enseño antes de empezar un
+          proyecto: un portal de clases de idiomas.
         </p>
         <p className="mt-4">
           <Link href="/demo" className="s-link font-medium">
-            Ver las demos
+            Ver la demo
           </Link>
         </p>
       </section>
@@ -125,5 +127,6 @@ export default function Home() {
         </ul>
       </section>
     </div>
+    </HomeMotion>
   );
 }

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import "../(site)/site.css";
 
 export const metadata: Metadata = {
   robots: { index: false, follow: false },
@@ -9,5 +10,7 @@ export default function DemoLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  return <>{children}</>;
+  return (
+    <div className="site-theme relative flex min-h-screen flex-col">{children}</div>
+  );
 }

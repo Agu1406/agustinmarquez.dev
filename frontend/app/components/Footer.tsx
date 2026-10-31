@@ -27,6 +27,11 @@ export default function Footer() {
               </Link>
             </li>
             <li>
+              <Link href="/derechos" className="s-link">
+                Derechos
+              </Link>
+            </li>
+            <li>
               <Link href="/cookies" className="s-link">
                 Cookies
               </Link>

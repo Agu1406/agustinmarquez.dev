@@ -1,19 +1,14 @@
 "use client";
 
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 import { useState } from "react";
 import type { Exercise } from "../lib/exercises";
+import { TOTAL_EXERCISES } from "../lib/exercises";
 import { markExerciseComplete } from "../lib/storage";
-import { Alert, AlertDescription } from "./ui/alert";
-import { Button, buttonVariants } from "./ui/button";
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "./ui/card";
-import { cn } from "../lib/utils";
 import { useLanguage } from "./LanguageProvider";
 
 export function ExercisePlayer({ exercise }: { exercise: Exercise }) {
   const { t, lang } = useLanguage();
-  const router = useRouter();
   const [feedback, setFeedback] = useState<"idle" | "bad">("idle");
   const [finished, setFinished] = useState(false);
   const [choice, setChoice] = useState<number | null>(null);
@@ -34,68 +29,64 @@ export function ExercisePlayer({ exercise }: { exercise: Exercise }) {
       if (blank === exercise.correctIndex) return complete();
     }
     if (exercise.type === "match") {
-      const ok = exercise.pairs.every((p) => matches[p.uk] === p.es);
+      const ok = exercise.pairs.every((pair) => matches[pair.uk] === pair.es);
       if (ok) return complete();
     }
     setFeedback("bad");
   }
 
+  const title = lang === "uk" ? exercise.titleUk : exercise.titleEs;
+  const subtitle = lang === "uk" ? exercise.titleEs : exercise.titleUk;
+  const nextId = String(Number(exercise.id) + 1);
+
   if (finished) {
-    const nextId = String(Number(exercise.id) + 1);
     return (
-      <Card className="mx-auto max-w-lg border-emerald-300 bg-emerald-50">
-        <CardContent className="pt-6 text-center">
-          <p className="text-3xl">🎉</p>
-          <h2 className="mt-2 text-xl font-bold text-emerald-900">
-            {t("Чудово!", "¡Genial!")}
-          </h2>
-          <p className="text-sm text-emerald-800">
-            {t("Вправа завершена.", "Ejercicio completado.")}
-          </p>
-          <div className="mt-5 flex flex-col gap-2 sm:flex-row sm:justify-center">
-            {Number(exercise.id) < 10 && (
-              <Link href={`/demo/language-portal/learn/${nextId}`} className={cn(buttonVariants(), "rounded-full")}>
-                {t("Наступна вправа", "Siguiente ejercicio")}
-              </Link>
-            )}
-            <Link
-              href="/demo/language-portal/learn"
-              className={cn(buttonVariants({ variant: "outline" }), "rounded-full")}
-            >
-              {t("До шляху", "Ir a la ruta")}
+      <section className="mx-auto max-w-xl">
+        <h1 className="text-3xl font-semibold tracking-tight">
+          {t("Вправу завершено", "Ejercicio completado")}
+        </h1>
+        <p className="s-muted mt-4">{title}</p>
+        <div className="mt-8 flex flex-col gap-3">
+          {Number(exercise.id) < TOTAL_EXERCISES && (
+            <Link href={`/demo/language-portal/learn/${nextId}`} className="s-link w-fit">
+              {t("Наступна вправа", "Siguiente ejercicio")}
             </Link>
-          </div>
-        </CardContent>
-      </Card>
+          )}
+          <Link href="/demo/language-portal/learn" className="s-link w-fit">
+            {t("До шляху", "Volver a la ruta")}
+          </Link>
+        </div>
+      </section>
     );
   }
 
   return (
-    <Card className="mx-auto max-w-lg bg-card/90">
-      <CardHeader>
-        <CardDescription>
-          {t("Вправа", "Ejercicio")} {exercise.id} ·{" "}
-          {lang === "uk" ? exercise.titleEs : exercise.titleUk}
-        </CardDescription>
-        <CardTitle>{lang === "uk" ? exercise.titleUk : exercise.titleEs}</CardTitle>
-      </CardHeader>
-      <CardContent className="space-y-4">
+    <section className="mx-auto max-w-xl">
+      <p className="s-muted s-mono text-sm">
+        {t("Вправа", "Ejercicio")} {exercise.id}
+        {" · "}
+        {subtitle}
+      </p>
+      <h1 className="mt-2 text-3xl font-semibold tracking-tight">{title}</h1>
+
+      <div className="mt-8">
         {exercise.type === "choice" && (
           <>
-            <p>{t(exercise.questionUk, "Elige la opción correcta:")}</p>
-            <div className="space-y-2">
-              {exercise.options.map((opt, i) => (
-                <Button
-                  key={opt}
-                  variant={choice === i ? "default" : "outline"}
-                  className="h-auto w-full justify-start py-3"
+            <p>{t(exercise.questionUk, "Elige la opción correcta.")}</p>
+            <div className="mt-4">
+              {exercise.options.map((option, index) => (
+                <button
+                  key={option}
+                  type="button"
+                  className="s-choice"
+                  aria-pressed={choice === index}
                   onClick={() => {
-                    setChoice(i);
+                    setChoice(index);
                     setFeedback("idle");
                   }}
                 >
-                  {opt}
-                </Button>
+                  {option}
+                </button>
               ))}
             </div>
           </>
@@ -103,84 +94,96 @@ export function ExercisePlayer({ exercise }: { exercise: Exercise }) {
 
         {exercise.type === "blank" && (
           <>
-            <p>
+            <p className="text-lg">
               {exercise.before}
-              <span className="mx-1 border-b-2 border-primary font-semibold text-primary">
-                {blank !== null ? exercise.options[blank] : "..."}
+              <span className="s-accent font-semibold">
+                {blank !== null ? exercise.options[blank] : "…"}
               </span>
               {exercise.after}
             </p>
-            <div className="flex flex-wrap gap-2">
-              {exercise.options.map((opt, i) => (
-                <Button
-                  key={opt}
-                  size="sm"
-                  variant={blank === i ? "default" : "outline"}
-                  className="rounded-full"
+            <div className="mt-4">
+              {exercise.options.map((option, index) => (
+                <button
+                  key={option}
+                  type="button"
+                  className="s-choice"
+                  aria-pressed={blank === index}
                   onClick={() => {
-                    setBlank(i);
+                    setBlank(index);
                     setFeedback("idle");
                   }}
                 >
-                  {opt}
-                </Button>
+                  {option}
+                </button>
               ))}
             </div>
           </>
         )}
 
         {exercise.type === "match" && (
-          <div className="grid grid-cols-2 gap-3">
-            <div className="space-y-2">
-              {exercise.pairs.map((p) => (
-                <Button
-                  key={p.uk}
-                  variant={selectedUk === p.uk ? "default" : "outline"}
-                  className="h-auto w-full justify-start"
-                  disabled={!!matches[p.uk]}
-                  onClick={() => setSelectedUk(p.uk)}
-                >
-                  {p.uk}
-                </Button>
-              ))}
+          <>
+            <p>{t("Обери слово і його пару.", "Elige una palabra y su pareja.")}</p>
+            <div className="mt-4 grid gap-6 sm:grid-cols-2">
+              <div>
+                {exercise.pairs.map((pair) => (
+                  <button
+                    key={pair.uk}
+                    type="button"
+                    className="s-choice"
+                    aria-pressed={selectedUk === pair.uk}
+                    disabled={Boolean(matches[pair.uk])}
+                    onClick={() => setSelectedUk(pair.uk)}
+                  >
+                    {pair.uk}
+                  </button>
+                ))}
+              </div>
+              <div>
+                {exercise.pairs.map((pair) => (
+                  <button
+                    key={pair.es}
+                    type="button"
+                    className="s-choice"
+                    disabled={!selectedUk}
+                    onClick={() => {
+                      if (!selectedUk) return;
+                      setMatches((prev) => ({ ...prev, [selectedUk]: pair.es }));
+                      setSelectedUk(null);
+                      setFeedback("idle");
+                    }}
+                  >
+                    {pair.es}
+                  </button>
+                ))}
+              </div>
             </div>
-            <div className="space-y-2">
-              {exercise.pairs.map((p) => (
-                <Button
-                  key={p.es}
-                  variant="outline"
-                  className="h-auto w-full justify-start"
-                  disabled={!selectedUk}
-                  onClick={() => {
-                    if (!selectedUk) return;
-                    setMatches((prev) => ({ ...prev, [selectedUk]: p.es }));
-                    setSelectedUk(null);
-                    setFeedback("idle");
-                  }}
-                >
-                  {p.es}
-                </Button>
-              ))}
-            </div>
-          </div>
+            {Object.keys(matches).length > 0 && (
+              <ul className="s-muted mt-4">
+                {Object.entries(matches).map(([uk, es]) => (
+                  <li key={uk}>
+                    {uk}: {es}
+                  </li>
+                ))}
+              </ul>
+            )}
+          </>
         )}
+      </div>
 
-        {feedback === "bad" && (
-          <Alert variant="destructive">
-            <AlertDescription>
-              {t("Спробуйте ще раз.", "Inténtalo de nuevo.")}
-            </AlertDescription>
-          </Alert>
-        )}
-      </CardContent>
-      <CardFooter className="flex flex-col gap-2">
-        <Button className="w-full rounded-full" onClick={check}>
+      {feedback === "bad" && (
+        <p className="s-ko mt-4" role="alert">
+          {t("Спробуйте ще раз.", "Inténtalo de nuevo.")}
+        </p>
+      )}
+
+      <div className="mt-8 flex flex-col items-start gap-4">
+        <button type="button" className="s-btn" onClick={check}>
           {t("Перевірити", "Comprobar")}
-        </Button>
-        <Button variant="ghost" className="w-full" onClick={() => router.push("/demo/language-portal/learn")}>
-          {t("← Назад до шляху", "← Volver a la ruta")}
-        </Button>
-      </CardFooter>
-    </Card>
+        </button>
+        <Link href="/demo/language-portal/learn" className="s-link">
+          {t("До шляху", "Volver a la ruta")}
+        </Link>
+      </div>
+    </section>
   );
 }

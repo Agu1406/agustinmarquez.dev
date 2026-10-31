@@ -32,10 +32,10 @@ export default function Cookies() {
 
       <h2>Demos</h2>
       <p>
-        Algunas demos alojadas en este dominio pueden guardar preferencias
-        técnicas en tu navegador (por ejemplo, el idioma, el progreso en un
-        ejercicio o haber aceptado el aviso de la propia demo) mediante almacenamiento local. Son datos que no salen de tu
-        dispositivo y no se utilizan para rastrearte.
+        La demo de idiomas guarda en tu navegador, mediante almacenamiento
+        local, el idioma elegido y el progreso de los ejercicios. Esos datos
+        no salen del dispositivo y no se usan para rastrearte. No hace falta
+        un banner: no son cookies de analítica ni de publicidad.
       </p>
 
       <h2>Cómo gestionar las cookies</h2>

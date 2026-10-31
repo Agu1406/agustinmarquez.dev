@@ -1,4 +1,13 @@
 import type { NextConfig } from "next";
+import { PROJECTS } from "./app/lib/site";
+
+const ikaro = PROJECTS.find((project) => project.name === "Ikaro Men's Barber");
+
+if (!ikaro) {
+  throw new Error(
+    "Falta Ikaro Men's Barber en frontend/app/lib/site.ts. La redirección de /demo/barber-shop no tiene destino."
+  );
+}
 
 const nextConfig: NextConfig = {
   async redirects() {
@@ -16,6 +25,16 @@ const nextConfig: NextConfig = {
       {
         source: "/animacion/proyectos-multimedia",
         destination: "/animacion/realizacion-proyectos-multimedia",
+        permanent: true,
+      },
+      {
+        source: "/demo/barber-shop",
+        destination: ikaro.url,
+        permanent: true,
+      },
+      {
+        source: "/demo/barber-shop/:path*",
+        destination: ikaro.url,
         permanent: true,
       },
     ];

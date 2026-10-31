@@ -1,6 +1,5 @@
 "use client";
 
-import { cn } from "../lib/utils";
 import { useLanguage } from "./LanguageProvider";
 
 type StableI18nTextProps = {
@@ -10,15 +9,17 @@ type StableI18nTextProps = {
 };
 
 /**
- * Reserva el ancho máximo entre ambos idiomas para evitar "saltos"
- * de layout al cambiar el idioma.
+ * Reserva el ancho de los dos idiomas para que el cambio no mueva el layout.
  */
 export function StableI18nText({ uk, es, className }: StableI18nTextProps) {
   const { lang } = useLanguage();
   const current = lang === "uk" ? uk : es;
+  const classes = className
+    ? `inline-grid align-middle ${className}`
+    : "inline-grid align-middle";
 
   return (
-    <span className={cn("inline-grid align-middle", className)}>
+    <span className={classes}>
       <span className="invisible col-start-1 row-start-1">{uk}</span>
       <span className="invisible col-start-1 row-start-1">{es}</span>
       <span className="col-start-1 row-start-1">{current}</span>

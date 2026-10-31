@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import LegalPage from "../../components/LegalPage";
+import { RETENTION } from "../../lib/retention";
 import { LEGAL, SITE } from "../../lib/site";
 
 export const metadata: Metadata = {
@@ -28,10 +29,10 @@ export default function Privacidad() {
 
       <h2>Qué datos se tratan</h2>
       <p>
-        Este sitio no tiene formularios, cuentas de usuario, comentarios ni
-        herramientas de analítica o publicidad. No se recogen datos personales
-        de forma automática más allá de los registros técnicos descritos
-        abajo.
+        No hay cuentas, comentarios ni herramientas de analítica o publicidad.
+        El formulario de derechos solo abre tu programa de correo y no envía
+        datos a este servidor. No se recogen datos personales de forma
+        automática más allá de los registros técnicos descritos abajo.
       </p>
       <ul>
         <li>
@@ -59,10 +60,22 @@ export default function Privacidad() {
 
       <h2>Conservación</h2>
       <p>
-        Los correos se conservan mientras dure la conversación y, después,
-        durante el tiempo necesario para atender posibles responsabilidades
-        legales. Los registros técnicos se conservan según la política del
-        proveedor de alojamiento.
+        Los correos se conservan {RETENTION.contact.years} años desde{" "}
+        {RETENTION.contact.from} ({RETENTION.contact.basis}). Hoy este sitio
+        no emite facturas. Si las hubiera, se conservarían {RETENTION.tax.years}{" "}
+        años desde {RETENTION.tax.from} ({RETENTION.tax.basis}).
+      </p>
+      <p>
+        Los registros técnicos se conservan {RETENTION.logs.text} (
+        {RETENTION.logs.basis}), según la política del proveedor de
+        alojamiento.
+      </p>
+      <p>
+        Si pides la supresión, el mensaje deja de usarse. Si no hay base legal
+        para conservarlo, se suprime o se anonimiza. Si la hay (esta política,
+        la LSSI-CE o una obligación fiscal), se conserva solo lo cubierto por
+        esa base, durante el plazo de arriba, y después se suprime o se
+        anonimiza.
       </p>
 
       <h2>Destinatarios</h2>
@@ -76,10 +89,14 @@ export default function Privacidad() {
       <h2>Tus derechos</h2>
       <p>
         Puedes ejercer los derechos de acceso, rectificación, supresión,
-        oposición, limitación del tratamiento y portabilidad escribiendo a{" "}
-        {mail}. Indica en el asunto el derecho que quieres ejercer, por
-        ejemplo &quot;Solicitud de supresión de datos&quot;. Responderé en un
-        plazo máximo de un mes.
+        oposición, limitación del tratamiento y portabilidad desde la página
+        de <Link href="/derechos" className="s-link">derechos</Link> o
+        escribiendo a {mail}. Responderé en un plazo máximo de un mes.
+      </p>
+      <p>
+        Este sitio no envía correos comerciales ni boletines. No hay una lista
+        de la que darse de baja. Si en el futuro hubiera una, cada mensaje
+        incluiría un enlace para dejarla.
       </p>
       <p>
         Si consideras que tus derechos no han sido atendidos, puedes presentar

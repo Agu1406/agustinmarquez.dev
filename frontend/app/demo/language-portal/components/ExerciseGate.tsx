@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { Lock } from "lucide-react";
 import type { Exercise } from "../lib/exercises";
 import {
   hasActiveMonthlyAccess,
@@ -10,8 +9,6 @@ import {
   isPremiumExercise,
 } from "../lib/storage";
 import { ExercisePlayer } from "./ExercisePlayer";
-import { Button } from "./ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "./ui/card";
 import { useLanguage } from "./LanguageProvider";
 
 export function ExerciseGate({ exercise }: { exercise: Exercise }) {
@@ -28,46 +25,29 @@ export function ExerciseGate({ exercise }: { exercise: Exercise }) {
 
   if (!unlocked || premiumBlocked) {
     return (
-      <Card className="mx-auto max-w-lg">
-        <CardHeader className="text-center">
-          <Lock className="mx-auto size-8 text-muted-foreground" />
-          {premiumBlocked ? (
-            <>
-              <CardTitle>
-                {t("Преміум-рівень заблоковано", "Nivel premium bloqueado")}
-              </CardTitle>
-              <CardDescription>
-                {t(
-                  "Перегляньте щонайменше 1 урок цього місяця, щоб відкрити цей рівень.",
-                  "Mira al menos 1 clase este mes para desbloquear este nivel."
-                )}
-              </CardDescription>
-            </>
-          ) : (
-            <>
-              <CardTitle>
-                {t(
-                  "Спочатку завершіть попередню вправу",
-                  "Completa primero el ejercicio anterior"
-                )}
-              </CardTitle>
-              <CardDescription>
-                {t(
-                  "Потім цей рівень стане доступним.",
-                  "Después se desbloqueará este nivel."
-                )}
-              </CardDescription>
-            </>
-          )}
-        </CardHeader>
-        <CardContent className="text-center">
-          <Link href="/demo/language-portal/learn">
-            <Button variant="outline" className="rounded-full">
-              {t("← До шляху", "← Volver a la ruta")}
-            </Button>
+      <section className="mx-auto max-w-xl">
+        <h1 className="text-3xl font-semibold tracking-tight">
+          {premiumBlocked
+            ? t("Преміум-рівень закрито", "Nivel de ejemplo cerrado")
+            : t("Спочатку завершіть попередню вправу", "Completa primero el ejercicio anterior")}
+        </h1>
+        <p className="s-muted mt-4 text-lg leading-relaxed">
+          {premiumBlocked
+            ? t(
+                "Переглянь імітацію уроку на головній, щоб відкрити цей рівень у цьому браузері.",
+                "Mira la simulación de la portada para abrir este nivel en este navegador."
+              )
+            : t(
+                "Потім цей рівень стане доступним.",
+                "Después se abre este nivel."
+              )}
+        </p>
+        <p className="mt-8">
+          <Link href="/demo/language-portal/learn" className="s-link">
+            {t("До шляху", "Volver a la ruta")}
           </Link>
-        </CardContent>
-      </Card>
+        </p>
+      </section>
     );
   }
 

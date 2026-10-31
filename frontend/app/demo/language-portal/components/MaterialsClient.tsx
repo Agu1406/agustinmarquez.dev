@@ -2,114 +2,95 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { Download, Lock } from "lucide-react";
 import { materialPacks } from "../lib/materials";
-import {
-  hasActiveMonthlyAccess,
-} from "../lib/storage";
+import { hasActiveMonthlyAccess } from "../lib/storage";
 import { BilingualHeading } from "./BilingualHeading";
-import { Button } from "./ui/button";
-import { Badge } from "./ui/badge";
-import { Alert, AlertDescription } from "./ui/alert";
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "./ui/card";
 import { useLanguage } from "./LanguageProvider";
+
+const premiumPackIds = new Set(["summer", "official-tests"]);
 
 export function MaterialsClient() {
   const { t, lang } = useLanguage();
   const [premiumActive, setPremiumActive] = useState(false);
-  const [downloaded, setDownloaded] = useState<string[]>([]);
-  const [toast, setToast] = useState<string | null>(null);
-  const premiumPackIds = new Set(["summer", "official-tests"]);
+  const [noted, setNoted] = useState<string[]>([]);
+  const [notice, setNotice] = useState<string | null>(null);
 
   useEffect(() => {
     setPremiumActive(hasActiveMonthlyAccess());
   }, []);
 
-  function handleDownload(id: string) {
-    const isPremium = premiumPackIds.has(id);
-    if (isPremium && !premiumActive) {
-      setToast(
+  function handleNote(id: string) {
+    if (premiumPackIds.has(id) && !premiumActive) {
+      setNotice(
         t(
-          "Цей пакет преміум. Перегляньте щонайменше 1 урок щомісяця.",
-          "Este pack es premium. Mira al menos 1 clase al mes para desbloquearlo."
+          "Цей приклад закритий. Подивись імітацію уроку на головній.",
+          "Este ejemplo está cerrado. Mira la simulación en la portada."
         )
       );
-      setTimeout(() => setToast(null), 3000);
       return;
     }
-    setDownloaded((prev) => (prev.includes(id) ? prev : [...prev, id]));
-    setToast(t("Завантаження розпочато.", "Descarga iniciada."));
-    setTimeout(() => setToast(null), 2500);
+    setNoted((prev) => (prev.includes(id) ? prev : [...prev, id]));
+    setNotice(
+      t(
+        "Файлу немає. Позначено лише в цьому браузері.",
+        "No hay archivo. Solo queda anotado en este navegador."
+      )
+    );
   }
 
   return (
     <div>
-      <BilingualHeading uk="Навчальні матеріали" es="Materiales educativos" as="h1" />
+      <BilingualHeading uk="Навчальні матеріали" es="Materiales" as="h1" />
+      <p className="s-muted mt-4 max-w-xl">
+        {t(
+          "Це приклад. Завантаження немає.",
+          "Esto es un ejemplo. No hay descarga."
+        )}
+      </p>
 
-      {toast && (
-        <Alert className="mt-4">
-          <AlertDescription>{toast}</AlertDescription>
-        </Alert>
+      {notice && (
+        <p className="mt-6 max-w-xl" role="status">
+          {notice}
+        </p>
       )}
 
       {!premiumActive && (
-        <Alert className="mt-4 border-amber-300 bg-amber-50 text-amber-900">
-          <Lock className="size-4" />
-          <AlertDescription>
-            {t("Для преміум-пакетів зайдіть на ", "Para packs premium entra en ")}
-            <Link href="/demo/language-portal" className="underline">
-              {t("головну сторінку", "la página principal")}
-            </Link>{" "}
-            {t("і перегляньте урок.", "y mira una clase.")}
-          </AlertDescription>
-        </Alert>
+        <p className="mt-6 max-w-xl">
+          {t("Щоб відкрити позначені як premium, ", "Para abrir los marcados como premium, ")}
+          <Link href="/demo/language-portal" className="s-link">
+            {t("подивись імітацію на головній", "mira la simulación en la portada")}
+          </Link>
+          .
+        </p>
       )}
 
-      <ul className="mt-6 grid gap-4 md:grid-cols-2">
-        {materialPacks.map((pack) => (
-          <li key={pack.id}>
-            <Card className="h-full bg-card/85">
-              <CardHeader>
-                <div className="flex items-start justify-between gap-2">
-                  <CardTitle className="text-base">
-                    {lang === "uk" ? pack.titleUk : pack.titleEs}
-                  </CardTitle>
-                  <div className="flex gap-2">
-                    <Badge variant="secondary">{pack.format}</Badge>
-                    {premiumPackIds.has(pack.id) ? (
-                      <Badge variant="outline">Premium</Badge>
-                    ) : (
-                      <Badge>{t("Безкоштовно", "Gratis")}</Badge>
-                    )}
-                  </div>
-                </div>
-                <CardDescription>
-                  {lang === "uk" ? pack.titleEs : pack.titleUk}
-                </CardDescription>
-              </CardHeader>
-              <CardContent className="text-sm text-muted-foreground">
-                {pack.descriptionUk}
-              </CardContent>
-              <CardFooter>
-                <Button
-                  onClick={() => handleDownload(pack.id)}
-                  className="w-full rounded-full gap-2"
-                  variant={
-                    premiumPackIds.has(pack.id) && !premiumActive
-                      ? "secondary"
-                      : "default"
-                  }
-                >
-                  <Download className="size-4" />
-                  {downloaded.includes(pack.id)
-                    ? t("✓ Завантажено", "✓ Descargado")
-                    : t("Завантажити", "Descargar")}
-                </Button>
-              </CardFooter>
-            </Card>
-          </li>
-        ))}
-      </ul>
+      <ol className="s-line mt-8 border-t">
+        {materialPacks.map((pack, index) => {
+          const title = lang === "uk" ? pack.titleUk : pack.titleEs;
+          const subtitle = lang === "uk" ? pack.titleEs : pack.titleUk;
+          const description = lang === "uk" ? pack.descriptionUk : pack.descriptionEs;
+          const access = premiumPackIds.has(pack.id)
+            ? t("Premium, приклад", "Premium, de ejemplo")
+            : t("Безкоштовно, приклад", "Gratis, de ejemplo");
+
+          return (
+            <li key={pack.id} className="s-line border-b py-6">
+              <p className="s-muted s-mono text-sm">{String(index + 1).padStart(2, "0")}</p>
+              <h2 className="mt-2 text-2xl font-medium tracking-tight">{title}</h2>
+              <p className="s-muted mt-1">{subtitle}</p>
+              <p className="mt-3 max-w-xl">{description}</p>
+              <p className="s-muted mt-2 text-sm">
+                {pack.format}. {access}
+              </p>
+              <button type="button" className="s-btn mt-4" onClick={() => handleNote(pack.id)}>
+                {noted.includes(pack.id)
+                  ? t("Позначено", "Anotado")
+                  : t("Позначити", "Anotar")}
+              </button>
+            </li>
+          );
+        })}
+      </ol>
     </div>
   );
 }

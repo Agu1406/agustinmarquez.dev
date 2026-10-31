@@ -2,20 +2,36 @@
 
 import { PortalNav } from "./PortalNav";
 import { PortalFooter } from "./PortalFooter";
-import { LanguageProvider } from "./LanguageProvider";
-import { AnimatedNeatBackground } from "./AnimatedNeatBackground";
+import { LanguageProvider, useLanguage } from "./LanguageProvider";
+
+function SkipLink() {
+  const { t } = useLanguage();
+  return (
+    <a href="#contenido" className="s-skip">
+      {t("Перейти до вмісту", "Saltar al contenido")}
+    </a>
+  );
+}
 
 export function PortalChrome({ children }: { children: React.ReactNode }) {
   return (
     <LanguageProvider>
-      <div className="language-portal flex min-h-screen flex-col">
-        <AnimatedNeatBackground />
-        <PortalNav />
-        <div className="relative z-10 flex-1 pt-20 md:pt-22">{children}</div>
-        <div className="relative z-10">
-          <PortalFooter />
-        </div>
-      </div>
+      <PortalFrame>{children}</PortalFrame>
     </LanguageProvider>
+  );
+}
+
+function PortalFrame({ children }: { children: React.ReactNode }) {
+  const { lang } = useLanguage();
+
+  return (
+    <div className="flex min-h-screen flex-col" lang={lang}>
+      <SkipLink />
+      <PortalNav />
+      <main id="contenido" tabIndex={-1} className="flex-1 outline-none">
+        {children}
+      </main>
+      <PortalFooter />
+    </div>
   );
 }
