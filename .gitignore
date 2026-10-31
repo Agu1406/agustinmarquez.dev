@@ -12,3 +12,4 @@ ENV/
 # Editables and non finished materials (psd for example)
 *.krt
 *.psd
+*.clip
