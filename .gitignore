@@ -13,3 +13,6 @@ ENV/
 *.krt
 *.psd
 *.clip
+# Material de terceros y instaladores: solo local (apuntes del centro, licencias de stock, ejecutables)
+frontend/app/(site)/animacion/**/*.pdf
+frontend/app/(site)/animacion/**/*.exe
