@@ -29,15 +29,38 @@ export default function Privacidad() {
 
       <h2>Qué datos se tratan</h2>
       <p>
-        No hay cuentas, comentarios ni herramientas de analítica o publicidad.
-        El formulario de derechos solo abre tu programa de correo y no envía
-        datos a este servidor. No se recogen datos personales de forma
-        automática más allá de los registros técnicos descritos abajo.
+        No hay cuentas de usuario en este sitio, comentarios ni herramientas de
+        analítica o publicidad. El formulario de derechos solo abre tu programa
+        de correo y no envía datos a este servidor. La reserva de clases en la
+        página{" "}
+        <Link href="/reservar" className="s-link">
+          /reservar
+        </Link>{" "}
+        se realiza mediante un calendario alojado en Cal.com (Cal.com, Inc.):
+        al reservar, introduces tus datos (nombre, correo y los que pida el
+        formulario) directamente en ese servicio, no en los servidores del
+        titular.
       </p>
       <ul>
         <li>
           <strong>Correos electrónicos.</strong> Si escribes a {mail}, se
           tratarán tu dirección y el contenido del mensaje para responderte.
+        </li>
+        <li>
+          <strong>Reserva de clases.</strong> Datos que facilites en Cal.com
+          (identificación, contacto, materia y hora) para gestionar la cita.
+          Cal.com actúa como encargado del tratamiento según su contrato con el
+          titular; consulta también su{" "}
+          <a
+            href="https://cal.com/privacy"
+            className="s-link"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            política de privacidad
+            <span className="sr-only"> (se abre en una pestaña nueva)</span>
+          </a>
+          .
         </li>
         <li>
           <strong>Registros técnicos.</strong> El proveedor de alojamiento
@@ -48,6 +71,11 @@ export default function Privacidad() {
 
       <h2>Finalidad y base jurídica</h2>
       <ul>
+        <li>
+          Gestionar reservas de clases particulares: ejecución de medidas
+          precontractuales o contrato a petición del interesado (art. 6.1.b
+          RGPD).
+        </li>
         <li>
           Responder a tus consultas: consentimiento o medidas
           precontractuales a petición tuya (art. 6.1.a y 6.1.b RGPD).
@@ -80,10 +108,12 @@ export default function Privacidad() {
 
       <h2>Destinatarios</h2>
       <p>
-        No se ceden datos a terceros, salvo obligación legal. Los mensajes se
-        gestionan a través del servicio de correo del titular y el sitio se
-        sirve mediante un proveedor de alojamiento que actúa como encargado del
-        tratamiento.
+        No se ceden datos a terceros más allá de los encargados necesarios para
+        prestar el servicio, salvo obligación legal. Encargados relevantes: el
+        proveedor de alojamiento del sitio (frontend), el servicio de correo del
+        titular, y <strong>Cal.com</strong> para la gestión de reservas. Si
+        contactas por WhatsApp desde el enlace de la web, el tratamiento se rige
+        por las condiciones de Meta/WhatsApp.
       </p>
 
       <h2>Tus derechos</h2>

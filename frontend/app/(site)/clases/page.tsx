@@ -23,6 +23,12 @@ export default function ClasesIndex() {
         con explicación al contestar.
       </p>
 
+      <p className="mt-8">
+        <Link href="/reservar" className="s-link text-lg font-medium">
+          Reservar hora de clase
+        </Link>
+      </p>
+
       <ol className="s-line mt-12 border-t">
         {CLASES.map((clase, index) => {
           const hayTest = getBanco(clase.slug).length > 0;

@@ -1,7 +1,10 @@
-# Importamos FastAPI con un nombre personalizado similar pero en PascualCase.
-from fastapi import FastAPI
-# Importamos el middleware necesario para hacer CORS entre frontend y backend.
+import logging
+import os
+
+from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
+
+logger = logging.getLogger(__name__)
 
 origins = [
     "https://agustinmarquez.dev",
@@ -31,3 +34,19 @@ def read_root():
 @app.get("/items/{item_id}")
 def read_item(item_id: int, q: str | None = None):
     return {"item_id": item_id, "q": q}
+
+
+@app.post("/webhooks/calcom")
+async def calcom_webhook(request: Request):
+    """
+    Recibe eventos de Cal.com (BOOKING_CREATED, etc.). v1: acusa recibo y log.
+    Configura CALCOM_WEBHOOK_SECRET en Render para verificación futura.
+    """
+    payload = await request.json()
+    trigger = payload.get("triggerEvent", "unknown")
+    logger.info("Cal.com webhook: %s", trigger)
+    # Verificación de firma: pendiente cuando exista CALCOM_WEBHOOK_SECRET
+    _secret = os.environ.get("CALCOM_WEBHOOK_SECRET")
+    if _secret:
+        pass  # Cal.com documenta cabecera de firma según versión de API
+    return {"ok": True, "trigger": trigger}

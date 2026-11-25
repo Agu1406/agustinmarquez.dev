@@ -71,3 +71,15 @@ Desde la **raíz del monorepo** (sin entrar en `backend/`):
 ```
 
 Documentación interactiva: [http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs)
+
+---
+
+## Webhook Cal.com (opcional)
+
+`POST /webhooks/calcom` recibe eventos de reserva (por ejemplo `BOOKING_CREATED`). En v1 solo registra el tipo de evento en logs y responde `{"ok": true}`.
+
+En Cal.com: **Settings → Developer → Webhooks** → URL `https://api.agustinmarquez.dev/webhooks/calcom`.
+
+Variable opcional en Render: `CALCOM_WEBHOOK_SECRET` (verificación de firma en una versión posterior).
+
+Guía de reservas en el frontend: `frontend/RESERVAS-SETUP.md`.

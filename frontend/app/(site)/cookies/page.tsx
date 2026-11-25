@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import LegalPage from "../../components/LegalPage";
 import { SITE } from "../../lib/site";
 
@@ -20,14 +21,24 @@ export default function Cookies() {
 
       <h2>Cookies que usa este sitio</h2>
       <p>
-        Este sitio no instala cookies propias ni de terceros, ni usa
-        herramientas de analítica, publicidad o redes sociales incrustadas. Por
-        eso no se muestra un banner de consentimiento: la normativa solo lo
-        exige cuando se usan cookies no necesarias.
+        Este sitio no instala cookies propias para analítica ni publicidad. Las
+        tipografías se sirven desde este mismo dominio.
       </p>
       <p>
-        Las tipografías se sirven desde este mismo dominio, sin conexión con
-        servidores de terceros durante la visita.
+        La página de{" "}
+        <Link href="/reservar" className="s-link">
+          reserva de clases
+        </Link>{" "}
+        muestra un calendario en un <strong>iframe</strong> servido por{" "}
+        <strong>Cal.com</strong>. Al interactuar con ese calendario, Cal.com
+        puede usar cookies o almacenamiento local en tu dispositivo según su
+        propia política. Esas cookies no las controla el titular de este sitio;
+        solo se aplican si usas el widget de reserva.
+      </p>
+      <p>
+        Si en el futuro se añade analítica u otros servicios no estrictamente
+        necesarios, esta página se actualizará y se solicitará consentimiento
+        cuando corresponda.
       </p>
 
       <h2>Cómo gestionar las cookies</h2>

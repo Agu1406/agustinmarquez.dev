@@ -41,6 +41,11 @@ export default function Footer() {
                 Clases
               </Link>
             </li>
+            <li>
+              <Link href="/reservar" className="s-link">
+                Reservar clase
+              </Link>
+            </li>
           </ul>
         </nav>
 
