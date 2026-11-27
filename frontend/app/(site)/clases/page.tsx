@@ -20,7 +20,8 @@ export default function ClasesIndex() {
       <p className="s-muted mt-6 max-w-xl text-lg leading-relaxed">
         Elige el lenguaje o la asignatura. Donde hay apuntes puedes leer el
         temario; donde hay banco de preguntas, hacer un test en modo examen o
-        con explicación al contestar.
+        con explicación al contestar. En cada ficha puedes reservar una clase
+        particular y elegir tú el día y la hora.
       </p>
 
       <ol className="s-line mt-12 border-t">

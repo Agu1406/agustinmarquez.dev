@@ -14,12 +14,22 @@ export const SITE = {
   github: "https://github.com/Agu1406",
 } as const;
 
+/**
+ * Reservas de clases en Cal.com. `eventoGeneral` es el tipo de evento que
+ * usan todas las materias salvo las que declaren `evento` en lib/clases.ts.
+ */
+export const CAL = {
+  usuario: "agustin-antonio-marquez-pina-pgqu0f",
+  eventoGeneral: "clase",
+  baseUrl: "https://cal.com",
+} as const;
+
 export const LEGAL = {
   titular: "Agustín Antonio Marquéz Piña",
   nif: "54951141R",
   domicilio: "Las Rozas de Madrid, Madrid, España",
   actividad: "Diseño y desarrollo de sitios web",
-  lastUpdate: "31 de octubre de 2026",
+  lastUpdate: "27 de noviembre de 2026",
 } as const;
 
 /**

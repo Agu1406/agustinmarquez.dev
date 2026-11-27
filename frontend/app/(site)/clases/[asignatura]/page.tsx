@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { ReservaClase } from "../components/ReservaClase";
 import { TestForm } from "../components/TestForm";
-import { CLASES, getClase } from "../../../lib/clases";
+import { CLASES, getClase, urlReserva } from "../../../lib/clases";
 import { gruposPorUnidad } from "../../../lib/teoria/grupos";
 import { getTemario } from "../../../lib/teoria";
 import { contarPorTipo, getBanco } from "../../../lib/tests/bancos";
@@ -65,6 +66,18 @@ export default async function ClasePage({ params }: Props) {
           </p>
         )}
       </div>
+
+      <section aria-labelledby="titulo-reserva">
+        <h2
+          id="titulo-reserva"
+          className="s-muted s-mono text-sm uppercase tracking-wider"
+        >
+          Reservar clase
+        </h2>
+        <div className="mt-3">
+          <ReservaClase url={urlReserva(clase)} materia={clase.nombre} />
+        </div>
+      </section>
 
       {grupos.map((grupo, grupoIndex) => (
         <section key={grupo.titulo} aria-labelledby={`titulo-grupo-${grupoIndex}`}>

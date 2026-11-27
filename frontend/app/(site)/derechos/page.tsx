@@ -31,6 +31,10 @@ export default function Derechos() {
           {RETENTION.contact.from} ({RETENTION.contact.basis}).
         </li>
         <li>
+          Reservas de clases (guardadas en Cal.com): {RETENTION.bookings.years}{" "}
+          años desde {RETENTION.bookings.from} ({RETENTION.bookings.basis}).
+        </li>
+        <li>
           Facturas, si las hubiera: {RETENTION.tax.years} años desde{" "}
           {RETENTION.tax.from} ({RETENTION.tax.basis}). Hoy no hay facturas.
         </li>

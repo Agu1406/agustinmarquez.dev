@@ -8,6 +8,11 @@ export const RETENTION = {
     from: "el fin de la conversación",
     basis: "artículo 1964 del Código Civil",
   },
+  bookings: {
+    years: 5,
+    from: "la última clase reservada",
+    basis: "artículo 1964 del Código Civil",
+  },
   tax: {
     years: 4,
     from: "el fin del plazo de presentación del impuesto",

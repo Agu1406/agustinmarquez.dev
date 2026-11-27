@@ -29,12 +29,25 @@ export default function Privacidad() {
 
       <h2>Qué datos se tratan</h2>
       <p>
-        No hay cuentas, comentarios ni herramientas de analítica o publicidad.
-        El formulario de derechos solo abre tu programa de correo y no envía
-        datos a este servidor. No se recogen datos personales de forma
-        automática más allá de los registros técnicos descritos abajo.
+        No hay cuentas de usuario, comentarios ni herramientas de analítica o
+        publicidad. El formulario de derechos solo abre tu programa de correo
+        y no envía datos a este servidor. No se recogen datos personales de
+        forma automática más allá de los registros técnicos descritos abajo.
+        La única excepción es la reserva de clases, que solo se activa si
+        pulsas el botón de reservar.
       </p>
       <ul>
+        <li>
+          <strong>Reservas de clases.</strong> En cada ficha de{" "}
+          <Link href="/clases" className="s-link">
+            clases
+          </Link>{" "}
+          puedes reservar con el calendario de Cal.com. Al pulsar «Reservar
+          clase» se carga ese calendario, que es un servicio de terceros, y los
+          datos que escribes (nombre, correo, materia, notas y la hora elegida)
+          se guardan en mi cuenta de Cal.com. Hasta que pulsas, no se
+          carga nada de Cal.com.
+        </li>
         <li>
           <strong>Correos electrónicos.</strong> Si escribes a {mail}, se
           tratarán tu dirección y el contenido del mensaje para responderte.
@@ -53,6 +66,11 @@ export default function Privacidad() {
           precontractuales a petición tuya (art. 6.1.a y 6.1.b RGPD).
         </li>
         <li>
+          Gestionar tu reserva de clase (confirmarla, recordártela, cambiarla o
+          cancelarla): medidas precontractuales y ejecución del servicio que
+          solicitas (art. 6.1.b RGPD).
+        </li>
+        <li>
           Seguridad del sitio: interés legítimo del responsable (art. 6.1.f
           RGPD).
         </li>
@@ -61,7 +79,9 @@ export default function Privacidad() {
       <h2>Conservación</h2>
       <p>
         Los correos se conservan {RETENTION.contact.years} años desde{" "}
-        {RETENTION.contact.from} ({RETENTION.contact.basis}). Hoy este sitio
+        {RETENTION.contact.from} ({RETENTION.contact.basis}). Los datos de las
+        reservas se conservan {RETENTION.bookings.years} años desde{" "}
+        {RETENTION.bookings.from} ({RETENTION.bookings.basis}). Hoy este sitio
         no emite facturas. Si las hubiera, se conservarían {RETENTION.tax.years}{" "}
         años desde {RETENTION.tax.from} ({RETENTION.tax.basis}).
       </p>
@@ -85,6 +105,35 @@ export default function Privacidad() {
         sirve mediante un proveedor de alojamiento que actúa como encargado del
         tratamiento.
       </p>
+      <p>
+        Las reservas se gestionan con Cal.com, Inc. (San Francisco, Estados
+        Unidos), que actúa como encargado del tratamiento de los datos de las
+        reservas conforme a su{" "}
+        <a
+          href="https://cal.com/dpa"
+          className="s-link"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          contrato de encargo de tratamiento
+          <span className="sr-only"> (se abre en una pestaña nueva)</span>
+        </a>
+        . Cal.com trata los datos en Estados Unidos y está adherida al Marco
+        de Privacidad de Datos UE-EE. UU.; para lo que ese marco no cubre
+        aplica las cláusulas contractuales tipo de la Comisión Europea. Puedes
+        consultar su{" "}
+        <a
+          href="https://cal.com/privacy"
+          className="s-link"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          política de privacidad
+          <span className="sr-only"> (se abre en una pestaña nueva)</span>
+        </a>
+        . Cal.com puede usar subencargados para el alojamiento, el correo o el
+        vídeo; su lista está en el centro de confianza de Cal.com.
+      </p>
 
       <h2>Tus derechos</h2>
       <p>
@@ -107,7 +156,10 @@ export default function Privacidad() {
       <h2>Menores</h2>
       <p>
         Este sitio no está dirigido a menores de 14 años y no recoge de forma
-        intencionada sus datos.
+        intencionada sus datos. Si el alumno es menor de edad, la reserva de
+        clases la hace su madre, su padre o su tutor legal, que es quien
+        facilita los datos de contacto. Cal.com tampoco admite datos de
+        menores de 18 años de forma intencionada.
       </p>
 
       <h2>Cookies</h2>

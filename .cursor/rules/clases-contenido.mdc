@@ -18,6 +18,7 @@ Lee `DESIGN.md` antes de tocar UI. El reproductor de tests (`TestPlayer.tsx`, `t
 - Entrada en `frontend/app/lib/clases.ts` (`slug`, `nombre`, `grupo`, `descripcion`, `pdf` opcional).
 - URL ficha: `/clases/<slug>`.
 - `generateStaticParams` de `[asignatura]` ya recorre `CLASES`; no dupliques slugs.
+- Reserva: toda ficha muestra «Reservar clase» con el evento general de Cal.com (`CAL` en `lib/site.ts`). Si la materia necesita otra duración o precio, crea el evento en Cal.com y declara `evento: "<slug-del-evento>"` en su entrada de `clases.ts`. Es opcional.
 
 ## 2. Apuntes (teoría)
 

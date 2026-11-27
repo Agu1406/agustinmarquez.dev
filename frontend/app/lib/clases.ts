@@ -1,3 +1,5 @@
+import { CAL } from "./site";
+
 /**
  * Materias y lenguajes que se enseñan. Cada elemento genera
  * /clases/<slug>. El banco de preguntas, si existe, vive en lib/tests/.
@@ -11,6 +13,11 @@ export type Clase = {
   descripcion: string;
   /** PDF en /public/clases/<slug>/, si hay material de contraste. */
   pdf?: { etiqueta: string; archivo: string };
+  /**
+   * Slug de un evento de Cal.com propio para esta materia. Sin él se usa
+   * el evento general (CAL.eventoGeneral).
+   */
+  evento?: string;
 };
 
 export const CLASES: readonly Clase[] = [
@@ -125,4 +132,11 @@ export const CLASES: readonly Clase[] = [
 
 export function getClase(slug: string): Clase | undefined {
   return CLASES.find((clase) => clase.slug === slug);
+}
+
+/** URL de reserva en Cal.com con la materia ya rellenada (campo `asignatura`). */
+export function urlReserva(clase: Clase): string {
+  const evento = clase.evento ?? CAL.eventoGeneral;
+  const materia = encodeURIComponent(clase.nombre);
+  return `${CAL.baseUrl}/${CAL.usuario}/${evento}?asignatura=${materia}`;
 }

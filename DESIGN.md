@@ -130,6 +130,8 @@ En el sitio ya hay aviso legal, privacidad y cookies. Cualquier cosa nueva que r
 
 `/clases` no guarda respuestas, no tiene cuentas y no carga SDK de analítica. Las preguntas van en el cliente. Las páginas de test llevan `noindex`.
 
+Excepción: las reservas. La ficha `/clases/<slug>` tiene una sección «Reservar clase» (`ReservaClase.tsx`) que incrusta el calendario de Cal.com solo cuando el alumno pulsa el botón. Antes de pulsar no hay ninguna petición a Cal.com. Sin JavaScript el botón es un enlace a Cal.com. Los datos de la reserva viven en Cal.com (encargado del tratamiento); la privacidad y las cookies lo declaran y el plazo está en `RETENTION.bookings`. Si se añade otro tercero, hay que tocar esas dos páginas legales antes de publicar.
+
 ## Clases: mapa de URLs
 
 Una URL por lenguaje o materia que se enseña. Hub en `/clases`. Cada ficha en `/clases/<slug>`. Apuntes (temario teórico), si existen, en `/clases/<slug>/teoria` y cada tema en `/clases/<slug>/teoria/<tema>`. El reproductor, si hay banco de preguntas, en `/clases/<slug>/test`.
@@ -153,6 +155,8 @@ Una URL por lenguaje o materia que se enseña. Hub en `/clases`. Cada ficha en `
 | Materia | Álgebra | `/clases/algebra` |
 | Materia | Cálculo | `/clases/calculo` |
 | Materia | Laboratorio de Informática | `/clases/laboratorio-informatica` |
+
+Cada ficha incluye la reserva de clase con Cal.com. El usuario y el evento general están en `CAL` (`frontend/app/lib/site.ts`); una materia con evento propio lo declara en `evento` dentro de `clases.ts`.
 
 El catálogo está en `frontend/app/lib/clases.ts`. Los bancos, en `frontend/app/lib/tests/`. Los temarios de apuntes, en `frontend/app/lib/teoria/` (un módulo por slug en `temarios/`).
 
