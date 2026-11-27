@@ -38,7 +38,7 @@ export default function SiteLayout({
       <main
         id="contenido"
         tabIndex={-1}
-        className="mx-auto w-full max-w-5xl flex-1 px-6 py-12 outline-none md:py-20"
+        className="mx-auto w-full max-w-5xl flex-1 px-6 py-14 outline-none md:py-24"
       >
         {children}
       </main>

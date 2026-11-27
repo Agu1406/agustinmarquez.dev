@@ -8,6 +8,8 @@ export const SITE = {
   domain: "agustinmarquez.dev",
   url: "https://agustinmarquez.dev",
   email: "agustin6041@outlook.es",
+  phoneDisplay: "691 64 36 61",
+  whatsappUrl: "https://wa.me/34691643661",
   linkedin: "https://www.linkedin.com/in/agustin6041/",
   github: "https://github.com/Agu1406",
 } as const;
@@ -43,29 +45,51 @@ export function assertLegalIdentity(): void {
   }
 }
 
+/** Imagen del hero de portada (stock temporal; ver DESIGN.md). */
+export const HOME_HERO_IMAGE = {
+  src: "/home/hero-dev.webp",
+  alt: "Pantalla de ordenador con código de programación",
+} as const;
+
 export const PROJECTS = [
   {
     name: "Los Cerrajeros Madrid",
     url: "https://www.loscerrajerosmadrid.es",
     description: "Web de un servicio de cerrajería de urgencias en Madrid.",
     nofollow: false,
+    image: {
+      src: "/home/proyecto-cerrajeros.webp",
+      alt: "Cerradura y llave en una puerta (foto de ambiente, no es captura del sitio)",
+    },
   },
   {
     name: "Reparamos tu tejado",
     url: "https://reparamostutejado.com",
     description: "Web de una empresa de reparación de tejados.",
     nofollow: true,
+    image: {
+      src: "/home/proyecto-tejado.webp",
+      alt: "Casa con tejado a dos aguas (foto de ambiente, no es captura del sitio)",
+    },
   },
   {
     name: "Motorwears",
     url: "https://www.motorwears.es/",
     description: "Tienda online de ropa y accesorios para motoristas.",
     nofollow: false,
+    image: {
+      src: "/home/proyecto-motorwears.webp",
+      alt: "Motocicleta en carretera (foto de ambiente, no es captura del sitio)",
+    },
   },
   {
     name: "Ikaro Men's Barber",
     url: "https://ikaromenbarbershop.es",
     description: "Web de una barbería en Las Rozas de Madrid.",
     nofollow: false,
+    image: {
+      src: "/home/proyecto-ikaro.webp",
+      alt: "Interior de barbería con sillas (foto de ambiente, no es captura del sitio)",
+    },
   },
 ] as const;

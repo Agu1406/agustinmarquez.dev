@@ -1,9 +1,11 @@
 import { c } from "./c";
+import { java } from "./java";
 import { laboratorioInformatica } from "./laboratorio-informatica";
 import type { Pregunta, PreguntaTipo, TestAlcance } from "./types";
 
 const BANCOS: Record<string, readonly Pregunta[]> = {
   c,
+  java,
   "laboratorio-informatica": laboratorioInformatica,
 };
 

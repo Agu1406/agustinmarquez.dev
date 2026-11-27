@@ -1,0 +1,19 @@
+---
+description: Antes de inventar datos, leer el contexto del proyecto. No inventar precios, reseñas ni claims.
+alwaysApply: true
+---
+
+# Contexto del proyecto
+
+Antes de inventar un dato, un precio, un horario o una afirmación, leer por este orden lo que exista:
+
+1. `DOC.md` / `STACK-Y-DECISIONES.md` / `CONTEXT.md` (o `CONTEXT.plantilla.md` rellenada)
+2. `DESIGN.md` (look y copy visual de este sitio)
+3. `IGNORAR.md` y estas rules
+
+Si hay conflicto, gana la ley española, luego `IGNORAR.md` y `DESIGN.md`, luego el código.
+
+- Datos de negocio: una sola fuente de verdad (p. ej. `data.ts`, CMS o API).
+- Titular, NIF, email: la fuente legal **de este** proyecto.
+- No reseñas, cifras ni fotos de IA presentadas como reales del cliente.
+- No copiar paleta, tipografía ni marca de otro repo o cliente.

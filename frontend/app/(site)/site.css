@@ -1,32 +1,27 @@
 /*
  * Tema del sitio. Se aplica dentro de .site-theme.
- * Paleta "fósforo": papel verdoso o tinta casi negra, con un verde fósforo
- * (el verde de un monitor de render) como único acento.
- * Contrastes (WCAG) sobre el fondo: texto 15.9:1 (claro) y 16.2:1 (oscuro),
- * texto secundario 7.0:1 y 7.4:1, acento 5.5:1 y 12.1:1.
+ * Paleta: papel #f6f4f1, negro, rojo. Sin amarillo de producto.
+ * Solo claro por ahora (sin prefers-color-scheme dark).
+ * Contrastes AA: texto y muted sobre bg; blanco sobre --s-accent.
  */
 .site-theme {
-  --s-bg: #eef0ea;
-  --s-surface: #e2e6dd;
-  --s-text: #111612;
-  --s-muted: #4a524b;
-  --s-accent: #0a6e47;
-  --s-line: #c3c9bc;
+  --s-bg: #f6f4f1;
+  --s-surface: #ffffff;
+  --s-text: #0a0a0a;
+  --s-muted: #5c5754;
+  --s-accent: #c8102e;
+  --s-accent-hover: #9e0c24;
+  --s-line: #d9d4ce;
+  --s-ko: #8f2a2a;
+  --s-header-bg: #0a0a0a;
+  --s-header-fg: #ffffff;
+  --s-muted-on-dark: #b8b2ab;
+  --s-panel-gutter: 4px;
 
   background: var(--s-bg);
   color: var(--s-text);
   font-family: var(--font-schibsted), system-ui, sans-serif;
-}
-
-@media (prefers-color-scheme: dark) {
-  .site-theme {
-    --s-bg: #0b0f0d;
-    --s-surface: #131a16;
-    --s-text: #e8ece6;
-    --s-muted: #98a39b;
-    --s-accent: #6fe3a1;
-    --s-line: #26302a;
-  }
+  color-scheme: light;
 }
 
 .site-theme .s-muted {
@@ -83,6 +78,295 @@
   top: 1rem;
 }
 
+/* Cabecera cartel: barra negra sticky; chips rojos con letra blanca */
+.site-theme .s-header {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  background: var(--s-header-bg);
+  color: var(--s-header-fg);
+}
+
+.site-theme .s-header-brand {
+  color: var(--s-header-fg);
+  text-decoration: none;
+}
+
+.site-theme .s-header-brand:hover {
+  color: var(--s-accent);
+}
+
+.site-theme .s-nav-chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0.45rem 0.9rem;
+  border: 2px solid var(--s-header-fg);
+  border-radius: 2px;
+  background: var(--s-accent);
+  color: #ffffff;
+  font: inherit;
+  font-weight: 600;
+  line-height: 1.2;
+  text-decoration: none;
+  transition: background-color 150ms, color 150ms, border-color 150ms;
+}
+
+.site-theme .s-nav-chip:hover {
+  background: var(--s-accent-hover);
+  color: #ffffff;
+  border-color: var(--s-header-fg);
+}
+
+.site-theme .s-header a:focus-visible,
+.site-theme .s-header button:focus-visible {
+  outline: 2px solid var(--s-header-fg);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+.site-theme .s-header-menu {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  min-width: 44px;
+  padding: 0.35rem;
+  border: 2px solid var(--s-header-fg);
+  border-radius: 2px;
+  background: transparent;
+  color: var(--s-header-fg);
+  cursor: pointer;
+}
+
+@media (min-width: 768px) {
+  .site-theme .s-header-menu {
+    display: none;
+  }
+}
+
+.site-theme .s-header-menu:hover {
+  border-color: var(--s-accent);
+  color: var(--s-accent);
+}
+
+.site-theme .s-header-panel {
+  border-top: 2px solid #262626;
+  background: var(--s-header-bg);
+}
+
+.site-theme .s-header-desktop {
+  display: none;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+@media (min-width: 768px) {
+  .site-theme .s-header-desktop {
+    display: flex;
+  }
+}
+
+/* Pie de página oscuro (mismo bloque negro que cabecera / bandas) */
+.site-theme .s-footer {
+  background: var(--s-header-bg);
+  color: var(--s-header-fg);
+  border-top: 2px solid #262626;
+}
+
+.site-theme .s-footer .s-muted {
+  color: var(--s-muted-on-dark);
+}
+
+.site-theme .s-footer .s-link {
+  color: var(--s-header-fg);
+  text-decoration-color: var(--s-muted-on-dark);
+}
+
+.site-theme .s-footer .s-link:hover {
+  color: var(--s-accent);
+  text-decoration-color: var(--s-accent);
+}
+
+.site-theme .s-footer a:focus-visible {
+  outline: 2px solid var(--s-header-fg);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+.site-theme .s-footer-rule {
+  border-top: 2px solid #262626;
+}
+
+/* Portada: anula el padding vertical del main para franjas a tope */
+.site-theme .s-home {
+  margin-block: -3.5rem;
+}
+
+@media (min-width: 768px) {
+  .site-theme .s-home {
+    margin-block: -6rem;
+  }
+}
+
+/* Franja full-bleed (rompe max-w del main) */
+.site-theme .s-band {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  border-bottom: var(--s-panel-gutter) solid var(--s-text);
+  background: var(--s-bg);
+  color: var(--s-text);
+}
+
+.site-theme .s-band-dark {
+  background: var(--s-header-bg);
+  color: var(--s-header-fg);
+  border-bottom-color: var(--s-header-fg);
+}
+
+.site-theme .s-band-dark .s-muted {
+  color: var(--s-muted-on-dark);
+}
+
+.site-theme .s-band-dark .s-link {
+  color: var(--s-header-fg);
+  text-decoration-color: var(--s-muted-on-dark);
+}
+
+.site-theme .s-band-dark .s-link:hover {
+  color: var(--s-accent);
+  text-decoration-color: var(--s-accent);
+}
+
+.site-theme .s-band-dark a:focus-visible,
+.site-theme .s-band-dark button:focus-visible {
+  outline-color: var(--s-header-fg);
+}
+
+.site-theme .s-band-dark .s-btn {
+  border-color: var(--s-header-fg);
+}
+
+.site-theme .s-band-inner {
+  margin-inline: auto;
+  max-width: 72rem;
+  padding: 3.5rem 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .site-theme .s-band-inner {
+    padding: 5rem 1.5rem;
+  }
+}
+
+/* Split texto | imagen */
+.site-theme .s-panel-split {
+  display: grid;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+@media (min-width: 768px) {
+  .site-theme .s-panel-split {
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+  }
+
+  .site-theme .s-panel-split-reverse .s-panel-copy {
+    order: 2;
+  }
+
+  .site-theme .s-panel-split-reverse .s-panel-media {
+    order: 1;
+  }
+}
+
+.site-theme .s-panel-media {
+  position: relative;
+  overflow: hidden;
+  border: 2px solid currentColor;
+  border-radius: 2px;
+  aspect-ratio: 4 / 3;
+  background: #1a1a1a;
+}
+
+.site-theme .s-panel-media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Hero oscuro con corte diagonal (desktop) */
+.site-theme .s-hero-diagonal {
+  display: grid;
+  gap: 0;
+  min-height: min(72vh, 640px);
+  background: var(--s-header-bg);
+  color: var(--s-header-fg);
+}
+
+.site-theme .s-hero-diagonal .s-muted {
+  color: var(--s-muted-on-dark);
+}
+
+.site-theme .s-hero-diagonal a:focus-visible {
+  outline-color: var(--s-header-fg);
+}
+
+.site-theme .s-cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.site-theme .s-hero-diagonal__copy {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 3rem 1.5rem;
+  max-width: 36rem;
+  margin-inline: auto;
+  width: 100%;
+}
+
+.site-theme .s-hero-diagonal__media {
+  position: relative;
+  min-height: 14rem;
+  overflow: hidden;
+  background: #141414;
+}
+
+.site-theme .s-hero-diagonal__media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@media (min-width: 768px) {
+  .site-theme .s-hero-diagonal {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    align-items: stretch;
+  }
+
+  .site-theme .s-hero-diagonal__copy {
+    max-width: none;
+    padding: 4rem 2rem 4rem clamp(1.5rem, 6vw, 5rem);
+    margin-inline: 0;
+    margin-left: auto;
+    width: min(100%, 36rem);
+  }
+
+  .site-theme .s-hero-diagonal__media {
+    min-height: 100%;
+    clip-path: polygon(14% 0, 100% 0, 100% 100%, 0 100%);
+  }
+}
+
 /* Texto legal */
 .site-theme .s-prose h2 {
   margin-top: 2.5rem;
@@ -108,6 +392,56 @@
 }
 
 /* Apuntes de /clases (referencia composición apuntesdam, paleta del sitio) */
+/* Menú del temario, a la izquierda al leer un tema. */
+.site-theme .s-rail {
+  position: sticky;
+  top: 1.5rem;
+  max-height: calc(100vh - 3rem);
+  overflow: auto;
+  padding-right: 1.25rem;
+  border-right: 2px solid var(--s-line);
+}
+
+.site-theme .s-rail-movil {
+  margin-bottom: 2rem;
+  border-bottom: 2px solid var(--s-line);
+}
+
+.site-theme .s-rail-movil summary {
+  display: flex;
+  align-items: center;
+  min-height: 44px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.site-theme .s-rail-nav a {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  min-height: 44px;
+  padding: 0.45rem 0.5rem;
+  border-radius: 2px;
+  text-decoration: none;
+}
+
+.site-theme .s-rail-nav a:hover {
+  color: var(--s-accent);
+}
+
+.site-theme .s-rail-nav a[aria-current="page"] {
+  background: var(--s-surface);
+  font-weight: 600;
+}
+
+.site-theme .s-rail-acciones {
+  display: flex;
+  gap: 1.25rem;
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 2px solid var(--s-line);
+}
+
 .site-theme .s-teoria-h3 {
   margin-top: 2rem;
   margin-bottom: 0.5rem;
@@ -154,14 +488,59 @@
   font-weight: 600;
 }
 
-.site-theme {
-  --s-ko: #8f2a2a;
+.site-theme .s-tabla-wrap {
+  margin-top: 1rem;
+  overflow-x: auto;
 }
 
-@media (prefers-color-scheme: dark) {
-  .site-theme {
-    --s-ko: #e08a8a;
-  }
+.site-theme .s-tabla {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.site-theme .s-tabla caption {
+  margin-bottom: 0.4rem;
+  text-align: left;
+  font-weight: 600;
+}
+
+.site-theme .s-tabla th,
+.site-theme .s-tabla td {
+  border: 1px solid var(--s-line);
+  padding: 0.45rem 0.65rem;
+  text-align: left;
+  vertical-align: top;
+}
+
+.site-theme .s-tabla th {
+  font-weight: 600;
+}
+
+.site-theme .s-ejercicio {
+  margin-top: 1.5rem;
+  padding: 1rem 1.1rem;
+  border: 1px solid var(--s-line);
+  border-radius: 2px;
+}
+
+.site-theme .s-ejercicio-titulo {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+
+.site-theme .s-solucion {
+  margin-top: 1rem;
+}
+
+.site-theme .s-solucion summary {
+  display: flex;
+  align-items: center;
+  min-height: 44px;
+  cursor: pointer;
+  font-weight: 600;
 }
 
 .site-theme .s-ok {
@@ -175,20 +554,29 @@
 }
 
 .site-theme .s-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   min-height: 44px;
   padding: 0.6rem 1.1rem;
-  border: 1px solid var(--s-text);
+  border: 2px solid var(--s-text);
   border-radius: 2px;
-  background: var(--s-text);
-  color: var(--s-bg);
+  background: var(--s-accent);
+  color: #ffffff;
   font: inherit;
   font-weight: 600;
+  text-decoration: none;
+  transition: background-color 150ms, border-color 150ms, color 150ms;
 }
 
 .site-theme .s-btn:hover {
-  background: var(--s-accent);
-  border-color: var(--s-accent);
-  color: var(--s-bg);
+  background: var(--s-accent-hover);
+  border-color: var(--s-text);
+  color: #ffffff;
+}
+
+.site-theme .s-band-dark .s-btn:hover {
+  border-color: var(--s-header-fg);
 }
 
 .site-theme .s-btn:disabled {

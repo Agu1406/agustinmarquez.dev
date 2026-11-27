@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { TemarioLateral } from "../../../components/TemarioLateral";
 import TeoriaRenderer from "../../../components/TeoriaRenderer";
 import { getClase } from "../../../../../lib/clases";
+import { getBanco } from "../../../../../lib/tests/bancos";
 import { allTemaParams, getTemario, getTema } from "../../../../../lib/teoria";
 
 type Props = { params: Promise<{ asignatura: string; tema: string }> };
@@ -36,8 +38,29 @@ export default async function TeoriaTemaPage({ params }: Props) {
   const siguiente =
     indice >= 0 && indice < ordenados.length - 1 ? ordenados[indice + 1] : null;
 
+  const hayTest = getBanco(slug).length > 0;
+
   return (
-    <article className="flex flex-col gap-10">
+    <div>
+      <details className="s-rail-movil md:hidden">
+        <summary>Temario de {clase.nombre}</summary>
+        <TemarioLateral
+          slug={slug}
+          temas={ordenados}
+          actual={tema.slug}
+          hayTest={hayTest}
+        />
+      </details>
+      <div className="md:grid md:grid-cols-[16rem_minmax(0,1fr)] md:items-start md:gap-10">
+        <aside className="s-rail hidden md:block">
+          <TemarioLateral
+            slug={slug}
+            temas={ordenados}
+            actual={tema.slug}
+            hayTest={hayTest}
+          />
+        </aside>
+        <article className="flex min-w-0 flex-col gap-10">
       <header>
         <p className="s-muted text-sm">
           <Link href="/clases" className="s-link">
@@ -53,6 +76,9 @@ export default async function TeoriaTemaPage({ params }: Props) {
           </Link>
         </p>
         <p className="s-muted s-mono mt-4 text-sm">
+          {tema.evaluacion && tema.unidad
+            ? `${tema.evaluacion} · ${tema.unidad} · `
+            : ""}
           Tema {String(tema.orden).padStart(2, "0")} · {tema.nivel} ·{" "}
           {tema.lecturaMin} min lectura
         </p>
@@ -90,6 +116,8 @@ export default async function TeoriaTemaPage({ params }: Props) {
           </Link>
         )}
       </nav>
-    </article>
+        </article>
+      </div>
+    </div>
   );
 }

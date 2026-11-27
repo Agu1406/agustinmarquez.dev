@@ -9,7 +9,7 @@ import { PROJECTS, SITE } from "../lib/site";
  */
 export default function Footer() {
   return (
-    <footer className="s-line border-t">
+    <footer className="s-footer">
       <div className="mx-auto grid w-full max-w-5xl gap-10 px-6 py-12 md:grid-cols-3">
         <nav aria-label="Información legal">
           <h2 className="s-muted s-mono text-sm uppercase tracking-wider">
@@ -105,7 +105,7 @@ export default function Footer() {
         </nav>
       </div>
 
-      <div className="s-line border-t">
+      <div className="s-footer-rule">
         <p className="s-muted mx-auto w-full max-w-5xl px-6 py-5 text-sm">
           &copy; {new Date().getFullYear()} {SITE.name}. Todos los derechos
           reservados.

@@ -17,11 +17,22 @@ export function HomeMotion({ children }: { children: ReactNode }) {
 
     const ctx = gsap.context(() => {
       const tl = gsap.timeline({ defaults: { ease: "power2.out" } });
-      tl.from("[data-home='title']", { y: 18, duration: 0.6 }, 0);
-      tl.from("[data-home='lead']", { y: 12, duration: 0.5 }, 0.1);
-      tl.from("[data-home='item']", { y: 10, duration: 0.45, stagger: 0.07 }, 0.22);
+      tl.from("[data-home='brand']", { y: 14, duration: 0.45 }, 0);
+      tl.from("[data-home='title']", { y: 22, duration: 0.65 }, 0.05);
+      tl.from("[data-home='lead']", { y: 14, duration: 0.5 }, 0.15);
+      tl.from("[data-home='cta']", { y: 10, duration: 0.4 }, 0.22);
+      tl.from(
+        "[data-home='hero-media']",
+        { opacity: 0.35, duration: 0.55 },
+        0.12,
+      );
+      tl.from(
+        "[data-home='panel']",
+        { y: 12, duration: 0.45, stagger: 0.06 },
+        0.28,
+      );
       tl.eventCallback("onComplete", () => {
-        gsap.set("[data-home]", { clearProps: "transform" });
+        gsap.set("[data-home]", { clearProps: "transform,opacity" });
       });
     }, node);
 

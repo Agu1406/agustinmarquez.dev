@@ -16,11 +16,11 @@
  * en modo oscuro), as� que no cambian con prefers-color-scheme.
  */
 .site-theme {
-  --s-accent-solid: #0a6e47; /* verde acento de la paleta (barra de a�os, hito activo) */
-  --s-surface-solid: #e2e6dd; /* gris de la zona de tarjetas */
-  --s-line-solid: #c3c9bc; /* bordes */
+  --s-accent-solid: #c8102e; /* rojo acento (barra de años, hito activo) */
+  --s-surface-solid: #f6f4f1; /* papel de la zona de tarjetas */
+  --s-line-solid: #d9d4ce; /* bordes */
   --s-card-solid: #ffffff; /* tarjetas */
-  --s-text-solid: #111612; /* texto de las tarjetas */
+  --s-text-solid: #0a0a0a; /* texto de las tarjetas */
 }
 
 /*
@@ -63,7 +63,7 @@
 
 /*
  * TimelineJS: todas las imágenes de las diapositivas con la misma proporción
- * 3:2 y el mismo marco verde acento. object-fit: cover recorta lo que sobre.
+ * 3:2 y el mismo marco rojo acento. object-fit: cover recorta lo que sobre.
  * El tamaño lo marca la columna (40 %) y la altura libre de la diapositiva
  * (lo que queda al bajar la barra gris), no un tope fijo en píxeles.
  */
@@ -287,7 +287,7 @@
 /*
  * TimelineJS: tarjetas de los hitos (.tl-timemarker). Siempre blancas con letra
  * negra, con o sin el ratón encima (por defecto pasaban a gris al pasar el
- * ratón). El hito activo lleva borde verde acento y el título en ese verde.
+ * ratón). El hito activo lleva borde rojo acento y el título en ese rojo.
  */
 .site-theme .tl-timeline .tl-timemarker .tl-timemarker-content-container {
   width: 153px;
@@ -375,10 +375,8 @@
 }
 
 /*
- * TimelineJS: barra inferior con los años (eje temporal) en el verde acento
- * con letras blancas. Usa el verde del modo claro (--s-accent-solid) aunque el
- * sitio esté en oscuro, porque la línea de tiempo siempre es clara y el blanco
- * sobre este verde da 5.4:1 (AA).
+ * TimelineJS: barra inferior con los años (eje temporal) en el rojo acento
+ * con letras blancas (--s-accent-solid). Contraste AA del blanco sobre rojo.
  */
 .site-theme .tl-timeline .tl-timeaxis-background,
 .site-theme .tl-timeline .tl-timeaxis .tl-timeaxis-content-container .tl-timeaxis-major {

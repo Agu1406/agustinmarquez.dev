@@ -2,24 +2,34 @@
 
 Reglas visuales, de código, legales y de copy para este sitio. Si una decisión choca con este archivo, gana este archivo.
 
+Las reglas de proceso, legal y anti-slop viven también en `IGNORAR.md` y `.cursor/rules/`. **El look (colores, tipografía, movimiento) lo define solo este `DESIGN.md`:** no reutilizar paleta ni fuentes de otro cliente o repo.
+
 La web vive en `frontend/app/(site)/` y usa el tema `.site-theme` (`site.css`). No hay sección de demos. Las webs de clientes publicadas viven en su propio repositorio y aquí solo se enlazan.
 
 ## Idea
 
-Papel verdoso, tinta casi negra, un solo acento verde fósforo. Tipografía seria, mucho aire, listas numeradas, bordes de 2 px. Nada que parezca plantilla ni web hecha con un prompt.
+Papel claro casi blanco, tinta negra y acento rojo. La cabecera es el cartel: barra negra sticky, dominio en blanco y navegación en chips rojos con letra blanca y filete blanco. En la **portada**, franjas a todo el ancho que alternan papel y negro (ritmo claro/oscuro), con paneles de borde duro: texto a un lado e imagen al otro. Contraste alto, tipografía seria y titulares con más peso. Energía tipo cartel (rojo / negro / blanco). Sin amarillo de producto. **No** trama Ben-Day, **no** bocadillos, **no** logos ajenos. Nada que parezca plantilla ni web hecha con un prompt.
 
 ## Color (sitio)
 
-| Token | Claro | Oscuro | Uso |
-|---|---|---|---|
-| `--s-bg` | `#eef0ea` | `#0b0f0d` | Fondo |
-| `--s-surface` | `#e2e6dd` | `#131a16` | Superficie, opción marcada |
-| `--s-text` | `#111612` | `#e8ece6` | Texto |
-| `--s-muted` | `#4a524b` | `#98a39b` | Secundario. Contraste AA |
-| `--s-accent` | `#0a6e47` | `#6fe3a1` | Enlaces al pasar, foco, acierto |
-| `--s-line` | `#c3c9bc` | `#26302a` | Filetes |
+Cuerpo solo claro por defecto. No hay modo oscuro automático de página. Bloque negro a propósito: cabecera, hero de portada, franjas pares de proyectos y pie de página. Paleta activa: negro, blanco/papel y rojo.
 
-Sin degradados. Sin sombras. Sin orbes. El modo oscuro sigue al sistema, no es un dark mode de relleno con poco contraste.
+| Token | Valor | Uso |
+|---|---|---|
+| `--s-bg` | `#f6f4f1` | Fondo papel (autorizado; no es blanco puro de plantilla) |
+| `--s-surface` | `#ffffff` | Superficie, opción marcada |
+| `--s-text` | `#0a0a0a` | Texto del cuerpo |
+| `--s-muted` | `#5c5754` | Secundario. Contraste AA |
+| `--s-muted-on-dark` | `#b8b2ab` | Secundario sobre franja negra. Contraste AA |
+| `--s-accent` | `#c8102e` | Chips, botones primarios, enlaces al pasar, foco en cuerpo, acierto |
+| `--s-accent-hover` | `#9e0c24` | Hover de chips y botones (texto blanco) |
+| `--s-line` | `#d9d4ce` | Filetes del cuerpo |
+| `--s-ko` | `#8f2a2a` | Error / fallo en tests |
+| `--s-header-bg` | `#0a0a0a` | Fondo de cabecera, hero, bandas oscuras y pie |
+| `--s-header-fg` | `#ffffff` | Texto sobre negro |
+| `--s-panel-gutter` | `4px` | Filete negro entre franjas de la portada |
+
+Sin degradados. Sin sombras. Sin orbes. Sin amarillo de UI.
 
 ## Tipografía
 
@@ -29,13 +39,33 @@ Sin degradados. Sin sombras. Sin orbes. El modo oscuro sigue al sistema, no es u
 
 ## Composición
 
-- Un `h1` por página. Titular grande, párrafo corto, luego una lista con filete.
-- Radio de borde: 2 px. Objetivos táctiles de 44 px. Foco visible de 2 px en acento.
+- Un `h1` por página. Titular grande y con peso (semibold/bold), párrafo corto, luego contenido.
+- Cabecera (`.s-header`): sticky, fondo `--s-header-bg`, dominio blanco. Enlaces de nav: chips `.s-nav-chip` (rojo, letra blanca, filete blanco; hover `--s-accent-hover`).
+- Pie (`.s-footer`): fondo `--s-header-bg`, tipografía clara, enlaces blancos con hover rojo; filetes `#262626`.
+- **Portada:** franjas full-bleed (`.s-band` / `.s-band-dark`) con gutter `--s-panel-gutter`. Hero oscuro con corte diagonal texto|imagen (`.s-hero-diagonal`). Cada proyecto es un panel texto|imagen que alterna lado y fondo. Contacto en papel, sin foto obligatoria. En el resto del sitio el cuerpo sigue en papel.
+- El «panel» es gutter + split de columnas. Prohibido: trama de cómic, bocadillos, logo Marvel u otra marca ajena.
+- En superficies de marca (portada), el nombre es señal hero: no lo tape el titular.
+- Botón primario (`.s-btn`): fondo `--s-accent`, texto blanco, borde negro (blanco sobre banda oscura). Hover: `--s-accent-hover` (150 ms).
+- Radio de borde: 2 px. Objetivos táctiles de 44 px. Foco en cuerpo: acento rojo. Foco en cabecera, pie y bandas oscuras: outline blanco.
 - Sin tarjetas con borde de color. Sin tres cajas con icono en fila. Sin bento. Sin badge sobre el titular. Sin franja de color a la izquierda.
 - Iconos: solo si hacen falta, trazados en SVG propio. No Lucide. No emojis.
 - Espaciado coherente (la escala de Tailwind del layout: `gap-20`, `py-6`, `mt-4`). No animar el hover de los botones más allá del color (150 ms, como `.s-link`).
 - `prefers-reduced-motion`: ya anula transiciones en `.site-theme`. No añadir fade-in al scroll, ni haz que sigue al cursor, ni flechas animadas.
 - GSAP entra solo en la portada, con una línea de tiempo corta. Sin JavaScript, o con `prefers-reduced-motion`, la portada se queda quieta. No hay Three.js ni Lottie.
+
+## Imágenes de la portada (stock temporal)
+
+Hasta sustituir por capturas reales del cliente, la portada usa fotos de stock libre en `frontend/public/home/`:
+
+| Archivo | Fuente | Uso |
+|---|---|---|
+| `hero-dev.webp` | Unsplash `photo-1461749280684-dccba630e2f6` ([licencia](https://unsplash.com/license)) | Hero: pantalla con código |
+| `proyecto-cerrajeros.webp` | Pexels `279810` ([licencia](https://www.pexels.com/license/)) | Atmósfera cerrajería / cerradura |
+| `proyecto-tejado.webp` | Pexels `259588` ([licencia](https://www.pexels.com/license/)) | Atmósfera vivienda / cubierta |
+| `proyecto-motorwears.webp` | Unsplash `photo-1558981806-ec527fa84c39` ([licencia](https://unsplash.com/license)) | Atmósfera moto |
+| `proyecto-ikaro.webp` | Unsplash `photo-1503951914875-452162b0f3f1` ([licencia](https://unsplash.com/license)) | Atmósfera barbería |
+
+No presentarlas como capturas de los sitios del cliente. Al sustituir, cambiar ruta en `PROJECTS` / constante del hero.
 
 ## Código
 
@@ -69,7 +99,7 @@ Una sola instancia donde la haya de haber una: cliente HTTP, conexión a base de
 
 ## Prohibido (patrones de web hecha con IA)
 
-Degradados (también en texto), glassmorphism, liquid glass, sombras difusas, emojis, iconos genéricos en cajas, bento, badges sobre el titular, haz de luz que sigue al cursor, orbes, rejillas de puntos, destellos, grano sobre degradado, Inter / Geist / Space Grotesk, shadcn sin tocar, tres tarjetas de features, tres tarifas, viñetas con check, terminal de adorno, fondo blanco puro, morado con negro, neón, pasteles de plantilla, arcoíris, radio blando, testimonios falsos.
+Degradados (también en texto), glassmorphism, liquid glass, sombras difusas, emojis, iconos genéricos en cajas, bento, badges sobre el titular, haz de luz que sigue al cursor, orbes, rejillas de puntos, destellos, grano sobre degradado, Inter / Geist / Space Grotesk, shadcn sin tocar, tres tarjetas de features, tres tarifas, viñetas con check, terminal de adorno, blanco puro `#ffffff` como único fondo de página (el papel autorizado es `--s-bg` `#f6f4f1`), morado con negro, neón, pasteles de plantilla, arcoíris, radio blando, testimonios falsos, trama o bocadillos de cómic, logos de terceros. Los paneles de la portada (gutter + split) están autorizados arriba; no copiar estética de otro cliente.
 
 Una web de cliente publicada no se copia aquí: se enlaza.
 

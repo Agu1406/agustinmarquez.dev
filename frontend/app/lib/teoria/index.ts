@@ -1,8 +1,10 @@
 import { temarioC } from "./temarios/c";
+import { temarioJava } from "./temarios/java";
 import type { TeoriaTemario, TeoriaTema } from "./types";
 
 const TEMARIOS: Record<string, TeoriaTemario> = {
   c: temarioC,
+  java: temarioJava,
 };
 
 export function getTemario(slug: string): TeoriaTemario | undefined {

@@ -1,0 +1,59 @@
+---
+description: Prohibido lo que hace que la web parezca plantilla o slop de IA. Paleta, tipografía y movimiento de ESTE repo mandan.
+alwaysApply: true
+---
+
+# No parece hecho con IA
+
+No usar estos patrones. Fuente: `IGNORAR.md`. **Colores, tipografía, radio, espaciado y movimiento: solo los de `DESIGN.md` de este proyecto.** No copies el look de otro cliente o repo.
+
+1. Degradado de morado a azul.
+2. Texto del hero con degradado.
+3. Emojis en los titulares.
+4. La fuente Inter en todas partes.
+5. Tarjetas con borde de color.
+6. Tarjetas con glassmorphism.
+7. Modo oscuro de bajo contraste.
+8. Tres cajas con icono en fila.
+9. Badge encima del titular.
+10. Iconos Lucide en todas partes.
+11. shadcn/UI sin tocar.
+12. Fade-in al hacer scroll (salvo el movimiento ya definido en este `DESIGN.md`, con reduced-motion).
+13. Botones que se desvanecen al pasar el cursor.
+14. Espaciado inconsistente (usa la escala de este `DESIGN.md`).
+15. Guiones largos (em dash) en todas partes.
+16. Copy genérico de palabras de moda.
+17. Acentos en serif cursiva.
+18. Haz de luz que sigue al cursor.
+19. Space Grotesk + Instrument Serif.
+20. Grano sobre un degradado.
+21. Degradados duros (salvo excepción en este `DESIGN.md`).
+22. Iconos Lucide.
+23. Fondo blanco puro (salvo que este `DESIGN.md` lo pida).
+24. Coloreado arcoíris.
+25. Sombras proyectadas (salvo que este `DESIGN.md` las permita).
+26. Tres tarjetas de características en fila.
+27. Emojis.
+28. Liquid glass.
+29. Guiones largos (em dash).
+30. Inter / Geist / Space Grotesk.
+31. Franja de color a la izquierda.
+32. Testimonios falsos.
+33. Rejillas bento.
+34. Ventana de terminal decorativa.
+35. «No es X, es Y».
+36. Viñetas con check.
+37. Tres tarifas inventadas.
+38. Sin demos reales del producto (si es demostrable).
+39. Esquinas blandas genéricas (usa el radio de este `DESIGN.md`).
+40. Morado y negro de plantilla.
+41. Sin skeleton loaders (si hay carga asíncrona, estado de carga real).
+42. Orbes radiales.
+43. Rejillas de puntos.
+44. Iconos de destello.
+45. Flechas animadas decorativas.
+46. Sin términos de servicio (si aplica).
+47. Sin política de privacidad.
+48. Animaciones al pasar el cursor fuera de las de este `DESIGN.md`.
+49. Colores neón de plantilla.
+50. Colores pastel básicos de plantilla.

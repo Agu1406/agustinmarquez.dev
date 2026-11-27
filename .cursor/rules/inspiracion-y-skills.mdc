@@ -1,0 +1,35 @@
+---
+description: Referencias visuales, skills de diseño/movimiento y herramientas. Design DNA primero; no copiar colores ni efectos de terceros.
+alwaysApply: true
+---
+
+# Inspiración, skills y herramientas
+
+Fuente: `IGNORAR.md`. Inspiran estructura y movimiento. No copiar código, fotos ni paleta de terceros. **El look lo define `DESIGN.md` de este repo.**
+
+## Webs
+
+- [lenis.dev](https://lenis.dev) — scroll suave.
+- [basement.studio](https://basement.studio) — landing interactiva.
+- [shadergradient.co](https://shadergradient.co) — fondos 3D animados.
+- [unicorn.studio](https://unicorn.studio) — sitios de inspiración.
+
+Lenis, GSAP, Three.js o Lottie no se añaden salvo que se pida o que este `DESIGN.md` lo autorice.
+
+## Skills (repos públicos, sin pago)
+
+Las skills no son prompts: se instalan una vez. Empieza por Design DNA. Se apilan: Design DNA marca dirección (**descartar colores y efectos** de la referencia), GSAP y Motion el movimiento, Three.js la profundidad, Genjutsu el pase final.
+
+1. Three.js (`CloudAl-X/threejs-skills`)
+2. GSAP (`greensock/gsap-skills` / `GreenSock/gsap-skills`)
+3. Design DNA (`zanwei/design-dna`)
+4. Motion Design (`lottiefiles/motion-design-skill` / `LottieFiles/motion-design-skill`)
+5. Genjutsu (`AThevon/genjutsu` / `Athevon/genjutsu`)
+
+## Cinco herramientas para que parezca de 10.000 €
+
+- Taste Skill.
+- web-design-guidelines.
+- awasome-design-md
+- Image to code (¿GitHub?)
+- Playwright (Microsoft): E2E, axe y capturas.

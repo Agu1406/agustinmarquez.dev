@@ -11,8 +11,8 @@ const NAV = [
 ] as const;
 
 /**
- * Cabecera con navegación. En móvil el menú se abre con un botón accesible
- * (aria-expanded, cierre con Escape y devolución del foco al botón).
+ * Cabecera sticky negra: dominio en blanco y navegación en chips rojos.
+ * En móvil el menú se abre con un botón accesible (aria-expanded, Escape).
  */
 export default function Header() {
   const [open, setOpen] = useState(false);
@@ -31,15 +31,15 @@ export default function Header() {
   }, [open]);
 
   return (
-    <header className="s-line border-b">
-      <div className="mx-auto flex w-full max-w-5xl items-center justify-between px-6 py-4">
-        <Link href="/" className="s-mono text-base font-semibold">
+    <header className="s-header">
+      <div className="s-header-inner mx-auto flex w-full max-w-5xl items-center justify-between px-6 py-3">
+        <Link href="/" className="s-header-brand s-mono text-base font-bold tracking-tight">
           {SITE.domain}
         </Link>
 
-        <nav aria-label="Principal" className="hidden gap-8 md:flex">
+        <nav aria-label="Principal" className="s-header-desktop">
           {NAV.map((item) => (
-            <Link key={item.href} href={item.href} className="s-link">
+            <Link key={item.href} href={item.href} className="s-nav-chip">
               {item.label}
             </Link>
           ))}
@@ -48,7 +48,7 @@ export default function Header() {
         <button
           ref={buttonRef}
           type="button"
-          className="s-line -mr-2 rounded-sm border p-2 md:hidden"
+          className="s-header-menu -mr-1"
           aria-expanded={open}
           aria-controls="menu-movil"
           aria-label={open ? "Cerrar menú" : "Abrir menú"}
@@ -74,13 +74,13 @@ export default function Header() {
         <nav
           id="menu-movil"
           aria-label="Principal móvil"
-          className="s-line flex flex-col gap-4 border-t px-6 py-5 md:hidden"
+          className="s-header-panel flex flex-col gap-3 px-6 py-5 md:hidden"
         >
           {NAV.map((item) => (
             <Link
               key={item.href}
               href={item.href}
-              className="s-link w-fit text-lg"
+              className="s-nav-chip w-fit text-lg"
               onClick={() => setOpen(false)}
             >
               {item.label}
