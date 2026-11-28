@@ -1,9 +1,16 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { JsonLd } from "../../../components/JsonLd";
 import { ReservaClase } from "../components/ReservaClase";
 import { TestForm } from "../components/TestForm";
 import { CLASES, getClase, urlReserva } from "../../../lib/clases";
+import {
+  buildPageMetadata,
+  claseJsonLd,
+  claseSeoPath,
+  claseSeoTitle,
+} from "../../../lib/seo";
 import { gruposPorUnidad } from "../../../lib/teoria/grupos";
 import { getTemario } from "../../../lib/teoria";
 import { contarPorTipo, getBanco } from "../../../lib/tests/bancos";
@@ -20,10 +27,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { asignatura } = await params;
   const clase = getClase(asignatura);
   if (!clase) return {};
-  return {
-    title: clase.nombre,
+  return buildPageMetadata({
+    title: claseSeoTitle(clase),
     description: clase.descripcion,
-  };
+    path: claseSeoPath(clase.slug),
+  });
 }
 
 export default async function ClasePage({ params }: Props) {
@@ -40,6 +48,7 @@ export default async function ClasePage({ params }: Props) {
 
   return (
     <div className="flex flex-col gap-12">
+      <JsonLd data={claseJsonLd(clase)} />
       <div>
         <p className="s-muted text-sm">
           <Link href="/clases" className="s-link">
@@ -49,7 +58,7 @@ export default async function ClasePage({ params }: Props) {
           <span>{clase.grupo}</span>
         </p>
         <h1 className="mt-4 max-w-3xl text-4xl font-semibold leading-tight tracking-tight md:text-5xl">
-          {clase.nombre}
+          Clases de {clase.nombre} online en Madrid
         </h1>
         <p className="s-muted mt-6 max-w-xl text-lg leading-relaxed">
           {temario ? temario.descripcion : clase.descripcion}

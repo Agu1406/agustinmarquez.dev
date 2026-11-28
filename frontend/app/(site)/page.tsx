@@ -1,7 +1,16 @@
+import type { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
 import { HomePanel } from "../components/HomePanel";
-import { HOME_HERO_IMAGE, PROJECTS, SITE } from "../lib/site";
+import { HOME_SEO, buildPageMetadata } from "../lib/seo";
+import { HOME_HERO_IMAGE, LEGAL, PROJECTS, SITE } from "../lib/site";
 import { HomeMotion } from "./HomeMotion";
+
+export const metadata: Metadata = buildPageMetadata({
+  title: HOME_SEO.title,
+  description: HOME_SEO.description,
+  path: "/",
+});
 
 export default function Home() {
   return (
@@ -21,15 +30,21 @@ export default function Home() {
                 data-home="title"
                 className="mt-5 text-4xl font-bold leading-[1.05] tracking-tight md:text-5xl lg:text-6xl"
               >
-                Desarrollo webs para negocios que quieren que les encuentren.
+                {HOME_SEO.h1}
               </h1>
               <p
                 data-home="lead"
                 className="s-muted mt-6 text-lg leading-relaxed"
               >
-                Diseño y programo sitios web para negocios locales y tiendas.
-                Aquí tienes algunos que ya están publicados. Mi portfolio
-                completo está en construcción.
+                Diseño y programo sitios web para negocios locales en Madrid y
+                Las Rozas. Aquí tienes algunos publicados. También doy{" "}
+                <Link href="/clases" className="s-link">
+                  clases de programación online
+                </Link>
+                .
+              </p>
+              <p className="s-muted mt-4 text-sm leading-relaxed">
+                {LEGAL.titular} · Las Rozas de Madrid · {SITE.phoneDisplay}
               </p>
               <div data-home="cta" className="s-cta-row mt-8">
                 <a href={`mailto:${SITE.email}`} className="s-btn">
@@ -127,6 +142,9 @@ export default function Home() {
             >
               Contacto
             </h2>
+            <p className="s-muted mt-4 max-w-xl text-base leading-relaxed">
+              {LEGAL.titular}. Las Rozas de Madrid, Comunidad de Madrid.
+            </p>
             <ul className="mt-6 flex flex-col gap-3 text-lg">
               <li>
                 <a href={`mailto:${SITE.email}`} className="s-link">

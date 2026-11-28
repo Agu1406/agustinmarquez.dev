@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
 import LegalPage from "../../components/LegalPage";
+import { buildPageMetadata } from "../../lib/seo";
 import { LEGAL, SITE } from "../../lib/site";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMetadata({
   title: "Aviso legal",
   description: `Datos del titular y condiciones de uso de ${SITE.domain}.`,
-  alternates: { canonical: "/aviso-legal" },
-};
+  path: "/aviso-legal",
+});
 
 export default function AvisoLegal() {
   return (

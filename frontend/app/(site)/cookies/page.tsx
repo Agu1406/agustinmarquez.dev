@@ -1,13 +1,14 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import LegalPage from "../../components/LegalPage";
+import { buildPageMetadata } from "../../lib/seo";
 import { SITE } from "../../lib/site";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMetadata({
   title: "Política de cookies",
   description: `Uso de cookies y almacenamiento local en ${SITE.domain}.`,
-  alternates: { canonical: "/cookies" },
-};
+  path: "/cookies",
+});
 
 export default function Cookies() {
   return (

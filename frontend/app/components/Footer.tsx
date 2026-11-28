@@ -1,16 +1,19 @@
 import Link from "next/link";
-import { PROJECTS, SITE } from "../lib/site";
+import { CLASES } from "../lib/clases";
+import { CLASES_FOOTER_SLUGS } from "../lib/seo";
+import { LEGAL, PROJECTS, SITE } from "../lib/site";
+
+const clasesFooter = CLASES_FOOTER_SLUGS.map((slug) =>
+  CLASES.find((clase) => clase.slug === slug),
+).filter((clase): clase is (typeof CLASES)[number] => Boolean(clase));
 
 /**
- * Pie de página: navegación legal, proyectos y contacto.
- *
- * @author Agu1406 (https://github.com/Agu1406)
- * @version 2.0.0
+ * Pie de página: legal, clases (SEO interno), proyectos, contacto y NAP.
  */
 export default function Footer() {
   return (
     <footer className="s-footer">
-      <div className="mx-auto grid w-full max-w-5xl gap-10 px-6 py-12 md:grid-cols-3">
+      <div className="mx-auto grid w-full max-w-5xl gap-10 px-6 py-12 sm:grid-cols-2 lg:grid-cols-4">
         <nav aria-label="Información legal">
           <h2 className="s-muted s-mono text-sm uppercase tracking-wider">
             Información
@@ -36,9 +39,24 @@ export default function Footer() {
                 Cookies
               </Link>
             </li>
+          </ul>
+        </nav>
+
+        <nav aria-label="Clases">
+          <h2 className="s-muted s-mono text-sm uppercase tracking-wider">
+            Clases
+          </h2>
+          <ul className="mt-4 flex flex-col gap-2">
+            {clasesFooter.map((clase) => (
+              <li key={clase.slug}>
+                <Link href={`/clases/${clase.slug}`} className="s-link">
+                  {clase.nombre}
+                </Link>
+              </li>
+            ))}
             <li>
               <Link href="/clases" className="s-link">
-                Clases
+                Ver todas
               </Link>
             </li>
           </ul>
@@ -73,10 +91,29 @@ export default function Footer() {
           <h2 className="s-muted s-mono text-sm uppercase tracking-wider">
             Contacto
           </h2>
+          <p className="s-muted mt-4 text-sm leading-relaxed">
+            {LEGAL.titular}
+            <br />
+            Las Rozas de Madrid, Madrid
+          </p>
           <ul className="mt-4 flex flex-col gap-2">
             <li>
               <a href={`mailto:${SITE.email}`} className="s-link">
-                Correo
+                {SITE.email}
+              </a>
+            </li>
+            <li>
+              <a
+                href={SITE.whatsappUrl}
+                className="s-link"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {SITE.phoneDisplay}
+                <span className="sr-only">
+                  {" "}
+                  (WhatsApp, se abre en una pestaña nueva)
+                </span>
               </a>
             </li>
             <li>

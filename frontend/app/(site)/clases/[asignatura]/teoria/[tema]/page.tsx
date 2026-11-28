@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { TemarioLateral } from "../../../components/TemarioLateral";
 import TeoriaRenderer from "../../../components/TeoriaRenderer";
 import { getClase } from "../../../../../lib/clases";
+import { buildPageMetadata } from "../../../../../lib/seo";
 import { getBanco } from "../../../../../lib/tests/bancos";
 import { allTemaParams, getTemario, getTema } from "../../../../../lib/teoria";
 
@@ -17,12 +18,14 @@ export function generateStaticParams() {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { asignatura, tema: temaSlug } = await params;
+  const clase = getClase(asignatura);
   const tema = getTema(asignatura, temaSlug);
-  if (!tema) return {};
-  return {
-    title: tema.titulo,
+  if (!clase || !tema) return {};
+  return buildPageMetadata({
+    title: `${tema.titulo} · ${clase.nombre}`,
     description: tema.resumen,
-  };
+    path: `/clases/${asignatura}/teoria/${temaSlug}`,
+  });
 }
 
 export default async function TeoriaTemaPage({ params }: Props) {

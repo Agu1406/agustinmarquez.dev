@@ -2,13 +2,14 @@ import type { Metadata } from "next";
 import DerechosForm from "../../components/DerechosForm";
 import LegalPage from "../../components/LegalPage";
 import { RETENTION } from "../../lib/retention";
+import { buildPageMetadata } from "../../lib/seo";
 import { SITE } from "../../lib/site";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMetadata({
   title: "Tus derechos",
   description: `Cómo pedir acceso o supresión de datos en ${SITE.domain}.`,
-  alternates: { canonical: "/derechos" },
-};
+  path: "/derechos",
+});
 
 export default function Derechos() {
   return (

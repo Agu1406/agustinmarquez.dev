@@ -8,7 +8,7 @@ La web vive en `frontend/app/(site)/` y usa el tema `.site-theme` (`site.css`). 
 
 ## Idea
 
-Papel claro casi blanco, tinta negra y acento rojo. La cabecera es el cartel: barra negra sticky, dominio en blanco y navegación en chips rojos con letra blanca y filete blanco. En la **portada**, franjas a todo el ancho que alternan papel y negro (ritmo claro/oscuro), con paneles de borde duro: texto a un lado e imagen al otro. Contraste alto, tipografía seria y titulares con más peso. Energía tipo cartel (rojo / negro / blanco). Sin amarillo de producto. **No** trama Ben-Day, **no** bocadillos, **no** logos ajenos. Nada que parezca plantilla ni web hecha con un prompt.
+Papel claro casi blanco, tinta negra y acento rojo. La cabecera es el cartel: barra negra sticky, dominio en blanco y navegación en chips rojos con letra blanca y filete blanco. En la **portada**, franjas a todo el ancho que alternan papel y negro (ritmo claro/oscuro), con paneles de borde duro: texto a un lado e imagen al otro. Contraste alto, tipografía seria y titulares con más peso. Energía tipo cartel (rojo / negro / blanco). Sin amarillo de producto. **No** trama Ben-Day, **no** bocadillos, **no** logo Marvel. En el hub `/clases` sí se permiten logos de lenguajes/frameworks con atribución (excepción; no endorsement). Nada que parezca plantilla ni web hecha con un prompt.
 
 ## Color (sitio)
 
@@ -42,8 +42,9 @@ Sin degradados. Sin sombras. Sin orbes. Sin amarillo de UI.
 - Un `h1` por página. Titular grande y con peso (semibold/bold), párrafo corto, luego contenido.
 - Cabecera (`.s-header`): sticky, fondo `--s-header-bg`, dominio blanco. Enlaces de nav: chips `.s-nav-chip` (rojo, letra blanca, filete blanco; hover `--s-accent-hover`).
 - Pie (`.s-footer`): fondo `--s-header-bg`, tipografía clara, enlaces blancos con hover rojo; filetes `#262626`.
-- **Portada:** franjas full-bleed (`.s-band` / `.s-band-dark`) con gutter `--s-panel-gutter`. Hero oscuro con corte diagonal texto|imagen (`.s-hero-diagonal`). Cada proyecto es un panel texto|imagen que alterna lado y fondo. Contacto en papel, sin foto obligatoria. En el resto del sitio el cuerpo sigue en papel.
-- El «panel» es gutter + split de columnas. Prohibido: trama de cómic, bocadillos, logo Marvel u otra marca ajena.
+- **Portada:** franjas full-bleed (`.s-band` / `.s-band-dark`) con gutter `--s-panel-gutter`. Hero oscuro con corte diagonal texto|imagen (`.s-hero-diagonal`). Cada proyecto es un panel texto|imagen que alterna lado y fondo. Contacto en papel, sin foto obligatoria.
+- **Hub `/clases`:** misma mecánica de franjas (`.s-clases-home`): intro en papel y un panel por materia (las 17), texto|logo alternando lado y fondo. CTAs Reservar + Ver más. Pie de créditos de marcas. En el resto del sitio el cuerpo sigue en papel.
+- El «panel» es gutter + split de columnas. Prohibido: trama de cómic, bocadillos, logo Marvel. Logos de lenguajes en `/clases`: ver sección de covers abajo.
 - En superficies de marca (portada), el nombre es señal hero: no lo tape el titular.
 - Botón primario (`.s-btn`): fondo `--s-accent`, texto blanco, borde negro (blanco sobre banda oscura). Hover: `--s-accent-hover` (150 ms).
 - Radio de borde: 2 px. Objetivos táctiles de 44 px. Foco en cuerpo: acento rojo. Foco en cabecera, pie y bandas oscuras: outline blanco.
@@ -66,6 +67,32 @@ Hasta sustituir por capturas reales del cliente, la portada usa fotos de stock l
 | `proyecto-ikaro.webp` | Unsplash `photo-1503951914875-452162b0f3f1` ([licencia](https://unsplash.com/license)) | Atmósfera barbería |
 
 No presentarlas como capturas de los sitios del cliente. Al sustituir, cambiar ruta en `PROJECTS` / constante del hero.
+
+## Covers del hub `/clases` (logos / marcas)
+
+En `frontend/public/clases/covers/<slug>.svg`. Campo `image` en `CLASES` (`kind: "logo" | "type"`). Uso **informativo** en el catálogo; **no** implica afiliación ni endorsement de Oracle, Google, Meta u otros titulares. El pie de `/clases` lo dice en pantalla.
+
+| Archivo | Fuente | Notas |
+|---|---|---|
+| `java.svg` | Simple Icons `openjdk` | Marca Java/OpenJDK de sus titulares |
+| `python.svg` | Simple Icons `python` | PSF / Python |
+| `c.svg` | Simple Icons `c` | |
+| `cpp.svg` | Simple Icons `cplusplus` | |
+| `csharp.svg` | Simple Icons `csharp` | |
+| `javascript.svg` | Simple Icons `javascript` | |
+| `php.svg` | Simple Icons `php` | |
+| `sql.svg` | Simple Icons `mysql` | Referencia visual SQL (marca MySQL) |
+| `linux.svg` | Simple Icons `linux` | |
+| `android.svg` | Simple Icons `android` | Google |
+| `flutter.svg` | Simple Icons `flutter` | Google |
+| `react.svg` | Simple Icons `react` | Meta |
+| `javafx.svg` | Marca tipográfica propia | Sin logo oficial usable |
+| `ingles.svg` | Marca tipográfica propia | |
+| `algebra.svg` | Marca tipográfica propia | |
+| `calculo.svg` | Marca tipográfica propia | |
+| `laboratorio-informatica.svg` | Marca tipográfica propia | |
+
+Rutas SVG de [Simple Icons](https://simpleicons.org/) (datos de icono CC0; las **marcas** siguen siendo de sus titulares).
 
 ## Código
 
@@ -99,7 +126,7 @@ Una sola instancia donde la haya de haber una: cliente HTTP, conexión a base de
 
 ## Prohibido (patrones de web hecha con IA)
 
-Degradados (también en texto), glassmorphism, liquid glass, sombras difusas, emojis, iconos genéricos en cajas, bento, badges sobre el titular, haz de luz que sigue al cursor, orbes, rejillas de puntos, destellos, grano sobre degradado, Inter / Geist / Space Grotesk, shadcn sin tocar, tres tarjetas de features, tres tarifas, viñetas con check, terminal de adorno, blanco puro `#ffffff` como único fondo de página (el papel autorizado es `--s-bg` `#f6f4f1`), morado con negro, neón, pasteles de plantilla, arcoíris, radio blando, testimonios falsos, trama o bocadillos de cómic, logos de terceros. Los paneles de la portada (gutter + split) están autorizados arriba; no copiar estética de otro cliente.
+Degradados (también en texto), glassmorphism, liquid glass, sombras difusas, emojis, iconos genéricos en cajas, bento, badges sobre el titular, haz de luz que sigue al cursor, orbes, rejillas de puntos, destellos, grano sobre degradado, Inter / Geist / Space Grotesk, shadcn sin tocar, tres tarjetas de features, tres tarifas, viñetas con check, terminal de adorno, blanco puro `#ffffff` como único fondo de página (el papel autorizado es `--s-bg` `#f6f4f1`), morado con negro, neón, pasteles de plantilla, arcoíris, radio blando, testimonios falsos, trama o bocadillos de cómic, logos de terceros fuera del hub `/clases`. Los paneles de la portada (gutter + split) y los logos de lenguajes en `/clases` están autorizados arriba; no copiar estética de otro cliente.
 
 Una web de cliente publicada no se copia aquí: se enlaza.
 

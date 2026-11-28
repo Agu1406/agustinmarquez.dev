@@ -2,13 +2,14 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import LegalPage from "../../components/LegalPage";
 import { RETENTION } from "../../lib/retention";
+import { buildPageMetadata } from "../../lib/seo";
 import { LEGAL, SITE } from "../../lib/site";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMetadata({
   title: "Política de privacidad",
   description: `Cómo se tratan los datos personales en ${SITE.domain}.`,
-  alternates: { canonical: "/privacidad" },
-};
+  path: "/privacidad",
+});
 
 export default function Privacidad() {
   const mail = (

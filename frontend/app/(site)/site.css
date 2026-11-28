@@ -199,13 +199,15 @@
   border-top: 2px solid #262626;
 }
 
-/* Portada: anula el padding vertical del main para franjas a tope */
-.site-theme .s-home {
+/* Portada y hub /clases: anula el padding vertical del main para franjas a tope */
+.site-theme .s-home,
+.site-theme .s-clases-home {
   margin-block: -3.5rem;
 }
 
 @media (min-width: 768px) {
-  .site-theme .s-home {
+  .site-theme .s-home,
+  .site-theme .s-clases-home {
     margin-block: -6rem;
   }
 }
@@ -261,17 +263,51 @@
   }
 }
 
-/* Split texto | imagen */
+/* Hub /clases: menos aire vertical */
+.site-theme .s-clases-home .s-band-inner {
+  padding-block: 2.5rem;
+}
+
+@media (min-width: 768px) {
+  .site-theme .s-clases-home .s-band-inner {
+    padding-block: 3.25rem;
+  }
+
+  /* Texto un poco más ancho que el logo; en reverse se invierten las fracciones */
+  .site-theme .s-clases-home .s-panel-split {
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+  }
+
+  .site-theme .s-clases-home .s-panel-split-reverse {
+    grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+  }
+}
+
+/* Split texto | imagen. Móvil: imagen siempre arriba. */
 .site-theme .s-panel-split {
   display: grid;
   gap: 1.5rem;
   align-items: center;
 }
 
+.site-theme .s-panel-media {
+  position: relative;
+  overflow: hidden;
+  border: 2px solid currentColor;
+  border-radius: 2px;
+  aspect-ratio: 4 / 3;
+  background: #1a1a1a;
+  order: -1;
+}
+
 @media (min-width: 768px) {
   .site-theme .s-panel-split {
     grid-template-columns: 1fr 1fr;
     gap: 2.5rem;
+  }
+
+  .site-theme .s-panel-media {
+    order: 0;
   }
 
   .site-theme .s-panel-split-reverse .s-panel-copy {
@@ -283,20 +319,41 @@
   }
 }
 
-.site-theme .s-panel-media {
-  position: relative;
-  overflow: hidden;
-  border: 2px solid currentColor;
-  border-radius: 2px;
-  aspect-ratio: 4 / 3;
-  background: #1a1a1a;
-}
-
 .site-theme .s-panel-media img {
   display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+/* Logo / marca tipográfica: caja compacta (no 4/3 de foto) */
+.site-theme .s-panel-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 1 / 1;
+  min-height: 14rem;
+  background: #ffffff;
+  border-color: var(--s-text);
+  padding: 1rem;
+}
+
+@media (min-width: 768px) {
+  .site-theme .s-panel-logo {
+    min-height: 16rem;
+  }
+}
+
+.site-theme .s-band-dark .s-panel-logo {
+  border-color: var(--s-header-fg);
+}
+
+.site-theme .s-panel-logo img {
+  width: auto;
+  height: auto;
+  max-width: 90%;
+  max-height: 90%;
+  object-fit: contain;
 }
 
 /* Hero oscuro con corte diagonal (desktop) */
